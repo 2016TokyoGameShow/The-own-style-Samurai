@@ -5,19 +5,38 @@ public class Player : MonoBehaviour {
     
 	[SerializeField,Header("移動スピード")]
 	private float speed;
-	[SerializeField]
+    [SerializeField, Header("最大HP")]
+    private int maxHP;
+    [SerializeField]
 	private CharacterController myController;
+    [SerializeField]
+    private GameObject cameraRig;
 
+    private int hp;
 
+    private Vector3 saveMoveVelocity;
 	private Renderer myMaterial;
 
 	void Start () {
 		myMaterial = GetComponent<Renderer> ();
+        hp = maxHP;
 	}
 
 	void Update () {
 
-		myController.Move (new Vector3 (Input.GetAxis ("Vertical")*speed, 0,Input.GetAxis ("Horizontal")*-speed));
+
+        Vector3 moveVelocity = Vector3.zero;
+
+        moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical") * speed;
+        moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal") * speed;
+
+
+        transform.LookAt(transform.position + moveVelocity);
+        
+        
+        print(moveVelocity*100);
+
+        myController.Move(moveVelocity);
 
 
 		if (Input.GetKeyDown (KeyCode.UpArrow)){
@@ -33,4 +52,8 @@ public class Player : MonoBehaviour {
 			myMaterial.material.color = Color.green;
 		}
 	}
+    //最大HPを取得
+    public int GetMaxHP(){ return maxHP; }
+    //現在のHPを取得
+    public int GetHP() { return hp; }
 }
