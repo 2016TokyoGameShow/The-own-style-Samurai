@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class PlayerCamera : MonoBehaviour {
-    private GameObject player;
+
+    [SerializeField]
+    private Player player;
     private Vector3 cameraDistance;
     private Vector3 cameraRotate;
     private float setDistance;
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player");
         cameraRotate = new Vector3(45.0f, 0.0f, 0.0f);
         setDistance = 5.0f;
 	}
