@@ -15,16 +15,27 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-[AddComponentMenu("Enemy/Archer")]
+[AddComponentMenu("Enemy/ShootEnemy")]
 public class ShootEnemy : IEnemy
 {
     #region 変数
 
-    [SerializeField, Tooltip("説明文")]
+    [SerializeField, Tooltip("武器")]
     IWeapon weapon;
 
-    #endregion
+    [SerializeField, Tooltip("プレイヤー")]
+    GameObject player;
 
+    [SerializeField, Tooltip("飛道具が発射されるポイント")]
+    GameObject shootPoint;
+
+    [SerializeField, Tooltip("移動のスピード")]
+    float moveSpeed;
+
+    [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
+    NavMeshAgent agent;
+
+    #endregion
 
     #region プロパティ
 
@@ -34,21 +45,44 @@ public class ShootEnemy : IEnemy
 
 
     #region メソッド
-
-    public override void Attack()
+    protected override void _OnMove()
     {
-        IWeapon obj = (IWeapon)Instantiate(weapon, transform.position, Quaternion.identity);
-        
+        if(IsHitPlayer())
+        {
+            agent.speed = 0;
+            Attack();
+        }
+        else
+        {
+            agent.destination  = player.transform.position;
+            agent.speed        = moveSpeed;
+        }
     }
 
-    public override void AttackReady()
+    protected override void OnAttack()
     {
-        
+        Instantiate(weapon, shootPoint.transform.position, transform.rotation);
     }
 
-    public override void Move()
+    bool IsHitPlayer()
     {
-        
+        Ray ray = new Ray();
+        ray.origin    = transform.position;
+        ray.direction = transform.forward;
+
+        RaycastHit hitInfo;
+
+        Debug.DrawRay(transform.position, transform.forward);
+
+        if(Physics.Raycast(ray, out hitInfo) == false)    return false;
+        if(hitInfo.collider.gameObject.tag   != "Player") return false;
+        return true;
     }
-	#endregion
+
+    protected override void PlayerDead()
+    {
+        agent.destination = transform.position + transform.forward / 0.5f;
+    }
+
+    #endregion
 }
