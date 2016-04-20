@@ -21,6 +21,6 @@ public class PlayerCamera : MonoBehaviour {
         if (Input.GetKey(KeyCode.Q))
             transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, transform.eulerAngles - rotateVelocity, 5.0f * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.R))
-            transform.eulerAngles = player.transform.forward;
+            transform.eulerAngles = player.transform.eulerAngles;
     }
 }
