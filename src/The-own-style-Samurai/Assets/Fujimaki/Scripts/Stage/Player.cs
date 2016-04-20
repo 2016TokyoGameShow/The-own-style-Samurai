@@ -8,34 +8,49 @@ public class Player : MonoBehaviour {
     [SerializeField, Header("最大HP")]
     private int maxHP;
     [SerializeField]
+    private StageController stageController;
+    [SerializeField]
 	private CharacterController myController;
     [SerializeField]
     private GameObject cameraRig;
 
     private int hp;
+    private float finisherGageValue;
 
+    private UIController uiController;
     private Vector3 saveMoveVelocity;
+    private Vector3 targetVelocity;
 	private Renderer myMaterial;
 
 	void Start () {
+        uiController = stageController.uiController;
 		myMaterial = GetComponent<Renderer> ();
         hp = maxHP;
 	}
 
 	void Update () {
 
+        finisherGageValue += Time.deltaTime / 30;
+        finisherGageValue = Mathf.Clamp(finisherGageValue, 0, 1);
+        uiController.SetFinisherGage(finisherGageValue);
+
 
         Vector3 moveVelocity = Vector3.zero;
 
-        moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical") * speed;
-        moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal") * speed;
+        //入力から移動ベクトルを計算
+        moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
+        moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
 
+        //進行方向に向く
+        if (moveVelocity != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(moveVelocity);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.1f);
+        }
 
-        transform.LookAt(transform.position + moveVelocity);
+        moveVelocity *= speed;
         
-        
-        print(moveVelocity*100);
-
+        //移動を適用
         myController.Move(moveVelocity);
 
 

@@ -15,14 +15,33 @@ using System.Collections;
 using System.Collections.Generic;
 
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
-public abstract class IWeapon : MonoBehaviour
+public class IWeapon : MonoBehaviour
 {
+    [SerializeField, Tooltip("飛道具の速さ")]
     float speed;
-    float friction;
-    float time;
 
-    public virtual void Initialize()
+    [SerializeField, Tooltip("オブジェクトの生存時間")]
+    float objectLifeTime;
+
+    protected virtual void Awake()
     {
+        //RequireComponentにColliderを指定することができないため
+        Debug.Assert(GetComponent<Collider>() != null, "当たり判定が追加されていません");
+    }
 
+    protected virtual void Start()
+    {
+        StartCoroutine(OnUpdate());
+    }
+
+    protected virtual IEnumerator OnUpdate()
+    {
+        //撃った方向に飛ぶ
+        for(float time = 0; time <= objectLifeTime; time += Time.deltaTime)
+        {
+            transform.position += transform.forward * speed;
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 }
