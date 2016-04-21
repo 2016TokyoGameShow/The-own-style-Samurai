@@ -105,11 +105,6 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
         Destroy(gameObject);
     }
 
-    protected virtual void PlayerDead()
-    {
-        
-    }
-
     public void OnWeaponHit()
     {
         Dead();
@@ -119,5 +114,25 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
     {
         StopAllCoroutines();
         PlayerDead();
+    }
+
+    protected virtual void PlayerDead()
+    {
+        
+    }
+
+    protected bool IsRayHitPlayer(float maxDistance)
+    {
+        Ray ray = new Ray();
+        ray.origin    = transform.position;
+        ray.direction = transform.forward;
+
+        RaycastHit hitInfo;
+
+        Debug.DrawRay(transform.position, transform.forward * maxDistance);
+
+        if(Physics.Raycast(ray, out hitInfo, maxDistance) == false)    return false;
+        if(hitInfo.collider.gameObject.tag   != "Player") return false;
+        return true;
     }
 }

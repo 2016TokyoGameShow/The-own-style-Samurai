@@ -24,13 +24,16 @@ public class ShootEnemy : IEnemy
     IShootWeapon weapon;
 
     [SerializeField, Tooltip("プレイヤー")]
-    GameObject player;
+    Player player;
 
     [SerializeField, Tooltip("飛道具が発射されるポイント")]
     GameObject shootPoint;
 
     [SerializeField, Tooltip("移動のスピード")]
     float moveSpeed;
+
+    [SerializeField, Tooltip("射程")]
+    float range;
 
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
@@ -49,9 +52,9 @@ public class ShootEnemy : IEnemy
     #region メソッド
     protected override void _OnMove()
     {
-        if(IsHitPlayer())
+        if(IsRayHitPlayer(range))
         {
-            agent.speed = 0;
+            agent.destination = transform.position + transform.forward / 0.8f;
             Attack();
         }
         else
@@ -61,24 +64,15 @@ public class ShootEnemy : IEnemy
         }
     }
 
+    protected override void OnAttackReadyUpdate()
+    {
+        Vector3 direction = player.transform.position - transform.position;
+
+    }
+
     protected override void OnAttack()
     {
         Instantiate(weapon, shootPoint.transform.position, transform.rotation);
-    }
-
-    bool IsHitPlayer()
-    {
-        Ray ray = new Ray();
-        ray.origin    = transform.position;
-        ray.direction = transform.forward;
-
-        RaycastHit hitInfo;
-
-        Debug.DrawRay(transform.position, transform.forward);
-
-        if(Physics.Raycast(ray, out hitInfo) == false)    return false;
-        if(hitInfo.collider.gameObject.tag   != "Player") return false;
-        return true;
     }
 
     protected override void PlayerDead()
