@@ -15,7 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
-public class IShootWeapon : MonoBehaviour
+public class IShootWeapon : IWeapon
 {
     [SerializeField, Tooltip("飛道具の速さ")]
     float speed;

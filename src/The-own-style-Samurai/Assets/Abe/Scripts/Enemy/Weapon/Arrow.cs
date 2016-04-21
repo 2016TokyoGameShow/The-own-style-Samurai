@@ -33,17 +33,5 @@ public class Arrow : IShootWeapon
 
     #region メソッド
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("hit arrow");
-        ExecuteEvents.Execute<WeaponHitHandler>(
-            collision.gameObject,
-            null,
-            (_object, _event) => {_object.OnWeaponHit(); }
-        );
-
-        Destroy(gameObject);
-    }
-
     #endregion
 }
