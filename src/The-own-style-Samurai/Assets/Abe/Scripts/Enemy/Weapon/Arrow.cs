@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 [DisallowMultipleComponent]
 [AddComponentMenu("Enemy/Weapon/Arrow")]
-public class Arrow : IWeapon
+public class Arrow : IShootWeapon
 {
     #region 変数
 
@@ -32,18 +32,6 @@ public class Arrow : IWeapon
 
 
     #region メソッド
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("hit arrow");
-        ExecuteEvents.Execute<WeaponHitHandler>(
-            collision.gameObject,
-            null,
-            (_object, _event) => {_object.OnWeaponHit(); }
-        );
-
-        Destroy(gameObject);
-    }
 
     #endregion
 }

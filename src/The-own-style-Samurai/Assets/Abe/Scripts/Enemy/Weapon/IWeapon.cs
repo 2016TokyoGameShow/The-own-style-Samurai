@@ -2,46 +2,33 @@
 //
 // IWeapon
 //
-// 作成日：
-// 作成者：
+// 作成日：2016/04/21
+// 作成者：阿部
 //
 // <概要>
-//
+// 武器の基底クラスです
 //
 // ----- ----- ----- ----- -----
 
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
 public class IWeapon : MonoBehaviour
 {
-    [SerializeField, Tooltip("飛道具の速さ")]
-    float speed;
-
-    [SerializeField, Tooltip("オブジェクトの生存時間")]
-    float objectLifeTime;
-
-    protected virtual void Awake()
+    void OnCollisionEnter(Collision collision)
     {
-        //RequireComponentにColliderを指定することができないため
-        Debug.Assert(GetComponent<Collider>() != null, "当たり判定が追加されていません");
+        CollisionEnter(collision);
     }
 
-    protected virtual void Start()
+    protected virtual void CollisionEnter(Collision collision)
     {
-        StartCoroutine(OnUpdate());
-    }
+        ExecuteEvents.Execute<WeaponHitHandler>(
+            collision.gameObject,
+            null,
+            (_object, _event) => {_object.OnWeaponHit(); }
+        );
 
-    protected virtual IEnumerator OnUpdate()
-    {
-        //撃った方向に飛ぶ
-        for(float time = 0; time <= objectLifeTime; time += Time.deltaTime)
-        {
-            transform.position += transform.forward * speed;
-            yield return null;
-        }
         Destroy(gameObject);
     }
 }
