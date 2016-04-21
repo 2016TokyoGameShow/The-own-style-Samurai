@@ -55,6 +55,12 @@ public class TestPlayer : MonoBehaviour, WeaponHitHandler
 
     public void OnWeaponHit()
     {
+        SendPlayerDeadEvent();
+        Destroy(gameObject);
+    }
+
+    void SendPlayerDeadEvent()
+    {
         foreach(GameObject obj in FindObjectsOfType(typeof(GameObject)))
         {
             ExecuteEvents.Execute<PlayerDeadHandler>(
@@ -63,7 +69,6 @@ public class TestPlayer : MonoBehaviour, WeaponHitHandler
                 (_object, _event) => { _object.OnPlayerDead(); }
             );
         }
-        Destroy(gameObject);
     }
 	#endregion
 }

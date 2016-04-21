@@ -17,7 +17,7 @@ using System.Collections.Generic;
 
 [DisallowMultipleComponent]
 [AddComponentMenu("Enemy/Weapon/Arrow")]
-public class Arrow : IWeapon
+public class Arrow : IShootWeapon
 {
     #region 変数
 

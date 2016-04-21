@@ -21,7 +21,7 @@ public class ShootEnemy : IEnemy
     #region 変数
 
     [SerializeField, Tooltip("武器")]
-    IWeapon weapon;
+    IShootWeapon weapon;
 
     [SerializeField, Tooltip("プレイヤー")]
     GameObject player;
@@ -34,6 +34,8 @@ public class ShootEnemy : IEnemy
 
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
+
+    GameObject _weapon;
 
     #endregion
 
@@ -81,7 +83,7 @@ public class ShootEnemy : IEnemy
 
     protected override void PlayerDead()
     {
-        agent.destination = transform.position + transform.forward / 0.5f;
+        agent.destination = transform.position + transform.forward / 0.8f;
     }
 
     #endregion

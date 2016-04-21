@@ -15,7 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
-public class IWeapon : MonoBehaviour
+public class IShootWeapon : MonoBehaviour
 {
     [SerializeField, Tooltip("飛道具の速さ")]
     float speed;
@@ -29,12 +29,34 @@ public class IWeapon : MonoBehaviour
         Debug.Assert(GetComponent<Collider>() != null, "当たり判定が追加されていません");
     }
 
-    protected virtual void Start()
+    void Start()
     {
-        StartCoroutine(OnUpdate());
+        Shoot();
     }
 
-    protected virtual IEnumerator OnUpdate()
+    protected virtual IEnumerator ShootWaitUpdate()
+    {
+        yield break;
+    }
+
+    public void ShootStop()
+    {
+        StopAllCoroutines();
+    }
+    
+
+    public void Shoot()
+    {
+        ShootStart();
+        StartCoroutine(ShootUpdate());
+    }
+
+    protected virtual void ShootStart()
+    {
+
+    }
+
+    protected virtual IEnumerator ShootUpdate()
     {
         //撃った方向に飛ぶ
         for(float time = 0; time <= objectLifeTime; time += Time.deltaTime)
