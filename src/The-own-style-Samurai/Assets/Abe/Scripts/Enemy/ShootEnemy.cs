@@ -50,7 +50,7 @@ public class ShootEnemy : Enemy
         if (IsRayHitPlayer(maxDistance))
         {
             //急に止まらないように
-            //agent.destination = transform.position + transform.forward * 0.3f;
+            agent.destination = transform.position + transform.forward;
             Attack();
             return;
         }

@@ -17,16 +17,19 @@ using UnityEngine.EventSystems;
 public class IWeapon : MonoBehaviour
 {
     [SerializeField]
-    int damage;
+    protected int damage;
 
-    void OnCollisionEnter(Collision collision)
+    [SerializeField, Tooltip("オブジェクトの生存時間")]
+    protected float objectLifeTime;
+
+    public void OnTriggerEnter(Collider other)
     {
-        CollisionEnter(collision);
+        TriggerEnter(other);
     }
 
-    protected virtual void CollisionEnter(Collision collision)
+    protected virtual void TriggerEnter(Collider other)
     {
-        SendHit(collision.gameObject);
+        SendHit(other.gameObject);
 
         Destroy(gameObject);
     }

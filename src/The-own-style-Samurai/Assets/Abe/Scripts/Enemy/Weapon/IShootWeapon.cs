@@ -20,9 +20,6 @@ public class IShootWeapon : IWeapon
     [SerializeField, Tooltip("飛道具の速さ")]
     float speed;
 
-    [SerializeField, Tooltip("オブジェクトの生存時間")]
-    float objectLifeTime;
-
     protected virtual void Awake()
     {
         //RequireComponentにColliderを指定することができないため
