@@ -2,15 +2,11 @@
 using UnityEngine.EventSystems;
 using System.Collections;
 
-public class Spear : IMeleeWeapon
+public class Spear : IWeapon
 {
 
-    protected override void OnTriggerEnter(Collider other)
+    protected override void TriggerEnter(Collider other)
     {
-        ExecuteEvents.Execute<WeaponHitHandler>(
-            other.gameObject,
-            null,
-            (_object, _event) => { _object.OnWeaponHit(1); }
-        );
+        SendHit(other.gameObject);
     }
 }
