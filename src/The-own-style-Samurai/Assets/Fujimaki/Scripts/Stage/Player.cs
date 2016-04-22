@@ -48,12 +48,14 @@ public class Player : MonoBehaviour {
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.1f);
         }
 
+        //スピードを適用
         moveVelocity *= speed;
         
         //移動を適用
         myController.Move(moveVelocity);
 
 
+        //とりあえずよけるアクション
 		if (Input.GetKeyDown (KeyCode.UpArrow)){
 			myMaterial.material.color = Color.red;
 		}

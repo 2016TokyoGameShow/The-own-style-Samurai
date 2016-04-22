@@ -3,11 +3,13 @@ using System.Collections;
 
 public class sign : MonoBehaviour {
 
+    public float lifeTime;
     private Transform m_camera;     //メインカメラー
     private Animator animator;
 
 	// Use this for initialization
 	void Start () {
+        StartCoroutine(Dead());
         animator = this.GetComponent<Animator>();
         m_camera = Camera.main.transform;
 	}
@@ -33,5 +35,11 @@ public class sign : MonoBehaviour {
     {
         //アニメーションのスピード調整
         animator.speed = 0.5f;
+    }
+
+    private IEnumerator Dead()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        DestroyObject(gameObject);
     }
 }
