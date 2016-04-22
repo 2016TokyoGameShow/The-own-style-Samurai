@@ -10,7 +10,7 @@ public class Spear : IMeleeWeapon
         ExecuteEvents.Execute<WeaponHitHandler>(
             other.gameObject,
             null,
-            (_object, _event) => { _object.OnWeaponHit(); }
+            (_object, _event) => { _object.OnWeaponHit(1); }
         );
     }
 }

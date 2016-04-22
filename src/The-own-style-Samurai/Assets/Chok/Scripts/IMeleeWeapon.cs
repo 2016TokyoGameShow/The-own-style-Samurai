@@ -22,7 +22,7 @@ public class IMeleeWeapon : MonoBehaviour
         ExecuteEvents.Execute<WeaponHitHandler>(
             other.gameObject,
             null,
-            (_object, _event) => { _object.OnWeaponHit(); }
+            (_object, _event) => { _object.OnWeaponHit(1); }
         );
 
         Destroy(gameObject);
