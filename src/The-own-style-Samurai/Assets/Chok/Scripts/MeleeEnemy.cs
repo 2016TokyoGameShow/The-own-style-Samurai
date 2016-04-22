@@ -28,9 +28,6 @@ public class MeleeEnemy : Enemy
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
 
-    [SerializeField, Tooltip("攻撃距離")]
-    float maxDistance;
-
     #endregion
 
     #region メソッド
