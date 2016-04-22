@@ -53,7 +53,7 @@ public class TestPlayer : MonoBehaviour, WeaponHitHandler
         
     }
 
-    public void OnWeaponHit()
+    public void OnWeaponHit(int damege)
     {
         SendPlayerDeadEvent();
         Destroy(gameObject);

@@ -39,12 +39,14 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     void Awake()
     {
-        EnemyController.singleton.AddEnemy(gameObject);
-        rig = GetComponent<Rigidbody>();
+        
     }
 
     void Start()
     {
+        EnemyController.singleton.AddEnemy(gameObject);
+        rig = GetComponent<Rigidbody>();
+
         OnStart();
         StartCoroutine(OnUpdate());
     }
@@ -113,7 +115,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Destroy(gameObject);
     }
 
-    public void OnWeaponHit()
+    public virtual void OnWeaponHit(int damage)
     {
         Dead();
     }
@@ -148,6 +150,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     protected virtual void OnCollisionExit(Collision collision)
     {
+        //滑っていかないように
         rig.velocity = Vector3.zero;
     }
 }

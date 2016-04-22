@@ -16,6 +16,9 @@ using UnityEngine.EventSystems;
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
 public class IWeapon : MonoBehaviour
 {
+    [SerializeField]
+    int damage;
+
     void OnCollisionEnter(Collision collision)
     {
         CollisionEnter(collision);
@@ -33,7 +36,7 @@ public class IWeapon : MonoBehaviour
         ExecuteEvents.Execute<WeaponHitHandler>(
             obj,
             null,
-            (_object, _event) => { _object.OnWeaponHit(); }
+            (_object, _event) => { _object.OnWeaponHit(damage); }
         );
     }
 }

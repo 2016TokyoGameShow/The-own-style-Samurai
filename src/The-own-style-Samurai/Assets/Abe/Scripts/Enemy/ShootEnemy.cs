@@ -47,13 +47,13 @@ public class ShootEnemy : Enemy
     #region メソッド
     protected override void _OnMove()
     {
-        //if(IsRayHitPlayer(maxDistance))
-        //{
-        //    //急に止まらないように
-        //    agent.destination = transform.position + transform.forward * 0.3f;
-        //    Attack();
-        //    return;
-        //}
+        if (IsRayHitPlayer(maxDistance))
+        {
+            //急に止まらないように
+            //agent.destination = transform.position + transform.forward * 0.3f;
+            Attack();
+            return;
+        }
 
         agent.destination  = player.transform.position;
         agent.speed        = moveSpeed;

@@ -14,5 +14,5 @@ using UnityEngine.EventSystems;
 
 public interface WeaponHitHandler : IEventSystemHandler
 {
-    void OnWeaponHit();
+    void OnWeaponHit(int damege);
 }
