@@ -1,12 +1,12 @@
 ﻿// ----- ----- ----- ----- -----
 //
-// IEnemy
+// Enemy
 //
 // 作成日：2016/04/19
 // 作成者：阿部
 //
 // <概要>
-// 敵のインターフェイスです
+// 
 //
 // ----- ----- ----- ----- -----
 
@@ -15,8 +15,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-[AddComponentMenu("Enemy/IEnemy")]
-public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
+[AddComponentMenu("Enemy/Enemy")]
+public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 {
     [SerializeField, Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     protected float attackWaitTime;
@@ -24,17 +24,23 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
     [SerializeField, Tooltip("次に攻撃するまでの時間")]
     protected float attackCoolTime;
 
+    [SerializeField, Tooltip("敵の攻撃範囲(プレイヤーを検知する範囲)")]
+    protected float maxDistance;
+
     bool isAttack;
 
-    protected virtual  void OnStart() { }
+    Rigidbody rig;
+
+    protected virtual void OnStart() { }
     protected abstract void OnAttack();
-    protected virtual  void OnAttackReadyStart() { }
-    protected virtual  void OnAttackReadyUpdate(){ }
+    protected virtual void OnAttackReadyStart() { }
+    protected virtual void OnAttackReadyUpdate() { }
     protected abstract void _OnMove(); //Unity標準にOnMoveというイベントがあるため
 
     void Awake()
     {
-
+        EnemyController.singleton.AddEnemy(gameObject);
+        rig = GetComponent<Rigidbody>();
     }
 
     void Start()
@@ -45,7 +51,7 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
 
     IEnumerator OnUpdate()
     {
-        while(true)
+        while (true)
         {
             _OnMove();
             yield return null;
@@ -55,7 +61,8 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
     protected void Attack()
     {
         //2重に攻撃のコルーチンを実行しないように
-        if(isAttack == true) return;
+        if (isAttack == true)
+            return;
 
         isAttack = true;
 
@@ -75,7 +82,7 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
     IEnumerator AttackReady()
     {
         OnAttackReadyStart();
-        for(float time = 0; time <= attackWaitTime; time += Time.deltaTime)
+        for (float time = 0; time <= attackWaitTime; time += Time.deltaTime)
         {
             //準備期間の間毎回実行される
             OnAttackReadyUpdate();
@@ -102,6 +109,7 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
     protected virtual void Dead()
     {
         //敵を吹っ飛ばしてから消去のほうがいいか
+        EnemyController.singleton.EraseEnemy(gameObject);
         Destroy(gameObject);
     }
 
@@ -118,21 +126,28 @@ public abstract class IEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandle
 
     protected virtual void PlayerDead()
     {
-        
+
     }
 
     protected bool IsRayHitPlayer(float maxDistance)
     {
         Ray ray = new Ray();
-        ray.origin    = transform.position;
+        ray.origin = transform.position;
         ray.direction = transform.forward;
 
         RaycastHit hitInfo;
 
         Debug.DrawRay(transform.position, transform.forward * maxDistance);
 
-        if(Physics.Raycast(ray, out hitInfo, maxDistance) == false)    return false;
-        if(hitInfo.collider.gameObject.tag   != "Player") return false;
+        if (Physics.Raycast(ray, out hitInfo, maxDistance) == false)
+            return false;
+        if (hitInfo.collider.gameObject.tag != "Player")
+            return false;
         return true;
+    }
+
+    protected virtual void OnCollisionExit(Collision collision)
+    {
+        rig.velocity = Vector3.zero;
     }
 }

@@ -23,12 +23,17 @@ public class IWeapon : MonoBehaviour
 
     protected virtual void CollisionEnter(Collision collision)
     {
-        ExecuteEvents.Execute<WeaponHitHandler>(
-            collision.gameObject,
-            null,
-            (_object, _event) => {_object.OnWeaponHit(); }
-        );
+        SendHit(collision.gameObject);
 
         Destroy(gameObject);
+    }
+
+    protected void SendHit(GameObject obj)
+    {
+        ExecuteEvents.Execute<WeaponHitHandler>(
+            obj,
+            null,
+            (_object, _event) => { _object.OnWeaponHit(); }
+        );
     }
 }

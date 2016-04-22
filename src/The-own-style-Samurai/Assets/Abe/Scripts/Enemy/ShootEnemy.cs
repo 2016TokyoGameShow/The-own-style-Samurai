@@ -16,7 +16,7 @@ using System.Collections.Generic;
 using System;
 
 [AddComponentMenu("Enemy/ShootEnemy")]
-public class ShootEnemy : IEnemy
+public class ShootEnemy : Enemy
 {
     #region 変数
 
@@ -32,13 +32,8 @@ public class ShootEnemy : IEnemy
     [SerializeField, Tooltip("移動のスピード")]
     float moveSpeed;
 
-    [SerializeField, Tooltip("射程")]
-    float range;
-
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
-
-    GameObject _weapon;
 
     #endregion
 
@@ -52,16 +47,16 @@ public class ShootEnemy : IEnemy
     #region メソッド
     protected override void _OnMove()
     {
-        if(IsRayHitPlayer(range))
-        {
-            agent.destination = transform.position + transform.forward / 0.8f;
-            Attack();
-        }
-        else
-        {
-            agent.destination  = player.transform.position;
-            agent.speed        = moveSpeed;
-        }
+        //if(IsRayHitPlayer(maxDistance))
+        //{
+        //    //急に止まらないように
+        //    agent.destination = transform.position + transform.forward * 0.3f;
+        //    Attack();
+        //    return;
+        //}
+
+        agent.destination  = player.transform.position;
+        agent.speed        = moveSpeed;
     }
 
     protected override void OnAttackReadyUpdate()
@@ -77,7 +72,7 @@ public class ShootEnemy : IEnemy
 
     protected override void PlayerDead()
     {
-        agent.destination = transform.position + transform.forward / 0.8f;
+        agent.destination = transform.position + transform.forward * 0.3f;
     }
 
     #endregion
