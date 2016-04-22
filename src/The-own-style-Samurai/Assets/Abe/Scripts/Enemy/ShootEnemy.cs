@@ -20,18 +20,6 @@ public class ShootEnemy : Enemy
 {
     #region 変数
 
-    [SerializeField, Tooltip("武器")]
-    IShootWeapon weapon;
-
-    [SerializeField, Tooltip("プレイヤー")]
-    Player player;
-
-    [SerializeField, Tooltip("飛道具が発射されるポイント")]
-    GameObject shootPoint;
-
-    [SerializeField, Tooltip("移動のスピード")]
-    float moveSpeed;
-
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
 
@@ -62,7 +50,7 @@ public class ShootEnemy : Enemy
     protected override void OnAttackReadyUpdate()
     {
         Vector3 direction = player.transform.position - transform.position;
-
+        //transform.rotation = Quaternion.
     }
 
     protected override void OnAttack()

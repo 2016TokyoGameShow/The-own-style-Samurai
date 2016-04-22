@@ -10,6 +10,7 @@
 //
 // ----- ----- ----- ----- -----
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -21,6 +22,11 @@ public class IWeapon : MonoBehaviour
 
     [SerializeField, Tooltip("オブジェクトの生存時間")]
     protected float objectLifeTime;
+
+    void Start()
+    {
+        Attack();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -34,6 +40,12 @@ public class IWeapon : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void Attack()
+    {
+        WeaponStart();
+        StartCoroutine(WeaponUpdate());
+    }
+
     protected void SendHit(GameObject obj)
     {
         ExecuteEvents.Execute<WeaponHitHandler>(
@@ -41,5 +53,16 @@ public class IWeapon : MonoBehaviour
             null,
             (_object, _event) => { _object.OnWeaponHit(damage); }
         );
+    }
+
+    protected virtual void WeaponStart()
+    {
+
+    }
+
+    protected virtual IEnumerator WeaponUpdate()
+    {
+        yield return new WaitForSeconds(objectLifeTime);
+        Destroy(gameObject);
     }
 }

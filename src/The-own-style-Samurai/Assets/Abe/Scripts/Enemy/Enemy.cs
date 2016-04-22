@@ -27,6 +27,18 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     [SerializeField, Tooltip("敵の攻撃範囲(プレイヤーを検知する範囲)")]
     protected float maxDistance;
 
+    [SerializeField, Tooltip("武器")]
+    protected IShootWeapon weapon;
+
+    [SerializeField, Tooltip("プレイヤー")]
+    protected Player player;
+
+    [SerializeField, Tooltip("移動のスピード")]
+    protected float moveSpeed;
+
+    [SerializeField, Tooltip("飛道具が発射されるポイント")]
+    protected GameObject shootPoint;
+
     bool isAttack;
 
     Rigidbody rig;
@@ -92,9 +104,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         }
         OnAttack();
 
-        //攻撃したあとにすぐに動けるようにする
-        //ただしクールタイムが終わるまで次の攻撃ができない
-        StartCoroutine(OnUpdate());
+        //クールタイムが終わるまで移動も攻撃ができない
         StartCoroutine(CoolTime());
     }
 
@@ -106,6 +116,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         //クールタイム終了
         //攻撃準備完了
         isAttack = false;
+        StartCoroutine(OnUpdate());
     }
 
     protected virtual void Dead()

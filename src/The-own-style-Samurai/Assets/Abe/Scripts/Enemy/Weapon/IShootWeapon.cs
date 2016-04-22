@@ -44,16 +44,11 @@ public class IShootWeapon : IWeapon
 
     public void Shoot()
     {
-        ShootStart();
-        StartCoroutine(ShootUpdate());
+        WeaponStart();
+        StartCoroutine(WeaponUpdate());
     }
 
-    protected virtual void ShootStart()
-    {
-
-    }
-
-    protected virtual IEnumerator ShootUpdate()
+    protected override IEnumerator WeaponUpdate()
     {
         //撃った方向に飛ぶ
         for(float time = 0; time <= objectLifeTime; time += Time.deltaTime)
