@@ -2,27 +2,33 @@
 //
 // IWeapon
 //
-// 作成日：
-// 作成者：
+// 作成日：2016/04/21
+// 作成者：阿部
 //
 // <概要>
-//
+// 武器の基底クラスです
 //
 // ----- ----- ----- ----- -----
 
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
-public abstract class IWeapon : MonoBehaviour
+public class IWeapon : MonoBehaviour
 {
-    float speed;
-    float friction;
-    float time;
-
-    public virtual void Initialize()
+    void OnCollisionEnter(Collision collision)
     {
+        CollisionEnter(collision);
+    }
 
+    protected virtual void CollisionEnter(Collision collision)
+    {
+        ExecuteEvents.Execute<WeaponHitHandler>(
+            collision.gameObject,
+            null,
+            (_object, _event) => {_object.OnWeaponHit(); }
+        );
+
+        Destroy(gameObject);
     }
 }

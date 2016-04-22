@@ -11,15 +11,15 @@
 // ----- ----- ----- ----- -----
 
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-[AddComponentMenu("MyScript/Arrow")]
-public class Arrow : IWeapon
+[DisallowMultipleComponent]
+[AddComponentMenu("Enemy/Weapon/Arrow")]
+public class Arrow : IShootWeapon
 {
-	#region 変数
-
-    //[SerializeField, Tooltip("説明文")]
+    #region 変数
 
     #endregion
 
@@ -33,22 +33,5 @@ public class Arrow : IWeapon
 
     #region メソッド
 
-	// 初期化処理
-    void Awake()
-    {
-
-    }
-
-    // 更新前処理
-    void Start()
-    {
-        
-    }
-
-    // 更新処理
-    void Update()
-    {
-        
-    }
-	#endregion
+    #endregion
 }

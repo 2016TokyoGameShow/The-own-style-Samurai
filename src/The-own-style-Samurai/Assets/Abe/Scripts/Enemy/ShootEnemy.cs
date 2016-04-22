@@ -15,16 +15,32 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-[AddComponentMenu("Enemy/Archer")]
+[AddComponentMenu("Enemy/ShootEnemy")]
 public class ShootEnemy : IEnemy
 {
     #region 変数
 
-    [SerializeField, Tooltip("説明文")]
-    IWeapon weapon;
+    [SerializeField, Tooltip("武器")]
+    IShootWeapon weapon;
+
+    [SerializeField, Tooltip("プレイヤー")]
+    Player player;
+
+    [SerializeField, Tooltip("飛道具が発射されるポイント")]
+    GameObject shootPoint;
+
+    [SerializeField, Tooltip("移動のスピード")]
+    float moveSpeed;
+
+    [SerializeField, Tooltip("射程")]
+    float range;
+
+    [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
+    NavMeshAgent agent;
+
+    GameObject _weapon;
 
     #endregion
-
 
     #region プロパティ
 
@@ -34,21 +50,35 @@ public class ShootEnemy : IEnemy
 
 
     #region メソッド
-
-    public override void Attack()
+    protected override void _OnMove()
     {
-        IWeapon obj = (IWeapon)Instantiate(weapon, transform.position, Quaternion.identity);
-        
+        if(IsRayHitPlayer(range))
+        {
+            agent.destination = transform.position + transform.forward / 0.8f;
+            Attack();
+        }
+        else
+        {
+            agent.destination  = player.transform.position;
+            agent.speed        = moveSpeed;
+        }
     }
 
-    public override void AttackReady()
+    protected override void OnAttackReadyUpdate()
     {
-        
+        Vector3 direction = player.transform.position - transform.position;
+
     }
 
-    public override void Move()
+    protected override void OnAttack()
     {
-        
+        Instantiate(weapon, shootPoint.transform.position, transform.rotation);
     }
-	#endregion
+
+    protected override void PlayerDead()
+    {
+        agent.destination = transform.position + transform.forward / 0.8f;
+    }
+
+    #endregion
 }
