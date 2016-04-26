@@ -35,7 +35,8 @@ public class ShootEnemy : Enemy
     #region メソッド
     protected override void _OnMove()
     {
-        if (IsRayHitPlayer(maxDistance))
+        //敵以外のレイヤーで判定
+        if (IsRayHitPlayer(maxDistance, ~(1<<LayerMask.NameToLayer("Enemy"))))
         {
             //急に止まらないように
             agent.destination = transform.position + transform.forward;

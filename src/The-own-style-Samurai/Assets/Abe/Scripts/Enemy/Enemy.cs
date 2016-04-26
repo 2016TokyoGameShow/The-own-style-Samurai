@@ -143,18 +143,36 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     }
 
+    delegate bool RayHit(Ray ray, out RaycastHit hitInfo);
+
     protected bool IsRayHitPlayer(float maxDistance)
     {
+        return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) =>
+        {
+            return Physics.Raycast(ray, out hitInfo, maxDistance);
+        });
+    }
+
+    protected bool IsRayHitPlayer(float maxDistance, int layerMask)
+    {
+        return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) => 
+        {
+            return Physics.Raycast(ray, out hitInfo, maxDistance, layerMask);
+        });
+    }
+
+    private bool _IsRayHitPlayer(RayHit rayCast)
+    {
         Ray ray = new Ray();
-        ray.origin = transform.position;
+        ray.origin    = transform.position;
         ray.direction = transform.forward;
 
         RaycastHit hitInfo;
 
         Debug.DrawRay(transform.position, transform.forward * maxDistance);
 
-        if (!Physics.Raycast(ray, out hitInfo, maxDistance)) return false;
-        if (hitInfo.collider.gameObject.tag != "Player")     return false;
+        if (!rayCast(ray, out hitInfo))                     return false;
+        if (hitInfo.collider.gameObject.tag != "Player") return false;
         return true;
     }
 

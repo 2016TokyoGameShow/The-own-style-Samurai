@@ -31,17 +31,11 @@ public class IShootWeapon : IWeapon
         Shoot();
     }
 
-    protected virtual IEnumerator ShootWaitUpdate()
-    {
-        yield break;
-    }
-
     public void ShootStop()
     {
         StopAllCoroutines();
     }
-
-
+    
     public void Shoot()
     {
         WeaponStart();
