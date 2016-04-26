@@ -153,10 +153,8 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
         Debug.DrawRay(transform.position, transform.forward * maxDistance);
 
-        if (Physics.Raycast(ray, out hitInfo, maxDistance) == false)
-            return false;
-        if (hitInfo.collider.gameObject.tag != "Player")
-            return false;
+        if (!Physics.Raycast(ray, out hitInfo, maxDistance)) return false;
+        if (hitInfo.collider.gameObject.tag != "Player")     return false;
         return true;
     }
 

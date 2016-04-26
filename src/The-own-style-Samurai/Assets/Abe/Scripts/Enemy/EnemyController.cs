@@ -30,6 +30,10 @@ public class EnemyController : MonoBehaviour
 
     int _enemyNumber;
 
+    int _enemyDeathCount;
+
+    int _enemyAttackCount;
+
     #endregion
 
 
@@ -37,28 +41,31 @@ public class EnemyController : MonoBehaviour
 
     public int enemyNumber
     {
-        get
-        {
-            return _enemyNumber;
-        }
+        get { return enemies.Count; }
     }
 
     public bool isEnemyExists
     {
-        get
-        {
-            return _enemyNumber > 0;
-        }
+        get { return enemies.Count <= 0; }
     }
 
-    
+    public int enemyDeathCount
+    {
+        get { return _enemyDeathCount; }
+    }
 
+    public int enemyAttackCount
+    {
+        get { return _enemyAttackCount; }
+    }
+    
     #endregion
 
     #region メソッド
 
     public void OnEnable()
     {
+        //Findを無駄に使わないようにするため
         if(singleton != null) return;
         singleton = this;
     }
@@ -71,6 +78,21 @@ public class EnemyController : MonoBehaviour
     public void EraseEnemy(GameObject enemy)
     {
         enemies.Remove(enemy);
+    }
+
+    public void ResetDeathCount()
+    {
+        _enemyDeathCount = 0;
+    }
+
+    public void AddAttackCount()
+    {
+        _enemyAttackCount++;
+    }
+
+    public void EraseAttackCount()
+    {
+        _enemyAttackCount--;
     }
 
     // 初期化処理
