@@ -13,7 +13,7 @@ public class PlayerCamera : MonoBehaviour {
 	void Start () {
     }
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         transform.position = player.transform.position;
 
         if (Input.GetKey(KeyCode.E))
