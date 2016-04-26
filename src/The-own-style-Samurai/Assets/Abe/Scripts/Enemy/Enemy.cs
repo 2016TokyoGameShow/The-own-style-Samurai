@@ -28,7 +28,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     protected float maxDistance;
 
     [SerializeField, Tooltip("武器")]
-    protected IShootWeapon weapon;
+    protected IWeapon weapon;
 
     [SerializeField, Tooltip("プレイヤー")]
     protected Player player;
@@ -56,6 +56,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     void Start()
     {
+        Debug.Assert(EnemyController.singleton != null, "EnemyControllerがありません");
         EnemyController.singleton.AddEnemy(gameObject);
         rig = GetComponent<Rigidbody>();
 

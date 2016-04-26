@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour,WeaponHitHandler {
     
 	[SerializeField,Header("移動スピード")]
 	private float speed;
+    [SerializeField, Header("回避スピード")]
+    private float avoidanceSpeed;
     [SerializeField, Header("最大HP")]
     private int maxHP;
     [SerializeField]
@@ -20,6 +22,9 @@ public class Player : MonoBehaviour {
     private UIController uiController;
     private Vector3 saveMoveVelocity;
     private Vector3 targetVelocity;
+
+    private Coroutine avoidanceAction;
+
 	private Renderer myMaterial;
 
 	void Start () {
@@ -37,22 +42,14 @@ public class Player : MonoBehaviour {
 
         Vector3 moveVelocity = Vector3.zero;
 
-        //入力から移動ベクトルを計算
-        moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
-        moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
-
-        //進行方向に向く
-        if (moveVelocity != Vector3.zero)
+        //入力から移動ベクトルを計算して移動
+        if (avoidanceAction == null)
         {
-            Quaternion rotation = Quaternion.LookRotation(moveVelocity);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.1f);
+            moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
+            moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
+            CharacterMove(moveVelocity, speed);
         }
 
-        //スピードを適用
-        moveVelocity *= speed;
-        
-        //移動を適用
-        myController.Move(moveVelocity);
 
 
         //とりあえずよけるアクション
@@ -60,7 +57,10 @@ public class Player : MonoBehaviour {
 			myMaterial.material.color = Color.red;
 		}
 		if (Input.GetKeyDown (KeyCode.DownArrow)) {
-			myMaterial.material.color = Color.blue;
+            if (avoidanceAction == null)
+            {
+                avoidanceAction = StartCoroutine(AvoidanceAction());
+            }
 		}
 		if (Input.GetKeyDown (KeyCode.RightArrow)) {
 			myMaterial.material.color = Color.yellow;
@@ -73,4 +73,49 @@ public class Player : MonoBehaviour {
     public int GetMaxHP(){ return maxHP; }
     //現在のHPを取得
     public int GetHP() { return hp; }
+
+
+    //ダメージを受ける
+    public void OnWeaponHit(int damage)
+    {
+        hp -= damage;
+    }
+
+    //キャラクター移動
+    private void CharacterMove(Vector3 moveVelocity,float speed)
+    {
+        //進行方向に向く
+        if (moveVelocity != Vector3.zero)
+        {
+            Quaternion rotation = Quaternion.LookRotation(moveVelocity);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, 0.1f);
+        }
+
+        //スピードを適用
+        moveVelocity *= speed;
+
+        //移動を適用
+        myController.Move(moveVelocity);
+    }
+
+    //回避アクション
+    private IEnumerator AvoidanceAction()
+    {
+
+        myMaterial.material.color = Color.blue;
+
+        float moveTime = 0.3f;
+
+        //回避アクション中は向いている方向に一定数移動
+        while (moveTime > 0)
+        {
+            moveTime -= Time.deltaTime;
+            CharacterMove(transform.forward, avoidanceSpeed);
+            yield return new WaitForEndOfFrame();
+        }
+
+        myMaterial.material.color = Color.white;
+
+        avoidanceAction = null;
+    }
 }
