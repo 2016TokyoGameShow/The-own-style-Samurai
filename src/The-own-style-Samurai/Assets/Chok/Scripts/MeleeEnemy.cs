@@ -5,16 +5,15 @@ using System;
 [AddComponentMenu("Enemy/MeleeEnemy")]
 public class MeleeEnemy : Enemy
 {
+    public enum State
+    {
+        Chase,
+        Attack,
+        StandBy,
+        RotateAround
+    }
+
     #region 変数
-
-    [SerializeField, Tooltip("武器")]
-    GameObject weapon;
-
-    [SerializeField, Tooltip("攻撃判定を出す位置")]
-    GameObject weaponHitOffset;
-
-    [SerializeField, Tooltip("プレイヤー")]
-    GameObject player;
 
     [SerializeField, Tooltip("攻撃前の信号")]
     GameObject sign;
@@ -22,11 +21,10 @@ public class MeleeEnemy : Enemy
     [SerializeField, Tooltip("信号を出す位置")]
     GameObject aboveHead;
 
-    [SerializeField, Tooltip("移動のスピード")]
-    float moveSpeed;
-
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
+
+    private State state;
 
     #endregion
 
@@ -52,17 +50,34 @@ public class MeleeEnemy : Enemy
 
     protected override void OnAttack()
     {
-        //Instantiate(weapon, katana.transform.position, transform.rotation);
-        AttackInstantiate(weapon, weaponHitOffset);
+        AttackInstantiate(weapon, attackPoint);
     }
 
     //判定生成メソット、生成判定、生成位置
-    protected void AttackInstantiate(GameObject hitObject, GameObject hitOffset)
+    protected void AttackInstantiate(IWeapon hitObject, GameObject hitOffset)
     {
-        GameObject hit;
+        IWeapon hit;
 
-        hit = Instantiate(hitObject, hitOffset.transform.position, hitOffset.transform.rotation) as GameObject;
+        hit = Instantiate(hitObject, hitOffset.transform.position, hitOffset.transform.rotation) as IWeapon;
         hit.transform.parent = hitOffset.transform;
+    }
+
+    private void RotateAround()
+    {
+        float time = 2;
+        Vector3 rotateOrigin = player.transform.position;
+        StopAllCoroutines();
+        StartCoroutine(RotateAroundPlayer(rotateOrigin, time));
+    }
+
+    IEnumerator RotateAroundPlayer(Vector3 rotateOrigin, float time)
+    {
+        for (float rotateTime = 0; rotateTime <= time; rotateTime += Time.deltaTime)
+        {
+            transform.RotateAround(rotateOrigin, Vector3.up, 1.0f);
+            yield return 0;
+        }
+        StartUpdate();
     }
 
     #endregion
