@@ -55,7 +55,7 @@ public class ShootEnemy : Enemy
 
     protected override void OnAttack()
     {
-        Instantiate(weapon, shootPoint.transform.position, transform.rotation);
+        Instantiate(weapon, attackPoint.transform.position, transform.rotation);
     }
 
     protected override void PlayerDead()

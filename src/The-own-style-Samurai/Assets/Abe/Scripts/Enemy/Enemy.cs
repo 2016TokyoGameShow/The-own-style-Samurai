@@ -36,9 +36,8 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     [SerializeField, Tooltip("移動のスピード")]
     protected float moveSpeed;
 
-    [SerializeField, Tooltip("飛道具が発射されるポイント")]
-    protected GameObject shootPoint;
-
+    [SerializeField, Tooltip("攻撃の始点")]
+    protected GameObject attackPoint;
     bool isAttack;
 
     Rigidbody rig;
@@ -96,6 +95,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     IEnumerator AttackReady()
     {
+        EnemyController.singleton.AddAttackCount();
         OnAttackReadyStart();
         for (float time = 0; time <= attackWaitTime; time += Time.deltaTime)
         {
@@ -104,7 +104,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
             yield return null;
         }
         OnAttack();
-
+        EnemyController.singleton.EraseAttackCount();
         //クールタイムが終わるまで移動も攻撃ができない
         StartCoroutine(CoolTime());
     }
