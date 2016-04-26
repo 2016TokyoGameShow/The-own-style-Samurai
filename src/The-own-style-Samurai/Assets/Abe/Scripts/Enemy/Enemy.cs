@@ -33,11 +33,10 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     [SerializeField, Tooltip("武器")]
     protected IWeapon weapon;
 
-    [SerializeField, Tooltip("プレイヤー")]
-    protected Player player;
-
     [SerializeField, Tooltip("攻撃の始点")]
     protected GameObject attackPoint;
+
+    protected Player player;
 
     bool isAttack;
     Rigidbody rig;
@@ -56,6 +55,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     void Start()
     {
         Debug.Assert(EnemyController.singleton != null, "EnemyControllerがありません");
+        player = EnemyController.singleton.player;
         EnemyController.singleton.AddEnemy(gameObject);
         rig = GetComponent<Rigidbody>();
 
