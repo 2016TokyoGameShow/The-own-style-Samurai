@@ -18,14 +18,17 @@ using System;
 [AddComponentMenu("Enemy/Enemy")]
 public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 {
-    [SerializeField, Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
+    [SerializeField, Range(0,  10), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     protected float attackWaitTime;
 
-    [SerializeField, Tooltip("次に攻撃するまでの時間")]
+    [SerializeField, Range(0,  30), Tooltip("次に攻撃するまでの時間")]
     protected float attackCoolTime;
 
-    [SerializeField, Tooltip("敵の攻撃範囲(プレイヤーを検知する範囲)")]
+    [SerializeField, Range(0, 100), Tooltip("敵の攻撃範囲(プレイヤーを検知する範囲)")]
     protected float maxDistance;
+
+    [SerializeField, Range(0,   3), Tooltip("移動のスピード")]
+    protected float moveSpeed;
 
     [SerializeField, Tooltip("武器")]
     protected IWeapon weapon;
@@ -33,13 +36,10 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     [SerializeField, Tooltip("プレイヤー")]
     protected Player player;
 
-    [SerializeField, Tooltip("移動のスピード")]
-    protected float moveSpeed;
-
     [SerializeField, Tooltip("攻撃の始点")]
     protected GameObject attackPoint;
-    bool isAttack;
 
+    bool isAttack;
     Rigidbody rig;
 
     protected virtual void OnStart() { }

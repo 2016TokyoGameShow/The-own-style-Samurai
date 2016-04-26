@@ -17,8 +17,8 @@ using UnityEngine.EventSystems;
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
 public class IWeapon : MonoBehaviour
 {
-    [SerializeField]
-    protected int damage;
+    [SerializeField, Range(1, 100)]
+    protected int damage = 1;
 
     [SerializeField, Tooltip("オブジェクトの生存時間")]
     protected float objectLifeTime;
