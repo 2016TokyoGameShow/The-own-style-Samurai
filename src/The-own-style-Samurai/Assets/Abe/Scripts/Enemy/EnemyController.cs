@@ -23,6 +23,9 @@ public class EnemyController : MonoBehaviour
     public static EnemyController singleton;
 
     [SerializeField]
+    Player _player;
+
+    [SerializeField]
     List<GameObject> enemies;
 
     [SerializeField, Tooltip("敵がフィールドに最大でいられる数")]
@@ -38,6 +41,11 @@ public class EnemyController : MonoBehaviour
 
 
     #region プロパティ
+
+    public Player player
+    {
+        get { return _player; }
+    }
 
     public int enemyNumber
     {
