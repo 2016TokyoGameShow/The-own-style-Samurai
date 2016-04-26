@@ -55,6 +55,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     void Start()
     {
         Debug.Assert(EnemyController.singleton != null, "EnemyControllerがありません");
+
         player = EnemyController.singleton.player;
         EnemyController.singleton.AddEnemy(gameObject);
         rig = GetComponent<Rigidbody>();
@@ -95,8 +96,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     {
         //攻撃をキャンセル
         isAttack = false;
-        StopAllCoroutines();
-        StartCoroutine(OnUpdate());
+        StartUpdate();
     }
 
     IEnumerator AttackReady()
@@ -112,7 +112,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         OnAttack();
         EnemyController.singleton.EraseAttackCount();
         //クールタイムが終わるまで移動も攻撃ができない
-        StartCoroutine(CoolTime());
+        StartCoolTime();
     }
 
     IEnumerator CoolTime()
@@ -123,7 +123,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         //クールタイム終了
         //攻撃準備完了
         isAttack = false;
-        StartCoroutine(OnUpdate());
+        StartUpdate();
     }
 
     protected void StartCoolTime()
@@ -136,6 +136,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     {
         //敵を吹っ飛ばしてから消去のほうがいいか
         EnemyController.singleton.EraseEnemy(gameObject);
+        EnemyController.singleton.AddDeathCount();
         Destroy(gameObject);
     }
 
