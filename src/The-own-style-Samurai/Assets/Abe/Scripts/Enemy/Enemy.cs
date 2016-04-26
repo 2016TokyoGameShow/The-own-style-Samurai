@@ -72,6 +72,12 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         }
     }
 
+    protected void StartUpdate()
+    {
+        StopAllCoroutines();
+        StartCoroutine(OnUpdate());
+    }
+
     protected void Attack()
     {
         //2重に攻撃のコルーチンを実行しないように
@@ -118,6 +124,12 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         //攻撃準備完了
         isAttack = false;
         StartCoroutine(OnUpdate());
+    }
+
+    protected void StartCoolTime()
+    {
+        StopAllCoroutines();
+        StartCoroutine(CoolTime());
     }
 
     protected virtual void Dead()
@@ -171,7 +183,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
         Debug.DrawRay(transform.position, transform.forward * maxDistance);
 
-        if (!rayCast(ray, out hitInfo))                     return false;
+        if (!rayCast(ray, out hitInfo))                  return false;
         if (hitInfo.collider.gameObject.tag != "Player") return false;
         return true;
     }

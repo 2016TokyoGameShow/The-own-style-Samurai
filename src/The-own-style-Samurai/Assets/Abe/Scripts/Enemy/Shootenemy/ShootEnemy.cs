@@ -35,11 +35,16 @@ public class ShootEnemy : Enemy
     #region メソッド
     protected override void _OnMove()
     {
+#if UNITY_EDITOR
+        if(!agent.enabled) return;
+#endif
+
         //敵以外のレイヤーで判定
-        if (IsRayHitPlayer(maxDistance, ~(1<<LayerMask.NameToLayer("Enemy"))))
+        if (IsRayHitPlayer(maxDistance, ~(1<<gameObject.layer)))
         {
             //急に止まらないように
-            agent.destination = transform.position + transform.forward;
+            agent.destination = transform.position;// + transform.forward;
+            agent.speed = 0;
             Attack();
             return;
         }
@@ -64,5 +69,5 @@ public class ShootEnemy : Enemy
         agent.destination = transform.position + transform.forward * 0.3f;
     }
 
-    #endregion
+#endregion
 }
