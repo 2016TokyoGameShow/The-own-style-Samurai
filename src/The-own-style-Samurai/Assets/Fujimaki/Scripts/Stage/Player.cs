@@ -25,11 +25,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
     private Coroutine avoidanceAction;
 
+    [SerializeField]
 	private Renderer myMaterial;
 
 	void Start () {
         uiController = stageController.uiController;
-		myMaterial = GetComponent<Renderer> ();
         hp = maxHP;
 	}
 
@@ -92,11 +92,16 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         myController.Move(moveVelocity);
     }
 
+    public void ChangeColor(Color color)
+    {
+        myMaterial.material.color = color;
+    }
+
     //回避アクション
     private IEnumerator AvoidanceAction()
     {
 
-        myMaterial.material.color = Color.blue;
+        ChangeColor(Color.blue);
 
         float moveTime = 0.3f;
 
@@ -108,7 +113,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
             yield return new WaitForEndOfFrame();
         }
 
-        myMaterial.material.color = Color.white;
+        ChangeColor(Color.white);
 
         avoidanceAction = null;
     }
