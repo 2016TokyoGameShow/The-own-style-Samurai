@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: be49507d10eca134db73d7d60015e834
-timeCreated: 1461717561
+guid: 6b7a2c0af6a8e0542802aaebd861b6b7
+timeCreated: 1461734554
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pCube5
+    4300000: Tatami1x1
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,7 +35,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 5
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

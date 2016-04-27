@@ -15,6 +15,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
+[SelectionBase]
 [AddComponentMenu("Enemy/Enemy")]
 public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 {
@@ -174,6 +175,24 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         });
     }
 
+    protected bool IsRayHitPlayer(float maxDistance, Vector3 offset)
+    {
+        return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) =>
+        {
+            ray.origin += offset;
+            return Physics.Raycast(ray, out hitInfo, maxDistance);
+        });
+    }
+
+    protected bool IsRayHitPlayer(float maxDistance, int layerMask, Vector3 offset)
+    {
+        return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) =>
+        {
+            ray.origin += offset;
+            return Physics.Raycast(ray, out hitInfo, maxDistance);
+        });
+    }
+
     private bool _IsRayHitPlayer(RayHit rayCast)
     {
         Ray ray = new Ray();
@@ -182,7 +201,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
         RaycastHit hitInfo;
 
-        Debug.DrawRay(transform.position, transform.forward * maxDistance);
+        Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
 
         if (!rayCast(ray, out hitInfo))                  return false;
         if (hitInfo.collider.gameObject.tag != "Player") return false;

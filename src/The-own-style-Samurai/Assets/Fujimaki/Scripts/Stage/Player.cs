@@ -15,6 +15,8 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 	private CharacterController myController;
     [SerializeField]
     private GameObject cameraRig;
+    [SerializeField]
+    private Animator animator;
 
     private int hp;
     private float finisherGageValue;
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     private Vector3 targetVelocity;
 
     private Coroutine avoidanceAction;
+    public bool nonMove;
 
     [SerializeField]
 	private Renderer myMaterial;
@@ -35,6 +38,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
 	void Update () {
 
+        //枚フレームちょっとだけ必殺ゲージを貯める
         finisherGageValue += Time.deltaTime / 30;
         finisherGageValue = Mathf.Clamp(finisherGageValue, 0, 1);
         uiController.SetFinisherGage(finisherGageValue);
@@ -43,7 +47,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         Vector3 moveVelocity = Vector3.zero;
 
         //入力から移動ベクトルを計算して移動
-        if (avoidanceAction == null)
+        if ((avoidanceAction == null) && (!nonMove))
         {
             moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
             moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
@@ -55,7 +59,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         //とりあえずよけるアクション
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (avoidanceAction == null)
+            if ((avoidanceAction == null) && (!nonMove))
             {
                 avoidanceAction = StartCoroutine(AvoidanceAction());
             }
@@ -92,6 +96,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         myController.Move(moveVelocity);
     }
 
+    //メッシュの色変更
     public void ChangeColor(Color color)
     {
         myMaterial.material.color = color;
@@ -102,6 +107,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     {
 
         ChangeColor(Color.blue);
+        animator.SetBool("bow", true);
 
         float moveTime = 0.3f;
 
@@ -114,6 +120,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         }
 
         ChangeColor(Color.white);
+        animator.SetBool("bow", false);
 
         avoidanceAction = null;
     }
@@ -122,5 +129,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     public GameObject GetCameraRig()
     {
         return cameraRig;
+    }
+
+    //アニメーター取得
+    public Animator GetAnimator()
+    {
+        return animator;
     }
 }
