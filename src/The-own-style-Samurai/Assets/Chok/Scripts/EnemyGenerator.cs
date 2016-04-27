@@ -14,7 +14,7 @@ public class EnemyGenerator : MonoBehaviour {
 
     void Start()
     {
-        StartCoroutine(GenerateEnemy());
+        Reset();
     }
 
     IEnumerator GenerateEnemy()
@@ -22,9 +22,11 @@ public class EnemyGenerator : MonoBehaviour {
         yield return new WaitForSeconds(2);
         if (EnemyController.singleton.enemyNumber < 5000)
         {
+            //敵の種類(3:1)(近距離：遠距離)で生成
             int enemyType = Random.Range(0, 4);
             if (enemyType != 1) enemyType = 0;
-            int initialPos = Random.Range(0, 4);
+            //生成位置
+            int initialPos = Random.Range(0, portal.Count);
             Instantiate(
                 enemies[enemyType],
                 portal[initialPos].transform.position,
