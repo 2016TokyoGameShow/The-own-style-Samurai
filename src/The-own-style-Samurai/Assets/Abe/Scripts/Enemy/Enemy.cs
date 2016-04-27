@@ -190,7 +190,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) =>
         {
             ray.origin += offset;
-            return Physics.Raycast(ray, out hitInfo, maxDistance);
+            return Physics.Raycast(ray, out hitInfo, maxDistance, layerMask);
         });
     }
 
@@ -205,6 +205,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
 
         if (!rayCast(ray, out hitInfo))                  return false;
+        Debug.Log(hitInfo.collider.name);
         if (hitInfo.collider.gameObject.tag != "Player") return false;
         return true;
     }

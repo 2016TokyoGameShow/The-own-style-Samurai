@@ -29,6 +29,9 @@ public class ShootEnemy : Enemy
     [SerializeField, Tooltip("LineRendererのコンポーネント")]
     LineRenderer lineRenderer;
 
+    [SerializeField, Range(0.0f, 1.0f), Tooltip("攻撃準備時 プレイヤーを向くスピード")]
+    float attackRotateSpeed;
+
     Vector3 rayOffset = new Vector3(0, 0.8f, 0);
 
     #endregion
@@ -51,7 +54,7 @@ public class ShootEnemy : Enemy
 #endif
 
         //敵以外のレイヤーで判定
-        if (IsRayHitPlayer(maxDistance, ~(1<<gameObject.layer), rayOffset))
+        if (IsRayHitPlayer(maxDistance, ~(1<<LayerMask.NameToLayer("Enemy")), rayOffset))
         {
             //急に止まらないように
             agent.destination = transform.position;// + transform.forward;
@@ -70,6 +73,12 @@ public class ShootEnemy : Enemy
     {
         animator.SetTrigger("Attack");
         lineRenderer.enabled = true;
+    }
+
+    protected override void OnAttackReadyUpdate()
+    {
+        Quaternion toAngle = Quaternion.FromToRotation(transform.position, player.transform.position);
+        Quaternion.Lerp(transform.rotation, toAngle, attackRotateSpeed);
     }
 
     protected override void OnAttack()
