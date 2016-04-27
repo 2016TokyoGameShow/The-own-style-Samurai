@@ -23,6 +23,14 @@ public class ShootEnemy : Enemy
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
 
+    [SerializeField, Tooltip("アニメーションのコンポーネント")]
+    Animator animator;
+
+    [SerializeField, Tooltip("LineRendererのコンポーネント")]
+    LineRenderer lineRenderer;
+
+    Vector3 rayOffset = new Vector3(0, 0.8f, 0);
+
     #endregion
 
     #region プロパティ
@@ -30,6 +38,12 @@ public class ShootEnemy : Enemy
     #endregion
 
     #region メソッド
+
+    protected override void OnStart()
+    {
+        lineRenderer.enabled = false;
+    }
+
     protected override void _OnMove()
     {
 #if UNITY_EDITOR
@@ -37,26 +51,31 @@ public class ShootEnemy : Enemy
 #endif
 
         //敵以外のレイヤーで判定
-        if (IsRayHitPlayer(maxDistance, ~(1<<gameObject.layer)))
+        if (IsRayHitPlayer(maxDistance, ~(1<<gameObject.layer), rayOffset))
         {
             //急に止まらないように
             agent.destination = transform.position;// + transform.forward;
             agent.speed = 0;
+            animator.SetFloat("Speed", agent.speed);
             Attack();
             return;
         }
 
         agent.destination  = player.transform.position;
         agent.speed        = moveSpeed;
+        animator.SetFloat("Speed", agent.speed);
     }
 
-    protected override void OnAttackReadyUpdate()
+    protected override void OnAttackReadyStart()
     {
-        Vector3 direction = player.transform.position - transform.position;
+        animator.SetTrigger("Attack");
+        lineRenderer.enabled = true;
     }
 
     protected override void OnAttack()
     {
+        animator.SetTrigger("AttackEnd");
+        lineRenderer.enabled = false;
         Instantiate(weapon, attackPoint.transform.position, transform.rotation);
     }
 
