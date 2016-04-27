@@ -27,18 +27,21 @@ public class ShootEnemy : Enemy
 
     #region プロパティ
 
-
-
     #endregion
-
 
     #region メソッド
     protected override void _OnMove()
     {
-        if (IsRayHitPlayer(maxDistance))
+#if UNITY_EDITOR
+        if(!agent.enabled) return;
+#endif
+
+        //敵以外のレイヤーで判定
+        if (IsRayHitPlayer(maxDistance, ~(1<<gameObject.layer)))
         {
             //急に止まらないように
-            agent.destination = transform.position + transform.forward;
+            agent.destination = transform.position;// + transform.forward;
+            agent.speed = 0;
             Attack();
             return;
         }
@@ -50,7 +53,6 @@ public class ShootEnemy : Enemy
     protected override void OnAttackReadyUpdate()
     {
         Vector3 direction = player.transform.position - transform.position;
-        //transform.rotation = Quaternion.
     }
 
     protected override void OnAttack()
@@ -63,5 +65,5 @@ public class ShootEnemy : Enemy
         agent.destination = transform.position + transform.forward * 0.3f;
     }
 
-    #endregion
+#endregion
 }

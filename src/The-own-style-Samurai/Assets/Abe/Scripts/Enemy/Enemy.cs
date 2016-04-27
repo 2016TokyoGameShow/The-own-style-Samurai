@@ -18,28 +18,27 @@ using System;
 [AddComponentMenu("Enemy/Enemy")]
 public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 {
-    [SerializeField, Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
+    [SerializeField, Range(0,  10), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     protected float attackWaitTime;
 
-    [SerializeField, Tooltip("次に攻撃するまでの時間")]
+    [SerializeField, Range(0,  30), Tooltip("次に攻撃するまでの時間")]
     protected float attackCoolTime;
 
-    [SerializeField, Tooltip("敵の攻撃範囲(プレイヤーを検知する範囲)")]
+    [SerializeField, Range(0, 100), Tooltip("敵の攻撃範囲(プレイヤーを検知する範囲)")]
     protected float maxDistance;
+
+    [SerializeField, Range(0,   3), Tooltip("移動のスピード")]
+    protected float moveSpeed;
 
     [SerializeField, Tooltip("武器")]
     protected IWeapon weapon;
 
-    [SerializeField, Tooltip("プレイヤー")]
-    protected Player player;
-
-    [SerializeField, Tooltip("移動のスピード")]
-    protected float moveSpeed;
-
     [SerializeField, Tooltip("攻撃の始点")]
     protected GameObject attackPoint;
-    bool isAttack;
 
+    protected Player player;
+
+    bool isAttack;
     Rigidbody rig;
 
     protected virtual void OnStart() { }
@@ -56,6 +55,8 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     void Start()
     {
         Debug.Assert(EnemyController.singleton != null, "EnemyControllerがありません");
+
+        player = EnemyController.singleton.player;
         EnemyController.singleton.AddEnemy(gameObject);
         rig = GetComponent<Rigidbody>();
 
@@ -70,6 +71,12 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
             _OnMove();
             yield return null;
         }
+    }
+
+    protected void StartUpdate()
+    {
+        StopAllCoroutines();
+        StartCoroutine(OnUpdate());
     }
 
     protected void Attack()
@@ -89,8 +96,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     {
         //攻撃をキャンセル
         isAttack = false;
-        StopAllCoroutines();
-        StartCoroutine(OnUpdate());
+        StartUpdate();
     }
 
     IEnumerator AttackReady()
@@ -106,7 +112,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         OnAttack();
         EnemyController.singleton.EraseAttackCount();
         //クールタイムが終わるまで移動も攻撃ができない
-        StartCoroutine(CoolTime());
+        StartCoolTime();
     }
 
     IEnumerator CoolTime()
@@ -117,13 +123,20 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         //クールタイム終了
         //攻撃準備完了
         isAttack = false;
-        StartCoroutine(OnUpdate());
+        StartUpdate();
+    }
+
+    protected void StartCoolTime()
+    {
+        StopAllCoroutines();
+        StartCoroutine(CoolTime());
     }
 
     protected virtual void Dead()
     {
         //敵を吹っ飛ばしてから消去のほうがいいか
         EnemyController.singleton.EraseEnemy(gameObject);
+        EnemyController.singleton.AddDeathCount();
         Destroy(gameObject);
     }
 
@@ -143,18 +156,36 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     }
 
+    delegate bool RayHit(Ray ray, out RaycastHit hitInfo);
+
     protected bool IsRayHitPlayer(float maxDistance)
     {
+        return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) =>
+        {
+            return Physics.Raycast(ray, out hitInfo, maxDistance);
+        });
+    }
+
+    protected bool IsRayHitPlayer(float maxDistance, int layerMask)
+    {
+        return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) => 
+        {
+            return Physics.Raycast(ray, out hitInfo, maxDistance, layerMask);
+        });
+    }
+
+    private bool _IsRayHitPlayer(RayHit rayCast)
+    {
         Ray ray = new Ray();
-        ray.origin = transform.position;
+        ray.origin    = transform.position;
         ray.direction = transform.forward;
 
         RaycastHit hitInfo;
 
         Debug.DrawRay(transform.position, transform.forward * maxDistance);
 
-        if (!Physics.Raycast(ray, out hitInfo, maxDistance)) return false;
-        if (hitInfo.collider.gameObject.tag != "Player")     return false;
+        if (!rayCast(ray, out hitInfo))                  return false;
+        if (hitInfo.collider.gameObject.tag != "Player") return false;
         return true;
     }
 
