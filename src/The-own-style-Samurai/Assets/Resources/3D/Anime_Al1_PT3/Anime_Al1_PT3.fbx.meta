@@ -289,7 +289,871 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Attack_Bow
+      takeName: Attack_Bow
+      firstFrame: 1
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Front
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1/L_Thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1/L_Thumb_2/L_Thumb_3DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1/R_Thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1/R_Thumb_2/R_Thumb_3DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: BaseBody_08:All_Parent
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Front
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2/BaseBody_08:L_Finger_3
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2/BaseBody_08:L_Finger_3/BaseBody_08:L_Finger_4DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1/BaseBody_08:L_Thumb_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1/BaseBody_08:L_Thumb_2/BaseBody_08:L_Thumb_3DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck/BaseBody_08:Head
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck/BaseBody_08:Head/BaseBody_08:HeadDeadEnd
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2/BaseBody_08:R_Finger_3
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2/BaseBody_08:R_Finger_3/BaseBody_08:R_Finger_4DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1/BaseBody_08:R_Thumb_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1/BaseBody_08:R_Thumb_2/BaseBody_08:R_Thumb_3DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle/BaseBody_08:L_Instep
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle/BaseBody_08:L_Instep/BaseBody_08:L_Toe
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle/BaseBody_08:R_Instep
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle/BaseBody_08:R_Instep/BaseBody_08:R_Toe
+        weight: 1
+      - path: BaseBody_09:All_Parent
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Front
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2/BaseBody_09:L_Finger_3
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2/BaseBody_09:L_Finger_3/BaseBody_09:L_Finger_4DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1/BaseBody_09:L_Thumb_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1/BaseBody_09:L_Thumb_2/BaseBody_09:L_Thumb_3DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck/BaseBody_09:Head
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck/BaseBody_09:Head/BaseBody_09:HeadDeadEnd
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2/BaseBody_09:R_Finger_3
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2/BaseBody_09:R_Finger_3/BaseBody_09:R_Finger_4DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1/BaseBody_09:R_Thumb_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1/BaseBody_09:R_Thumb_2/BaseBody_09:R_Thumb_3DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle/BaseBody_09:L_Instep
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle/BaseBody_09:L_Instep/BaseBody_09:L_Toe
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle/BaseBody_09:R_Instep
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle/BaseBody_09:R_Instep/BaseBody_09:R_Toe
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Evasion_Bow
+      takeName: Evasion_Bow
+      firstFrame: 1
+      lastFrame: 500
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Front
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1/L_Thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1/L_Thumb_2/L_Thumb_3DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1/R_Thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1/R_Thumb_2/R_Thumb_3DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: BaseBody_08:All_Parent
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Front
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2/BaseBody_08:L_Finger_3
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2/BaseBody_08:L_Finger_3/BaseBody_08:L_Finger_4DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1/BaseBody_08:L_Thumb_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1/BaseBody_08:L_Thumb_2/BaseBody_08:L_Thumb_3DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck/BaseBody_08:Head
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck/BaseBody_08:Head/BaseBody_08:HeadDeadEnd
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2/BaseBody_08:R_Finger_3
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2/BaseBody_08:R_Finger_3/BaseBody_08:R_Finger_4DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1/BaseBody_08:R_Thumb_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1/BaseBody_08:R_Thumb_2/BaseBody_08:R_Thumb_3DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle/BaseBody_08:L_Instep
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle/BaseBody_08:L_Instep/BaseBody_08:L_Toe
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle/BaseBody_08:R_Instep
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle/BaseBody_08:R_Instep/BaseBody_08:R_Toe
+        weight: 1
+      - path: BaseBody_09:All_Parent
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Front
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2/BaseBody_09:L_Finger_3
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2/BaseBody_09:L_Finger_3/BaseBody_09:L_Finger_4DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1/BaseBody_09:L_Thumb_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1/BaseBody_09:L_Thumb_2/BaseBody_09:L_Thumb_3DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck/BaseBody_09:Head
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck/BaseBody_09:Head/BaseBody_09:HeadDeadEnd
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2/BaseBody_09:R_Finger_3
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2/BaseBody_09:R_Finger_3/BaseBody_09:R_Finger_4DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1/BaseBody_09:R_Thumb_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1/BaseBody_09:R_Thumb_2/BaseBody_09:R_Thumb_3DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle/BaseBody_09:L_Instep
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle/BaseBody_09:L_Instep/BaseBody_09:L_Toe
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle/BaseBody_09:R_Instep
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle/BaseBody_09:R_Instep/BaseBody_09:R_Toe
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Run_Bow
+      takeName: Run_Bow
+      firstFrame: 1
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Front
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1/L_Thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_elbow/L_wrist/L_hand/L_Thumb_1/L_Thumb_2/L_Thumb_3DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1/R_Thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_elbow/R_wrist/R_hand/R_Thumb_1/R_Thumb_2/R_Thumb_3DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: BaseBody_08:All_Parent
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Front
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2/BaseBody_08:L_Finger_3
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Finger_1/BaseBody_08:L_Finger_2/BaseBody_08:L_Finger_3/BaseBody_08:L_Finger_4DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1/BaseBody_08:L_Thumb_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:L_Scapula/BaseBody_08:L_Shoulder/BaseBody_08:L_elbow/BaseBody_08:L_wrist/BaseBody_08:L_hand/BaseBody_08:L_Thumb_1/BaseBody_08:L_Thumb_2/BaseBody_08:L_Thumb_3DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck/BaseBody_08:Head
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:Neck/BaseBody_08:Head/BaseBody_08:HeadDeadEnd
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2/BaseBody_08:R_Finger_3
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Finger_1/BaseBody_08:R_Finger_2/BaseBody_08:R_Finger_3/BaseBody_08:R_Finger_4DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1/BaseBody_08:R_Thumb_2
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:Belly/BaseBody_08:Chest/BaseBody_08:R_Scapula/BaseBody_08:R_Shoulder/BaseBody_08:R_elbow/BaseBody_08:R_wrist/BaseBody_08:R_hand/BaseBody_08:R_Thumb_1/BaseBody_08:R_Thumb_2/BaseBody_08:R_Thumb_3DE
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle/BaseBody_08:L_Instep
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:L_Thighs/BaseBody_08:L_knee/BaseBody_08:L_ankle/BaseBody_08:L_Instep/BaseBody_08:L_Toe
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle/BaseBody_08:R_Instep
+        weight: 1
+      - path: BaseBody_08:All_Parent/BaseBody_08:Hip_n_Center/BaseBody_08:between_leg/BaseBody_08:R_Thighs/BaseBody_08:R_knee/BaseBody_08:R_ankle/BaseBody_08:R_Instep/BaseBody_08:R_Toe
+        weight: 1
+      - path: BaseBody_09:All_Parent
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Front
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2/BaseBody_09:L_Finger_3
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Finger_1/BaseBody_09:L_Finger_2/BaseBody_09:L_Finger_3/BaseBody_09:L_Finger_4DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1/BaseBody_09:L_Thumb_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:L_Scapula/BaseBody_09:L_Shoulder/BaseBody_09:L_elbow/BaseBody_09:L_wrist/BaseBody_09:L_hand/BaseBody_09:L_Thumb_1/BaseBody_09:L_Thumb_2/BaseBody_09:L_Thumb_3DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck/BaseBody_09:Head
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:Neck/BaseBody_09:Head/BaseBody_09:HeadDeadEnd
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2/BaseBody_09:R_Finger_3
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Finger_1/BaseBody_09:R_Finger_2/BaseBody_09:R_Finger_3/BaseBody_09:R_Finger_4DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1/BaseBody_09:R_Thumb_2
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:Belly/BaseBody_09:Chest/BaseBody_09:R_Scapula/BaseBody_09:R_Shoulder/BaseBody_09:R_elbow/BaseBody_09:R_wrist/BaseBody_09:R_hand/BaseBody_09:R_Thumb_1/BaseBody_09:R_Thumb_2/BaseBody_09:R_Thumb_3DE
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle/BaseBody_09:L_Instep
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:L_Thighs/BaseBody_09:L_knee/BaseBody_09:L_ankle/BaseBody_09:L_Instep/BaseBody_09:L_Toe
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle/BaseBody_09:R_Instep
+        weight: 1
+      - path: BaseBody_09:All_Parent/BaseBody_09:Hip_n_Center/BaseBody_09:between_leg/BaseBody_09:R_Thighs/BaseBody_09:R_knee/BaseBody_09:R_ankle/BaseBody_09:R_Instep/BaseBody_09:R_Toe
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
