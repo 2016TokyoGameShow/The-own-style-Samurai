@@ -1,16 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
 
 [AddComponentMenu("Enemy/MeleeEnemy")]
 public class MeleeEnemy : Enemy
 {
-    public enum State
+    public enum EnemyState      //敵の状態
     {
-        Chase,
-        Attack,
-        StandBy,
-        RotateAround
+        Attack,                 //攻撃
+        StandBy,                //待機
+        RotateAround            //プレイヤーを中心に回る
     }
 
     #region 変数
@@ -24,8 +22,6 @@ public class MeleeEnemy : Enemy
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
 
-    private State state;
-
     #endregion
 
     #region メソッド
@@ -34,7 +30,8 @@ public class MeleeEnemy : Enemy
         if (IsRayHitPlayer(maxDistance))
         {
             agent.speed = 0;
-            Attack();
+            int choose = Random.Range(0,102);
+            ActionChoose((EnemyState)(choose % 3));
         }
         else
         {
@@ -62,6 +59,26 @@ public class MeleeEnemy : Enemy
         hit.transform.parent = hitOffset.transform;
     }
 
+    private void ActionChoose(EnemyState state)
+    {
+        Debug.Log(state.ToString());
+        StopAllCoroutines();
+        switch (state)
+        {
+            case EnemyState.StandBy:
+                StartCoolTime();
+                break;
+            case EnemyState.RotateAround:
+                RotateAround();
+                break;
+            case EnemyState.Attack:
+                Attack();
+                break;
+        }
+
+
+    }
+
     private void RotateAround()
     {
         float time = 2;
@@ -74,10 +91,14 @@ public class MeleeEnemy : Enemy
     {
         for (float rotateTime = 0; rotateTime <= time; rotateTime += Time.deltaTime)
         {
-            transform.RotateAround(rotateOrigin, Vector3.up, 1.0f);
+            transform.RotateAround(rotateOrigin, Vector3.up, 0.75f);
             yield return 0;
         }
         StartUpdate();
+    }
+
+    protected override void OnCollisionExit(Collision collision)
+    {
     }
 
     #endregion
