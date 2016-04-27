@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: 82bc52b829c34c04097220bf90a50612
+timeCreated: 1461726797
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Parent
+    100002: Belly
+    100004: between_leg
+    100006: Chest
+    100008: Head
+    100010: HeadDeadEnd
+    100012: Hip_n_Center
+    100014: L_ankle
+    100016: L_elbow
+    100018: L_Finger_1
+    100020: L_Finger_2
+    100022: L_Finger_3
+    100024: L_Finger_4DE
+    100026: L_hand
+    100028: L_Instep
+    100030: L_knee
+    100032: L_Scapula
+    100034: L_Shoulder
+    100036: L_Thighs
+    100038: L_Thumb_1
+    100040: L_Thumb_2
+    100042: L_Thumb_3DE
+    100044: L_Toe
+    100046: L_wrist
+    100048: Neck
+    100050: //RootNode
+    100052: R_ankle
+    100054: R_elbow
+    100056: R_Finger_1
+    100058: R_Finger_2
+    100060: R_Finger_3
+    100062: R_Finger_4DE
+    100064: R_hand
+    100066: R_Instep
+    100068: R_knee
+    100070: R_Scapula
+    100072: R_Shoulder
+    100074: R_Thighs
+    100076: R_Thumb_1
+    100078: R_Thumb_2
+    100080: R_Thumb_3DE
+    100082: R_Toe
+    100084: R_wrist
+    400000: All_Parent
+    400002: Belly
+    400004: between_leg
+    400006: Chest
+    400008: Head
+    400010: HeadDeadEnd
+    400012: Hip_n_Center
+    400014: L_ankle
+    400016: L_elbow
+    400018: L_Finger_1
+    400020: L_Finger_2
+    400022: L_Finger_3
+    400024: L_Finger_4DE
+    400026: L_hand
+    400028: L_Instep
+    400030: L_knee
+    400032: L_Scapula
+    400034: L_Shoulder
+    400036: L_Thighs
+    400038: L_Thumb_1
+    400040: L_Thumb_2
+    400042: L_Thumb_3DE
+    400044: L_Toe
+    400046: L_wrist
+    400048: Neck
+    400050: //RootNode
+    400052: R_ankle
+    400054: R_elbow
+    400056: R_Finger_1
+    400058: R_Finger_2
+    400060: R_Finger_3
+    400062: R_Finger_4DE
+    400064: R_hand
+    400066: R_Instep
+    400068: R_knee
+    400070: R_Scapula
+    400072: R_Shoulder
+    400074: R_Thighs
+    400076: R_Thumb_1
+    400078: R_Thumb_2
+    400080: R_Thumb_3DE
+    400082: R_Toe
+    400084: R_wrist
+    7400000: Idle
+    7400002: Run
+    7400004: Evasion_Katana
+    7400006: "Test_Wa\uFF4Cking"
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -582,7 +582,7 @@ ModelImporter:
       name: Evasion_Bow
       takeName: Evasion_Bow
       firstFrame: 1
-      lastFrame: 500
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -865,7 +865,7 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
       name: Run_Bow
       takeName: Run_Bow
