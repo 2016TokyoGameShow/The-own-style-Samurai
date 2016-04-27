@@ -24,9 +24,9 @@ public class EnemyGenerator : MonoBehaviour {
         {
             //敵の種類(3:1)(近距離：遠距離)で生成
             int enemyType = Random.Range(0, 4);
-            if (enemyType != 1) enemyType = 1;
+            if (enemyType != 1) enemyType = 0;
             //生成位置
-            int initialPos = Random.Range(0, 1);
+            int initialPos = Random.Range(0, portal.Count);
             Instantiate(
                 enemies[enemyType],
                 portal[initialPos].transform.position,
