@@ -88,6 +88,11 @@ public class EnemyController : MonoBehaviour
         enemies.Remove(enemy);
     }
 
+    public void AddDeathCount()
+    {
+        _enemyDeathCount++;
+    }
+
     public void ResetDeathCount()
     {
         _enemyDeathCount = 0;

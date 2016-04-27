@@ -27,10 +27,7 @@ public class ShootEnemy : Enemy
 
     #region プロパティ
 
-
-
     #endregion
-
 
     #region メソッド
     protected override void _OnMove()
@@ -56,7 +53,6 @@ public class ShootEnemy : Enemy
     protected override void OnAttackReadyUpdate()
     {
         Vector3 direction = player.transform.position - transform.position;
-        //transform.rotation = Quaternion.
     }
 
     protected override void OnAttack()
