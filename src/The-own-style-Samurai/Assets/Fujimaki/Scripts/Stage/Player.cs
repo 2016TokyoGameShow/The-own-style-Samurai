@@ -53,21 +53,13 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
 
         //とりあえずよけるアクション
-		if (Input.GetKeyDown (KeyCode.UpArrow)){
-			myMaterial.material.color = Color.red;
-		}
-		if (Input.GetKeyDown (KeyCode.DownArrow)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             if (avoidanceAction == null)
             {
                 avoidanceAction = StartCoroutine(AvoidanceAction());
             }
-		}
-		if (Input.GetKeyDown (KeyCode.RightArrow)) {
-			myMaterial.material.color = Color.yellow;
-		}
-		if (Input.GetKeyDown (KeyCode.LeftArrow)) {
-			myMaterial.material.color = Color.green;
-		}
+        }
 	}
     //最大HPを取得
     public int GetMaxHP(){ return maxHP; }
@@ -78,7 +70,9 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //ダメージを受ける
     public void OnWeaponHit(int damage)
     {
+        print("PlayerDamage");
         hp -= damage;
+        uiController.SetHPGage(maxHP, hp);
     }
 
     //キャラクター移動
@@ -117,5 +111,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         myMaterial.material.color = Color.white;
 
         avoidanceAction = null;
+    }
+
+    //カメラリグを取得
+    public GameObject GetCameraRig()
+    {
+        return cameraRig;
     }
 }
