@@ -12,7 +12,6 @@ public class MeleeEnemy : Enemy
     }
 
     #region 変数
-
     [SerializeField, Tooltip("攻撃前の信号")]
     GameObject sign;
 
@@ -34,7 +33,7 @@ public class MeleeEnemy : Enemy
         {
             agent.speed = 0;
             animator.SetFloat("Speed", agent.speed);
-            Attack();
+            ActionStart();
             return;
         }
         agent.destination = player.transform.position;
@@ -46,6 +45,7 @@ public class MeleeEnemy : Enemy
     {
         animator.SetTrigger("Attack");
         Instantiate(sign, aboveHead.transform.position, transform.rotation);
+        player.SetTarget(this.gameObject);
     }
 
     protected override void OnAttackReadyUpdate()
@@ -111,7 +111,7 @@ public class MeleeEnemy : Enemy
 
     private void StartRotate()
     {
-        float time = Random.Range(1, 4);                     //回転周期を決める
+        float time = Random.Range(1, 3);                     //回転周期を決める
         float angle = Random.Range(-2, 3);                  //回転角度を決める
         if (angle == 0) angle = 1;                          //止めさせない
         Vector3 rotateOrigin = player.transform.position;   //最初に回転中心を決める
