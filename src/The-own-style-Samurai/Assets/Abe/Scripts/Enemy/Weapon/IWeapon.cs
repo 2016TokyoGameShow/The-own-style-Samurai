@@ -39,8 +39,13 @@ public class IWeapon : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            
+            bool isAvoidance = other.GetComponent<PlayerAvoidance>().GetAvoidance();
+            if(isAvoidance)
+            {
+                return;
+            }
         }
+
         SendHit(other.gameObject);
 
         Destroy(gameObject);
