@@ -77,6 +77,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     {
         playerAttack.SetEnemyTarget(g);
     }
+    //プレイヤーが攻撃しているか
+    public bool isPlayerAttacking()
+    {
+        return playerAttack.getEnemyTarget();
+    }
 
     //キャラクター移動
     public void CharacterMove(Vector3 moveVelocity,float speed)
