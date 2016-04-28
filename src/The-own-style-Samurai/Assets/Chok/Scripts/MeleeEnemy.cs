@@ -63,9 +63,9 @@ public class MeleeEnemy : Enemy
     //判定生成メソット、生成判定、生成位置
     protected void AttackInstantiate(IWeapon hitObject, GameObject hitOffset)
     {
-        IWeapon hit;
+        GameObject hit;
 
-        hit = Instantiate(hitObject, hitOffset.transform.position, hitOffset.transform.rotation) as IWeapon;
+        hit = CreateWeapon(weapon,attackPoint.transform.position,attackPoint.transform.rotation) as GameObject;
         hit.transform.parent = hitOffset.transform;
     }
 
