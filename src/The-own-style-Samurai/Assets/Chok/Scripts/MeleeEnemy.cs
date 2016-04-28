@@ -22,6 +22,9 @@ public class MeleeEnemy : Enemy
     [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
     NavMeshAgent agent;
 
+    [SerializeField, Tooltip("アニメーションのコンポーネント")]
+    Animator animator;
+
     #endregion
 
     #region メソッド
@@ -30,24 +33,30 @@ public class MeleeEnemy : Enemy
         if (IsRayHitPlayer(maxDistance))
         {
             agent.speed = 0;
-            int choose = Random.Range(0,102);
-            ActionChoose((EnemyState)(choose % 3));
+            animator.SetFloat("Speed", agent.speed);
+            Attack();
+            return;
         }
-        else
-        {
-            agent.destination = player.transform.position;
-            agent.speed = moveSpeed;
-        }
+        agent.destination = player.transform.position;
+        agent.speed = moveSpeed;
+        animator.SetFloat("Speed", agent.speed);
     }
 
     protected override void OnAttackReadyStart()
     {
+        animator.SetTrigger("Attack");
         Instantiate(sign, aboveHead.transform.position, transform.rotation);
+    }
+
+    protected override void OnAttackReadyUpdate()
+    {
+
     }
 
     protected override void OnAttack()
     {
         AttackInstantiate(weapon, attackPoint);
+        animator.SetTrigger("AttackEnd");
     }
 
     //判定生成メソット、生成判定、生成位置
@@ -59,42 +68,65 @@ public class MeleeEnemy : Enemy
         hit.transform.parent = hitOffset.transform;
     }
 
+    private void ActionStart()
+    {
+        StopAllCoroutines();
+        StartCoroutine(StartChoose());
+    }
+
+    private IEnumerator StartChoose()
+    {
+        yield return new WaitForSeconds(0.5f);
+        int choose = Random.Range(0, 102);
+        ActionChoose((EnemyState)(choose % 3));
+    }
+
     private void ActionChoose(EnemyState state)
     {
         Debug.Log(state.ToString());
-        StopAllCoroutines();
         switch (state)
         {
             case EnemyState.StandBy:
-                StartCoolTime();
+                StartStandBy();
                 break;
             case EnemyState.RotateAround:
-                RotateAround();
+                StartRotate();
                 break;
             case EnemyState.Attack:
                 Attack();
                 break;
         }
-
-
     }
 
-    private void RotateAround()
+    private void StartStandBy()
     {
-        float time = 2;
-        Vector3 rotateOrigin = player.transform.position;
-        StopAllCoroutines();
-        StartCoroutine(RotateAroundPlayer(rotateOrigin, time));
+        StartCoroutine(StandBy());
     }
 
-    IEnumerator RotateAroundPlayer(Vector3 rotateOrigin, float time)
+    private IEnumerator StandBy()
+    {
+        yield return new WaitForSeconds(Random.Range(0, 3));
+        Attack();
+    }
+
+    private void StartRotate()
+    {
+        float time = Random.Range(1, 4);                     //回転周期を決める
+        float angle = Random.Range(-2, 3);                  //回転角度を決める
+        if (angle == 0) angle = 1;                          //止めさせない
+        Vector3 rotateOrigin = player.transform.position;   //最初に回転中心を決める
+        StopAllCoroutines();
+        StartCoroutine(RotateAroundPlayer(rotateOrigin, time, angle));
+    }
+
+    IEnumerator RotateAroundPlayer(Vector3 rotateOrigin, float time, float angle)
     {
         for (float rotateTime = 0; rotateTime <= time; rotateTime += Time.deltaTime)
         {
-            transform.RotateAround(rotateOrigin, Vector3.up, 0.75f);
+            transform.RotateAround(rotateOrigin, Vector3.up, angle);
             yield return 0;
         }
-        StartUpdate();
+        Attack();
     }
 
     protected override void OnCollisionExit(Collision collision)
