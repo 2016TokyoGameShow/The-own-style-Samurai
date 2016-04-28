@@ -23,6 +23,8 @@ public class IWeapon : MonoBehaviour
     [SerializeField, Tooltip("オブジェクトの生存時間")]
     protected float objectLifeTime;
 
+    public GameObject attackEnemy;
+
     void Start()
     {
         Attack();
@@ -35,6 +37,10 @@ public class IWeapon : MonoBehaviour
 
     protected virtual void TriggerEnter(Collider other)
     {
+        if(other.tag == "Player")
+        {
+            
+        }
         SendHit(other.gameObject);
 
         Destroy(gameObject);
@@ -48,10 +54,11 @@ public class IWeapon : MonoBehaviour
 
     protected void SendHit(GameObject obj)
     {
+        Debug.Assert(attackEnemy != null);
         ExecuteEvents.Execute<WeaponHitHandler>(
             obj,
             null,
-            (_object, _event) => { _object.OnWeaponHit(damage); }
+            (_object, _event) => { _object.OnWeaponHit(damage, attackEnemy); }
         );
     }
 

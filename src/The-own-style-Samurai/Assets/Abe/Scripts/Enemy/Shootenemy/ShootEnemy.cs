@@ -85,7 +85,7 @@ public class ShootEnemy : Enemy
     {
         animator.SetTrigger("AttackEnd");
         lineRenderer.enabled = false;
-        Instantiate(weapon, attackPoint.transform.position, transform.rotation);
+        CreateWeapon(weapon, attackPoint.transform.position, transform.rotation);
     }
 
     protected override void PlayerDead()

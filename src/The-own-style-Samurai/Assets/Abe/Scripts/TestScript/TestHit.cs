@@ -36,7 +36,7 @@ public class TestHit : MonoBehaviour, WeaponHitHandler
 
     #region メソッド
 
-    public void OnWeaponHit(int damage)
+    public void OnWeaponHit(int damage, GameObject attackObject)
     {
         Destroy(gameObject);
     }

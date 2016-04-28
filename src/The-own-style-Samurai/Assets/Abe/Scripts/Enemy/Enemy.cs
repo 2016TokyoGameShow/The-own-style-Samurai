@@ -14,7 +14,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System;
 
 [SelectionBase]
 [AddComponentMenu("Enemy/Enemy")]
@@ -111,6 +110,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
             OnAttackReadyUpdate();
             yield return null;
         }
+        Debug.Log(gameObject.name);
         OnAttack();
         EnemyController.singleton.EraseAttackCount();
         //クールタイムが終わるまで移動も攻撃ができない
@@ -142,7 +142,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Destroy(gameObject);
     }
 
-    public virtual void OnWeaponHit(int damage)
+    public virtual void OnWeaponHit(int damage, GameObject attackObject)
     {
         Dead();
     }
@@ -168,6 +168,30 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         });
     }
 
+    protected new Object Instantiate(Object original, Vector3 position, Quaternion rotation)
+    {
+#if UNITY_EDITOR
+        bool isWeapon = original is IWeapon;
+        bool isAttachWeapon;
+        try
+        {
+            isAttachWeapon = ((Component)original).GetComponent<IWeapon>() == null;
+        }
+        catch
+        {
+            isAttachWeapon = true;
+        }
+        Debug.Assert(isWeapon && isAttachWeapon, "武器を生成する場合はCreateWeaponを使用してください");
+#endif
+        return Object.Instantiate(original, position, rotation);
+    }
+
+    protected GameObject CreateWeapon(IWeapon weapon, Vector3 position, Quaternion rotation)
+    {
+        GameObject obj = Object.Instantiate(weapon, position, rotation) as GameObject;
+        weapon.attackEnemy = gameObject;
+        return obj;
+    }
     protected bool IsRayHitPlayer(float maxDistance, int layerMask)
     {
         return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) => 

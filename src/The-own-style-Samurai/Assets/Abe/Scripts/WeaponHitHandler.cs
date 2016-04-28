@@ -10,9 +10,10 @@
 //
 // ----- ----- ----- ----- -----
 
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public interface WeaponHitHandler : IEventSystemHandler
 {
-    void OnWeaponHit(int damege);
+    void OnWeaponHit(int damege, GameObject attackObject);
 }
