@@ -20,7 +20,7 @@ public class EnemyGenerator : MonoBehaviour {
     IEnumerator GenerateEnemy()
     {
         yield return new WaitForSeconds(2);
-        if (EnemyController.singleton.enemyNumber < 5000)
+        if (EnemyController.singleton.enemyNumber < 5)
         {
             //敵の種類(3:1)(近距離：遠距離)で生成
             int enemyType = Random.Range(0, 4);
