@@ -68,8 +68,8 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         print("PlayerDamage");
        // playerAttack.Hit(1, enemy);
         
-        //hp -= damage;
-        //uiController.SetHPGage(maxHP, hp);
+        hp -= damage;
+        uiController.SetHPGage(maxHP, hp);
     }
 
     //キャラクター移動
