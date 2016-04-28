@@ -5,8 +5,6 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     
 	[SerializeField,Header("移動スピード")]
 	private float speed;
-    [SerializeField, Header("回避スピード")]
-    private float avoidanceSpeed;
     [SerializeField, Header("最大HP")]
     private int maxHP;
     [SerializeField]
@@ -17,6 +15,10 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     private GameObject cameraRig;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private PlayerAttack playerAttack;
+    [SerializeField]
+    private PlayerAvoidance playerAvoidance;
 
     private int hp;
     private float finisherGageValue;
@@ -24,9 +26,9 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     private UIController uiController;
     private Vector3 saveMoveVelocity;
     private Vector3 targetVelocity;
-
-    private Coroutine avoidanceAction;
     public bool nonMove;
+
+
 
     [SerializeField]
 	private Renderer myMaterial;
@@ -47,22 +49,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         Vector3 moveVelocity = Vector3.zero;
 
         //入力から移動ベクトルを計算して移動
-        if ((avoidanceAction == null) && (!nonMove))
+        if (!nonMove)
         {
             moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
             moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
             CharacterMove(moveVelocity, speed);
-        }
-
-
-
-        //とりあえずよけるアクション
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if ((avoidanceAction == null) && (!nonMove))
-            {
-                avoidanceAction = StartCoroutine(AvoidanceAction());
-            }
         }
 	}
     //最大HPを取得
@@ -71,16 +62,18 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     public int GetHP() { return hp; }
 
 
-    //ダメージを受ける
+    //ヒット通知
     public void OnWeaponHit(int damage)
     {
         print("PlayerDamage");
-        hp -= damage;
-        uiController.SetHPGage(maxHP, hp);
+       // playerAttack.Hit(1, enemy);
+        
+        //hp -= damage;
+        //uiController.SetHPGage(maxHP, hp);
     }
 
     //キャラクター移動
-    private void CharacterMove(Vector3 moveVelocity,float speed)
+    public void CharacterMove(Vector3 moveVelocity,float speed)
     {
         //進行方向に向く
         if (moveVelocity != Vector3.zero)
@@ -100,29 +93,6 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     public void ChangeColor(Color color)
     {
         myMaterial.material.color = color;
-    }
-
-    //回避アクション
-    private IEnumerator AvoidanceAction()
-    {
-
-        ChangeColor(Color.blue);
-        animator.SetBool("bow", true);
-
-        float moveTime = 0.3f;
-
-        //回避アクション中は向いている方向に一定数移動
-        while (moveTime > 0)
-        {
-            moveTime -= Time.deltaTime;
-            CharacterMove(transform.forward, avoidanceSpeed);
-            yield return new WaitForEndOfFrame();
-        }
-
-        ChangeColor(Color.white);
-        animator.SetBool("bow", false);
-
-        avoidanceAction = null;
     }
 
     //カメラリグを取得

@@ -2,10 +2,13 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class PlayerAttack : MonoBehaviour {
+public class PlayerAttack : MonoBehaviour
+{
 
     [SerializeField]
     private Player player;
+
+    private Enemy enemyTarget;
 
     public bool playerAttacking;
 
@@ -37,15 +40,21 @@ public class PlayerAttack : MonoBehaviour {
     private IEnumerator Attack(Vector3 velocity){
 
 
-
-
-        if (!playerAttacking)
+        if ((!playerAttacking) && (enemyTarget != null)) 
         {
             player.GetAnimator().SetInteger("katana", 1);
 
             player.ChangeColor(Color.red);
             player.nonMove = true;
             playerAttacking = true;
+
+
+            while (Vector3.Angle(player.transform.forward, enemyTarget.transform.position - player.transform.position) != 0)
+            {
+                Quaternion rotation = Quaternion.LookRotation(enemyTarget.transform.position - player.transform.position);
+                player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.5f);
+                yield return new WaitForEndOfFrame();
+            }
 
             //流す方向に向く
             while (Vector3.Angle(player.transform.forward, velocity) != 0)
@@ -55,6 +64,8 @@ public class PlayerAttack : MonoBehaviour {
                 yield return new WaitForEndOfFrame();
             }
 
+            Attack();
+
             playerAttacking = false;
             player.ChangeColor(Color.white);
             player.nonMove = false;
@@ -63,15 +74,25 @@ public class PlayerAttack : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay(Collider other)
+    //ダメージを受ける
+    public void Hit(int damage,Enemy enemy)
     {
-        if (playerAttacking)
-        {
-            ExecuteEvents.Execute<WeaponHitHandler>(
-                other.gameObject,
-                null,
-                (_object, _event) => { _object.OnWeaponHit(1); }
-                );
-        }
+        enemyTarget = enemy;
+        print("PlayerDamage");
+    }
+
+    private void Attack()
+    {
+
+       if (Physics.Raycast(player.transform.position, player.transform.forward * 10, 10))
+       {
+           print("hit");
+
+           ExecuteEvents.Execute<WeaponHitHandler>(
+            enemyTarget.gameObject,
+            null,
+            (_object, _event) => { _object.OnWeaponHit(1); }
+            );
+       }
     }
 }
