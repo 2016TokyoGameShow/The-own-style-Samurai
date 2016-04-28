@@ -29,7 +29,7 @@ public class ShootEnemy : Enemy
     [SerializeField, Tooltip("LineRendererのコンポーネント")]
     LineRenderer lineRenderer;
 
-    [SerializeField, Range(0.0f, 1.0f), Tooltip("攻撃準備時 プレイヤーを向くスピード")]
+    [SerializeField, Range(0.0f, 30.0f), Tooltip("攻撃準備時 プレイヤーを向くスピード")]
     float attackRotateSpeed;
 
     Vector3 rayOffset = new Vector3(0, 0.8f, 0);
@@ -77,8 +77,8 @@ public class ShootEnemy : Enemy
 
     protected override void OnAttackReadyUpdate()
     {
-        Quaternion toAngle = Quaternion.FromToRotation(transform.position, player.transform.position);
-        Quaternion.Lerp(transform.rotation, toAngle, attackRotateSpeed);
+        //Quaternion toAngle = Quaternion.FromToRotation(transform.position, player.transform.position);
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, toAngle, -attackRotateSpeed);
     }
 
     protected override void OnAttack()

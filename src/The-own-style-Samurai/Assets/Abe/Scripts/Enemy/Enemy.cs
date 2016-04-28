@@ -158,6 +158,12 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     }
 
+    protected void ChasePlayer(NavMeshAgent agent, float moveSpeed)
+    {
+        agent.destination = player.transform.position;
+        agent.speed       = moveSpeed;
+    }
+
     delegate bool RayHit(Ray ray, out RaycastHit hitInfo);
 
     protected bool IsRayHitPlayer(float maxDistance)
@@ -170,6 +176,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     protected new Object Instantiate(Object original, Vector3 position, Quaternion rotation)
     {
+        //IWeaponをInstantiateで生成させないように
 #if UNITY_EDITOR
         bool isWeapon = original is IWeapon;
         bool isAttachWeapon;
@@ -179,9 +186,10 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         }
         catch
         {
+            //コンポーネントではない -> IWeaponではない
             isAttachWeapon = true;
         }
-        Debug.Assert(isWeapon && isAttachWeapon, "武器を生成する場合はCreateWeaponを使用してください");
+        Debug.Assert(!(isWeapon) && isAttachWeapon, "武器を生成する場合はCreateWeaponを使用してください");
 #endif
         return Object.Instantiate(original, position, rotation);
     }
@@ -229,7 +237,6 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
 
         if (!rayCast(ray, out hitInfo))                  return false;
-        Debug.Log(hitInfo.collider.name);
         if (hitInfo.collider.gameObject.tag != "Player") return false;
         return true;
     }
