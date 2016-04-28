@@ -7,17 +7,17 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     private Player player;
-
+    [SerializeField]
     private GameObject enemyTarget;
 
     public bool playerAttacking;
 
-	void Start () {
-	
-	}
-	
-	void Update () {
+    void Start() {
 
+    }
+
+    void Update() {
+        Debug.Log(playerAttacking);
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             StartCoroutine(Attack(player.GetCameraRig().transform.forward));
@@ -34,13 +34,13 @@ public class PlayerAttack : MonoBehaviour
         {
             StartCoroutine(Attack(-player.GetCameraRig().transform.right));
         }
-	}
+    }
 
     //流し攻撃
-    private IEnumerator Attack(Vector3 velocity){
+    private IEnumerator Attack(Vector3 velocity) {
 
 
-        if ((!playerAttacking) && (enemyTarget != null)) 
+        if ((!playerAttacking) && (enemyTarget != null))
         {
             player.GetAnimator().SetInteger("katana", 1);
 
@@ -48,10 +48,12 @@ public class PlayerAttack : MonoBehaviour
             player.nonMove = true;
             playerAttacking = true;
 
+            Vector3 enemyTargetPositon = enemyTarget.transform.position;
 
-            while (Vector3.Angle(player.transform.forward, enemyTarget.transform.position - player.transform.position) != 0)
+            while (Vector3.Angle(player.transform.forward, enemyTargetPositon - player.transform.position) != 0)
             {
-                Quaternion rotation = Quaternion.LookRotation(enemyTarget.transform.position - player.transform.position);
+
+                Quaternion rotation = Quaternion.LookRotation(enemyTargetPositon - player.transform.position);
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.5f);
                 yield return new WaitForEndOfFrame();
             }
@@ -64,7 +66,7 @@ public class PlayerAttack : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            Attack();
+            if(enemyTarget != null)Attack();
 
             playerAttacking = false;
             player.ChangeColor(Color.white);
@@ -84,6 +86,9 @@ public class PlayerAttack : MonoBehaviour
     public void SetEnemyTarget(GameObject g)
     {
         enemyTarget = g;
+    }
+    public bool getEnemyTarget(){
+        return enemyTarget == null;
     }
 
     private void Attack()

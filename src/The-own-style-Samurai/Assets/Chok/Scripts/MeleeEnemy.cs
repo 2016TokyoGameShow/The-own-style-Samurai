@@ -45,7 +45,7 @@ public class MeleeEnemy : Enemy
     {
         animator.SetTrigger("Attack");
         Instantiate(sign, aboveHead.transform.position, transform.rotation);
-        player.SetTarget(this.gameObject);
+        if(player.isPlayerAttacking())player.SetTarget(this.gameObject);
     }
 
     protected override void OnAttackReadyUpdate()
@@ -57,6 +57,7 @@ public class MeleeEnemy : Enemy
     {
         AttackInstantiate(weapon, attackPoint);
         animator.SetTrigger("AttackEnd");
+        if (!player.isPlayerAttacking()) player.SetTarget(null);
     }
 
     //判定生成メソット、生成判定、生成位置
