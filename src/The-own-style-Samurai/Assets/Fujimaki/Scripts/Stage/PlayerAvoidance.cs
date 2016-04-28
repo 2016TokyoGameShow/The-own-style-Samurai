@@ -18,6 +18,7 @@ public class PlayerAvoidance : MonoBehaviour {
 	
 
 	void Update () {
+
         //とりあえずよけるアクション
         if (Input.GetKeyDown(KeyCode.Space))
         {

@@ -75,10 +75,15 @@ public class PlayerAttack : MonoBehaviour
     }
 
     //ダメージを受ける
-    public void Hit(int damage,GameObject enemy)
+    public void Hit(int damage)
     {
-        enemyTarget = enemy;
         print("PlayerDamage");
+    }
+
+    //攻撃してくるターゲットを指定
+    public void SetEnemyTarget(GameObject g)
+    {
+        enemyTarget = g;
     }
 
     private void Attack()

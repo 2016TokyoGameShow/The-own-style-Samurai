@@ -66,10 +66,16 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     public void OnWeaponHit(int damage,GameObject enemy)
     {
         print("PlayerDamage");
-        playerAttack.Hit(1, enemy);
+        playerAttack.Hit(damage);
         
         hp -= damage;
         uiController.SetHPGage(maxHP, hp);
+    }
+
+    //攻撃してくる敵をセット
+    public void SetTarget(GameObject g)
+    {
+        playerAttack.SetEnemyTarget(g);
     }
 
     //キャラクター移動
