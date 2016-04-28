@@ -8,7 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     private Player player;
 
-    private Enemy enemyTarget;
+    private GameObject enemyTarget;
 
     public bool playerAttacking;
 
@@ -75,7 +75,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     //ダメージを受ける
-    public void Hit(int damage,Enemy enemy)
+    public void Hit(int damage,GameObject enemy)
     {
         enemyTarget = enemy;
         print("PlayerDamage");
@@ -91,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
            ExecuteEvents.Execute<WeaponHitHandler>(
             enemyTarget.gameObject,
             null,
-            (_object, _event) => { _object.OnWeaponHit(1); }
+            (_object, _event) => { _object.OnWeaponHit(1,this.gameObject); }
             );
        }
     }

@@ -63,10 +63,10 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
 
     //ヒット通知
-    public void OnWeaponHit(int damage)
+    public void OnWeaponHit(int damage,GameObject enemy)
     {
         print("PlayerDamage");
-       // playerAttack.Hit(1, enemy);
+        playerAttack.Hit(1, enemy);
         
         hp -= damage;
         uiController.SetHPGage(maxHP, hp);
