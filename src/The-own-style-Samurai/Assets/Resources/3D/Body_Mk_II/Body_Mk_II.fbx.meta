@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: 5661dabb73d5c004ba58bfca4282ccdb
+timeCreated: 1462607028
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Parent
+    100002: Belly
+    100004: between_leg
+    100006: between_leg1
+    100008: //RootNode
+    100010: Chest
+    100012: Head
+    100014: HeadDeadEnd
+    100016: Hip_n_Center
+    100018: L_ankle
+    100020: L_Elbow
+    100022: L_Finger1
+    100024: L_Finger2
+    100026: L_Finger3
+    100028: L_Finger4_END
+    100030: L_hand_n_wep_JOINT
+    100032: L_Instep
+    100034: L_knee
+    100036: L_Scapula
+    100038: L_Shoulder
+    100040: L_Thighs
+    100042: L_Thumb1
+    100044: L_Thumb2
+    100046: L_Thumb3
+    100048: L_Toe
+    100050: L_Wrist
+    100052: Neck
+    100054: polySurface10
+    100056: polySurface7
+    100058: polySurface9
+    100060: polySurface9 1
+    100062: R_ankle
+    100064: R_Elbow
+    100066: R_Finger1
+    100068: R_Finger2
+    100070: R_Finger3
+    100072: R_Finger4_END
+    100074: R_hand_n_wep_JOINT
+    100076: R_Instep
+    100078: R_knee
+    100080: R_Scapula
+    100082: R_Shoulder
+    100084: R_Thighs
+    100086: R_Thumb1
+    100088: R_Thumb2
+    100090: R_Thumb3
+    100092: R_Toe
+    100094: R_Wrist
+    100096: transform4
+    100098: transform5
+    400000: All_Parent
+    400002: Belly
+    400004: between_leg
+    400006: between_leg1
+    400008: //RootNode
+    400010: Chest
+    400012: Head
+    400014: HeadDeadEnd
+    400016: Hip_n_Center
+    400018: L_ankle
+    400020: L_Elbow
+    400022: L_Finger1
+    400024: L_Finger2
+    400026: L_Finger3
+    400028: L_Finger4_END
+    400030: L_hand_n_wep_JOINT
+    400032: L_Instep
+    400034: L_knee
+    400036: L_Scapula
+    400038: L_Shoulder
+    400040: L_Thighs
+    400042: L_Thumb1
+    400044: L_Thumb2
+    400046: L_Thumb3
+    400048: L_Toe
+    400050: L_Wrist
+    400052: Neck
+    400054: polySurface10
+    400056: polySurface7
+    400058: polySurface9
+    400060: polySurface9 1
+    400062: R_ankle
+    400064: R_Elbow
+    400066: R_Finger1
+    400068: R_Finger2
+    400070: R_Finger3
+    400072: R_Finger4_END
+    400074: R_hand_n_wep_JOINT
+    400076: R_Instep
+    400078: R_knee
+    400080: R_Scapula
+    400082: R_Shoulder
+    400084: R_Thighs
+    400086: R_Thumb1
+    400088: R_Thumb2
+    400090: R_Thumb3
+    400092: R_Toe
+    400094: R_Wrist
+    400096: transform4
+    400098: transform5
+    4300000: polySurface9
+    9500000: //RootNode
+    13700000: polySurface9
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
