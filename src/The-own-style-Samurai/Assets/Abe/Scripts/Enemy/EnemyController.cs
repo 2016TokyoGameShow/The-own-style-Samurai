@@ -28,6 +28,44 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     List<GameObject> enemies;
 
+    public enum EnemyKind
+    {
+        Sword = 0,
+        Spear = 1,
+        Arrow = 2,
+    }
+
+    [Serializable]
+    class AttackInfo
+    {
+        //[HideInInspector]
+        public EnemyKind kind;
+
+       // [HideInInspector]
+        public List<GameObject> count;
+
+        [SerializeField]
+        public string str;
+
+        [SerializeField]
+        public int maxCount;
+
+        public AttackInfo(EnemyKind kind, string str)
+        {
+            this.kind = kind;
+            this.str  = str;
+            count     = new List<GameObject>();
+        }
+    }
+
+    [SerializeField]
+    AttackInfo[] attackInfo = new AttackInfo[] 
+    {
+        new AttackInfo(EnemyKind.Sword, EnemyKind.Sword.ToString()),
+        new AttackInfo(EnemyKind.Spear, EnemyKind.Spear.ToString()),
+        new AttackInfo(EnemyKind.Arrow, EnemyKind.Arrow.ToString()),
+    };
+
     [SerializeField, Tooltip("敵がフィールドに最大でいられる数")]
     int enemyMaxNumber;
 
@@ -108,22 +146,54 @@ public class EnemyController : MonoBehaviour
         _enemyAttackCount--;
     }
 
+    public bool Attack(GameObject enemy, EnemyKind kind)
+    {
+        //攻撃している数が多ければ何もしない
+        if(IsAttackMax(kind))
+        {
+            return false;
+        }
+
+        attackInfo[(int)kind].count.Add(enemy);
+        return true;
+    }
+
+    public void AttackEnd(GameObject enemy, EnemyKind kind)
+    {
+        attackInfo[(int)kind].count.Remove(enemy);
+    }
+
     // 初期化処理
     void Awake()
     {
-
+        
     }
 
     // 更新前処理
     void Start()
     {
-
+        
     }
 
     // 更新処理
     void Update()
     {
+        //foreach(AttackInfo i in attackInfo)
+        //{
+        //    foreach(GameObject enemy in i.count)
+        //    {
+        //        if(enemy == null)
+        //        {
+        //            enemies.Remove(enemy);
+        //        }
+        //    }
+        //}
+    }
 
+    bool IsAttackMax(EnemyKind kind)
+    {
+        AttackInfo info = attackInfo[(int)kind];
+        return info.count.Count >= info.maxCount;
     }
 
     #endregion
