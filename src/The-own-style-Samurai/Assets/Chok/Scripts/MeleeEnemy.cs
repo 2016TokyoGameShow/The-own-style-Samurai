@@ -66,9 +66,8 @@ public class MeleeEnemy : Enemy
         hit.transform.parent = attackPoint.transform;
     }
 
-    public IEnumerator StartAttack()
+    public void StartAttack()
     {
-        yield return new WaitForSeconds(0.2f);
         Attack();
     }
 

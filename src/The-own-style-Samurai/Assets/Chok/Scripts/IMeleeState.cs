@@ -44,7 +44,7 @@ public class IMeleeState : MonoBehaviour
                 SpecialMove();
                 break;
             case MeleeState.Attack:
-                StartCoroutine(enemy.StartAttack());
+                enemy.StartAttack();
                 break;
         }
     }
@@ -53,7 +53,7 @@ public class IMeleeState : MonoBehaviour
     {
         //待機が終わったら攻撃
         yield return new WaitForSeconds(Random.Range(0, 3));
-        StartCoroutine(enemy.StartAttack());
+        enemy.StartAttack();
     }
 
     protected virtual void SpecialMove() { }

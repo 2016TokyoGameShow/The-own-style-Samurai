@@ -21,6 +21,12 @@ public class KatanaState : IMeleeState
             enemy.GetAnimator.SetFloat("Speed", 1);
             yield return 0;
         }
-        StartCoroutine(enemy.StartAttack());
+        StartCoroutine(Attack());
+    }
+
+    private IEnumerator Attack()
+    {
+        yield return new WaitForSeconds(0.5f);
+        enemy.StartAttack();
     }
 }
