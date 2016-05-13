@@ -46,11 +46,11 @@ public class ShootEnemyEscape : IStateShootEnemy
         RaycastHit hitInfo;
 
 #if UNITY_EDITOR
-        bool ishit = Physics.Raycast(enemy.position, 
-                        enemy.forward ,
-                        out hitInfo   ,
-                        Mathf.Infinity, 
-                        LayerMask.NameToLayer("Wall")
+        bool ishit = Physics.Raycast(enemy.position,
+                                     enemy.forward,
+                                     out hitInfo,
+                                     Mathf.Infinity,
+                                     LayerMask.NameToLayer("Wall")
         );
 
         Debug.Assert(ishit);
@@ -66,12 +66,12 @@ public class ShootEnemyEscape : IStateShootEnemy
         point.y = 0;
 
         context.agent.destination = hitInfo.point;
-    } 
+    }
 
 
     public override void Move()
     {
-        
+
     }
 
     public override void MoveEnd()
@@ -82,17 +82,17 @@ public class ShootEnemyEscape : IStateShootEnemy
 
     public override void TriggerEnter(Collider other)
     {
-        if(other.tag == "Wall")
+        if (other.tag == "Wall")
         {
             //追い詰められたとき
         }
     }
     public override void TriggerExit(Collider other)
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             context.state = new ShootEnemyApproach(context);
         }
     }
-#endregion
+    #endregion
 }

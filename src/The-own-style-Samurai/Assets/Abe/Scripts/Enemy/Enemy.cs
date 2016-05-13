@@ -19,6 +19,9 @@ using System.Collections.Generic;
 [AddComponentMenu("Enemy/Enemy")]
 public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 {
+    [SerializeField, Tooltip("敵の種類")]
+    protected EnemyController.EnemyKind kind;
+
     [SerializeField, Range(0,  10), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     protected float attackWaitTime;
 
@@ -83,23 +86,37 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         StartCoroutine(OnUpdate());
     }
 
-    protected void Attack()
+    protected bool Attack()
     {
         //2重に攻撃のコルーチンを実行しないように
         if (isAttack == true)
-            return;
+        {
+            //攻撃失敗
+            return false;
+        }
+
+        //攻撃している人数が少なければ攻撃可能
+        if(!EnemyController.singleton.Attack(gameObject, kind))
+        {
+            //攻撃失敗
+            return false;
+        }
 
         isAttack = true;
 
         //攻撃準備中に敵を動かす場合はOnAttackReadyUpdateを使う
         StopAllCoroutines();
         StartCoroutine(AttackReady());
+
+        //攻撃成功
+        return true;
     }
 
     protected void AttackCancel()
     {
         //攻撃をキャンセル
         isAttack = false;
+        EnemyController.singleton.AttackEnd(gameObject, kind);
         StartUpdate();
     }
 
@@ -116,6 +133,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Debug.Log(gameObject.name);
         OnAttack();
         EnemyController.singleton.EraseAttackCount();
+        EnemyController.singleton.AttackEnd(gameObject, kind);
         //クールタイムが終わるまで移動も攻撃ができない
         StartCoolTime();
     }
@@ -141,6 +159,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     {
         //敵を吹っ飛ばしてから消去のほうがいいか
         EnemyController.singleton.EraseEnemy(gameObject);
+        EnemyController.singleton.AttackEnd(gameObject, kind);
         EnemyController.singleton.AddDeathCount();
         Destroy(gameObject);
     }
