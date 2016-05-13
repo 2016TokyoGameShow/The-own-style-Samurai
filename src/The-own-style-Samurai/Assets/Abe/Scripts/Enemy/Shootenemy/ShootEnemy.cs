@@ -32,11 +32,18 @@ public class ShootEnemy : Enemy
     [SerializeField, Range(0.0f, 30.0f), Tooltip("攻撃準備時 プレイヤーを向くスピード")]
     float attackRotateSpeed;
 
-    Vector3 rayOffset = new Vector3(0, 0.8f, 0);
+    ShootEnemyContext context;
+
+    public readonly Vector3 rayOffset = new Vector3(0, 0.8f, 0);
 
     #endregion
 
     #region プロパティ
+
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
+    }
 
     #endregion
 
@@ -45,6 +52,10 @@ public class ShootEnemy : Enemy
     protected override void OnStart()
     {
         lineRenderer.enabled = false;
+        context       = new ShootEnemyContext();
+        context.agent = agent;
+        context.enemy = this;
+        context.state = new ShootEnemyApproach(context);
     }
 
     protected override void _OnMove()
@@ -56,16 +67,14 @@ public class ShootEnemy : Enemy
         //敵以外のレイヤーで判定
         if (IsRayHitPlayer(maxDistance, ~(1<<LayerMask.NameToLayer("Enemy")), rayOffset))
         {
+            
             //急に止まらないように
-            agent.destination = transform.position;// + transform.forward;
-            agent.speed = 0;
+            context._OnMoveEnd();
             animator.SetFloat("Speed", agent.speed);
             Attack();
             return;
         }
-
-        agent.destination  = player.transform.position;
-        agent.speed        = moveSpeed;
+        context._OnMove();
         animator.SetFloat("Speed", agent.speed);
     }
 

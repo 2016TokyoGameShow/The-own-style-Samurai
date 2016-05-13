@@ -40,7 +40,11 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     protected Player player;
 
     bool isAttack;
-    Rigidbody rig;
+
+    public Player playerObject
+    {
+        get { return player; }
+    }
 
     protected virtual void OnStart() { }
     protected abstract void OnAttack();
@@ -59,7 +63,6 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
         player = EnemyController.singleton.player;
         EnemyController.singleton.AddEnemy(gameObject);
-        rig = GetComponent<Rigidbody>();
 
         OnStart();
         StartCoroutine(OnUpdate());
@@ -174,10 +177,11 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         });
     }
 
+#if UNITY_EDITOR
     protected new Object Instantiate(Object original, Vector3 position, Quaternion rotation)
     {
         //IWeaponをInstantiateで生成させないように
-#if UNITY_EDITOR
+
         bool isWeapon = original is IWeapon;
         bool isAttachWeapon;
         try
@@ -190,16 +194,17 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
             isAttachWeapon = true;
         }
         Debug.Assert(!(isWeapon) && isAttachWeapon, "武器を生成する場合はCreateWeaponを使用してください");
-#endif
+
         return Object.Instantiate(original, position, rotation);
     }
+#endif
 
     protected GameObject CreateWeapon(IWeapon weapon, Vector3 position, Quaternion rotation)
     {
-        GameObject obj = Object.Instantiate(weapon, position, rotation) as GameObject;
         weapon.attackEnemy = gameObject;
-        return obj;
+        return Object.Instantiate(weapon.gameObject, position, rotation) as GameObject;
     }
+
     protected bool IsRayHitPlayer(float maxDistance, int layerMask)
     {
         return _IsRayHitPlayer((Ray ray, out RaycastHit hitInfo) => 
@@ -239,11 +244,5 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         if (!rayCast(ray, out hitInfo))                  return false;
         if (hitInfo.collider.gameObject.tag != "Player") return false;
         return true;
-    }
-
-    protected virtual void OnCollisionExit(Collision collision)
-    {
-        //滑っていかないように
-        rig.velocity = Vector3.zero;
     }
 }
