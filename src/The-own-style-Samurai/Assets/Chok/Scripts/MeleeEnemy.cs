@@ -18,19 +18,28 @@ public class MeleeEnemy : Enemy
     [SerializeField, Tooltip("アニメーションのコンポーネント")]
     Animator animator;
 
-    [SerializeField, Tooltip("行動パターン")]
+    [SerializeField, HideInInspector]
     EnemyAction eAction;
 
     #endregion
 
+    public Animator GetAnimator
+    {
+        get { return animator; }
+    }
+
     #region メソッド
+    void Awake()
+    {
+        eAction = GetComponent<EnemyAction>();
+    }
     protected override void _OnMove()
     {
         if (IsRayHitPlayer(maxDistance))
         {
             agent.speed = 0;
             animator.SetFloat("Speed", agent.speed);
-            ActionStart();
+            eAction.ActionStart();
             return;
         }
         agent.destination = player.transform.position;
@@ -42,7 +51,7 @@ public class MeleeEnemy : Enemy
     {
         animator.SetTrigger("Attack");
         Instantiate(sign, aboveHead.transform.position, transform.rotation);
-        if(player.isPlayerAttacking())player.SetTarget(this.gameObject);
+        if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
     }
 
     protected override void OnAttackReadyUpdate()
@@ -61,21 +70,8 @@ public class MeleeEnemy : Enemy
     {
         GameObject hit;
 
-        hit = CreateWeapon(weapon,attackPoint.transform.position,attackPoint.transform.rotation);
-        //hit.transform.parent = attackPoint.transform;
-    }
-
-    private void ActionStart()
-    {
-        StopAllCoroutines();
-        StartCoroutine(StartChoose());
-    }
-
-    private IEnumerator StartChoose()
-    {
-        yield return new WaitForSeconds(0.5f);
-        int choose = Random.Range(0, 102);
-        eAction.ActionChoose((choose % 4));
+        hit = CreateWeapon(weapon, attackPoint.transform.position, attackPoint.transform.rotation);
+        hit.transform.parent = attackPoint.transform;
     }
 
     protected override void OnCollisionExit(Collision collision)
