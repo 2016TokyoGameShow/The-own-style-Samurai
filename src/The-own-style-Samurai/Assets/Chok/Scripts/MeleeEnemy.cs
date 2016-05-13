@@ -6,9 +6,6 @@ public class MeleeEnemy : Enemy
 {
 
     #region 変数
-    [SerializeField, Tooltip("攻撃前の信号")]
-    GameObject sign;
-
     [SerializeField, Tooltip("信号を出す位置")]
     GameObject aboveHead;
 
@@ -18,8 +15,8 @@ public class MeleeEnemy : Enemy
     [SerializeField, Tooltip("アニメーションのコンポーネント")]
     Animator animator;
 
-    [SerializeField, HideInInspector]
-    EnemyAction eAction;
+    [SerializeField,Tooltip("行動パターン")]
+    IMeleeState meleeState;
 
     #endregion
 
@@ -29,17 +26,13 @@ public class MeleeEnemy : Enemy
     }
 
     #region メソッド
-    void Awake()
-    {
-        eAction = GetComponent<EnemyAction>();
-    }
     protected override void _OnMove()
     {
         if (IsRayHitPlayer(maxDistance))
         {
             agent.speed = 0;
             animator.SetFloat("Speed", agent.speed);
-            eAction.ActionStart();
+            meleeState.ActionStart();
             return;
         }
         agent.destination = player.transform.position;
@@ -50,7 +43,6 @@ public class MeleeEnemy : Enemy
     protected override void OnAttackReadyStart()
     {
         animator.SetTrigger("Attack");
-        Instantiate(sign, aboveHead.transform.position, transform.rotation);
         if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
     }
 
@@ -72,10 +64,6 @@ public class MeleeEnemy : Enemy
 
         hit = CreateWeapon(weapon, attackPoint.transform.position, attackPoint.transform.rotation);
         hit.transform.parent = attackPoint.transform;
-    }
-
-    protected override void OnCollisionExit(Collision collision)
-    {
     }
 
     public void StartAttack()

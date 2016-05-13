@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
     void Update() {
-        Debug.Log(playerAttacking);
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             StartCoroutine(Attack(player.GetCameraRig().transform.forward));
@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
 
         if ((!playerAttacking) && (enemyTarget != null))
         {
-            player.GetAnimator().SetInteger("katana", 1);
+            //player.GetAnimator().SetInteger("katana", 1);
 
             player.ChangeColor(Color.red);
             player.nonMove = true;
@@ -55,11 +55,12 @@ public class PlayerAttack : MonoBehaviour
 
                 Quaternion rotation = Quaternion.LookRotation(enemyTargetPositon - player.transform.position);
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.5f);
+                //player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                 yield return new WaitForEndOfFrame();
             }
 
             //流す方向に向く
-            while (Vector3.Angle(player.transform.forward, velocity) != 0)
+            while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)
             {
                 Quaternion rotation = Quaternion.LookRotation(velocity);
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.2f);
@@ -68,11 +69,13 @@ public class PlayerAttack : MonoBehaviour
 
             if(enemyTarget != null)Attack();
 
+            yield return new WaitForSeconds(0.5f);
+
             playerAttacking = false;
             player.ChangeColor(Color.white);
             player.nonMove = false;
 
-            player.GetAnimator().SetInteger("katana", 0);
+           // player.GetAnimator().SetInteger("katana", 0);
         }
     }
 
@@ -87,22 +90,29 @@ public class PlayerAttack : MonoBehaviour
     {
         enemyTarget = g;
     }
+
+
     public bool getEnemyTarget(){
         return enemyTarget == null;
     }
 
     private void Attack()
     {
+        RaycastHit hit;
 
-       if (Physics.Raycast(player.transform.position, player.transform.forward * 10, 10))
+        if (Physics.Raycast(player.transform.position, player.transform.forward * 10, out hit))
        {
            print("hit");
-
-           ExecuteEvents.Execute<WeaponHitHandler>(
-            enemyTarget.gameObject,
-            null,
-            (_object, _event) => { _object.OnWeaponHit(1,this.gameObject); }
-            );
+           if (hit.collider.gameObject != enemyTarget)
+           {
+               ExecuteEvents.Execute<WeaponHitHandler>(
+                enemyTarget.gameObject,
+                null,
+                (_object, _event) => { _object.OnWeaponHit(1, this.gameObject); }
+                );
+           }
        }
+
+       enemyTarget = null;
     }
 }

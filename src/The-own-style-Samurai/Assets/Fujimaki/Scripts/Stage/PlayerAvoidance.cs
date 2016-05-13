@@ -40,7 +40,7 @@ public class PlayerAvoidance : MonoBehaviour {
     {
 
         player.ChangeColor(Color.blue);
-        player.GetAnimator().SetBool("bow", true);
+       // player.GetAnimator().SetBool("bow", true);
         player.nonMove = true;
         float moveTime = 0.3f;
 
@@ -53,7 +53,7 @@ public class PlayerAvoidance : MonoBehaviour {
         }
 
         player.ChangeColor(Color.white);
-        player.GetAnimator().SetBool("bow", false);
+       // player.GetAnimator().SetBool("bow", false);
         player.nonMove = false;
         avoidanceAction = null;
     }
