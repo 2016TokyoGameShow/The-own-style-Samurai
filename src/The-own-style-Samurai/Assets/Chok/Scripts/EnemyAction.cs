@@ -6,9 +6,9 @@ public class EnemyAction : MonoBehaviour
 
     public enum EnemyState      //敵の状態
     {
-        Attack,                 //攻撃
         StandBy,                //待機
         RotateAround,          //プレイヤーを中心に回る
+        Attack,                 //攻撃
         StepBack
     }
 
@@ -23,7 +23,7 @@ public class EnemyAction : MonoBehaviour
     public void ActionStart()
     {
         enemy.StopAllCoroutines();
-        StartCoroutine(StartChoose());
+        enemy.StartCoroutine(StartChoose());
     }
 
     public IEnumerator StartChoose()
@@ -47,7 +47,7 @@ public class EnemyAction : MonoBehaviour
                 StartRotate();
                 break;
             case EnemyState.Attack:
-                enemy.StartAttack();
+                StartCoroutine(enemy.StartAttack());
                 break;
             case EnemyState.StepBack:
                 StartCoroutine(StepBack());
@@ -58,7 +58,7 @@ public class EnemyAction : MonoBehaviour
     private IEnumerator StandBy()
     {
         yield return new WaitForSeconds(Random.Range(0, 3));
-        enemy.StartAttack();
+        StartCoroutine(enemy.StartAttack());
     }
 
     private void StartRotate()
@@ -73,22 +73,26 @@ public class EnemyAction : MonoBehaviour
 
     IEnumerator RotateAroundPlayer(Vector3 rotateOrigin, float time, float angle)
     {
-        for (float rotateTime = 0; rotateTime <= time; rotateTime += Time.deltaTime)
+        for (float rotateTime = 0; rotateTime <= 0.06; rotateTime += Time.deltaTime)
         {
-            transform.RotateAround(rotateOrigin, Vector3.up, angle);
+            transform.RotateAround(rotateOrigin, Vector3.up, 15.0f);
+            enemy.GetAnimator.SetFloat("Speed", 1);
             yield return 0;
         }
-        enemy.StartAttack();
+        StartCoroutine(enemy.StartAttack());
     }
 
     IEnumerator StepBack()
     {
-        for (float i = 0; i < 2; i += Time.deltaTime)
+        for (float i = 0; i < 0.06; i += Time.deltaTime)
         {
-            transform.position += -transform.forward / 200;
+            for (int j = 0; j < 5; ++j)
+            {
+                transform.position += -transform.forward / 10;
+            }
             yield return 0;
         }
-        enemy.StartAttack();
+        StartCoroutine(enemy.StartAttack());
     }
 
 }

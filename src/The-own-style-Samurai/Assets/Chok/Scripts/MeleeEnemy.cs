@@ -74,12 +74,9 @@ public class MeleeEnemy : Enemy
         hit.transform.parent = attackPoint.transform;
     }
 
-    protected override void OnCollisionExit(Collision collision)
+    public IEnumerator StartAttack()
     {
-    }
-
-    public void StartAttack()
-    {
+        yield return new WaitForSeconds(0.2f);
         Attack();
     }
 
