@@ -42,6 +42,11 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     bool isAttack;
     Rigidbody rig;
 
+    public Player playerObject
+    {
+        get { return player; }
+    }
+
     protected virtual void OnStart() { }
     protected abstract void OnAttack();
     protected virtual void OnAttackReadyStart() { }
@@ -196,9 +201,8 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     protected GameObject CreateWeapon(IWeapon weapon, Vector3 position, Quaternion rotation)
     {
-        GameObject obj = Object.Instantiate(weapon, position, rotation) as GameObject;
         weapon.attackEnemy = gameObject;
-        return obj;
+        return Object.Instantiate(weapon.gameObject, position, rotation) as GameObject;
     }
     protected bool IsRayHitPlayer(float maxDistance, int layerMask)
     {
