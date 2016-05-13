@@ -12,8 +12,26 @@ public class EnemyAction : MonoBehaviour
         StepBack
     }
 
-    [SerializeField]
+    [SerializeField, HideInInspector]
     MeleeEnemy enemy;
+
+    void Start()
+    {
+        enemy = GetComponent<MeleeEnemy>();
+    }
+
+    public void ActionStart()
+    {
+        enemy.StopAllCoroutines();
+        StartCoroutine(StartChoose());
+    }
+
+    public IEnumerator StartChoose()
+    {
+        yield return new WaitForSeconds(0.5f);
+        int choose = Random.Range(0, 102);
+        ActionChoose((choose % 4));
+    }
 
     public void ActionChoose(int state)
     {
@@ -22,6 +40,7 @@ public class EnemyAction : MonoBehaviour
         switch (eState)
         {
             case EnemyState.StandBy:
+                enemy.GetAnimator.SetFloat("Speed", -1);
                 StartCoroutine(StandBy());
                 break;
             case EnemyState.RotateAround:
