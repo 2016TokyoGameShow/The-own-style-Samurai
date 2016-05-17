@@ -17,7 +17,7 @@ using System.Collections.Generic;
 [AddComponentMenu("Enemy/Weapon/IWeapon")]
 public class IShootWeapon : IWeapon
 {
-    [SerializeField, Range(0, 10), Tooltip("飛道具の速さ")]
+    [SerializeField, Range(0, 100), Tooltip("飛道具の速さ")]
     float speed;
 
     protected virtual void Awake()
@@ -47,7 +47,7 @@ public class IShootWeapon : IWeapon
         //撃った方向に飛ぶ
         for (float time = 0; time <= objectLifeTime; time += Time.deltaTime)
         {
-            transform.position += transform.forward * speed;
+            transform.position += transform.forward * speed * Time.deltaTime;
             yield return null;
         }
         Destroy(gameObject);

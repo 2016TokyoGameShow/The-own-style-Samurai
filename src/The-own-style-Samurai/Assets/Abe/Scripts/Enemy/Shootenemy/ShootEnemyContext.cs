@@ -34,14 +34,4 @@ public class ShootEnemyContext
     {
         state.MoveEnd();
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        state.TriggerEnter(other);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        state.TriggerExit(other);
-    }
 }

@@ -43,35 +43,29 @@ public class ShootEnemyEscape : IStateShootEnemy
         enemy  = context.enemy.transform;
         player = context.enemy.playerObject.transform;
 
-        RaycastHit hitInfo;
-
-#if UNITY_EDITOR
-        bool ishit = Physics.Raycast(enemy.position,
-                                     enemy.forward,
-                                     out hitInfo,
-                                     Mathf.Infinity,
-                                     LayerMask.NameToLayer("Wall")
-        );
-
-        Debug.Assert(ishit);
-#else
-        Physics.Raycast(enemy.position, 
-                        enemy.forward ,
-                        out hitInfo   ,
-                        Mathf.Infinity, 
-                        LayerMask.NameToLayer("Wall")
-        );
-#endif
-        Vector3 point = hitInfo.point;
-        point.y = 0;
-
-        context.agent.destination = hitInfo.point;
+        //前のパスに影響されて正常に逃げてくれないため
+        context.agent.ResetPath();
     }
 
 
     public override void Move()
     {
+        Vector3 dir = context.enemy.transform.position - player.transform.position;
+        dir.y = 0;
+        dir.Normalize();
 
+        //手動で動かす
+        context.agent.Move(((ShootEnemy)context.enemy).EscapeMoveSpeed * dir * Time.deltaTime);
+
+        //回転
+        Quaternion from = context.enemy.transform.rotation;
+        Quaternion to   = Quaternion.LookRotation(dir);
+        context.enemy.transform.rotation = Quaternion.RotateTowards(from, to, context.agent.angularSpeed * Time.deltaTime);
+
+        if(Vector3.Distance(player.position, context.enemy.transform.position) >= 15)
+        {
+            context.state = new ShootEnemyApproach(context);
+        }
     }
 
     public override void MoveEnd()
@@ -80,19 +74,5 @@ public class ShootEnemyEscape : IStateShootEnemy
         context.agent.speed = 0;
     }
 
-    public override void TriggerEnter(Collider other)
-    {
-        if (other.tag == "Wall")
-        {
-            //追い詰められたとき
-        }
-    }
-    public override void TriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            context.state = new ShootEnemyApproach(context);
-        }
-    }
     #endregion
 }
