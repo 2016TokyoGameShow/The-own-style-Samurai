@@ -80,10 +80,10 @@ public class IMeleeState : MonoBehaviour
             enemy.GetAnimator.SetFloat("Speed", 1);
             yield return 0;
         }
-        StartCoroutine(Attack());
+        StartCoroutine(StopBeforeAttack());
     }
 
-    private IEnumerator Attack()
+    private IEnumerator StopBeforeAttack()
     {
         yield return new WaitForSeconds(0.5f);
         enemy.StartAttack();

@@ -39,7 +39,6 @@ public class EnemyGenerator : MonoBehaviour {
 
     void Reset()
     {
-        Debug.Log(EnemyController.singleton.enemyDeathCount);
         StopAllCoroutines();
         StartCoroutine(GenerateEnemy());
     }
