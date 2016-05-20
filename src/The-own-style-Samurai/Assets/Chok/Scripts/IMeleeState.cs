@@ -30,7 +30,7 @@ public class IMeleeState : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         int choose = Random.Range(0, 102);
-        ActionChoose((choose % 4));
+        ActionChoose((0));
     }
 
     private void ActionChoose(int state)
@@ -80,10 +80,10 @@ public class IMeleeState : MonoBehaviour
             enemy.GetAnimator.SetFloat("Speed", 1);
             yield return 0;
         }
-        StartCoroutine(Attack());
+        StartCoroutine(StopBeforeAttack());
     }
 
-    private IEnumerator Attack()
+    private IEnumerator StopBeforeAttack()
     {
         yield return new WaitForSeconds(0.5f);
         enemy.StartAttack();
