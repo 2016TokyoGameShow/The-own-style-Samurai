@@ -42,15 +42,17 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
 	void Update () {
 
-
-        Vector3 moveVelocity = Vector3.zero;
-
-        //入力から移動ベクトルを計算して移動
-        if (!nonMove)
+        if (hp > 0)
         {
-            moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
-            moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
-            CharacterMove(moveVelocity, speed);
+            Vector3 moveVelocity = Vector3.zero;
+
+            //入力から移動ベクトルを計算して移動
+            if (!nonMove)
+            {
+                moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
+                moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
+                CharacterMove(moveVelocity, speed);
+            }
         }
 	}
     //最大HPを取得
