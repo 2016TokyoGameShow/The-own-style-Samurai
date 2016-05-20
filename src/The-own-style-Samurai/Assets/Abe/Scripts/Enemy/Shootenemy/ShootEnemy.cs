@@ -73,9 +73,8 @@ public class ShootEnemy : Enemy
 #endif
 
         //敵以外のレイヤーで判定
-        if (IsRayHitPlayer(maxDistance, ~(1<<LayerMask.NameToLayer("Enemy")), rayOffset))
+        if (IsRayHitPlayer(maxDistance, ~(1 << LayerMask.NameToLayer("Enemy")), rayOffset))
         {
-            
             //急に止まらないように
             context._OnMoveEnd();
             animator.SetFloat("Speed", agent.speed);

@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
         //[HideInInspector]
         public EnemyKind kind;
 
-       // [HideInInspector]
+        //[HideInInspector]
         public List<GameObject> count;
 
         [SerializeField]
@@ -67,8 +67,8 @@ public class EnemyController : MonoBehaviour
     };
 
     [SerializeField, Tooltip("敵がフィールドに最大でいられる数")]
-    int enemyMaxNumber;
-
+    int _enemyMaxNumber;
+    
     int _enemyNumber;
 
     int _enemyDeathCount;
@@ -103,6 +103,11 @@ public class EnemyController : MonoBehaviour
     public int enemyAttackCount
     {
         get { return _enemyAttackCount; }
+    }
+
+    public int enemyMaxNumber
+    {
+        get { return _enemyMaxNumber; }
     }
     
     #endregion
