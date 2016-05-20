@@ -30,7 +30,7 @@ public class IMeleeState : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         int choose = Random.Range(0, 102);
-        ActionChoose((choose % 4));
+        ActionChoose((0));
     }
 
     private void ActionChoose(int state)
