@@ -40,9 +40,11 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator Attack(Vector3 velocity) {
 
 
+
         if ((!playerAttacking) && (enemyTarget != null))
         {
             //player.GetAnimator().SetInteger("katana", 1);
+            player.UpFinisherGage(0.1f);
 
             player.ChangeColor(Color.red);
             player.nonMove = true;
