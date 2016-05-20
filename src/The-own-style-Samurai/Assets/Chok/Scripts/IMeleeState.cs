@@ -30,7 +30,7 @@ public class IMeleeState : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         int choose = Random.Range(0, 102);
-        ActionChoose((0));
+        ActionChoose((2));
     }
 
     private void ActionChoose(int state)
@@ -85,7 +85,7 @@ public class IMeleeState : MonoBehaviour
 
     private IEnumerator StopBeforeAttack()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         enemy.StartAttack();
     }
 }

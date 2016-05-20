@@ -21,12 +21,13 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     private PlayerAvoidance playerAvoidance;
 
     private int hp;
-    private float finisherGageValue;
 
     private UIController uiController;
     private Vector3 saveMoveVelocity;
     private Vector3 targetVelocity;
     public bool nonMove;
+
+    private float finisherGage;
 
 
 
@@ -35,25 +36,23 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
 	void Start () {
         uiController = stageController.uiController;
+        UpFinisherGage(0);
         hp = maxHP;
 	}
 
 	void Update () {
 
-        //枚フレームちょっとだけ必殺ゲージを貯める
-        finisherGageValue += Time.deltaTime / 30;
-        finisherGageValue = Mathf.Clamp(finisherGageValue, 0, 1);
-        uiController.SetFinisherGage(finisherGageValue);
-
-
-        Vector3 moveVelocity = Vector3.zero;
-
-        //入力から移動ベクトルを計算して移動
-        if (!nonMove)
+        if (hp > 0)
         {
-            moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
-            moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
-            CharacterMove(moveVelocity, speed);
+            Vector3 moveVelocity = Vector3.zero;
+
+            //入力から移動ベクトルを計算して移動
+            if (!nonMove)
+            {
+                moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
+                moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
+                CharacterMove(moveVelocity, speed);
+            }
         }
 	}
     //最大HPを取得
@@ -116,5 +115,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     public Animator GetAnimator()
     {
         return animator;
+    }
+
+    public void UpFinisherGage(float value)
+    {
+        finisherGage += value;
+        uiController.SetFinisherGage(finisherGage);
     }
 }
