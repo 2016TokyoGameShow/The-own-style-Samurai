@@ -1,16 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 
 [AddComponentMenu("Enemy/Enemygenerator")]
-public class EnemyGenerator : MonoBehaviour {
+public class EnemyGenerator : MonoBehaviour
+{
 
     [SerializeField, Tooltip("敵の種類")]
     List<Enemy> enemies;
 
-    [SerializeField,Tooltip("敵生成位置")]
+    [SerializeField, Tooltip("敵生成位置")]
     List<GameObject> portal;
+
+    //[System.Serializable]
+    //struct addEnemyInterval
+    //{
+    //    public int enemyMax;
+    //    public List<int> interval;
+    //}
+
+    //[SerializeField]
+    //List<addEnemyInterval> _addEnemyInterval;
+
 
     void Start()
     {
@@ -24,7 +35,7 @@ public class EnemyGenerator : MonoBehaviour {
         {
             //敵の種類(3:1)(近距離：遠距離)で生成
             int enemyType = Random.Range(0, 4);
-            if (enemyType != 1) enemyType = 0;
+            if (enemyType != 0) enemyType = 1;
             //生成位置
             int initialPos = Random.Range(0, portal.Count);
             Instantiate(
@@ -33,7 +44,7 @@ public class EnemyGenerator : MonoBehaviour {
                 portal[initialPos].transform.rotation
                 );
         }
-            
+
         Reset();
     }
 
