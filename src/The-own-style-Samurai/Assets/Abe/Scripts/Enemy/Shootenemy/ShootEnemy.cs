@@ -32,6 +32,9 @@ public class ShootEnemy : Enemy
     [SerializeField, Range(0.0f, 30.0f), Tooltip("攻撃準備時 プレイヤーを向くスピード")]
     float attackRotateSpeed;
 
+    [SerializeField]
+    float escapeMoveSpeed;
+
     ShootEnemyContext context;
 
     public readonly Vector3 rayOffset = new Vector3(0, 0.8f, 0);
@@ -43,6 +46,11 @@ public class ShootEnemy : Enemy
     public float MoveSpeed
     {
         get { return moveSpeed; }
+    }
+
+    public float EscapeMoveSpeed
+    {
+        get { return escapeMoveSpeed; }
     }
 
     #endregion

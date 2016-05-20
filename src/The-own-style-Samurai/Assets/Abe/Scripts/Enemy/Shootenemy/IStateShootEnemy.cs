@@ -21,6 +21,4 @@ public abstract class IStateShootEnemy
 
     public abstract void Move();
     public abstract void MoveEnd();
-    public abstract void TriggerEnter(Collider other);
-    public abstract void TriggerExit(Collider other);
 }

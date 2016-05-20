@@ -51,6 +51,10 @@ public class ShootEnemyApproach : IStateShootEnemy
     {
         agent.destination = player.position;
         agent.speed       = ((ShootEnemy)context.enemy).MoveSpeed;
+        if(Vector3.Distance(player.position, context.enemy.transform.position) <= 10)
+        {
+            context.state = new ShootEnemyEscape(context);
+        }
     }
 
     public override void MoveEnd()
@@ -59,17 +63,5 @@ public class ShootEnemyApproach : IStateShootEnemy
         agent.speed = 0;
     }
 
-    public override void TriggerEnter(Collider other)
-    {
-        if(other.tag == "Player")
-        {
-            context.state = new ShootEnemyEscape(context);
-        }
-    }
-
-    public override void TriggerExit(Collider other)
-    {
-        
-    }
     #endregion
 }
