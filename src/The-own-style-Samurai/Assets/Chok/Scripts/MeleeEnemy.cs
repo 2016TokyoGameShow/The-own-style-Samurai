@@ -4,7 +4,6 @@ using System.Collections;
 [AddComponentMenu("Enemy/MeleeEnemy")]
 public class MeleeEnemy : Enemy
 {
-
     #region 変数
     [SerializeField, Tooltip("信号を出す位置")]
     GameObject aboveHead;
