@@ -22,14 +22,6 @@ public class EnemyController : MonoBehaviour
 
     public static EnemyController singleton;
 
-    [Serializable]
-    struct info
-    {
-        public int max;
-        public float time;
-    }
-
-
     [SerializeField]
     Player _player;
 
@@ -44,34 +36,31 @@ public class EnemyController : MonoBehaviour
     }
 
     [Serializable]
-    class AttackInfo
+    class Info
     {
-        //[HideInInspector]
         public EnemyKind kind;
 
-        //[HideInInspector]
-        public List<GameObject> count;
+        public List<GameObject> attackCount;
 
-        [SerializeField]
-        public string str;
+        public int attackMaxCount;
 
-        [SerializeField]
-        public int maxCount;
+        public int maxNumber;
 
-        public AttackInfo(EnemyKind kind, string str)
+        public int number;
+
+        public Info(EnemyKind kind)
         {
             this.kind = kind;
-            this.str  = str;
-            count     = new List<GameObject>();
+            attackCount     = new List<GameObject>();
         }
     }
 
     [SerializeField]
-    AttackInfo[] attackInfo = new AttackInfo[] 
+    Info[] enemyInfo = new Info[] 
     {
-        new AttackInfo(EnemyKind.Sword, EnemyKind.Sword.ToString()),
-        new AttackInfo(EnemyKind.Spear, EnemyKind.Spear.ToString()),
-        new AttackInfo(EnemyKind.Arrow, EnemyKind.Arrow.ToString()),
+        new Info(EnemyKind.Sword),
+        new Info(EnemyKind.Spear),
+        new Info(EnemyKind.Arrow),
     };
 
     [SerializeField, Tooltip("敵がフィールドに最大でいられる数")]
@@ -129,14 +118,19 @@ public class EnemyController : MonoBehaviour
         singleton = this;
     }
 
-    public void AddEnemy(GameObject enemy)
+    public void AddEnemy(GameObject enemy, EnemyKind kind)
     {
+        
         enemies.Add(enemy);
+        enemyInfo[(int)kind].number++;
     }
 
-    public void EraseEnemy(GameObject enemy)
+    public void EraseEnemy(GameObject enemy, EnemyKind kind)
     {
-        enemies.Remove(enemy);
+        if(enemies.Remove(enemy))
+        {
+            enemyInfo[(int)kind].number--;
+        }
     }
 
     public void AddDeathCount()
@@ -167,13 +161,13 @@ public class EnemyController : MonoBehaviour
             return false;
         }
 
-        attackInfo[(int)kind].count.Add(enemy);
+        enemyInfo[(int)kind].attackCount.Add(enemy);
         return true;
     }
 
     public void AttackEnd(GameObject enemy, EnemyKind kind)
     {
-        attackInfo[(int)kind].count.Remove(enemy);
+        enemyInfo[(int)kind].attackCount.Remove(enemy);
     }
 
     // 初期化処理
@@ -205,9 +199,13 @@ public class EnemyController : MonoBehaviour
 
     bool IsAttackMax(EnemyKind kind)
     {
-        AttackInfo info = attackInfo[(int)kind];
-        return info.count.Count >= info.maxCount;
+        Info info = enemyInfo[(int)kind];
+        return info.attackCount.Count >= info.attackMaxCount;
     }
 
+    bool IsMaxNumber(EnemyKind kind)
+    {
+         return enemyInfo[(int)kind].number >= enemyInfo[(int)kind].maxNumber;
+    }
     #endregion
 }

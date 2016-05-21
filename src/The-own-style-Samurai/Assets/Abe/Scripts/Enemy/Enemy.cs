@@ -65,7 +65,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Debug.Assert(EnemyController.singleton != null, "EnemyControllerがありません");
 
         player = EnemyController.singleton.player;
-        EnemyController.singleton.AddEnemy(gameObject);
+        EnemyController.singleton.AddEnemy(gameObject, kind);
 
         OnStart();
         StartCoroutine(OnUpdate());
@@ -158,7 +158,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     protected virtual void Dead()
     {
         //敵を吹っ飛ばしてから消去のほうがいいか
-        EnemyController.singleton.EraseEnemy(gameObject);
+        EnemyController.singleton.EraseEnemy(gameObject, kind);
         EnemyController.singleton.AttackEnd(gameObject, kind);
         EnemyController.singleton.AddDeathCount();
         Destroy(gameObject);
