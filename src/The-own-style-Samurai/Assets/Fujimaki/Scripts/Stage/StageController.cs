@@ -9,16 +9,12 @@ public class StageController : MonoBehaviour {
     private UIController mUiController;
     [SerializeField]
     private ParticleController mParticleController;
+    [SerializeField]
+    private EnemyController mEnemyController;
 
     public Player player { get { return mPlayer; }}
     public UIController uiController { get { return mUiController;}}
     public ParticleController particleController { get { return mParticleController; } }
-	void Start () {
-	
-	}
-	
 
-	void Update () {
-	
-	}
+    public EnemyController enemycontroller {get { return mEnemyController; } }
 }
