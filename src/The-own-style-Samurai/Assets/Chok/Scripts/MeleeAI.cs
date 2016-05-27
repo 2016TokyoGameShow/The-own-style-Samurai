@@ -32,6 +32,13 @@ public class MeleeAI : MonoBehaviour
         return targetAngle[num];
     }
 
+    public void MoveTowardsTarget(NavMeshAgent agent,Vector3 target,float moveSpeed,Animator animator)
+    {
+        agent.destination = target;
+        agent.speed = moveSpeed;
+        animator.SetFloat("Speed", agent.speed);
+    }
+
     public bool IsRayHitEnemy(Vector3 position, Vector3 direction)
     {
         Ray ray = new Ray(position, direction);
@@ -57,10 +64,10 @@ public class MeleeAI : MonoBehaviour
         return IsRayHit(transform.position, directionToPlayer, maxDistance, "Player");
     }
 
-    public bool CanRayHitPlayer(Vector3 player)
+    public bool CanRayHitPlayer(Vector3 player,float maxDistance)
     {
         if (!IsPlayerInViewingAngle(player)) return false;
-        if (!IsRayHitPlayer(player, rayDistance)) return false;
+        if (!IsRayHitPlayer(player, maxDistance)) return false;
         return true;
     }
 

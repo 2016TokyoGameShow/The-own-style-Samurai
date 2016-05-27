@@ -3,6 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 
 [AddComponentMenu("Enemy/Enemygenerator")]
+public enum MeleeState
+{
+    NORMAL,
+    ATTACKREADY
+}
+
 public class EnemyGenerator : MonoBehaviour
 {
     public static EnemyGenerator singleton;

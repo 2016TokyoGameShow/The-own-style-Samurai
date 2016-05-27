@@ -18,14 +18,14 @@ public class MeleeEnemy : Enemy
     MeleeAI m_AI;
 
     private float speed;
-    private float angle;
+    private MeleeState state;
     #endregion
 
     #region メソッド
     void Awake()
     {
         speed = Random.Range(2, 5);
-        angle = Random.Range(-5, 6);
+        state = MeleeState.NORMAL;
     }
     protected override void _OnMove()
     {
@@ -38,9 +38,9 @@ public class MeleeEnemy : Enemy
         //        return;
         //    }
         //}
-        if (m_AI.CanRayHitPlayer(player.transform.position))
+        if (m_AI.CanRayHitPlayer(player.transform.position,5))
         {
-            if (Vector3.Distance(transform.position, player.transform.position) < 6.0f)
+            if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
             {
                 transform.position += -transform.forward / 50;
                 return;
@@ -50,7 +50,7 @@ public class MeleeEnemy : Enemy
             StartRotate();
             return;
         }
-        MoveTowardPlayer();
+        m_AI.MoveTowardsTarget(agent, player.transform.position, speed, animator);
     }
 
     void StartRotate()
@@ -68,6 +68,7 @@ public class MeleeEnemy : Enemy
             transform.RotateAround(target, Vector3.up, rotate);
             yield return null;
         }
+        animator.SetFloat("Speed", -1);
         StartStandBy();
     }
 
@@ -78,6 +79,7 @@ public class MeleeEnemy : Enemy
     }
     IEnumerator StandBy()
     {
+        state = MeleeState.ATTACKREADY;
         while (true)
         {
             WaitForAttack();
@@ -87,30 +89,26 @@ public class MeleeEnemy : Enemy
 
     void WaitForAttack()
     {
-        if (IsRayHitPlayer(6))
-        {
-            return;
-        }
-        //StartCoolTime();
-        //if (!EnemyController.singleton.Attack(gameObject, kind)) return;
-        //if (IsRayHitPlayer(maxDistance))
-        //{
-        //    agent.speed = 0;
-        //    Attack();
-        //    return;
-        //}
-        //MoveTowardPlayer();
+        if (m_AI.CanRayHitPlayer(player.transform.position,8)) return;
+        StartCoolTime();
     }
 
-    void MoveTowardPlayer()
+    public void StartAttack()
     {
-        agent.destination = player.transform.position;
-        agent.speed = speed;
-        animator.SetFloat("Speed", agent.speed);
+        if (state != MeleeState.ATTACKREADY) return;
+        StopAllCoroutines();
+        if (IsRayHitPlayer(maxDistance))
+        {
+            agent.speed = 0;
+            animator.SetFloat("Speed", -1);
+            Attack();
+        }
+        m_AI.MoveTowardsTarget(agent, player.transform.position, speed, animator);
     }
 
     protected override void OnAttackReadyStart()
     {
+        state = MeleeState.NORMAL;
         animator.SetTrigger("Attack");
         if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
     }
