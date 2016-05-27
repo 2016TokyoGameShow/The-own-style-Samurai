@@ -84,7 +84,7 @@ public class MeleeEnemy : Enemy
     }
 
     //このメソットを呼べば、攻撃開始
-    public void StartAttack()
+    public override void AttackEnemy()
     {
         if (state != MeleeState.ATTACKREADY) return;
         StopAllCoroutines();
