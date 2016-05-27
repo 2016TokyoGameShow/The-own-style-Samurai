@@ -9,9 +9,6 @@ public class MeleeAI : MonoBehaviour
     [SerializeField, Tooltip("見る角度")]
     float m_Angle;
 
-    [SerializeField, Tooltip("Ray距離")]
-    float rayDistance;
-
     [SerializeField]
     float[] targetAngle;
 
@@ -27,11 +24,13 @@ public class MeleeAI : MonoBehaviour
 
     }
 
+    //移動する角度を取得
     public float GetAngle(int num)
     {
         return targetAngle[num];
     }
 
+    //目標まで移動
     public void MoveTowardsTarget(NavMeshAgent agent,Vector3 target,float moveSpeed,Animator animator)
     {
         agent.destination = target;
@@ -49,6 +48,7 @@ public class MeleeAI : MonoBehaviour
         return (hit && hitInfo.collider.tag == "Enemy");
     }
 
+    //プレイヤーが視角内か？
     public bool IsPlayerInViewingAngle(Vector3 player)
     {
         Vector3 directionToPlayer = player - transform.position;
@@ -56,6 +56,7 @@ public class MeleeAI : MonoBehaviour
         return (Mathf.Abs(angleToPlayer) <= m_Angle);
     }
 
+    //レイがプレイやに当たったか？
     public bool IsRayHitPlayer(Vector3 player, float maxDistance)
     {
         Vector3 directionToPlayer = player - transform.position;
@@ -86,6 +87,7 @@ public class MeleeAI : MonoBehaviour
         return (hit && hitInfo.collider.tag == tag);
     }
 
+    //目標からの角度
     public float AngleFromTarget(Vector3 target)
     {
         float directionX = target.x - transform.position.x;
@@ -97,15 +99,7 @@ public class MeleeAI : MonoBehaviour
         return angle;
     }
 
-    public IEnumerator RotateAroundTarget(Vector3 target,float angle)
-    {
-        while(AngleFromTarget(target)!= angle)
-        {
-            transform.RotateAround(target, Vector3.up, 2.0f);
-            yield return null;
-        }
-    }
-
+    //左か右か回転方向選択
     public float RotateLeftOrRight(float selfAngle,float targetAngle)
     {
         if (selfAngle - targetAngle > 0 ||

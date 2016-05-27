@@ -17,35 +17,25 @@ public class MeleeEnemy : Enemy
     [SerializeField]
     MeleeAI m_AI;
 
-    private float speed;
-    private MeleeState state;
+    private float speed;            // 移動速度
+    private MeleeState state;       //攻撃可能かどうかの状態
     #endregion
 
     #region メソッド
     void Awake()
     {
-        speed = Random.Range(2, 5);
-        state = MeleeState.NORMAL;
+        speed = Random.Range(2, 5);     //スピードをランダム
+        state = MeleeState.NORMAL;      //普通状態（攻撃不能）
     }
     protected override void _OnMove()
     {
-        //if (m_AI.IsRayHitEnemy(transform.position, transform.right) ||
-        //    m_AI.IsRayHitEnemy(transform.position, transform.forward))
-        //{
-        //    for (float i = 0; i <= 1.0f; i += Time.deltaTime)
-        //    {
-        //        transform.RotateAround(player.transform.position, Vector3.up, angle);
-        //        return;
-        //    }
-        //}
-        if (m_AI.CanRayHitPlayer(player.transform.position,5))
+        if (m_AI.CanRayHitPlayer(player.transform.position, 5))
         {
             if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
             {
                 transform.position += -transform.forward / 50;
                 return;
             }
-            //StartStandBy();
             agent.speed = 0;
             StartRotate();
             return;
@@ -89,10 +79,11 @@ public class MeleeEnemy : Enemy
 
     void WaitForAttack()
     {
-        if (m_AI.CanRayHitPlayer(player.transform.position,8)) return;
+        if (m_AI.CanRayHitPlayer(player.transform.position, 8)) return;
         StartCoolTime();
     }
 
+    //このメソットを呼べば、攻撃開始
     public void StartAttack()
     {
         if (state != MeleeState.ATTACKREADY) return;
