@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 8028dc5aaeace73449c1d64f215b331d
+timeCreated: 1464068758
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 0.!joint_subetenooya
+    100002: 1.joint_bone2
+    100004: 10.!joint_bone6_end
+    100006: 11.!joint_bone1_end
+    100008: 12.!Root
+    100010: 2.joint_bone1
+    100012: 3.joint_bone3
+    100014: 4.!joint_bone3_end
+    100016: 5.joint_bone4
+    100018: 6.!joint_bone4_end
+    100020: 7.joint_bone5
+    100022: 8.!joint_bone5_end
+    100024: 9.joint_bone6
+    100026: //RootNode
+    100028: U_Char
+    400000: 0.!joint_subetenooya
+    400002: 1.joint_bone2
+    400004: 10.!joint_bone6_end
+    400006: 11.!joint_bone1_end
+    400008: 12.!Root
+    400010: 2.joint_bone1
+    400012: 3.joint_bone3
+    400014: 4.!joint_bone3_end
+    400016: 5.joint_bone4
+    400018: 6.!joint_bone4_end
+    400020: 7.joint_bone5
+    400022: 8.!joint_bone5_end
+    400024: 9.joint_bone6
+    400026: //RootNode
+    400028: U_Char
+    4300000: U_Char
+    7400000: Boss_attack.vmd
+    9500000: //RootNode
+    13700000: U_Char
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Boss_attack.vmd
+      takeName: Boss_attack.vmd
+      firstFrame: 0
+      lastFrame: 27
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.9920635
+        functionName: AttackAnimatorEvent
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: c63d0638418e0ff47942f6f8545a4569,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: 12.!Root
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2/2.joint_bone1
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2/2.joint_bone1/11.!joint_bone1_end
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2/3.joint_bone3
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2/3.joint_bone3/4.!joint_bone3_end
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2/5.joint_bone4
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/1.joint_bone2/5.joint_bone4/6.!joint_bone4_end
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/7.joint_bone5
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/7.joint_bone5/8.!joint_bone5_end
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/9.joint_bone6
+        weight: 1
+      - path: 12.!Root/0.!joint_subetenooya/9.joint_bone6/10.!joint_bone6_end
+        weight: 1
+      - path: U_Char
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
