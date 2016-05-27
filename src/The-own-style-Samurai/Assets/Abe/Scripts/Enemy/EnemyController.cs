@@ -22,6 +22,14 @@ public class EnemyController : MonoBehaviour
 
     public static EnemyController singleton;
 
+    [Serializable]
+    struct info
+    {
+        public int max;
+        public float time;
+    }
+
+
     [SerializeField]
     Player _player;
 
