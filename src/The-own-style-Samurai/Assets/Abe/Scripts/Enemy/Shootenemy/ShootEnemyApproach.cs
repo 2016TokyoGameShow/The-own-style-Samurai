@@ -25,7 +25,6 @@ public class ShootEnemyApproach : IStateShootEnemy
     Transform player;
 
     NavMeshAgent agent;
-    
 
     #endregion
 
@@ -60,7 +59,7 @@ public class ShootEnemyApproach : IStateShootEnemy
     public override void MoveEnd()
     {
         agent.destination = context.enemy.transform.position;
-        agent.speed = 0;
+        agent.speed       = 0;
     }
 
     #endregion

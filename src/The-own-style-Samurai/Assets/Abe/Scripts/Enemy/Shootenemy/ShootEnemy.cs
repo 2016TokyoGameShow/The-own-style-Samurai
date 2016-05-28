@@ -75,13 +75,16 @@ public class ShootEnemy : Enemy
         //敵以外のレイヤーで判定
         if (IsRayHitPlayer(maxDistance, ~(1 << LayerMask.NameToLayer("Enemy")), rayOffset))
         {
-            //急に止まらないように
-            context._OnMoveEnd();
-            animator.SetFloat("Speed", agent.speed);
             Attack();
             return;
         }
         context._OnMove();
+        animator.SetFloat("Speed", agent.speed);
+    }
+
+    protected override void _OnMoveEnd()
+    {
+        context._OnMoveEnd();
         animator.SetFloat("Speed", agent.speed);
     }
 
@@ -93,8 +96,18 @@ public class ShootEnemy : Enemy
 
     protected override void OnAttackReadyUpdate()
     {
-        //Quaternion toAngle = Quaternion.FromToRotation(transform.position, player.transform.position);
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, toAngle, -attackRotateSpeed);
+        RaycastHit hitInfo;
+        if(Physics.Raycast(transform.position, transform.forward, out hitInfo))
+        {
+            if(hitInfo.collider.tag != "Player")
+            {
+                animator.SetTrigger("AttackEnd");
+                AttackCancel();
+            }
+        }
+
+        Quaternion playerAngle = Quaternion.LookRotation(player.transform.position - transform.position);
+        Quaternion.RotateTowards(transform.rotation, playerAngle, -10);
     }
 
     protected override void OnAttack()
@@ -102,6 +115,13 @@ public class ShootEnemy : Enemy
         animator.SetTrigger("AttackEnd");
         lineRenderer.enabled = false;
         CreateWeapon(weapon, attackPoint.transform.position, transform.rotation);
+
+        Dead(2);
+    }
+
+    protected override void OnAttackCancel()
+    {
+        lineRenderer.enabled = false;
     }
 
     protected override void PlayerDead()
@@ -109,5 +129,5 @@ public class ShootEnemy : Enemy
         agent.destination = transform.position + transform.forward * 0.3f;
     }
 
-#endregion
+    #endregion
 }
