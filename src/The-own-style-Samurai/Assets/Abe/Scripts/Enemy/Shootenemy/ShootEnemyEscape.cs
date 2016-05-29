@@ -74,7 +74,7 @@ public class ShootEnemyEscape : IStateShootEnemy
         float moveDistance = Vector3.Distance(enemy.position,  previousPosition);
 
         //端に追い詰められたとき
-        if(moveDistance < shootEnemy.EscapeMoveSpeed * Time.unscaledDeltaTime / 2)
+        if(moveDistance < shootEnemy.EscapeMoveSpeed * Time.unscaledDeltaTime/2)
         {
             context.state = new ShootEnemyShootReady(context);
         }

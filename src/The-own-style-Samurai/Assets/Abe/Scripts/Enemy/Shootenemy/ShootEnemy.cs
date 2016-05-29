@@ -45,12 +45,18 @@ public class ShootEnemy : Enemy
 
     public float MoveSpeed
     {
-        get { return moveSpeed; }
+        get
+        {
+            return moveSpeed;
+        }
     }
 
     public float EscapeMoveSpeed
     {
-        get { return escapeMoveSpeed; }
+        get
+        {
+            return escapeMoveSpeed;
+        }
     }
 
     #endregion
@@ -60,7 +66,7 @@ public class ShootEnemy : Enemy
     protected override void OnStart()
     {
         lineRenderer.enabled = false;
-        context       = new ShootEnemyContext();
+        context = new ShootEnemyContext();
         context.agent = agent;
         context.enemy = this;
         context.state = new ShootEnemyApproach(context);
@@ -69,11 +75,12 @@ public class ShootEnemy : Enemy
     protected override void _OnMove()
     {
 #if UNITY_EDITOR
-        if(!agent.enabled) return;
+        if(!agent.enabled)
+            return;
 #endif
 
         //敵以外のレイヤーで判定
-        if (IsRayHitPlayer(maxDistance, ~(1 << LayerMask.NameToLayer("Enemy")), rayOffset))
+        if(IsRayHitPlayer(maxDistance, ~(1 << LayerMask.NameToLayer("Enemy")), rayOffset))
         {
             Attack();
             return;
@@ -127,6 +134,11 @@ public class ShootEnemy : Enemy
     protected override void PlayerDead()
     {
         agent.destination = transform.position + transform.forward * 0.3f;
+    }
+
+    public void OnDestroy()
+    {
+        //パーティクル
     }
 
     #endregion
