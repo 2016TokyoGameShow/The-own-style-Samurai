@@ -49,6 +49,11 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         get { return player; }
     }
 
+    public EnemyController.EnemyKind Kind
+    {
+        get { return kind; }
+    }
+
     protected virtual  void OnStart() { }
     protected abstract void OnAttack();
     protected virtual  void OnAttackReadyStart() { }
