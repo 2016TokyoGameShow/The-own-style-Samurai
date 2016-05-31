@@ -224,5 +224,15 @@ public class EnemyController : MonoBehaviour
     {
          return enemyInfo[(int)kind].number >= enemyInfo[(int)kind].maxNumber;
     }
+
+    public void EnemyChangeWeapon(Enemy enemy)
+    {
+        EnemyKind kind = enemy.Kind;
+        GameObject enemyObject = enemy.gameObject;
+
+        Destroy(enemy);
+
+        enemyObject.AddComponent<AssaultEnemy>();
+    }
     #endregion
 }

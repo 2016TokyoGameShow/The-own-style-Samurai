@@ -59,7 +59,7 @@ public class ShootEnemyEscape : IStateShootEnemy
         Quaternion from = enemy.rotation;
         Quaternion to   = Quaternion.LookRotation(dir);
         enemy.rotation = Quaternion.RotateTowards(from, to, context.agent.angularSpeed * Time.deltaTime);
-
+        
         ShootEnemy shootEnemy = (ShootEnemy)context.enemy;
 
         //手動で動かす
