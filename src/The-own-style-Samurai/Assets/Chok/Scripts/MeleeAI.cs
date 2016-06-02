@@ -7,21 +7,17 @@ public class MeleeAI : MonoBehaviour
     MeleeEnemy enemy;
 
     [SerializeField, Tooltip("見る角度")]
-    float m_Angle;
+    float m_ViewingAngle;
 
     [SerializeField]
     float[] targetAngle;
 
+    private float speed;
+
     // Use this for initialization
     void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        speed = Random.Range(2, 5);     // 移動スピードをランダム
     }
 
     //移動する角度を取得
@@ -31,57 +27,40 @@ public class MeleeAI : MonoBehaviour
     }
 
     //目標まで移動
-    public void MoveTowardsTarget(NavMeshAgent agent,Vector3 target,float moveSpeed,Animator animator)
+    public void MoveTowardsTarget(NavMeshAgent agent, Vector3 target, Animator animator)
     {
         agent.destination = target;
-        agent.speed = moveSpeed;
+        agent.speed = speed;
         animator.SetFloat("Speed", agent.speed);
     }
 
-    public bool IsRayHitEnemy(Vector3 position, Vector3 direction)
+    //目標が視角内か？
+    public bool IsTargetInViewingAngle(Vector3 target)
     {
-        Ray ray = new Ray(position, direction);
-        RaycastHit hitInfo;
-        Debug.DrawRay(position, direction * 2);
-
-        bool hit = Physics.Raycast(ray, out hitInfo, 2);
-        return (hit && hitInfo.collider.tag == "Enemy");
+        float angleToTarget = Vector3.Angle(transform.forward, DirectionToTarget(target));
+        return (Mathf.Abs(angleToTarget) <= m_ViewingAngle);
     }
 
-    //プレイヤーが視角内か？
-    public bool IsPlayerInViewingAngle(Vector3 player)
+    // レイが目標やに当たったか？ プラス 目標が視角内か？
+    public bool CanRayHitTarget(Vector3 target, float maxDistance, string tag, Color color)
     {
-        Vector3 directionToPlayer = player - transform.position;
-        float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
-        return (Mathf.Abs(angleToPlayer) <= m_Angle);
-    }
-
-    //レイがプレイやに当たったか？
-    public bool IsRayHitPlayer(Vector3 player, float maxDistance)
-    {
-        Vector3 directionToPlayer = player - transform.position;
-        directionToPlayer.Normalize();
-        Debug.DrawRay(transform.position, directionToPlayer * maxDistance, Color.green);
-        return IsRayHit(transform.position, directionToPlayer, maxDistance, "Player");
-    }
-
-    public bool CanRayHitPlayer(Vector3 player,float maxDistance)
-    {
-        if (!IsPlayerInViewingAngle(player)) return false;
-        if (!IsRayHitPlayer(player, maxDistance)) return false;
+        if (!IsTargetInViewingAngle(target)) return false;
+        if (!IsRayHit(DirectionToTarget(target), maxDistance, tag, color))return false ;
         return true;
     }
 
-    public bool IsNearPlayer(Vector3 position, Vector3 player, float distance)
+    public bool IsNearTarget(Vector3 target, float distance)
     {
-        return (Vector3.Distance(position, player) <= distance);
+        return (Vector3.Distance(transform.position, target) <= distance);
     }
 
-    private bool IsRayHit(Vector3 position, Vector3 direction, float maxDistance, string tag)
+    //レイが目標やに当たったか？
+    public bool IsRayHit(Vector3 direction, float maxDistance, string tag, Color color)
     {
-        Ray ray = new Ray(position, direction);
+        Ray ray = new Ray(transform.position, direction);
         RaycastHit hitInfo;
-        Debug.DrawRay(position, direction * maxDistance);
+        direction.Normalize();
+        Debug.DrawRay(transform.position, direction * maxDistance, color);
 
         bool hit = Physics.Raycast(ray, out hitInfo, maxDistance);
         return (hit && hitInfo.collider.tag == tag);
@@ -95,17 +74,21 @@ public class MeleeAI : MonoBehaviour
         float angle = Mathf.Atan2(directionZ, directionX);
         angle = angle * 180.0f / Mathf.PI;
         if (angle < 0) angle += 360.0f;
-        Debug.Log(angle);
+        //Debug.Log(angle);
         return angle;
     }
 
     //左か右か回転方向選択
-    public float RotateLeftOrRight(float selfAngle,float targetAngle)
+    public float RotateDirection(float current, float target)
     {
-        if (selfAngle - targetAngle > 0 ||
-            selfAngle - targetAngle < -180.0f)
-            return 1.0f;
-        else return -1.0f;
+        float dir = current - target > 0 || current - target < -180.0f ?
+            dir = 1.0f :
+            dir = -1.0f;
+        return dir;
+    }
 
+    public Vector3 DirectionToTarget(Vector3 target)
+    {
+        return target - transform.position;
     }
 }

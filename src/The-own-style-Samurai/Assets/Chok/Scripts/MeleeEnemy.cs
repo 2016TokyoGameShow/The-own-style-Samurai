@@ -17,59 +17,90 @@ public class MeleeEnemy : Enemy
     [SerializeField]
     MeleeAI m_AI;
 
-    private float speed;            // 移動速度
     private MeleeState state;       //攻撃可能かどうかの状態
     #endregion
 
     #region メソッド
     void Awake()
     {
-        speed = Random.Range(2, 5);     //スピードをランダム
         state = MeleeState.NORMAL;      //普通状態（攻撃不能）
     }
     protected override void _OnMove()
     {
-        if (m_AI.CanRayHitPlayer(player.transform.position, 5))
+        // レイがプレイヤーを探知出来るまでプレイヤーに向かって移動
+        if (m_AI.CanRayHitTarget(player.transform.position, 5, "Player", Color.red)) 
         {
-            if (Vector3.Distance(transform.position, player.transform.position) < 4.0f)
+            // プレイヤーとの距離が近すぎだったらさがる
+            if (m_AI.IsNearTarget(player.transform.position, 2.0f))
             {
                 transform.position += -transform.forward / 50;
                 return;
             }
             agent.speed = 0;
-            StartRotate();
+            StartRotate(player.transform.position);// 回転中心を決めって、回転開始
             return;
         }
-        m_AI.MoveTowardsTarget(agent, player.transform.position, speed, animator);
+        m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
     }
 
-    void StartRotate()
+    void Move(Vector3 target,string tag,Color color)
     {
-        Vector3 rotateOrigin = player.transform.position;    //最初に回転中心を決める
+        // レイがプレイヤーを探知出来るまでプレイヤーに向かって移動
+        if (m_AI.CanRayHitTarget(target, 5, name, color))
+        {
+            // プレイヤーとの距離が近すぎだったらさがる
+            if (m_AI.IsNearTarget(target, 2.0f))
+            {
+                transform.position += -transform.forward / 50;
+                return;
+            }
+            agent.speed = 0;
+            StartRotate(target);// 回転中心を決めって、回転開始
+            return;
+        }
+        m_AI.MoveTowardsTarget(agent, target, animator);
+    }
+
+    void StartRotate(Vector3 origin)
+    {
         StopAllCoroutines();
-        StartCoroutine(RotateAroundTarget(rotateOrigin, m_AI.GetAngle(EnemyGenerator.singleton.Angle)));
+        StartCoroutine(RotateAroundTarget(origin, m_AI.GetAngle(EnemyGenerator.singleton.Angle)));
     }
 
-    public IEnumerator RotateAroundTarget(Vector3 target, float angle)
+    // プレイヤーを囲む
+    IEnumerator RotateAroundTarget(Vector3 target, float angle)
     {
-        float rotate = m_AI.RotateLeftOrRight(m_AI.AngleFromTarget(target), angle);
+        float rotate = m_AI.RotateDirection(m_AI.AngleFromTarget(target), angle);
         while (Mathf.Abs(m_AI.AngleFromTarget(target) - angle) > 10.0f)
         {
-            transform.RotateAround(target, Vector3.up, rotate);
+            // 他の敵とぶつからないように
+            StepBack();
+            // 減速しながら回転
+            float rotateSpeed = rotate * (Mathf.Abs(Mathf.DeltaAngle(m_AI.AngleFromTarget(target), angle)) / 90.0f);
+            transform.RotateAround(target, Vector3.up, rotateSpeed);
             yield return null;
         }
         animator.SetFloat("Speed", -1);
         StartStandBy();
     }
 
+    void StepBack()
+    {
+        if (m_AI.IsRayHit(transform.right, 2, "Enemy", Color.green) ||
+            m_AI.IsRayHit(-transform.right, 2, "Enemy", Color.green))
+        {
+            transform.position += -transform.forward / 10;
+        }
+    }
+
     void StartStandBy()
     {
+        state = MeleeState.ATTACKREADY;
         StopAllCoroutines();
         StartCoroutine(StandBy());
     }
     IEnumerator StandBy()
     {
-        state = MeleeState.ATTACKREADY;
         while (true)
         {
             WaitForAttack();
@@ -79,7 +110,7 @@ public class MeleeEnemy : Enemy
 
     void WaitForAttack()
     {
-        if (m_AI.CanRayHitPlayer(player.transform.position, 8)) return;
+        if (m_AI.CanRayHitTarget(player.transform.position, 8, "Player", Color.blue)) return;
         StartCoolTime();
     }
 
@@ -94,11 +125,23 @@ public class MeleeEnemy : Enemy
             animator.SetFloat("Speed", -1);
             Attack();
         }
-        m_AI.MoveTowardsTarget(agent, player.transform.position, speed, animator);
+        m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
     }
 
-    public void GatherAroundBoss()
+    public void GatherCalled()
     {
+        StopAllCoroutines();
+        Vector3 boss = GameObject.FindGameObjectWithTag("Boss").transform.position;
+        StartCoroutine(Gather(boss));
+    }
+
+    IEnumerator Gather(Vector3 boss)
+    {
+        while (true)
+        {
+            Move(boss, "Boss", Color.yellow);
+            yield return null;
+        }
     }
 
     protected override void OnAttackReadyStart()
@@ -122,8 +165,8 @@ public class MeleeEnemy : Enemy
     //判定生成メソット、生成判定、生成位置
     protected void AttackInstantiate()
     {
+        // 攻撃判定が武器のボーンについていけるように
         GameObject hit;
-
         hit = CreateWeapon(weapon, attackPoint.transform.position, attackPoint.transform.rotation);
         hit.transform.parent = attackPoint.transform;
     }
