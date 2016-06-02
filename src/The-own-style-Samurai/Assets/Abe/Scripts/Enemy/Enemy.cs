@@ -49,11 +49,18 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         get { return player; }
     }
 
-    protected virtual void OnStart() { }
+    public EnemyController.EnemyKind Kind
+    {
+        get { return kind; }
+    }
+
+    protected virtual  void OnStart() { }
     protected abstract void OnAttack();
-    protected virtual void OnAttackReadyStart() { }
-    protected virtual void OnAttackReadyUpdate() { }
+    protected virtual  void OnAttackReadyStart() { }
+    protected virtual  void OnAttackReadyUpdate() { }
+    protected virtual  void OnAttackCancel() { }
     protected abstract void _OnMove(); //Unity標準にOnMoveというイベントがあるため
+    protected virtual  void _OnMoveEnd() { }
 
     void Awake()
     {
@@ -65,7 +72,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         Debug.Assert(EnemyController.singleton != null, "EnemyControllerがありません");
 
         player = EnemyController.singleton.player;
-        EnemyController.singleton.AddEnemy(gameObject);
+        EnemyController.singleton.AddEnemy(gameObject, kind);
 
         OnStart();
         StartCoroutine(OnUpdate());
@@ -73,6 +80,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     IEnumerator OnUpdate()
     {
+        yield return null;
         while (true)
         {
             _OnMove();
@@ -84,6 +92,25 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     {
         StopAllCoroutines();
         StartCoroutine(OnUpdate());
+    }
+
+	public virtual void AttackEnemy()
+    {
+        //2重に攻撃のコルーチンを実行しないように
+        if(isAttack)
+        {
+            //攻撃失敗
+            return;
+        }
+
+        //maxより少ないか
+        Debug.Assert(EnemyController.singleton.Attack(gameObject, kind));
+
+        isAttack = true;
+        _OnMoveEnd();
+
+        StopAllCoroutines();
+        StartCoroutine(AttackReady());
     }
 
     protected bool Attack()
@@ -104,6 +131,8 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
         isAttack = true;
 
+        _OnMoveEnd();
+
         //攻撃準備中に敵を動かす場合はOnAttackReadyUpdateを使う
         StopAllCoroutines();
         StartCoroutine(AttackReady());
@@ -115,8 +144,10 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     protected void AttackCancel()
     {
         //攻撃をキャンセル
+        OnAttackCancel();
         isAttack = false;
         EnemyController.singleton.AttackEnd(gameObject, kind);
+        EnemyController.singleton.EraseAttackCount();
         StartUpdate();
     }
 
@@ -134,6 +165,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         OnAttack();
         EnemyController.singleton.EraseAttackCount();
         EnemyController.singleton.AttackEnd(gameObject, kind);
+
         //クールタイムが終わるまで移動も攻撃ができない
         StartCoolTime();
     }
@@ -158,10 +190,19 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     protected virtual void Dead()
     {
         //敵を吹っ飛ばしてから消去のほうがいいか
-        EnemyController.singleton.EraseEnemy(gameObject);
+        EnemyController.singleton.EraseEnemy(gameObject, kind);
         EnemyController.singleton.AttackEnd(gameObject, kind);
         EnemyController.singleton.AddDeathCount();
         Destroy(gameObject);
+    }
+
+    protected virtual void Dead(float time)
+    {
+        //敵を吹っ飛ばしてから消去のほうがいいか
+        EnemyController.singleton.EraseEnemy(gameObject, kind);
+        EnemyController.singleton.AttackEnd(gameObject, kind);
+        EnemyController.singleton.AddDeathCount();
+        Destroy(gameObject, time);
     }
 
     public virtual void OnWeaponHit(int damage, GameObject attackObject)
@@ -205,14 +246,14 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         bool isAttachWeapon;
         try
         {
-            isAttachWeapon = ((Component)original).GetComponent<IWeapon>() == null;
+            isAttachWeapon = ((Component)original).GetComponent<IWeapon>() != null;
         }
         catch
         {
             //コンポーネントではない -> IWeaponではない
-            isAttachWeapon = true;
+            isAttachWeapon = false;
         }
-        Debug.Assert(!(isWeapon) && isAttachWeapon, "武器を生成する場合はCreateWeaponを使用してください");
+        Debug.Assert(!(isWeapon) && !(isAttachWeapon), "武器を生成する場合はCreateWeaponを使用してください");
 
         return Object.Instantiate(original, position, rotation);
     }

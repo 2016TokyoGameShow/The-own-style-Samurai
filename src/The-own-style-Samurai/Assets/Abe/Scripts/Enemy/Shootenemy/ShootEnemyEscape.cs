@@ -24,6 +24,8 @@ public class ShootEnemyEscape : IStateShootEnemy
     Transform enemy;
     Transform player;
 
+    Vector3 previousPosition;
+
     #endregion
 
 
@@ -47,30 +49,41 @@ public class ShootEnemyEscape : IStateShootEnemy
         context.agent.ResetPath();
     }
 
-
     public override void Move()
     {
-        Vector3 dir = context.enemy.transform.position - player.transform.position;
+        Vector3 dir = enemy.position - player.position;
         dir.y = 0;
         dir.Normalize();
 
-        //手動で動かす
-        context.agent.Move(((ShootEnemy)context.enemy).EscapeMoveSpeed * dir * Time.deltaTime);
-
         //回転
-        Quaternion from = context.enemy.transform.rotation;
+        Quaternion from = enemy.rotation;
         Quaternion to   = Quaternion.LookRotation(dir);
-        context.enemy.transform.rotation = Quaternion.RotateTowards(from, to, context.agent.angularSpeed * Time.deltaTime);
+        enemy.rotation = Quaternion.RotateTowards(from, to, context.agent.angularSpeed * Time.deltaTime);
+        
+        ShootEnemy shootEnemy = (ShootEnemy)context.enemy;
 
-        if(Vector3.Distance(player.position, context.enemy.transform.position) >= 15)
+        //手動で動かす
+        context.agent.Move(shootEnemy.EscapeMoveSpeed * dir * Time.deltaTime);
+
+        //距離が開いたら近づくようにする
+        if(Vector3.Distance(player.position, enemy.position) >= 15)
         {
             context.state = new ShootEnemyApproach(context);
         }
+        
+        float moveDistance = Vector3.Distance(enemy.position,  previousPosition);
+
+        //端に追い詰められたとき
+        if(moveDistance < shootEnemy.EscapeMoveSpeed * Time.unscaledDeltaTime/2)
+        {
+//            context.state = new ShootEnemyShootReady(context);
+        }
+        previousPosition = enemy.position;
     }
 
     public override void MoveEnd()
     {
-        context.agent.destination = context.enemy.transform.position;
+        context.agent.destination = enemy.position;
         context.agent.speed = 0;
     }
 

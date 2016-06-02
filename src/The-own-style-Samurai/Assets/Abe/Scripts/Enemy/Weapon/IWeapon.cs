@@ -25,6 +25,12 @@ public class IWeapon : MonoBehaviour
 
     public GameObject attackEnemy;
 
+    void Awake()
+    {
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        Destroy(agent);
+    }
+
     void Start()
     {
         Attack();
@@ -59,7 +65,6 @@ public class IWeapon : MonoBehaviour
 
     protected void SendHit(GameObject obj)
     {
-        Debug.Assert(attackEnemy != null);
         ExecuteEvents.Execute<WeaponHitHandler>(
             obj,
             null,
