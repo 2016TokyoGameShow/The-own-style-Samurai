@@ -97,6 +97,10 @@ public class MeleeEnemy : Enemy
         m_AI.MoveTowardsTarget(agent, player.transform.position, speed, animator);
     }
 
+    public void GatherAroundBoss()
+    {
+    }
+
     protected override void OnAttackReadyStart()
     {
         state = MeleeState.NORMAL;
