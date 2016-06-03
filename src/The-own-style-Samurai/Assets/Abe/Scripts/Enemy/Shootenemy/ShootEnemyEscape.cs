@@ -76,7 +76,7 @@ public class ShootEnemyEscape : IStateShootEnemy
         //端に追い詰められたとき
         if(moveDistance < shootEnemy.EscapeMoveSpeed * Time.unscaledDeltaTime/2)
         {
-            context.state = new ShootEnemyShootReady(context);
+//            context.state = new ShootEnemyShootReady(context);
         }
         previousPosition = enemy.position;
     }
