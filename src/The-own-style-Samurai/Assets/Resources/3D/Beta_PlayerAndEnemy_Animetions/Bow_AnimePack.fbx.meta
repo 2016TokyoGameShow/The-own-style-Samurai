@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: a84f3b5cd2978d3479df178e31127224
+timeCreated: 1464924083
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Parent
+    100002: Belly
+    100004: between_leg
+    100006: bow:group1
+    100008: bow:transform1
+    100010: bow:transform2
+    100012: //RootNode
+    100014: Chest
+    100016: Front_Indicating_Arrow
+    100018: Head
+    100020: HeadDeadEnd
+    100022: Hip_n_Center
+    100024: L_ankle
+    100026: L_Elbow
+    100028: L_Finger_1
+    100030: L_Finger_2
+    100032: L_Finger_3
+    100034: L_Finger_4_DE
+    100036: L_Hand
+    100038: L_Heel
+    100040: L_knee
+    100042: L_Scapula
+    100044: L_Shoulder
+    100046: L_Thighs
+    100048: L_thumb_1
+    100050: L_thumb_2
+    100052: L_thumb_3_DE
+    100054: L_Toe
+    100056: L_Wrist
+    100058: Neck
+    100060: R_ankle
+    100062: R_Elbow
+    100064: R_Finger_1
+    100066: R_Finger_2
+    100068: R_Finger_3
+    100070: R_Finger_4_DE
+    100072: R_Hand
+    100074: R_Heel
+    100076: R_knee
+    100078: R_Scapula
+    100080: R_Shoulder
+    100082: R_Thighs
+    100084: R_thumb_1
+    100086: R_thumb_2
+    100088: R_thumb_3_DE
+    100090: R_Toe
+    100092: R_Wrist
+    100094: YumiBag:group2
+    100096: YumiBag:yumi
+    100098: YumiBag:YumiBag
+    400000: All_Parent
+    400002: Belly
+    400004: between_leg
+    400006: bow:group1
+    400008: bow:transform1
+    400010: bow:transform2
+    400012: //RootNode
+    400014: Chest
+    400016: Front_Indicating_Arrow
+    400018: Head
+    400020: HeadDeadEnd
+    400022: Hip_n_Center
+    400024: L_ankle
+    400026: L_Elbow
+    400028: L_Finger_1
+    400030: L_Finger_2
+    400032: L_Finger_3
+    400034: L_Finger_4_DE
+    400036: L_Hand
+    400038: L_Heel
+    400040: L_knee
+    400042: L_Scapula
+    400044: L_Shoulder
+    400046: L_Thighs
+    400048: L_thumb_1
+    400050: L_thumb_2
+    400052: L_thumb_3_DE
+    400054: L_Toe
+    400056: L_Wrist
+    400058: Neck
+    400060: R_ankle
+    400062: R_Elbow
+    400064: R_Finger_1
+    400066: R_Finger_2
+    400068: R_Finger_3
+    400070: R_Finger_4_DE
+    400072: R_Hand
+    400074: R_Heel
+    400076: R_knee
+    400078: R_Scapula
+    400080: R_Shoulder
+    400082: R_Thighs
+    400084: R_thumb_1
+    400086: R_thumb_2
+    400088: R_thumb_3_DE
+    400090: R_Toe
+    400092: R_Wrist
+    400094: YumiBag:group2
+    400096: YumiBag:yumi
+    400098: YumiBag:YumiBag
+    7400000: Idle
+    7400002: Run
+    7400004: Walk_L
+    7400006: Fall
+    7400008: Attack
+    7400010: Walk_R
+    7400012: Damege
+    7400014: Dead
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
