@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum MeleeState
+{
+    NORMAL,
+    ATTACKREADY,
+    ATTACKING
+}
+
 public class MeleeAI : MonoBehaviour
 {
     [SerializeField]
