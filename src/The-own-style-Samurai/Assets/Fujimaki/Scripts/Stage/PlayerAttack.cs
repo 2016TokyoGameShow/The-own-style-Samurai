@@ -18,26 +18,28 @@ public class PlayerAttack : MonoBehaviour
 
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+      /*  if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            StartCoroutine(Attack(player.GetCameraRig().transform.forward));
+            StartCoroutine(Attack(player.GetCameraRig().transform.forward,Vector3.up));
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            StartCoroutine(Attack(-player.GetCameraRig().transform.forward));
-        }
+            StartCoroutine(Attack(-player.GetCameraRig().transform.forward,-Vector3.up));
+        }*/
+
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            StartCoroutine(Attack(player.GetCameraRig().transform.right));
+            StartCoroutine(Attack(player.GetCameraRig().transform.right,Vector3.right));
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            StartCoroutine(Attack(-player.GetCameraRig().transform.right));
+            StartCoroutine(Attack(-player.GetCameraRig().transform.right,-Vector3.right));
         }
     }
 
     //流し攻撃
-    private IEnumerator Attack(Vector3 velocity) {
+    private IEnumerator Attack(Vector3 velocity,Vector3 localVelocity) {
 
 
 
@@ -61,10 +63,13 @@ public class PlayerAttack : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
+
+            //player.GetAnimator().SetBool("Katana",localVelocity.x)
             //流す方向に向く
             while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)
             {
                 Quaternion rotation = Quaternion.LookRotation(velocity);
+
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.2f);
                 yield return new WaitForEndOfFrame();
             }
@@ -91,6 +96,11 @@ public class PlayerAttack : MonoBehaviour
     public void SetEnemyTarget(GameObject g)
     {
         enemyTarget = g;
+    }
+
+    public GameObject GetEnemyTarget()
+    {
+        return enemyTarget;
     }
 
 
