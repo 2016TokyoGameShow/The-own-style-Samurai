@@ -45,6 +45,8 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         state = MeleeState.NORMAL;              // 普通状態　攻撃不能
         player = EnemyController.singleton.player;
         EnemyController.singleton.AddEnemy(gameObject, kind);
+        //animator.SetTrigger("StartFlow");
+        AttackEnemy();
     }
 
     void Update()
@@ -148,6 +150,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         StopAllCoroutines();
         target = player.transform.position;
         m_AI.MoveTowardsTarget(agent, target, animator);
+        StartCoroutine(AttackReady(target));
     }
 
     IEnumerator AttackReady(Vector3 target)
@@ -157,22 +160,34 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
             yield return null;
         }
         animator.SetTrigger("Attack");
+        if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
+        StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-        yield return new WaitForSeconds(1);
+        while (!player.GetPlayerAttacking())
+        {
+            yield return null;
+        }
+        //if (player.GetPlayerAttacking())
+        //{
+            Debug.Log("!hbsfkjdsjldfjsdfjl");
+            StopAllCoroutines();
+            agent.Stop();
+            Flow();
+            yield return null;
+        //}
+        //yield return new WaitForSeconds(1);
+        //InstantiateWeapon();
+        //animator.SetTrigger("AttackEnd");
+        //player.SetTarget(null);
     }
 
     public void GatherCalled()
     {
         StopAllCoroutines();
         Vector3 boss = GameObject.FindGameObjectWithTag("Boss").transform.position;
-    }
-
-    protected void OnAttackReadyStart()
-    {
-        if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
     }
 
     protected void OnAttack()
@@ -192,10 +207,8 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     void Flow()
     {
-        StopAllCoroutines();
-        agent.Stop();
         animator.SetTrigger("StartFlow");
-        transform.position = player.transform.position;
+        transform.position = player.transform.position + player.transform.forward;
     }
     #endregion
 }
