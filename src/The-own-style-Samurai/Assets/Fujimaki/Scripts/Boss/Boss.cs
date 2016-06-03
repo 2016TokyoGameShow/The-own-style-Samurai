@@ -21,12 +21,15 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
     private bool saveSummonAction;//連続で召喚を行わないためのフラグ
 
+    private int hp;
+
 
 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        StartCoroutine(WaitNextAction(2));
+        myAnimator.SetBool("die", true);
+        //StartCoroutine(WaitNextAction(2));
     }
 	
 	// Update is called once per frame
@@ -107,7 +110,11 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
     public void OnWeaponHit(int damege, GameObject attackObject)
     {
-
+        hp -= damege;
+        if (hp <= 0)
+        {
+            myAnimator.SetBool("die", true);
+        }
     }
 
     //======================================================================================================攻撃処理
