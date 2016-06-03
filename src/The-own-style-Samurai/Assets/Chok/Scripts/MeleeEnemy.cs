@@ -170,13 +170,14 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         {
             yield return null;
         }
+        if (player.GetEnemyTarget() != gameObject) yield return null;
         //if (player.GetPlayerAttacking())
         //{
-            Debug.Log("!hbsfkjdsjldfjsdfjl");
-            StopAllCoroutines();
-            agent.Stop();
-            Flow();
-            yield return null;
+        Debug.Log("!hbsfkjdsjldfjsdfjl");
+        StopAllCoroutines();
+        agent.Stop();
+        Flow();
+        yield return null;
         //}
         //yield return new WaitForSeconds(1);
         //InstantiateWeapon();
@@ -208,7 +209,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     void Flow()
     {
         animator.SetTrigger("StartFlow");
-        transform.position = player.transform.position + player.transform.forward;
+        transform.position = player.transform.position+transform.right;
     }
     #endregion
 }
