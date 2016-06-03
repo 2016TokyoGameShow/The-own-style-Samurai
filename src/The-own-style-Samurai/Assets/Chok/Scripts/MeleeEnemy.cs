@@ -209,7 +209,8 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     void Flow()
     {
         animator.SetTrigger("StartFlow");
-        transform.position = player.transform.position+transform.right;
+        transform.rotation = Quaternion.Euler(player.transform.forward);
+        //transform.position = player.transform.position+transform.right;
     }
     #endregion
 }

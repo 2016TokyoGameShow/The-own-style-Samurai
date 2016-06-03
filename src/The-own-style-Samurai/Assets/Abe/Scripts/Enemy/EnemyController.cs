@@ -257,15 +257,17 @@ public class EnemyController : MonoBehaviour
 
         foreach(GameObject enemy in enemies)
         {
-            Enemy e = enemy.GetComponent<Enemy>();
+            MeleeEnemy e = enemy.GetComponent<MeleeEnemy>();
 
-            if(e is MeleeEnemy)
+            if(e == null)
             {
-                ((MeleeEnemy)e).GatherCalled();
-                num++;
-
-                if(num >= callnum) break;
+                continue;
             }
+
+            e.GatherCalled();
+            num++;
+
+            if(num >= callnum) break;
         }
         //GatherCalled
     }
