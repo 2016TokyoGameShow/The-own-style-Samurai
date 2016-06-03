@@ -248,7 +248,7 @@ public class EnemyController : MonoBehaviour
 
         Destroy(enemy);
 
-        enemyObject.AddComponent<AssaultEnemy>();
+ //       enemyObject.AddComponent<AssaultEnemy>();
     }
 
     public void EnemyCall(int callnum)
