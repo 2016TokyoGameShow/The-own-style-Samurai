@@ -28,7 +28,7 @@ public class MeleeEnemy : Enemy
     protected override void _OnMove()
     {
         // レイがプレイヤーを探知出来るまでプレイヤーに向かって移動
-        if (m_AI.CanRayHitTarget(player.transform.position, 5, "Player", Color.red)) 
+        if (m_AI.CanRayHitTarget(player.transform.position, 5, "Player", Color.red))
         {
             // プレイヤーとの距離が近すぎだったらさがる
             if (m_AI.IsNearTarget(player.transform.position, 2.0f))
@@ -43,7 +43,7 @@ public class MeleeEnemy : Enemy
         m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
     }
 
-    void Move(Vector3 target,string tag,Color color)
+    void Move(Vector3 target, string tag, Color color)
     {
         // レイがプレイヤーを探知出来るまでプレイヤーに向かって移動
         if (m_AI.CanRayHitTarget(target, 5, name, color))
@@ -117,15 +117,9 @@ public class MeleeEnemy : Enemy
     //このメソットを呼べば、攻撃開始
     public override void AttackEnemy()
     {
-        if (state != MeleeState.ATTACKREADY) return;
-        StopAllCoroutines();
-        if (IsRayHitPlayer(maxDistance))
-        {
-            agent.speed = 0;
-            animator.SetFloat("Speed", -1);
-            Attack();
-        }
-        m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
+        if (m_AI.IsNearTarget(player.transform.position, 3.0f)) return;
+
+        Attack();
     }
 
     public void GatherCalled()
@@ -147,7 +141,7 @@ public class MeleeEnemy : Enemy
     protected override void OnAttackReadyStart()
     {
         state = MeleeState.NORMAL;
-        animator.SetTrigger("Attack");
+        m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
         if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
     }
 
@@ -157,6 +151,7 @@ public class MeleeEnemy : Enemy
 
     protected override void OnAttack()
     {
+        animator.SetTrigger("Attack");
         AttackInstantiate();
         animator.SetTrigger("AttackEnd");
         player.SetTarget(null);
