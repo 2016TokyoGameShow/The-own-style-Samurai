@@ -225,7 +225,23 @@ public class EnemyController : MonoBehaviour
          return enemyInfo[(int)kind].number >= enemyInfo[(int)kind].maxNumber;
     }
 
-    public void EnemyChangeWeapon(Enemy enemy)
+    public void EnemyAssault(Vector3 position, float radius)
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            float dis = Vector3.Distance(position, enemy.transform.position);
+
+            bool isRange = dis < radius;
+            bool isNotArcher = enemy.GetComponent<ShootEnemy>() == null;
+
+            if(isRange && isNotArcher)
+            {
+                EnemyChangeWeapon(enemy.GetComponent<Enemy>());
+            }
+        }
+    }
+
+    private void EnemyChangeWeapon(Enemy enemy)
     {
         EnemyKind kind = enemy.Kind;
         GameObject enemyObject = enemy.gameObject;
@@ -233,6 +249,36 @@ public class EnemyController : MonoBehaviour
         Destroy(enemy);
 
  //       enemyObject.AddComponent<AssaultEnemy>();
+    }
+
+    public void EnemyCall(int callnum)
+    {
+        int num = 0;
+
+        foreach(GameObject enemy in enemies)
+        {
+            Enemy e = enemy.GetComponent<Enemy>();
+
+            if(e is MeleeEnemy)
+            {
+                ((MeleeEnemy)e).GatherCalled();
+                num++;
+
+                if(num >= callnum) break;
+            }
+        }
+        //GatherCalled
+    }
+    
+    public void EnemySummon(int number, Enemy enemy, Vector3 center, Vector3 forward, float interval)
+    {
+        GameObject root = (GameObject)Instantiate(enemy.gameObject, center,   Quaternion.LookRotation(forward));
+
+        for(int i = 0; i < number; i++)
+        {
+            Instantiate(enemy.gameObject, center + root.transform.right * interval, Quaternion.LookRotation(forward));
+            Instantiate(enemy.gameObject, center - root.transform.right * interval, Quaternion.LookRotation(forward));
+        }
     }
     #endregion
 }
