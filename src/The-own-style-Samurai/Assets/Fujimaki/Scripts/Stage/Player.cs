@@ -51,6 +51,9 @@ public class Player : MonoBehaviour,WeaponHitHandler {
             {
                 moveVelocity = cameraRig.transform.forward * Input.GetAxis("Vertical");
                 moveVelocity += cameraRig.transform.right * Input.GetAxis("Horizontal");
+
+                animator.SetBool("walk", moveVelocity != Vector3.zero ? true : false);
+
                 CharacterMove(moveVelocity, speed);
             }
         }
@@ -60,6 +63,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //現在のHPを取得
     public int GetHP() { return hp; }
 
+    //プレイヤーが流し中かどうか返す
+    public bool GetPlayerAttacking()
+    {
+        return playerAttack.playerAttacking;
+    }
 
     //ヒット通知
     public void OnWeaponHit(int damage,GameObject enemy)
@@ -117,6 +125,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         return animator;
     }
 
+    //必殺ゲージを上昇
     public void UpFinisherGage(float value)
     {
         finisherGage += value;
