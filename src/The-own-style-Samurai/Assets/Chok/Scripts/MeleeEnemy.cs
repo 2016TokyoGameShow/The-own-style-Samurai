@@ -147,11 +147,11 @@ public class MeleeEnemy : Enemy
 
     protected override void OnAttackReadyUpdate()
     {
+        animator.SetTrigger("Attack");
     }
 
     protected override void OnAttack()
     {
-        animator.SetTrigger("Attack");
         AttackInstantiate();
         animator.SetTrigger("AttackEnd");
         player.SetTarget(null);
