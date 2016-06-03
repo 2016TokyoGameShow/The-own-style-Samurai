@@ -2,34 +2,64 @@
 using System.Collections;
 
 [AddComponentMenu("Enemy/MeleeEnemy")]
-public class MeleeEnemy : Enemy
+public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 {
     #region 変数
-    [SerializeField, Tooltip("信号を出す位置")]
-    GameObject aboveHead;
+    [SerializeField, Tooltip("敵の種類")]
+    EnemyController.EnemyKind kind;
 
-    [SerializeField, Tooltip("Nav Mesh Agentのコンポーネント")]
+    [SerializeField, HideInInspector]
     NavMeshAgent agent;
 
-    [SerializeField, Tooltip("アニメーションのコンポーネント")]
+    [SerializeField, HideInInspector]
     Animator animator;
+
+    [SerializeField, Range(0, 3), Tooltip("移動のスピード")]
+    protected float moveSpeed;
+
+    [SerializeField, Tooltip("武器")]
+    protected IWeapon weapon;
+
+    [SerializeField, Tooltip("武器生成位置")]
+    Transform attackPoint;
+
+    [SerializeField, HideInInspector]
+    Player player;
 
     [SerializeField]
     MeleeAI m_AI;
 
     private MeleeState state;       //攻撃可能かどうかの状態
+    private Vector3 target;
     #endregion
+    public EnemyController.EnemyKind Kind
+    {
+        get { return kind; }
+    }
 
     #region メソッド
-    void Awake()
+    void Start()
     {
-        state = MeleeState.NORMAL;      //普通状態（攻撃不能）
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        state = MeleeState.NORMAL;              // 普通状態　攻撃不能
+        player = EnemyController.singleton.player;
+        EnemyController.singleton.AddEnemy(gameObject, kind);
+        //animator.SetTrigger("StartFlow");
+        AttackEnemy();
     }
-    protected override void _OnMove()
+
+    void Update()
+    {
+
+    }
+
+    void ChasePlayer()
     {
         // レイがプレイヤーを探知出来るまでプレイヤーに向かって移動
         if (m_AI.CanRayHitTarget(player.transform.position, 5, "Player", Color.red))
         {
+            agent.speed = 0;
             // プレイヤーとの距離が近すぎだったらさがる
             if (m_AI.IsNearTarget(player.transform.position, 2.0f))
             {
@@ -43,22 +73,17 @@ public class MeleeEnemy : Enemy
         m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
     }
 
-    void Move(Vector3 target, string tag, Color color)
+    public virtual void OnWeaponHit(int damage, GameObject attackObject)
     {
-        // レイがプレイヤーを探知出来るまでプレイヤーに向かって移動
-        if (m_AI.CanRayHitTarget(target, 5, name, color))
-        {
-            // プレイヤーとの距離が近すぎだったらさがる
-            if (m_AI.IsNearTarget(target, 2.0f))
-            {
-                transform.position += -transform.forward / 50;
-                return;
-            }
-            agent.speed = 0;
-            StartRotate(target);// 回転中心を決めって、回転開始
-            return;
-        }
-        m_AI.MoveTowardsTarget(agent, target, animator);
+        EnemyController.singleton.EraseEnemy(gameObject, kind);
+        EnemyController.singleton.AttackEnd(gameObject, kind);
+        EnemyController.singleton.AddDeathCount();
+        Destroy(gameObject);
+    }
+
+    public void OnPlayerDead()
+    {
+        StopAllCoroutines();
     }
 
     void StartRotate(Vector3 origin)
@@ -89,13 +114,14 @@ public class MeleeEnemy : Enemy
         if (m_AI.IsRayHit(transform.right, 2, "Enemy", Color.green) ||
             m_AI.IsRayHit(-transform.right, 2, "Enemy", Color.green))
         {
-            transform.position += -transform.forward / 10;
+            transform.position += -transform.forward / 30;
         }
     }
 
     void StartStandBy()
     {
         state = MeleeState.ATTACKREADY;
+        //transform.rotation = Quaternion.Euler(player.transform.forward);
         StopAllCoroutines();
         StartCoroutine(StandBy());
     }
@@ -110,60 +136,80 @@ public class MeleeEnemy : Enemy
 
     void WaitForAttack()
     {
-        if (m_AI.CanRayHitTarget(player.transform.position, 8, "Player", Color.blue)) return;
-        StartCoolTime();
+        //if (m_AI.CanRayHitTarget(player.transform.position, 8, "Player", Color.blue)) return;
+        //StartCoolTime();
+        AttackEnemy();
     }
 
     //このメソットを呼べば、攻撃開始
-    public override void AttackEnemy()
+    public void AttackEnemy()
     {
-        if (m_AI.IsNearTarget(player.transform.position, 3.0f)) return;
+        // プレイヤーと離れすぎだったら攻撃不能
+        if (m_AI.IsNearTarget(player.transform.position, 5.0f)) return;
+        if (!EnemyController.singleton.Attack(gameObject, kind)) return;
+        StopAllCoroutines();
+        target = player.transform.position;
+        m_AI.MoveTowardsTarget(agent, target, animator);
+        StartCoroutine(AttackReady(target));
+    }
 
-        Attack();
+    IEnumerator AttackReady(Vector3 target)
+    {
+        while (!m_AI.IsNearTarget(target, 2.0f))
+        {
+            yield return null;
+        }
+        animator.SetTrigger("Attack");
+        if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
+        StartCoroutine(Attack());
+    }
+
+    IEnumerator Attack()
+    {
+        while (!player.GetPlayerAttacking())
+        {
+            yield return null;
+        }
+        if (player.GetEnemyTarget() != gameObject) yield return null;
+        //if (player.GetPlayerAttacking())
+        //{
+        Debug.Log("!hbsfkjdsjldfjsdfjl");
+        StopAllCoroutines();
+        agent.Stop();
+        Flow();
+        yield return null;
+        //}
+        //yield return new WaitForSeconds(1);
+        //InstantiateWeapon();
+        //animator.SetTrigger("AttackEnd");
+        //player.SetTarget(null);
     }
 
     public void GatherCalled()
     {
         StopAllCoroutines();
         Vector3 boss = GameObject.FindGameObjectWithTag("Boss").transform.position;
-        StartCoroutine(Gather(boss));
     }
 
-    IEnumerator Gather(Vector3 boss)
+    protected void OnAttack()
     {
-        while (true)
-        {
-            Move(boss, "Boss", Color.yellow);
-            yield return null;
-        }
-    }
-
-    protected override void OnAttackReadyStart()
-    {
-        state = MeleeState.NORMAL;
-        m_AI.MoveTowardsTarget(agent, player.transform.position, animator);
-        if (player.isPlayerAttacking()) player.SetTarget(this.gameObject);
-    }
-
-    protected override void OnAttackReadyUpdate()
-    {
-        animator.SetTrigger("Attack");
-    }
-
-    protected override void OnAttack()
-    {
-        AttackInstantiate();
-        animator.SetTrigger("AttackEnd");
+        InstantiateWeapon();
         player.SetTarget(null);
     }
 
     //判定生成メソット、生成判定、生成位置
-    protected void AttackInstantiate()
+    void InstantiateWeapon()
     {
         // 攻撃判定が武器のボーンについていけるように
-        GameObject hit;
-        hit = CreateWeapon(weapon, attackPoint.transform.position, attackPoint.transform.rotation);
+        IWeapon hit;
+        hit = Instantiate(weapon, attackPoint.position, attackPoint.rotation) as IWeapon;
         hit.transform.parent = attackPoint.transform;
+    }
+
+    void Flow()
+    {
+        animator.SetTrigger("StartFlow");
+        transform.position = player.transform.position+transform.right;
     }
     #endregion
 }
