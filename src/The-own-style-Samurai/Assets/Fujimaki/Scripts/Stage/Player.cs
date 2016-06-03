@@ -69,6 +69,12 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         return playerAttack.playerAttacking;
     }
 
+    //現在攻撃を仕掛けている敵(エネミーターゲット)を取得
+    public GameObject GetEnemyTarget()
+    {
+        return playerAttack.GetEnemyTarget();
+    }
+
     //ヒット通知
     public void OnWeaponHit(int damage,GameObject enemy)
     {
