@@ -4,15 +4,14 @@ using System.Collections;
 public enum MeleeState
 {
     NORMAL,
+    ROTATE,
     ATTACKREADY,
-    ATTACKING
+    ATTACKING,
+    COOLDOWN
 }
 
 public class MeleeAI : MonoBehaviour
 {
-    [SerializeField]
-    MeleeEnemy enemy;
-
     [SerializeField, Tooltip("見る角度")]
     float m_ViewingAngle;
 
@@ -24,7 +23,7 @@ public class MeleeAI : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        speed = Random.Range(2, 5);     // 移動スピードをランダム
+        speed = Random.Range(2, 4);     // 移動スピードをランダム
     }
 
     //移動する角度を取得
@@ -34,11 +33,10 @@ public class MeleeAI : MonoBehaviour
     }
 
     //目標まで移動
-    public void MoveTowardsTarget(NavMeshAgent agent, Vector3 target, Animator animator)
+    public void MoveTowardsTarget(NavMeshAgent agent, Vector3 target, float multiply = 1)
     {
         agent.destination = target;
-        agent.speed = speed;
-        animator.SetFloat("Speed", agent.speed);
+        agent.speed = speed * multiply;
     }
 
     //目標が視角内か？
@@ -48,29 +46,29 @@ public class MeleeAI : MonoBehaviour
         return (Mathf.Abs(angleToTarget) <= m_ViewingAngle);
     }
 
+    //レイが目標やに当たったか？
+    public bool IsRayHit(Vector3 direction, float maxDistance, string tag, Color color)
+    {
+        direction.Normalize();
+        Ray ray = new Ray(transform.position, direction);
+        RaycastHit hitInfo;
+        Debug.DrawRay(transform.position, direction * maxDistance, color);
+
+        bool hit = Physics.Raycast(ray, out hitInfo, maxDistance);
+        return (hit && hitInfo.collider.tag == tag);
+    }
+
     // レイが目標やに当たったか？ プラス 目標が視角内か？
     public bool CanRayHitTarget(Vector3 target, float maxDistance, string tag, Color color)
     {
         if (!IsTargetInViewingAngle(target)) return false;
-        if (!IsRayHit(DirectionToTarget(target), maxDistance, tag, color))return false ;
+        if (!IsRayHit(DirectionToTarget(target), maxDistance, tag, color)) return false;
         return true;
     }
 
     public bool IsNearTarget(Vector3 target, float distance)
     {
         return (Vector3.Distance(transform.position, target) <= distance);
-    }
-
-    //レイが目標やに当たったか？
-    public bool IsRayHit(Vector3 direction, float maxDistance, string tag, Color color)
-    {
-        Ray ray = new Ray(transform.position, direction);
-        RaycastHit hitInfo;
-        direction.Normalize();
-        Debug.DrawRay(transform.position, direction * maxDistance, color);
-
-        bool hit = Physics.Raycast(ray, out hitInfo, maxDistance);
-        return (hit && hitInfo.collider.tag == tag);
     }
 
     //目標からの角度
