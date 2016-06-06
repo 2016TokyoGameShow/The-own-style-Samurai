@@ -15,11 +15,14 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField, Tooltip("攻撃の始点")]
     private GameObject attackPoint;
 
-    [SerializeField, Range(0, 10), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
+    [SerializeField, Range(0, 3), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     private float attackWaitTime;
 
-    [SerializeField, Range(0, 10), Tooltip("受け流すが可能のタイミング")]
-    private float flowTime;
+    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング")]
+    private float flowStart;
+
+    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング")]
+    private float flowEnd;
 
     private bool flow = false;
 
@@ -54,8 +57,8 @@ public class MeleeAttack : MonoBehaviour
             time += Time.deltaTime;
             // プレイヤーが受け流す中かつターゲットは自分
             if (enemy.playerObject.GetEnemyTarget() == gameObject &&
-                enemy.playerObject.GetPlayerAttacking()&&
-                time > flowTime)
+                enemy.playerObject.GetPlayerAttacking() &&
+                (time > flowStart && time < flowEnd))
             {
                 //流すをtrue
                 transform.rotation = Quaternion.Euler(transform.rotation.x, -10.0f, transform.rotation.z);
@@ -91,7 +94,6 @@ public class MeleeAttack : MonoBehaviour
         StopAllCoroutines();
         agent.Stop();
         enemy.Dead(3);
-        //transform.position = player.transform.position+transform.right;
     }
 
     public bool GetFlow()
