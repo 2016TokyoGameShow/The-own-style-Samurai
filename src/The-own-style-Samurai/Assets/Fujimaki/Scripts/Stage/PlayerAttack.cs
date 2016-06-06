@@ -64,7 +64,8 @@ public class PlayerAttack : MonoBehaviour
             }
 
 
-            //player.GetAnimator().SetBool("Katana",localVelocity.x)
+            player.GetAnimator().SetBool("Katana", localVelocity.x > 0 ? true : false);
+            
             //流す方向に向く
             while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)
             {
