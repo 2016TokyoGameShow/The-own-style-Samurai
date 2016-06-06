@@ -18,18 +18,21 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField, Range(0, 3), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     private float attackWaitTime;
 
-    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング")]
+    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング　開始")]
     private float flowStart;
 
-    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング")]
+    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング　終了")]
     private float flowEnd;
+
+    [SerializeField, Range(0, 3), Tooltip("攻撃距離")]
+    private float stopDistance;
 
     private bool flow = false;
 
     public IEnumerator StartAttack(Vector3 target, NavMeshAgent agent)
     {
         // 目標に接近
-        while (!mAI.IsNearTarget(target, 2.0f))
+        while (!mAI.IsNearTarget(target, stopDistance))
         {
             mAI.MoveTowardsTarget(agent, target);
             yield return null;
@@ -53,7 +56,6 @@ public class MeleeAttack : MonoBehaviour
         float time = 0;
         while (time < attackWaitTime)
         {
-            Debug.Log(time);
             time += Time.deltaTime;
             // プレイヤーが受け流す中かつターゲットは自分
             if (enemy.playerObject.GetEnemyTarget() == gameObject &&
