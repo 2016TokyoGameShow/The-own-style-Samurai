@@ -22,6 +22,7 @@ public class PlayerAvoidance : MonoBehaviour {
         //とりあえずよけるアクション
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if ((avoidanceAction == null) && (!player.nonMove))
             {
                 avoidanceAction = StartCoroutine(AvoidanceAction());
@@ -39,10 +40,12 @@ public class PlayerAvoidance : MonoBehaviour {
     private IEnumerator AvoidanceAction()
     {
 
+        player.GetAnimator().SetBool("avoidance", true);
+
         player.ChangeColor(Color.blue);
        // player.GetAnimator().SetBool("bow", true);
         player.nonMove = true;
-        float moveTime = 0.3f;
+        float moveTime = 0.6f;
 
         //回避アクション中は向いている方向に一定数移動
         while (moveTime > 0)
@@ -56,5 +59,7 @@ public class PlayerAvoidance : MonoBehaviour {
        // player.GetAnimator().SetBool("bow", false);
         player.nonMove = false;
         avoidanceAction = null;
+
+        player.GetAnimator().SetBool("avoidance", false);
     }
 }

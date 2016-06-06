@@ -38,7 +38,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         uiController = stageController.uiController;
         UpFinisherGage(0);
         hp = maxHP;
-	}
+    }
 
 	void Update () {
 
@@ -97,6 +97,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //攻撃してくる敵をセット
     public void SetTarget(GameObject g)
     {
+        uiController.SpawnWarringSlphas(g);
         playerAttack.SetEnemyTarget(g);
     }
     //プレイヤーが攻撃しているか

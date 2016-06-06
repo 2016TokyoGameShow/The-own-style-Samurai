@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 3833c5c08c769044a8703d46451e96ee
-timeCreated: 1464922289
+guid: 4d3bde9445cf6424b9564ef859280441
+timeCreated: 1465197741
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -31,24 +31,30 @@ ModelImporter:
     100046: L_Toe
     100048: L_Wrist
     100050: Neck
-    100052: R_ankle
-    100054: R_Elbow
-    100056: R_Finger_1
-    100058: R_Finger_2
-    100060: R_Finger_3
-    100062: R_Finger_4_DE
-    100064: R_Hand
-    100066: R_Heel
-    100068: R_knee
-    100070: R_Scapula
-    100072: R_Shoulder
-    100074: R_Thighs
-    100076: R_thumb_1
-    100078: R_thumb_2
-    100080: R_thumb_3_DE
-    100082: R_Toe
-    100084: R_Wrist
-    100086: //RootNode
+    100052: pCube7
+    100054: pCylinder6
+    100056: //RootNode
+    100058: player
+    100060: pSphere2
+    100062: pSphere3
+    100064: R_ankle
+    100066: R_Elbow
+    100068: R_Finger_1
+    100070: R_Finger_2
+    100072: R_Finger_3
+    100074: R_Finger_4_DE
+    100076: R_Hand
+    100078: R_Heel
+    100080: R_knee
+    100082: R_Scapula
+    100084: R_Shoulder
+    100086: R_Thighs
+    100088: R_thumb_1
+    100090: R_thumb_2
+    100092: R_thumb_3_DE
+    100094: R_Toe
+    100096: R_Wrist
+    100098: pTorus1
     400000: All_Parent
     400002: Belly
     400004: between_leg
@@ -75,33 +81,44 @@ ModelImporter:
     400046: L_Toe
     400048: L_Wrist
     400050: Neck
-    400052: R_ankle
-    400054: R_Elbow
-    400056: R_Finger_1
-    400058: R_Finger_2
-    400060: R_Finger_3
-    400062: R_Finger_4_DE
-    400064: R_Hand
-    400066: R_Heel
-    400068: R_knee
-    400070: R_Scapula
-    400072: R_Shoulder
-    400074: R_Thighs
-    400076: R_thumb_1
-    400078: R_thumb_2
-    400080: R_thumb_3_DE
-    400082: R_Toe
-    400084: R_Wrist
-    400086: //RootNode
-    7400000: Atk
-    7400002: eluded_L
-    7400004: eluded_R
-    7400006: Fall
-    7400008: Idle
-    7400010: Run
-    7400012: Walk_L
-    7400014: Walk_R
+    400052: pCube7
+    400054: pCylinder6
+    400056: player
+    400058: //RootNode
+    400060: pSphere2
+    400062: pSphere3
+    400064: R_ankle
+    400066: R_Elbow
+    400068: R_Finger_1
+    400070: R_Finger_2
+    400072: R_Finger_3
+    400074: R_Finger_4_DE
+    400076: R_Hand
+    400078: R_Heel
+    400080: R_knee
+    400082: R_Scapula
+    400084: R_Shoulder
+    400086: R_Thighs
+    400088: R_thumb_1
+    400090: R_thumb_2
+    400092: R_thumb_3_DE
+    400094: R_Toe
+    400096: R_Wrist
+    400098: pTorus1
+    2300000: pCube7
+    2300002: pSphere2
+    2300004: pSphere3
+    3300000: pCube7
+    3300002: pSphere2
+    3300004: pSphere3
+    4300000: pSphere2
+    4300002: pSphere3
+    4300004: pCube7
+    4300006: pCylinder6
+    4300008: pTorus1
     9500000: //RootNode
+    13700000: pCylinder6
+    13700002: pTorus1
   materials:
     importMaterials: 1
     materialName: 0
