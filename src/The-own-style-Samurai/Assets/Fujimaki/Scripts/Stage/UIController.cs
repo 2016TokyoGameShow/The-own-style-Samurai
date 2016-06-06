@@ -7,6 +7,8 @@ public class UIController : MonoBehaviour {
     private UITexture hpBer;
     [SerializeField]
     private UITexture finisherGage;
+    [SerializeField]
+    private GameObject warrningSplash;
 
 	void Start () {
 	
@@ -27,5 +29,11 @@ public class UIController : MonoBehaviour {
     public void SetFinisherGage(float value)
     {
         finisherGage.fillAmount = value;
+    }
+
+    public void SpawnWarringSlphas(GameObject targetObject)
+    {
+        GameObject g = (GameObject)Instantiate(warrningSplash, Vector3.zero, Quaternion.identity);
+        g.GetComponent<WarrningSplash>().Initialize(4, targetObject);
     }
 }

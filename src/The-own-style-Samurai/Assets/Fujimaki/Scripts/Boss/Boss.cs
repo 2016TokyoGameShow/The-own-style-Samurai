@@ -14,6 +14,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     private GameObject bossAttackArea;
     [SerializeField]
     private GameObject summonGameObject;
+    [SerializeField]
+    private UIController uiController;
 
     private Player player;
 
