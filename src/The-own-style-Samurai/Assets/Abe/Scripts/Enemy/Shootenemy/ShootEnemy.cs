@@ -37,7 +37,7 @@ public class ShootEnemy : Enemy
 
     ShootEnemyContext context;
 
-    public readonly Vector3 rayOffset = new Vector3(0, 0.8f, 0);
+    public readonly Vector3 rayOffset = new Vector3(0, 1f, 0);
 
     #endregion
 
@@ -62,6 +62,11 @@ public class ShootEnemy : Enemy
     #endregion
 
     #region メソッド
+
+    void OnAwake()
+    {
+        animator.SetBool("IsGround", true);
+    }
 
     protected override void OnStart()
     {
@@ -114,7 +119,7 @@ public class ShootEnemy : Enemy
         }
 
         Quaternion playerAngle = Quaternion.LookRotation(player.transform.position - transform.position);
-        Quaternion.RotateTowards(transform.rotation, playerAngle, -10);
+        Quaternion.RotateTowards(transform.rotation, playerAngle, agent.angularSpeed * Time.deltaTime);
     }
 
     protected override void OnAttack()
