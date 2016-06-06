@@ -58,7 +58,8 @@ public class MeleeAttack : MonoBehaviour
                 time > flowTime)
             {
                 //流すをtrue
-                transform.rotation = Quaternion.Euler(transform.rotation.x, 170.0f, transform.rotation.z);
+                transform.rotation = Quaternion.Euler(transform.rotation.x, -10.0f, transform.rotation.z);
+                enemy.GetAnimator.SetTrigger("StartFlow");
                 flow = true;
                 break;
             }
@@ -90,7 +91,6 @@ public class MeleeAttack : MonoBehaviour
         StopAllCoroutines();
         agent.Stop();
         enemy.Dead(3);
-        enemy.GetAnimator.SetTrigger("StartFlow");
         //transform.position = player.transform.position+transform.right;
     }
 
