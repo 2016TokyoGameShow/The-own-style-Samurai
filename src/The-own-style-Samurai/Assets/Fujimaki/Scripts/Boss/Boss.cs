@@ -28,8 +28,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        myAnimator.SetBool("die", true);
-        //StartCoroutine(WaitNextAction(2));
+
+        StartCoroutine(WaitNextAction(2));
     }
 	
 	// Update is called once per frame
@@ -108,6 +108,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         myAnimator.SetBool("Walk", false);
     }
 
+    //======================================================================================================ダメージを受ける
     public void OnWeaponHit(int damege, GameObject attackObject)
     {
         hp -= damege;
@@ -127,6 +128,19 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         print(Vector3.Distance(transform.position, player.transform.position));
         StartCoroutine(WaitNextAction(2));
 
+    }
+
+    //======================================================================================================弓兵を召喚処理
+    public void CallEnemyAnimatorEvent()
+    {
+        //3体償還
+        for (int i = 0; i < 3; i++)
+        {
+            Instantiate(summonGameObject, transform.position + transform.up * 2 + transform.forward * 3 + (transform.right * (i - 1) * 2), transform.rotation);
+        }
+
+        myAnimator.SetBool("call", false);
+        StartCoroutine(WaitNextAction(2));
     }
 
     //======================================================================================================弓兵を償還
@@ -151,14 +165,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
         yield return new WaitForSeconds(1);
 
-        //3体償還
-        for(int i = 0; i < 3; i++)
-        {
-            Instantiate(summonGameObject, transform.position + transform.up * 2 + transform.forward * 3+(transform.right*(i-1)*2), transform.rotation);
-            yield return new WaitForSeconds(0.3f);
-        }
-        
-        StartCoroutine(WaitNextAction(2));
+        myAnimator.SetBool("call", true);
+
     }
 
     //======================================================================================================次のアクションを決定
