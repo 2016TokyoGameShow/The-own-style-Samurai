@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private GameObject enemyTarget;
 
     public bool playerAttacking;
+    public bool playerAttackingOnce;
 
     void Start() {
 
@@ -51,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
             player.ChangeColor(Color.red);
             player.nonMove = true;
             playerAttacking = true;
+            playerAttackingOnce = true;
 
             Vector3 enemyTargetPositon = enemyTarget.transform.position;
 
@@ -82,8 +84,9 @@ public class PlayerAttack : MonoBehaviour
             playerAttacking = false;
             player.ChangeColor(Color.white);
             player.nonMove = false;
+            playerAttackingOnce = false;
 
-           // player.GetAnimator().SetInteger("katana", 0);
+            player.GetAnimator().SetInteger("katana", 0);
         }
     }
 

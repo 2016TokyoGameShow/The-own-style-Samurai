@@ -66,7 +66,12 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //プレイヤーが流し中かどうか返す
     public bool GetPlayerAttacking()
     {
-        return playerAttack.playerAttacking;
+        if (playerAttack.playerAttackingOnce)
+        {
+            playerAttack.playerAttackingOnce = false;
+            return true;
+        }
+        return false;
     }
 
     //現在攻撃を仕掛けている敵(エネミーターゲット)を取得
@@ -78,11 +83,15 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //ヒット通知
     public void OnWeaponHit(int damage,GameObject enemy)
     {
-        print("PlayerDamage");
         playerAttack.Hit(damage);
         
         hp -= damage;
         uiController.SetHPGage(maxHP, hp);
+
+        if (hp <= 0)
+        {
+            animator.SetBool("die", true);
+        }
     }
 
     //攻撃してくる敵をセット
