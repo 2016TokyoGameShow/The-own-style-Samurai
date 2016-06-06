@@ -37,7 +37,7 @@ public class ShootEnemy : Enemy
 
     ShootEnemyContext context;
 
-    public readonly Vector3 rayOffset = new Vector3(0, 0.8f, 0);
+    public readonly Vector3 rayOffset = new Vector3(0, 1f, 0);
 
     #endregion
 
@@ -63,6 +63,11 @@ public class ShootEnemy : Enemy
 
     #region メソッド
 
+    void OnAwake()
+    {
+        animator.SetBool("IsGround", true);
+    }
+
     protected override void OnStart()
     {
         lineRenderer.enabled = false;
@@ -86,13 +91,13 @@ public class ShootEnemy : Enemy
             return;
         }
         context._OnMove();
-        animator.SetFloat("Speed", agent.speed);
+        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     protected override void _OnMoveEnd()
     {
         context._OnMoveEnd();
-        animator.SetFloat("Speed", agent.speed);
+        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     protected override void OnAttackReadyStart()
@@ -113,8 +118,28 @@ public class ShootEnemy : Enemy
             }
         }
 
+        Vector3 forward = transform.forward;
+        forward.y = 0;
+        forward.Normalize();
+
+        Vector3 dir = player.transform.position - transform.position;
+        dir.y = 0;
+        dir.Normalize();
+        
+        //Quaternion forward_ = Quaternion.LookRotation(forward);
+        //Quaternion dir_     = Quaternion.LookRotation(dir);
+
+        //float dot = Quaternion.Dot(forward_, dir_);
+
+        //if(dot < 0.99f)
+        //{
+        //    float angle = Quaternion.Angle(forward_, dir_);
+
+        //    animator.SetFloat("SideSpeed", Mathf.Sign(angle) * 1.5f);
+        //}
+        
         Quaternion playerAngle = Quaternion.LookRotation(player.transform.position - transform.position);
-        Quaternion.RotateTowards(transform.rotation, playerAngle, -10);
+        Quaternion.RotateTowards(transform.rotation, playerAngle, agent.angularSpeed * Time.deltaTime);
     }
 
     protected override void OnAttack()

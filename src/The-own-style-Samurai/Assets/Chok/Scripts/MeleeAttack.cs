@@ -15,18 +15,24 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField, Tooltip("攻撃の始点")]
     private GameObject attackPoint;
 
-    [SerializeField, Range(0, 10), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
+    [SerializeField, Range(0, 3), Tooltip("攻撃の準備から実際に攻撃するまでの時間")]
     private float attackWaitTime;
 
-    [SerializeField, Range(0, 10), Tooltip("受け流すが可能のタイミング")]
-    private float flowTime;
+    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング　開始")]
+    private float flowStart;
+
+    [SerializeField, Range(0, 3), Tooltip("受け流すが可能のタイミング　終了")]
+    private float flowEnd;
+
+    [SerializeField, Range(0, 3), Tooltip("攻撃距離")]
+    private float stopDistance;
 
     private bool flow = false;
 
     public IEnumerator StartAttack(Vector3 target, NavMeshAgent agent)
     {
         // 目標に接近
-        while (!mAI.IsNearTarget(target, 2.0f))
+        while (!mAI.IsNearTarget(target, stopDistance))
         {
             mAI.MoveTowardsTarget(agent, target);
             yield return null;
@@ -50,15 +56,15 @@ public class MeleeAttack : MonoBehaviour
         float time = 0;
         while (time < attackWaitTime)
         {
-            Debug.Log(time);
             time += Time.deltaTime;
             // プレイヤーが受け流す中かつターゲットは自分
             if (enemy.playerObject.GetEnemyTarget() == gameObject &&
-                enemy.playerObject.GetPlayerAttacking()&&
-                time > flowTime)
+                enemy.playerObject.GetPlayerAttacking() &&
+                (time > flowStart && time < flowEnd))
             {
                 //流すをtrue
-                transform.rotation = Quaternion.Euler(transform.rotation.x, 170.0f, transform.rotation.z);
+                transform.rotation = Quaternion.Euler(transform.rotation.x, -10.0f, transform.rotation.z);
+                enemy.GetAnimator.SetTrigger("StartFlow");
                 flow = true;
                 break;
             }
@@ -90,8 +96,6 @@ public class MeleeAttack : MonoBehaviour
         StopAllCoroutines();
         agent.Stop();
         enemy.Dead(3);
-        enemy.GetAnimator.SetTrigger("StartFlow");
-        //transform.position = player.transform.position+transform.right;
     }
 
     public bool GetFlow()

@@ -90,7 +90,8 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     public virtual void OnWeaponHit(int damage, GameObject attackObject)
     {
-        Dead();
+        animator.SetTrigger("Dead");
+        Dead(3);
     }
 
     public void OnPlayerDead()
