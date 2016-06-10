@@ -16,9 +16,12 @@ public class MeleeMove : MonoBehaviour
         // プレイヤーと近すぎだったら後退
         while (mAI.IsNearTarget(enemy.playerObject.transform.position, 5.0f))
         {
+            agent.speed = 0.01f;
             transform.position -= transform.forward / 20;
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
+
+        yield return new WaitForSeconds(0.5f);
 
         // プレイヤーが見えるまで移動、攻撃不能
         while (!mAI.CanRayHitTarget(
@@ -26,10 +29,13 @@ public class MeleeMove : MonoBehaviour
             6, "Player", Color.red))
         {
             mAI.MoveTowardsTarget(agent, enemy.playerObject.transform.position);
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
         agent.speed = 0;
         enemy.SetIsAttackable(true);
+
+        yield return new WaitForSeconds(0.5f);
+
         StartCoroutine(RotateAroundPlayer());
     }
 
