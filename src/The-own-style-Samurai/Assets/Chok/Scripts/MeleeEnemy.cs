@@ -56,6 +56,11 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void StartMove()
     {
         StopAll();
+        if (mAI.IsNearTarget(player.transform.position, 2.0f))
+        {
+            transform.position -= transform.forward / 20;
+            return;
+        }
         StartCoroutine(move.Move(agent));
     }
 
