@@ -14,8 +14,17 @@ public class EnemyGenerator : MonoBehaviour
     [SerializeField, Tooltip("敵生成時間")]
     List<int> addEnemyInterval;
 
-    private float time;
+    [SerializeField, Tooltip("Stage1")]
+    int portalCountFirst;
 
+    [SerializeField,Tooltip("Stage2")]
+    int portalCountScond;
+
+    [SerializeField,Tooltip("bossstage")]
+    int portalCountBoss;
+
+    private float time;
+    private int portalCount;
 
     void Start()
     {
@@ -24,6 +33,10 @@ public class EnemyGenerator : MonoBehaviour
 
     void Update()
     {
+        int dead = EnemyController.singleton.enemyDeathCount;
+        if (dead < 10) portalCount = portalCountFirst;
+        else if (dead < 20) portalCount = portalCountScond;
+        else portalCount = portalCountBoss;
         GenerateEnemy();
     }
 
@@ -40,7 +53,7 @@ public class EnemyGenerator : MonoBehaviour
         int enemyType = Random.Range(0, 4);
         if (enemyType != 0) enemyType = 1;
         //生成位置
-        int initialPos = Random.Range(0, portal.Count);
+        int initialPos = Random.Range(0, portalCount);
         Instantiate(
             enemies[enemyType],
             portal[initialPos].transform.position,
