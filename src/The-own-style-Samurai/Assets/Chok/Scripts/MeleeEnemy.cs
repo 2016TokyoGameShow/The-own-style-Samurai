@@ -55,6 +55,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     // 移動関数
     public void StartMove()
     {
+        Debug.Log("StartMove");
         StopAll();
         StartCoroutine(move.Move(agent));
     }
@@ -62,9 +63,10 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     // 攻撃関数
     public void AttackEnemy()
     {
+        Debug.Log("Attack");
         Vector3 target = player.transform.position;
         // プレイヤーと離れすぎだったら攻撃不能
-        if (mAI.IsNearTarget(target, 5.0f)) return;
+        if (!mAI.IsNearTarget(target, 8.0f)) return;
         if (!EnemyController.singleton.Attack(gameObject, kind)) return;
         StopAll();
         StartCoroutine(attack.Attack(agent));
@@ -112,6 +114,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     public IEnumerator CoolTime(float time)
     {
+        Debug.Log("CoolTime");
         yield return new WaitForSeconds(time);
         StartMove();
     }

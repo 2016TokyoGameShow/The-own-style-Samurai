@@ -13,6 +13,13 @@ public class MeleeMove : MonoBehaviour
 
     public IEnumerator Move(NavMeshAgent agent)
     {
+        // プレイヤーと近すぎだったら後退
+        while (mAI.IsNearTarget(enemy.playerObject.transform.position, 3.0f))
+        {
+            transform.position -= transform.forward / 20;
+            yield return null;
+        }
+        Debug.Log("Move");
         // プレイヤーが見えるまで移動、攻撃不能
         while (!mAI.CanRayHitTarget(
             enemy.playerObject.transform.position,
@@ -27,6 +34,7 @@ public class MeleeMove : MonoBehaviour
 
     IEnumerator RotateAroundPlayer()
     {
+        Debug.Log("Rotate");
         bool lostPlayer = false;
         if (angle == 1) angle = mAI.GetAngle(MeleeAIController.singleton.Angle);
         Vector3 target = enemy.playerObject.transform.position;
@@ -34,7 +42,7 @@ public class MeleeMove : MonoBehaviour
         while (Mathf.Abs(mAI.AngleFromTarget(target) - angle) > 10.0f)
         {
             if(!mAI.CanRayHitTarget(enemy.playerObject.transform.position,
-                6, "Player", Color.red))
+                5, "Player", Color.red))
             {
                 lostPlayer = true;
                 break;
@@ -57,12 +65,13 @@ public class MeleeMove : MonoBehaviour
 
     IEnumerator WaitForAttack()
     {
+        Debug.Log("Wait");
         while (mAI.CanRayHitTarget(
                 enemy.playerObject.transform.position,
-                8, "Player", Color.grey))
+                5, "Player", Color.grey))
         {
             yield return null;
         }
-        enemy.StartMove();
+        enemy.CoolTime(2);
     }
 }
