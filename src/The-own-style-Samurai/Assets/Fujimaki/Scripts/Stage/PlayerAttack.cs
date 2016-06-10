@@ -67,9 +67,9 @@ public class PlayerAttack : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            player.GetAnimator().SetInteger("katana", 1);
-           //player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
-            print(localVelocity.x > 0 ? 1 : 2);
+            //player.GetAnimator().SetInteger("katana", 1);
+           player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
+            transform.localPosition = new Vector3(velocity.x, 0.5f, 0);
             
             //流す方向に向く
           /*  while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)

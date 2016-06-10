@@ -1,0 +1,206 @@
+fileFormatVersion: 2
+guid: e5133059aa0dfea49827b61e3c219c62
+timeCreated: 1465527337
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Parent
+    100002: Belly
+    100004: between_leg
+    100006: between_leg1
+    100008: boss_01:Boss
+    100010: boss_01:group1
+    100012: boss_01:pCube3
+    100014: boss_01:polySurface28
+    100016: boss_01:polySurface29
+    100018: boss_01:polySurface30
+    100020: boss_01:polySurface31
+    100022: boss_01:polySurface32
+    100024: boss_01:polySurface33
+    100026: boss_01:polySurface34
+    100028: //RootNode
+    100030: Chest
+    100032: Front_Indicating_Arrow
+    100034: Head
+    100036: HeadDeadEnd
+    100038: Hip_n_Center
+    100040: L_ankle
+    100042: L_Elbow
+    100044: L_Finger_1
+    100046: L_Finger_2
+    100048: L_Finger_3
+    100050: L_Finger_4_DE
+    100052: L_Hand
+    100054: L_Instep
+    100056: L_knee
+    100058: L_Scapula
+    100060: L_Shoulder
+    100062: L_Thighs
+    100064: L_thumb_1
+    100066: L_thumb_2
+    100068: L_thumb_3_DE
+    100070: L_Toe
+    100072: L_Wrist
+    100074: Neck
+    100076: R_ankle
+    100078: R_Elbow
+    100080: R_Finger_1
+    100082: R_Finger_2
+    100084: R_Finger_3
+    100086: R_Finger_4_DE
+    100088: R_Hand
+    100090: R_Instep
+    100092: R_knee
+    100094: R_Scapula
+    100096: R_Shoulder
+    100098: R_Thighs
+    100100: R_thumb_1
+    100102: R_thumb_2
+    100104: R_thumb_3_DE
+    100106: R_Toe
+    100108: R_Wrist
+    400000: All_Parent
+    400002: Belly
+    400004: between_leg
+    400006: between_leg1
+    400008: boss_01:Boss
+    400010: boss_01:group1
+    400012: boss_01:pCube3
+    400014: boss_01:polySurface28
+    400016: boss_01:polySurface29
+    400018: boss_01:polySurface30
+    400020: boss_01:polySurface31
+    400022: boss_01:polySurface32
+    400024: boss_01:polySurface33
+    400026: boss_01:polySurface34
+    400028: //RootNode
+    400030: Chest
+    400032: Front_Indicating_Arrow
+    400034: Head
+    400036: HeadDeadEnd
+    400038: Hip_n_Center
+    400040: L_ankle
+    400042: L_Elbow
+    400044: L_Finger_1
+    400046: L_Finger_2
+    400048: L_Finger_3
+    400050: L_Finger_4_DE
+    400052: L_Hand
+    400054: L_Instep
+    400056: L_knee
+    400058: L_Scapula
+    400060: L_Shoulder
+    400062: L_Thighs
+    400064: L_thumb_1
+    400066: L_thumb_2
+    400068: L_thumb_3_DE
+    400070: L_Toe
+    400072: L_Wrist
+    400074: Neck
+    400076: R_ankle
+    400078: R_Elbow
+    400080: R_Finger_1
+    400082: R_Finger_2
+    400084: R_Finger_3
+    400086: R_Finger_4_DE
+    400088: R_Hand
+    400090: R_Instep
+    400092: R_knee
+    400094: R_Scapula
+    400096: R_Shoulder
+    400098: R_Thighs
+    400100: R_thumb_1
+    400102: R_thumb_2
+    400104: R_thumb_3_DE
+    400106: R_Toe
+    400108: R_Wrist
+    2300000: boss_01:pCube3
+    2300002: boss_01:polySurface28
+    2300004: boss_01:polySurface29
+    2300006: boss_01:polySurface30
+    2300008: boss_01:polySurface31
+    2300010: boss_01:polySurface34
+    3300000: boss_01:pCube3
+    3300002: boss_01:polySurface28
+    3300004: boss_01:polySurface29
+    3300006: boss_01:polySurface30
+    3300008: boss_01:polySurface31
+    3300010: boss_01:polySurface34
+    4300000: boss_01:polySurface28
+    4300002: boss_01:polySurface30
+    4300004: boss_01:pCube3
+    4300006: boss_01:polySurface29
+    4300008: boss_01:polySurface31
+    4300010: boss_01:polySurface34
+    4300012: boss_01:Boss
+    4300014: boss_01:polySurface33
+    4300016: boss_01:polySurface32
+    9500000: //RootNode
+    13700000: boss_01:Boss
+    13700002: boss_01:polySurface32
+    13700004: boss_01:polySurface33
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

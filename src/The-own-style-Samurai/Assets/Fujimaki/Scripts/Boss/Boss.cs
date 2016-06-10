@@ -16,7 +16,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     private GameObject summonGameObject;
     [SerializeField]
     private UIController uiController;
-
+    [SerializeField]
     private Player player;
 
     private Vector3 saveSpeedVelocity;
@@ -29,7 +29,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
 	// Use this for initialization
 	void Start () {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+       // player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        print(player);
 
         StartCoroutine(WaitNextAction(2));
     }
