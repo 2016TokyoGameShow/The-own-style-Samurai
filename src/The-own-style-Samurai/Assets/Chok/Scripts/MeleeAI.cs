@@ -80,7 +80,6 @@ public class MeleeAI : MonoBehaviour
         float angle = Mathf.Atan2(directionZ, directionX);
         angle = angle * 180.0f / Mathf.PI;
         if (angle < 0) angle += 360.0f;
-        //Debug.Log(angle);
         return angle;
     }
 
