@@ -14,7 +14,6 @@ public class PlayerAttack : MonoBehaviour
     public bool playerAttackingOnce;
 
     void Start() {
-
     }
 
     void Update() {
@@ -55,27 +54,31 @@ public class PlayerAttack : MonoBehaviour
             playerAttackingOnce = true;
 
             Vector3 enemyTargetPositon = enemyTarget.transform.position;
+            player.transform.position =new Vector3(player.transform.position.x, enemyTarget.transform.position.y,player.transform.position.z);
 
-            while (Vector3.Angle(player.transform.forward, enemyTargetPositon - player.transform.position) != 0)
+            while (Vector3.Angle(player.transform.forward,enemyTargetPositon - player.transform.position) != 0)
             {
 
                 Quaternion rotation = Quaternion.LookRotation(enemyTargetPositon - player.transform.position);
+                rotation.x = 0;
+                rotation.z = 0;
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.5f);
                 //player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                 yield return new WaitForEndOfFrame();
             }
 
-
-            player.GetAnimator().SetBool("Katana", localVelocity.x > 0 ? true : false);
+            player.GetAnimator().SetInteger("katana", 1);
+           //player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
+            print(localVelocity.x > 0 ? 1 : 2);
             
             //流す方向に向く
-            while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)
+          /*  while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)
             {
                 Quaternion rotation = Quaternion.LookRotation(velocity);
 
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.2f);
                 yield return new WaitForEndOfFrame();
-            }
+            }*/
 
             if(enemyTarget != null)Attack();
 
