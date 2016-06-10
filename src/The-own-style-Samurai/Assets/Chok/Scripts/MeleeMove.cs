@@ -32,14 +32,6 @@ public class MeleeMove : MonoBehaviour
         if (angle == 1) angle = mAI.GetAngle(MeleeAIController.singleton.Angle);
         Vector3 target = enemy.playerObject.transform.position;
         float rotate = mAI.RotateDirection(mAI.AngleFromTarget(target), angle);
-        //while (mAI.CanRayHitTarget(
-        //        enemy.playerObject.transform.position,
-        //        6, "Player", Color.red))
-        //{
-        //    mAI.RotateAroundTarget(target, angle, rotate);
-        //    yield return null;
-        //}
-
         while (Mathf.Abs(mAI.AngleFromTarget(target) - angle) > 10.0f)
         {
             // 減速しながら回転
@@ -54,9 +46,9 @@ public class MeleeMove : MonoBehaviour
     IEnumerator WaitForAttack()
     {
         attackable = true;
-        while (!mAI.CanRayHitTarget(
+        while (mAI.CanRayHitTarget(
                 enemy.playerObject.transform.position,
-                3, "Player", Color.grey))
+                8, "Player", Color.grey))
         {
             yield return null;
         }
