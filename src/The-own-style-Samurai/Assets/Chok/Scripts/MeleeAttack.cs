@@ -75,7 +75,7 @@ public class MeleeAttack : MonoBehaviour
             EnemyController.singleton.AttackEnd(gameObject, enemy.Kind);
             enemy.GetAnimator.SetTrigger("AttackEnd");
             enemy.playerObject.SetTarget(null);
-            StartCoroutine(enemy.CoolTime(2));
+            StartCoroutine(enemy.CoolTime(0.3f));
         }
     }
 
