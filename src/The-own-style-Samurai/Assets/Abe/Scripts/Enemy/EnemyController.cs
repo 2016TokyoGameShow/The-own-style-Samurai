@@ -29,9 +29,8 @@ public class EnemyController : MonoBehaviour
 
     public enum EnemyKind
     {
-        Sword = 0,
-        Spear = 1,
-        Arrow = 2,
+        Melee = 0,
+        Arrow = 1,
     }
 
     [System.Serializable]
@@ -57,8 +56,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     Info[] enemyInfo = new Info[] 
     {
-        new Info(EnemyKind.Sword),
-        new Info(EnemyKind.Spear),
+        new Info(EnemyKind.Melee),
         new Info(EnemyKind.Arrow),
     };
 
@@ -228,7 +226,7 @@ public class EnemyController : MonoBehaviour
             }
 
             count.Clear();
-            for(int i = 0; i < 3; i++)
+            for(int i = 0; i < enemyInfo[(int)EnemyKind.Melee].attackMaxCount; i++)
             {
                 int rand = Random.Range(0, meleeEnemy.Count);
                 meleeEnemy[rand].AttackEnemy();

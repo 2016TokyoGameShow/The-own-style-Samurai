@@ -39,6 +39,11 @@ public class Title : MonoBehaviour
 
     public void GotoStageScene()
     {
-        SceneManager.LoadScene("Stage01");
+        SceneManager.LoadScene("Opening");
+    }
+
+    public void GameEnd()
+    {
+        Application.Quit();
     }
 }
