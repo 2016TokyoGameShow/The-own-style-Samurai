@@ -228,7 +228,7 @@ public class EnemyController : MonoBehaviour
             count.Clear();
             for(int i = 0; i < 3; i++)
             {
-                int rand = Random.Range(0, meleeEnemy.Count-1);
+                int rand = Random.Range(0, meleeEnemy.Count);
                 meleeEnemy[rand].AttackEnemy();
             }
         }
