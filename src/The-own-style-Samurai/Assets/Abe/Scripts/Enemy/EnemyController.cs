@@ -226,17 +226,9 @@ public class EnemyController : MonoBehaviour
             }
 
             count.Clear();
-            for(int i = 0; i < Mathf.Min(3, meleeEnemy.Count); i++)
+            for(int i = 0; i < 3; i++)
             {
                 int rand = Random.Range(0, meleeEnemy.Count-1);
-                
-                if(IsEqualList(count, rand))
-                {
-                    i--;
-                    continue;
-                }
-
-                count.Add(rand);
                 meleeEnemy[rand].AttackEnemy();
             }
         }
