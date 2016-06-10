@@ -196,7 +196,7 @@ public class EnemyController : MonoBehaviour
     // 更新前処理
     void Start()
     {
-        
+        StartCoroutine(MeleeEnemyAttackUpdate());
     }
 
     // 更新処理
@@ -289,7 +289,7 @@ public class EnemyController : MonoBehaviour
 
         Destroy(enemy);
 
- //       enemyObject.AddComponent<AssaultEnemy>();
+ //     enemyObject.AddComponent<AssaultEnemy>();
     }
 
     public void EnemyCall(int callnum)
