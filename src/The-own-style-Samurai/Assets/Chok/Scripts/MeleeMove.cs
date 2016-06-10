@@ -37,6 +37,7 @@ public class MeleeMove : MonoBehaviour
             // 減速しながら回転
             float rotateSpeed = rotate * (Mathf.Abs(Mathf.DeltaAngle(mAI.AngleFromTarget(target), angle)) / 90.0f);
             transform.RotateAround(target, Vector3.up, rotateSpeed);
+            enemy.GetAnimator.SetFloat("Rotate", rotateSpeed);
             yield return null;
         }
         attackable = true;
