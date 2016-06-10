@@ -27,33 +27,28 @@ public class MeleeAttack : MonoBehaviour
     [SerializeField, Range(0, 3), Tooltip("攻撃距離")]
     private float stopDistance;
 
-    private bool flow = false;
+    public bool flow;
 
-    public IEnumerator StartAttack(Vector3 target, NavMeshAgent agent)
+    public IEnumerator Attack(NavMeshAgent agent)
     {
         // 目標に接近
-        while (!mAI.IsNearTarget(target, stopDistance))
+        while (!mAI.IsNearTarget(
+            enemy.playerObject.transform.position,
+            stopDistance))
         {
-            mAI.MoveTowardsTarget(agent, target);
+            mAI.MoveTowardsTarget(agent, enemy.playerObject.transform.position, 1.5f);
             yield return null;
         }
-        // 止める
-        agent.speed = 0;
-        // ちょっと待つ
-        yield return new WaitForSeconds(0.3f);
-        // 攻撃アニメーション開始
-        enemy.GetAnimator.SetTrigger("Attack");
+        agent.speed = 0;                                // 止める
+        yield return new WaitForSeconds(0.3f);          // ちょっと待つ
+        enemy.GetAnimator.SetTrigger("Attack");         // 攻撃アニメーション開始
         // プレイヤーに自分を送る
         if (enemy.playerObject.isPlayerAttacking())
             enemy.playerObject.SetTarget(this.gameObject);
-        // 攻撃判定生成開始
-        StartCoroutine(Attack(agent));
-    }
 
-    private IEnumerator Attack(NavMeshAgent agent)
-    {
-        // 攻撃開始、判定までの時間、受け流すfalse(流されていない)
+        // 攻撃開始
         float time = 0;
+        flow = false;
         while (time < attackWaitTime)
         {
             time += Time.deltaTime;
@@ -63,8 +58,6 @@ public class MeleeAttack : MonoBehaviour
                 (time > flowStart && time < flowEnd))
             {
                 //流すをtrue
-                transform.rotation = Quaternion.Euler(transform.rotation.x, -10.0f, transform.rotation.z);
-                enemy.GetAnimator.SetTrigger("StartFlow");
                 flow = true;
                 break;
             }
@@ -73,14 +66,16 @@ public class MeleeAttack : MonoBehaviour
         if (flow == true)
         {
             Flow();
-            yield return null;
         }
-        // 判定生成、攻撃終了通知、攻撃アニメーション終了、ターゲットを消す
-        InstantiateWeapon();
-        EnemyController.singleton.AttackEnd(gameObject, enemy.Kind);
-        enemy.GetAnimator.SetTrigger("AttackEnd");
-        enemy.playerObject.SetTarget(null);
-        enemy.StartMove();
+        else
+        {
+            // 判定生成、攻撃終了通知、攻撃アニメーション終了、ターゲットを消す
+            InstantiateWeapon();
+            EnemyController.singleton.AttackEnd(gameObject, enemy.Kind);
+            enemy.GetAnimator.SetTrigger("AttackEnd");
+            enemy.playerObject.SetTarget(null);
+            StartCoroutine(enemy.CoolTime(2));
+        }
     }
 
     private void InstantiateWeapon()
@@ -93,13 +88,11 @@ public class MeleeAttack : MonoBehaviour
 
     private void Flow()
     {
+        // 受け流すアニメーション
+        transform.rotation = Quaternion.Euler(transform.rotation.x, -10.0f, transform.rotation.z);
+        enemy.GetAnimator.SetTrigger("StartFlow");
         // 全部の処理を終了
         enemy.StopAll();
         enemy.Dead(3);
-    }
-
-    public bool GetFlow()
-    {
-        return flow;
     }
 }

@@ -49,6 +49,7 @@ public class MeleeAI : MonoBehaviour
     //レイが目標やに当たったか？
     public bool IsRayHit(Vector3 direction, float maxDistance, string tag, Color color)
     {
+        direction.y += 1.0f;
         direction.Normalize();
         Ray ray = new Ray(transform.position, direction);
         RaycastHit hitInfo;
