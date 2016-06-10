@@ -196,22 +196,63 @@ public class EnemyController : MonoBehaviour
     // 更新前処理
     void Start()
     {
-        
+        StartCoroutine(MeleeEnemyAttackUpdate());
     }
 
     // 更新処理
     void Update()
     {
-        //foreach(AttackInfo i in attackInfo)
-        //{
-        //    foreach(GameObject enemy in i.count)
-        //    {
-        //        if(enemy == null)
-        //        {
-        //            enemies.Remove(enemy);
-        //        }
-        //    }
-        //}
+
+    }
+
+    IEnumerator MeleeEnemyAttackUpdate()
+    {
+        List<MeleeEnemy> meleeEnemy = new List<MeleeEnemy>();
+        List<int> count = new List<int>();
+        while(true)
+        {
+            meleeEnemy.Clear();
+            foreach(GameObject enemy in enemies)
+            {
+                MeleeEnemy e = enemy.GetComponent<MeleeEnemy>();
+                meleeEnemy.Add(e);
+            }
+
+            yield return new WaitForSeconds(Random.Range(2.0f, 4.0f));
+
+            if(meleeEnemy.Count == 0)
+            {
+                continue;
+            }
+
+            count.Clear();
+            for(int i = 0; i < 3; i++)
+            {
+                int rand = Random.Range(0, meleeEnemy.Count-1);
+                
+                if(IsEqualList(count, rand))
+                {
+                    i--;
+                    continue;
+                }
+
+                count.Add(rand);
+                meleeEnemy[rand].AttackEnemy();
+            }
+        }
+    }
+
+    bool IsEqualList(List<int> list, int num)
+    {
+        foreach(int c in list)
+        {
+            if(c == num)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     bool IsAttackMax(EnemyKind kind)
@@ -248,7 +289,7 @@ public class EnemyController : MonoBehaviour
 
         Destroy(enemy);
 
- //       enemyObject.AddComponent<AssaultEnemy>();
+ //     enemyObject.AddComponent<AssaultEnemy>();
     }
 
     public void EnemyCall(int callnum)
