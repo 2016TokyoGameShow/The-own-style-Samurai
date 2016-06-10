@@ -22,7 +22,8 @@ public class StageController : MonoBehaviour {
 
     void Update()
     {
-        if(mEnemyController.enemyDeathCount >= border)
+        
+        if(mEnemyController != null && mEnemyController.enemyDeathCount >= border)
         {
             GameObject.Find("Boss").GetComponent<Boss>().BossStart();
             border = 99999999;
