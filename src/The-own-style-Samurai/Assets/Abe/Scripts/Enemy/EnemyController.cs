@@ -211,15 +211,17 @@ public class EnemyController : MonoBehaviour
         List<int> count = new List<int>();
         while(true)
         {
+            yield return new WaitForSeconds(Random.Range(2.0f, 4.0f));
+
             meleeEnemy.Clear();
             foreach(GameObject enemy in enemies)
             {
                 MeleeEnemy e = enemy.GetComponent<MeleeEnemy>();
-                meleeEnemy.Add(e);
+                if(e != null)
+                {
+                    meleeEnemy.Add(e);
+                }
             }
-
-            yield return new WaitForSeconds(Random.Range(2.0f, 4.0f));
-
             if(meleeEnemy.Count == 0)
             {
                 continue;
