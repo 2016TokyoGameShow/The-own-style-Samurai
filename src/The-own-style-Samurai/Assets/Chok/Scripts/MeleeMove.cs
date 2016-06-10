@@ -60,4 +60,9 @@ public class MeleeMove : MonoBehaviour
     {
         return attackable;
     }
+
+    public void SetIsAttackable(bool set)
+    {
+        attackable = set;
+    }
 }
