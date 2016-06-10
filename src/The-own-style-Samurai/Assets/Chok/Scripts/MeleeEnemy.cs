@@ -20,8 +20,8 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     [SerializeField]
     private MeleeMove move;
 
-    [SerializeField]
-    private MeleeGather gather;
+    //[SerializeField]
+    //private MeleeGather gather;
 
     [SerializeField]
     private MeleeAttack attack;
@@ -75,10 +75,10 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void GatherCalled()
     {
         // 流されていれば return
-        if (attack.flow == true) return;
-        StopAll();
-        Transform boss = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(gather.Gather(boss, agent));
+        //if (attack.flow == true) return;
+        //StopAll();
+        //Transform boss = GameObject.FindGameObjectWithTag("Player").transform;
+        //StartCoroutine(gather.Gather(boss, agent));
     }
 
     public void Dead(float time = 0)
@@ -107,7 +107,6 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         StopAllCoroutines();
         move.StopAllCoroutines();
         attack.StopAllCoroutines();
-        gather.StopAllCoroutines();
         agent.speed = 0;
     }
 
