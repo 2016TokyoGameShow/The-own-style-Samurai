@@ -29,15 +29,14 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
 	// Use this for initialization
 	void Start () {
+
+    }
+	
+    public void BossStart()
+    {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         StartCoroutine(WaitNextAction(2));
-    }
-	
-	// Update is called once per frame
-	void Update () {
-
-
     }
 
     //======================================================================================================突撃攻撃

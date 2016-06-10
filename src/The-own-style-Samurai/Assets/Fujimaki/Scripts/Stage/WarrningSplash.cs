@@ -12,7 +12,13 @@ public class WarrningSplash : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = target.transform.position;
+        if (target != null)
+        {
+            transform.position = target.transform.position;
+        }else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void Initialize(float time,GameObject target)
