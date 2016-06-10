@@ -29,6 +29,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     private Player player;
     private MeleeState state;
+    private bool attackable = false;
     #endregion
 
     public Player playerObject { get { return player; } }
@@ -61,11 +62,12 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     // 攻撃関数
     public void AttackEnemy()
     {
-        if (!move.IsAttackable()) ;
+        if (!move.IsAttackable()) return;
         Vector3 target = player.transform.position;
         // プレイヤーと離れすぎだったら攻撃不能
         if (mAI.IsNearTarget(target, 5.0f)) return;
         if (!EnemyController.singleton.Attack(gameObject, kind)) return;
+        move.SetIsAttackable(false);
         StopAll();
         StartCoroutine(attack.StartAttack(target, agent));
     }
@@ -101,7 +103,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     }
 
     // 全部のループを止める
-    private void StopAll()
+    public void StopAll()
     {
         StopAllCoroutines();
         move.StopAllCoroutines();
