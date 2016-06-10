@@ -29,14 +29,16 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        StartCoroutine(WaitNextAction(2));
     }
 	
     public void BossStart()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        /*player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        StartCoroutine(WaitNextAction(2));
+        StartCoroutine(WaitNextAction(2));*/
     }
 
     //======================================================================================================突撃攻撃
