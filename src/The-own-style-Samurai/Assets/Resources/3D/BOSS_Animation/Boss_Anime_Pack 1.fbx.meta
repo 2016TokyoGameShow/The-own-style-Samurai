@@ -1,0 +1,170 @@
+fileFormatVersion: 2
+guid: e771e0fb19e1eb141965211f201676bf
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: All_Parent
+    100002: Belly
+    100004: between_leg
+    100006: between_leg1
+    100008: //RootNode
+    100010: Chest
+    100012: Head
+    100014: HeadDeadEnd
+    100016: Hip_n_Center
+    100018: L_ankle
+    100020: L_Elbow
+    100022: L_Finger_1
+    100024: L_Finger_2
+    100026: L_Finger_3
+    100028: L_Finger_4_DE
+    100030: L_Hand
+    100032: L_Instep
+    100034: L_knee
+    100036: L_Scapula
+    100038: L_Shoulder
+    100040: L_Thighs
+    100042: L_thumb_1
+    100044: L_thumb_2
+    100046: L_thumb_3_DE
+    100048: L_Toe
+    100050: L_Wrist
+    100052: Neck
+    100054: R_ankle
+    100056: R_Elbow
+    100058: R_Finger_1
+    100060: R_Finger_2
+    100062: R_Finger_3
+    100064: R_Finger_4_DE
+    100066: R_Hand
+    100068: R_Instep
+    100070: R_knee
+    100072: R_Scapula
+    100074: R_Shoulder
+    100076: R_Thighs
+    100078: R_thumb_1
+    100080: R_thumb_2
+    100082: R_thumb_3_DE
+    100084: R_Toe
+    100086: R_Wrist
+    400000: All_Parent
+    400002: Belly
+    400004: between_leg
+    400006: between_leg1
+    400008: //RootNode
+    400010: Chest
+    400012: Head
+    400014: HeadDeadEnd
+    400016: Hip_n_Center
+    400018: L_ankle
+    400020: L_Elbow
+    400022: L_Finger_1
+    400024: L_Finger_2
+    400026: L_Finger_3
+    400028: L_Finger_4_DE
+    400030: L_Hand
+    400032: L_Instep
+    400034: L_knee
+    400036: L_Scapula
+    400038: L_Shoulder
+    400040: L_Thighs
+    400042: L_thumb_1
+    400044: L_thumb_2
+    400046: L_thumb_3_DE
+    400048: L_Toe
+    400050: L_Wrist
+    400052: Neck
+    400054: R_ankle
+    400056: R_Elbow
+    400058: R_Finger_1
+    400060: R_Finger_2
+    400062: R_Finger_3
+    400064: R_Finger_4_DE
+    400066: R_Hand
+    400068: R_Instep
+    400070: R_knee
+    400072: R_Scapula
+    400074: R_Shoulder
+    400076: R_Thighs
+    400078: R_thumb_1
+    400080: R_thumb_2
+    400082: R_thumb_3_DE
+    400084: R_Toe
+    400086: R_Wrist
+    7400000: Sit
+    7400002: Situp
+    7400004: Walk
+    7400006: N_Attack
+    7400008: Call
+    7400010: Damage
+    7400012: Dead
+    7400014: Aattack_Start
+    7400016: Aattack_Mid
+    7400018: Aattack_Stop
+    7400020: Aattack_Stop_wall_Start
+    7400022: Aattack_Stop_wall_end
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

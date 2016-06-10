@@ -29,6 +29,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
 
     private Player player;
     private MeleeState state;
+    private bool attackable = false;
     #endregion
 
     public Player playerObject { get { return player; } }
@@ -43,31 +44,32 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         state = MeleeState.NORMAL;
         player = EnemyController.singleton.player;
         EnemyController.singleton.AddEnemy(gameObject, kind);
-        AttackEnemy();
+        StartMove();
     }
 
     public void Update()
     {
-        //Move(player.transform.position, "Player", Color.red);
         animator.SetBool("Move", agent.speed != 0 ? true : false);
-        //Attack();
     }
 
     // 移動関数
     public void StartMove()
     {
-        move.Move(agent);
+        StopAll();
+        StartCoroutine(move.Move(agent));
     }
 
     // 攻撃関数
     public void AttackEnemy()
     {
+        if (!move.IsAttackable()) return;
         Vector3 target = player.transform.position;
         // プレイヤーと離れすぎだったら攻撃不能
         if (mAI.IsNearTarget(target, 5.0f)) return;
         if (!EnemyController.singleton.Attack(gameObject, kind)) return;
+        move.SetIsAttackable(false);
         StopAll();
-        StartCoroutine(attack.StartAttack(target, agent)); 
+        StartCoroutine(attack.StartAttack(target, agent));
     }
 
     // 招集関数
@@ -97,15 +99,17 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void OnPlayerDead()
     {
         StopAll();
-        animator.SetTrigger("PlayerDefeat");
+        //animator.SetTrigger("PlayerDefeat");
     }
 
-    private void StopAll()
+    // 全部のループを止める
+    public void StopAll()
     {
         StopAllCoroutines();
         move.StopAllCoroutines();
         attack.StopAllCoroutines();
         gather.StopAllCoroutines();
+        agent.speed = 0;
     }
     #endregion
 }

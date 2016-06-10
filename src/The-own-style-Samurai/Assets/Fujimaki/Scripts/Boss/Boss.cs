@@ -34,10 +34,11 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         StartCoroutine(WaitNextAction(2));
     }
 	
-	// Update is called once per frame
-	void Update () {
+    public void BossStart()
+    {
+        /*player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-
+        StartCoroutine(WaitNextAction(2));*/
     }
 
     //======================================================================================================突撃攻撃

@@ -72,7 +72,7 @@ public class MeleeAttack : MonoBehaviour
         }
         if (flow == true)
         {
-            Flow(agent);
+            Flow();
             yield return null;
         }
         // 判定生成、攻撃終了通知、攻撃アニメーション終了、ターゲットを消す
@@ -90,11 +90,10 @@ public class MeleeAttack : MonoBehaviour
         hit.transform.parent = attackPoint.transform;
     }
 
-    private void Flow(NavMeshAgent agent)
+    private void Flow()
     {
         // 全部の処理を終了
-        StopAllCoroutines();
-        agent.Stop();
+        enemy.StopAll();
         enemy.Dead(3);
     }
 

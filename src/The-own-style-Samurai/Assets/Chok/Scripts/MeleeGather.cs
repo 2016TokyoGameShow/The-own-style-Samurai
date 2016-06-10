@@ -16,7 +16,7 @@ public class MeleeGather : MonoBehaviour {
         // 止める
         agent.speed = 0;
         // 回転角度取得、回転開始
-        StartCoroutine(Rotate(boss.position, mAI.GetAngle(EnemyGenerator.singleton.Angle)));
+        StartCoroutine(Rotate(boss.position, mAI.GetAngle(MeleeAIController.singleton.Angle)));
     }
 
     private IEnumerator Rotate(Vector3 boss,float angle)
