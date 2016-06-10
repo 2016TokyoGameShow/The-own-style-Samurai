@@ -96,4 +96,14 @@ public class MeleeAI : MonoBehaviour
     {
         return target - transform.position;
     }
+
+    public void RotateAroundTarget(Vector3 target, float angle, float rotate)
+    {
+        while (Mathf.Abs(AngleFromTarget(target) - angle) > 10.0f)
+        {
+            // 減速しながら回転
+            float rotateSpeed = rotate * (Mathf.Abs(Mathf.DeltaAngle(AngleFromTarget(target), angle)) / 90.0f);
+            transform.RotateAround(target, Vector3.up, rotateSpeed);
+        }
+    }
 }
