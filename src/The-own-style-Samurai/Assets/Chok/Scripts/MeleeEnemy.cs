@@ -49,7 +49,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void Update()
     {
         animator.SetBool("Move", agent.speed != 0 ? true : false);
-        if (Random.Range(0, 20) == 5) AttackEnemy();
+        //if (Random.Range(0, 20) == 5) AttackEnemy();
     }
 
     // 移動関数
