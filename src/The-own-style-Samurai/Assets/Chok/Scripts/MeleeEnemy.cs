@@ -49,7 +49,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void Update()
     {
         animator.SetBool("Move", agent.speed != 0 ? true : false);
-        if (Random.Range(0, 20) == 5) AttackEnemy();
+        //if (Random.Range(0, 20) == 5) AttackEnemy();
     }
 
     // 移動関数
@@ -62,21 +62,19 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     // 攻撃関数
     public void AttackEnemy()
     {
-        if (!move.IsAttackable()) return;
         Vector3 target = player.transform.position;
         // プレイヤーと離れすぎだったら攻撃不能
         if (mAI.IsNearTarget(target, 5.0f)) return;
         if (!EnemyController.singleton.Attack(gameObject, kind)) return;
-        move.SetIsAttackable(false);
         StopAll();
-        StartCoroutine(attack.StartAttack(target, agent));
+        StartCoroutine(attack.Attack(agent));
     }
 
     // 招集関数
     public void GatherCalled()
     {
         // 流されていれば return
-        if (attack.GetFlow()) return;
+        if (attack.flow == true) return;
         StopAll();
         Transform boss = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(gather.Gather(boss, agent));
@@ -110,6 +108,12 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         attack.StopAllCoroutines();
         gather.StopAllCoroutines();
         agent.speed = 0;
+    }
+
+    public IEnumerator CoolTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        StartMove();
     }
     #endregion
 }

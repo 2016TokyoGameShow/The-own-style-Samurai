@@ -13,6 +13,7 @@ public class StageController : MonoBehaviour {
     private EnemyController mEnemyController;
     [SerializeField]
     private int border;
+    private bool isGameOver = false;
 
     public Player player { get { return mPlayer; }}
     public UIController uiController { get { return mUiController;}}
@@ -22,7 +23,10 @@ public class StageController : MonoBehaviour {
 
     void Update()
     {
-        
+        if(mPlayer.GetHP() == 0)
+        {
+            isGameOver = true;
+        }
         if(mEnemyController != null && mEnemyController.enemyDeathCount >= border)
         {
             GameObject.Find("Boss").GetComponent<Boss>().BossStart();
