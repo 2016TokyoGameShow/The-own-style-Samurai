@@ -5,10 +5,8 @@ using System.Collections.Generic;
 [AddComponentMenu("Enemy/Enemygenerator")]
 public class EnemyGenerator : MonoBehaviour
 {
-    public static EnemyGenerator singleton;
-
     [SerializeField, Tooltip("敵の種類")]
-    List<Enemy> enemies;
+    List<GameObject> enemies;
 
     [SerializeField, Tooltip("敵生成位置")]
     List<GameObject> portal;
@@ -18,26 +16,10 @@ public class EnemyGenerator : MonoBehaviour
 
     private float time;
 
-    int angle;
-
-    public int Angle
-    {
-        get
-        {
-            angle += 2;angle %= 5;
-            return angle;
-        }
-    }
 
     void Start()
     {
         time = 0;
-        angle = 0;
-    }
-
-    public void OnEnable()
-    {
-        singleton = this;
     }
 
     void Update()
