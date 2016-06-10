@@ -9,13 +9,8 @@ public class MeleeMove : MonoBehaviour
     [SerializeField]
     private MeleeEnemy enemy;
 
-    private float angle;
+    private float angle = 1;
     private bool attackable = false;
-
-    void Start()
-    {
-        angle = mAI.GetAngle(EnemyGenerator.singleton.Angle);
-    }
 
     public IEnumerator Move(NavMeshAgent agent)
     {
@@ -25,21 +20,26 @@ public class MeleeMove : MonoBehaviour
             enemy.playerObject.transform.position,
             6, "Player", Color.red))
         {
-            if (IsRaysHit(transform.forward, 4, "Enemy", Color.black))
-            {
-                transform.position += -transform.right / 20;
-            }
             mAI.MoveTowardsTarget(agent, enemy.playerObject.transform.position);
             yield return null;
         }
         agent.speed = 0;
-        StartCoroutine(RotateLeft());
+        StartCoroutine(RotateAroundPlayer());
     }
 
     IEnumerator RotateAroundPlayer()
     {
+        if (angle == 1) angle = mAI.GetAngle(MeleeAIController.singleton.Angle);
         Vector3 target = enemy.playerObject.transform.position;
         float rotate = mAI.RotateDirection(mAI.AngleFromTarget(target), angle);
+        //while (mAI.CanRayHitTarget(
+        //        enemy.playerObject.transform.position,
+        //        6, "Player", Color.red))
+        //{
+        //    mAI.RotateAroundTarget(target, angle, rotate);
+        //    yield return null;
+        //}
+
         while (Mathf.Abs(mAI.AngleFromTarget(target) - angle) > 10.0f)
         {
             // 減速しながら回転
@@ -47,29 +47,7 @@ public class MeleeMove : MonoBehaviour
             transform.RotateAround(target, Vector3.up, rotateSpeed);
             yield return null;
         }
-    }
-
-    IEnumerator RotateLeft()
-    {
-        while (IsRaysHit(transform.right, 5, "Enemy", Color.black))
-        {
-            transform.RotateAround(
-                enemy.playerObject.transform.position,
-                Vector3.up, 1.0f);
-            yield return null;
-        }
-        StartCoroutine(RotateRight());
-    }
-
-    IEnumerator RotateRight()
-    {
-        while (IsRaysHit(-transform.right, 5, "Enemy", Color.black))
-        {
-            transform.RotateAround(
-                enemy.playerObject.transform.position,
-                Vector3.up, -1.0f);
-            yield return null;
-        }
+        attackable = true;
         StartCoroutine(WaitForAttack());
     }
 
@@ -88,18 +66,5 @@ public class MeleeMove : MonoBehaviour
     public bool IsAttackable()
     {
         return attackable;
-    }
-
-    private bool IsRaysHit(Vector3 direction, float maxDistance, string tag, Color color)
-    {
-        for (float i = -90; i < 90; i += 0.1f)
-        {
-            if (mAI.IsRayHit(Quaternion.Euler(0, i - direction.y, 0) * direction, maxDistance, tag, color))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
