@@ -37,7 +37,7 @@ public class ShootEnemy : Enemy
 
     ShootEnemyContext context;
 
-    public readonly Vector3 rayOffset = new Vector3(0, 1f, 0);
+    public readonly Vector3 rayOffset = new Vector3(0, 1.5f, 0);
 
     #endregion
 
@@ -126,8 +126,9 @@ public class ShootEnemy : Enemy
         dir.y = 0;
         dir.Normalize();
         
-        Quaternion playerAngle = Quaternion.LookRotation(player.transform.position - transform.position);
-        Quaternion.RotateTowards(transform.rotation, playerAngle, agent.angularSpeed * Time.deltaTime);
+        Quaternion from = transform.rotation;
+        Quaternion to   = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.RotateTowards(from, to, context.agent.angularSpeed * Time.deltaTime);
     }
 
     protected override void OnAttack()
