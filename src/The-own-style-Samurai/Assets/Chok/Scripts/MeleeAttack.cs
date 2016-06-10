@@ -37,11 +37,12 @@ public class MeleeAttack : MonoBehaviour
             stopDistance))
         {
             mAI.MoveTowardsTarget(agent, enemy.playerObject.transform.position, 1.5f);
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
         agent.speed = 0;                                // 止める
         yield return new WaitForSeconds(0.3f);          // ちょっと待つ
         enemy.GetAnimator.SetTrigger("Attack");         // 攻撃アニメーション開始
+        
         // プレイヤーに自分を送る
         if (enemy.playerObject.isPlayerAttacking())
             enemy.playerObject.SetTarget(this.gameObject);
@@ -61,7 +62,7 @@ public class MeleeAttack : MonoBehaviour
                 flow = true;
                 break;
             }
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
         if (flow == true)
         {

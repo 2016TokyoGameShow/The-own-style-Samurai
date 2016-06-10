@@ -20,15 +20,15 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     [SerializeField]
     private MeleeMove move;
 
-    [SerializeField]
-    private MeleeGather gather;
+    //[SerializeField]
+    //private MeleeGather gather;
 
     [SerializeField]
     private MeleeAttack attack;
 
     private Player player;
     private MeleeState state;
-    private bool attackable = false;
+    private bool attackable = true;
     #endregion
 
     public Player playerObject { get { return player; } }
@@ -49,7 +49,6 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void Update()
     {
         animator.SetBool("Move", agent.speed != 0 ? true : false);
-        //if (Random.Range(0, 20) == 5) AttackEnemy();
     }
 
     // 移動関数
@@ -62,10 +61,12 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     // 攻撃関数
     public void AttackEnemy()
     {
+        if (attackable == false) return;
         Vector3 target = player.transform.position;
         // プレイヤーと離れすぎだったら攻撃不能
-        if (mAI.IsNearTarget(target, 5.0f)) return;
+        if (!mAI.IsNearTarget(target, 8.0f)) return;
         if (!EnemyController.singleton.Attack(gameObject, kind)) return;
+        attackable = false;
         StopAll();
         StartCoroutine(attack.Attack(agent));
     }
@@ -74,10 +75,10 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     public void GatherCalled()
     {
         // 流されていれば return
-        if (attack.flow == true) return;
-        StopAll();
-        Transform boss = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(gather.Gather(boss, agent));
+        //if (attack.flow == true) return;
+        //StopAll();
+        //Transform boss = GameObject.FindGameObjectWithTag("Player").transform;
+        //StartCoroutine(gather.Gather(boss, agent));
     }
 
     public void Dead(float time = 0)
@@ -106,7 +107,6 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         StopAllCoroutines();
         move.StopAllCoroutines();
         attack.StopAllCoroutines();
-        gather.StopAllCoroutines();
         agent.speed = 0;
     }
 
@@ -114,6 +114,11 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     {
         yield return new WaitForSeconds(time);
         StartMove();
+    }
+
+    public void SetIsAttackable(bool set)
+    {
+        attackable = set;
     }
     #endregion
 }
