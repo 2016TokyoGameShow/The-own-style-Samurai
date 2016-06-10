@@ -109,7 +109,7 @@ public class ShootEnemy : Enemy
     protected override void OnAttackReadyUpdate()
     {
         RaycastHit hitInfo;
-        if(Physics.Raycast(transform.position, transform.forward, out hitInfo))
+        if(Physics.Raycast(transform.position + rayOffset, transform.forward, out hitInfo))
         {
             if(hitInfo.collider.tag != "Player")
             {
@@ -125,18 +125,6 @@ public class ShootEnemy : Enemy
         Vector3 dir = player.transform.position - transform.position;
         dir.y = 0;
         dir.Normalize();
-        
-        //Quaternion forward_ = Quaternion.LookRotation(forward);
-        //Quaternion dir_     = Quaternion.LookRotation(dir);
-
-        //float dot = Quaternion.Dot(forward_, dir_);
-
-        //if(dot < 0.99f)
-        //{
-        //    float angle = Quaternion.Angle(forward_, dir_);
-
-        //    animator.SetFloat("SideSpeed", Mathf.Sign(angle) * 1.5f);
-        //}
         
         Quaternion playerAngle = Quaternion.LookRotation(player.transform.position - transform.position);
         Quaternion.RotateTowards(transform.rotation, playerAngle, agent.angularSpeed * Time.deltaTime);
