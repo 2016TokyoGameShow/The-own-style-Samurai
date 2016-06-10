@@ -103,7 +103,7 @@ public class MeleeEnemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
     }
 
     // 全部のループを止める
-    private void StopAll()
+    public void StopAll()
     {
         StopAllCoroutines();
         move.StopAllCoroutines();
