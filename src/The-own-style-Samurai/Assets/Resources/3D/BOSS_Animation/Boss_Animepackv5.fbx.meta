@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ab82672f01c397b4aa1cdef958dc8129
-timeCreated: 1465188993
+guid: 74dcf6f30a5540348916da4550c2457a
+timeCreated: 1465526818
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -93,18 +93,19 @@ ModelImporter:
     400082: R_thumb_3_DE
     400084: R_Toe
     400086: R_Wrist
-    7400000: Sit
-    7400002: Situp
-    7400004: Walk
-    7400006: N_Attack
+    7400000: Idle
+    7400002: Walk
+    7400004: Sit
+    7400006: SitUp
     7400008: Call
-    7400010: Damage
-    7400012: Dead
-    7400014: Aattack_Start
-    7400016: Aattack_Mid
-    7400018: Aattack_Stop
-    7400020: Aattack_Stop_wall_Start
-    7400022: Aattack_Stop_wall_end
+    7400010: AAtack_Start
+    7400012: AAtack_Mid
+    7400014: AAtack_WallStop
+    7400016: AAtack_Wallstop2
+    7400018: AAtack_Stop
+    7400020: Attack
+    7400022: Damege
+    7400024: Dead
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -128,8 +129,356 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Walk
+      takeName: Walk
+      firstFrame: 0
+      lastFrame: 170
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
       name: Sit
       takeName: Sit
+      firstFrame: 0
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: SitUp
+      takeName: SitUp
       firstFrame: 0
       lastFrame: 170
       wrapMode: 0
@@ -244,10 +593,133 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Situp
-      takeName: Situp
+      name: Call
+      takeName: Call
       firstFrame: 0
-      lastFrame: 60
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.45238096
+        functionName: CallEnemyAnimatorEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AAtack_Start
+      takeName: AAtack_Start
+      firstFrame: 0
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -360,8 +832,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk
-      takeName: Walk
+      name: AAtack_Mid
+      takeName: AAtack_Mid
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -476,10 +948,358 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: N_Attack
-      takeName: N_Attack
+      name: AAtack_WallStop
+      takeName: AAtack_WallStop
       firstFrame: 0
-      lastFrame: 115
+      lastFrame: 90
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AAtack_Wallstop2
+      takeName: AAtack_Wallstop2
+      firstFrame: 0
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AAtack_Stop
+      takeName: AAtack_Stop
+      firstFrame: 0
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: All_Parent
+        weight: 1
+      - path: All_Parent/Hip_n_Center
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
+        weight: 1
+      - path: All_Parent/Hip_n_Center/between_leg1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Attack
+      firstFrame: 0
+      lastFrame: 190
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -499,7 +1319,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.73214287
+      - time: 0.45436507
         functionName: AttackAnimatorEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -599,133 +1419,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Call
-      takeName: Call
+      name: Damege
+      takeName: Damege
       firstFrame: 0
-      lastFrame: 60
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 0.75396824
-        functionName: CallEnemyAnimatorEvent
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Damage
-      takeName: Damage
-      firstFrame: 0
-      lastFrame: 110
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -841,587 +1538,7 @@ ModelImporter:
       name: Dead
       takeName: Dead
       firstFrame: 0
-      lastFrame: 120
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Aattack_Start
-      takeName: Aattack_Start
-      firstFrame: 0
-      lastFrame: 60
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Aattack_Mid
-      takeName: Aattack_Mid
-      firstFrame: 0
-      lastFrame: 61
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Aattack_Stop
-      takeName: Aattack_Stop
-      firstFrame: 0
-      lastFrame: 180
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Aattack_Stop_wall_Start
-      takeName: Aattack_Stop_wall_Start
-      firstFrame: 0
-      lastFrame: 80
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Instep/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Instep/R_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg1
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Aattack_Stop_wall_end
-      takeName: Aattack_Stop_wall_end
-      firstFrame: 0
-      lastFrame: 80
+      lastFrame: 150
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
