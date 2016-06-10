@@ -14,12 +14,12 @@ public class MeleeMove : MonoBehaviour
     public IEnumerator Move(NavMeshAgent agent)
     {
         // プレイヤーと近すぎだったら後退
-        while (mAI.IsNearTarget(enemy.playerObject.transform.position, 3.0f))
+        while (mAI.IsNearTarget(enemy.playerObject.transform.position, 5.0f))
         {
             transform.position -= transform.forward / 20;
             yield return null;
         }
-        Debug.Log("Move");
+
         // プレイヤーが見えるまで移動、攻撃不能
         while (!mAI.CanRayHitTarget(
             enemy.playerObject.transform.position,
@@ -29,12 +29,12 @@ public class MeleeMove : MonoBehaviour
             yield return null;
         }
         agent.speed = 0;
+        enemy.SetIsAttackable(true);
         StartCoroutine(RotateAroundPlayer());
     }
 
     IEnumerator RotateAroundPlayer()
     {
-        Debug.Log("Rotate");
         bool lostPlayer = false;
         if (angle == 1) angle = mAI.GetAngle(MeleeAIController.singleton.Angle);
         Vector3 target = enemy.playerObject.transform.position;
@@ -65,7 +65,6 @@ public class MeleeMove : MonoBehaviour
 
     IEnumerator WaitForAttack()
     {
-        Debug.Log("Wait");
         while (mAI.CanRayHitTarget(
                 enemy.playerObject.transform.position,
                 5, "Player", Color.grey))
