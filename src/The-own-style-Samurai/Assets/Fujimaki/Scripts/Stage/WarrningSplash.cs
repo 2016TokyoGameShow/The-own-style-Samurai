@@ -15,6 +15,9 @@ public class WarrningSplash : MonoBehaviour {
         if (target != null)
         {
             transform.position = target.transform.position;
+        }else
+        {
+            Destroy(this.gameObject);
         }
     }
 
