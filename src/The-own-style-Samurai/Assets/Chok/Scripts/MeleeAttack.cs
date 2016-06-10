@@ -42,7 +42,7 @@ public class MeleeAttack : MonoBehaviour
         agent.speed = 0;                                // 止める
         yield return new WaitForSeconds(0.3f);          // ちょっと待つ
         enemy.GetAnimator.SetTrigger("Attack");         // 攻撃アニメーション開始
-        
+
         // プレイヤーに自分を送る
         if (enemy.playerObject.isPlayerAttacking())
             enemy.playerObject.SetTarget(this.gameObject);
@@ -90,7 +90,10 @@ public class MeleeAttack : MonoBehaviour
     private void Flow()
     {
         // 受け流すアニメーション
-        transform.rotation = Quaternion.Euler(transform.rotation.x, -10.0f, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(
+            transform.rotation.x,
+            -180.0f,
+            transform.rotation.z);
         enemy.GetAnimator.SetTrigger("StartFlow");
         // 全部の処理を終了
         enemy.StopAll();
