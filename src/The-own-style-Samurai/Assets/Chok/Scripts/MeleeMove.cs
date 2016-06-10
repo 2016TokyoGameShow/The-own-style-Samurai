@@ -48,7 +48,7 @@ public class MeleeMove : MonoBehaviour
         float rotate = mAI.RotateDirection(mAI.AngleFromTarget(target), angle);
         while (Mathf.Abs(mAI.AngleFromTarget(target) - angle) > 10.0f)
         {
-            if(!mAI.CanRayHitTarget(enemy.playerObject.transform.position,
+            if (!mAI.CanRayHitTarget(enemy.playerObject.transform.position,
                 8, "Player", Color.red))
             {
                 lostPlayer = true;
@@ -60,7 +60,8 @@ public class MeleeMove : MonoBehaviour
             enemy.GetAnimator.SetFloat("Rotate", rotateSpeed);
             yield return null;
         }
-        if(lostPlayer== true)
+        enemy.GetAnimator.SetFloat("Rotate", 0);
+        if (lostPlayer == true)
         {
             StartCoroutine(enemy.CoolTime(2));
         }
