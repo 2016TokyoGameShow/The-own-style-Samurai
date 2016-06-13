@@ -64,7 +64,6 @@ public class ShootEnemyEscape : IStateShootEnemy
 
         //手動で動かす
         context.agent.Move(shootEnemy.EscapeMoveSpeed * dir * Time.deltaTime);
-        context.agent.velocity = enemy.position - previousPosition;
 
         //距離が開いたら近づくようにする
         if(Vector3.Distance(player.position, enemy.position) >= 15)
@@ -74,7 +73,7 @@ public class ShootEnemyEscape : IStateShootEnemy
         
         float moveDistance = Vector3.Distance(enemy.position,  previousPosition);
 
-        context.animator.SetFloat("Speed", moveDistance);
+        context.animator.SetFloat("Speed", moveDistance * shootEnemy.EscapeMoveSpeed);
 
         //端に追い詰められたとき
         if(moveDistance < shootEnemy.EscapeMoveSpeed * Time.unscaledDeltaTime/2)
