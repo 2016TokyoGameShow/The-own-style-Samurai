@@ -148,7 +148,7 @@ public abstract class Enemy : MonoBehaviour, WeaponHitHandler, PlayerDeadHandler
         isAttack = false;
         EnemyController.singleton.AttackEnd(gameObject, kind);
         EnemyController.singleton.EraseAttackCount();
-        StartUpdate();
+        StartCoolTime();
     }
 
     IEnumerator AttackReady()

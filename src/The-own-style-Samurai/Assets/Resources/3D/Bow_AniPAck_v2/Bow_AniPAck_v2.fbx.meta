@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 28a2ab615e2f6254daa537fa6717d1e6
-timeCreated: 1465197399
+guid: 7c3da5603e6e7a8419480d549eb44691
+timeCreated: 1465543433
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -8,103 +8,116 @@ ModelImporter:
     100000: All_Parent
     100002: Belly
     100004: between_leg
-    100006: Chest
-    100008: Front_Indicating_Arrow
-    100010: Head
-    100012: HeadDeadEnd
-    100014: Hip_n_Center
-    100016: L_ankle
-    100018: L_Elbow
-    100020: L_Finger_1
-    100022: L_Finger_2
-    100024: L_Finger_3
-    100026: L_Finger_4_DE
-    100028: L_Hand
-    100030: L_Heel
-    100032: L_knee
-    100034: L_Scapula
-    100036: L_Shoulder
-    100038: L_Thighs
-    100040: L_thumb_1
-    100042: L_thumb_2
-    100044: L_thumb_3_DE
-    100046: L_Toe
-    100048: L_Wrist
-    100050: Neck
-    100052: R_ankle
-    100054: R_Elbow
-    100056: R_Finger_1
-    100058: R_Finger_2
-    100060: R_Finger_3
-    100062: R_Finger_4_DE
-    100064: R_Hand
-    100066: R_Heel
-    100068: R_knee
-    100070: R_Scapula
-    100072: R_Shoulder
-    100074: R_Thighs
-    100076: R_thumb_1
-    100078: R_thumb_2
-    100080: R_thumb_3_DE
-    100082: R_Toe
-    100084: R_Wrist
-    100086: //RootNode
+    100006: bow:curve1
+    100008: bow:curve2
+    100010: bow:group1
+    100012: bow:transform1
+    100014: bow:transform2
+    100016: //RootNode
+    100018: Chest
+    100020: Front_Indicating_Arrow
+    100022: Head
+    100024: HeadDeadEnd
+    100026: Hip_n_Center
+    100028: L_ankle
+    100030: L_Elbow
+    100032: L_Finger_1
+    100034: L_Finger_2
+    100036: L_Finger_3
+    100038: L_Finger_4_DE
+    100040: L_Hand
+    100042: L_Heel
+    100044: L_knee
+    100046: L_Scapula
+    100048: L_Shoulder
+    100050: L_Thighs
+    100052: L_thumb_1
+    100054: L_thumb_2
+    100056: L_thumb_3_DE
+    100058: L_Toe
+    100060: L_Wrist
+    100062: Neck
+    100064: R_ankle
+    100066: R_Elbow
+    100068: R_Finger_1
+    100070: R_Finger_2
+    100072: R_Finger_3
+    100074: R_Finger_4_DE
+    100076: R_Hand
+    100078: R_Heel
+    100080: R_knee
+    100082: R_Scapula
+    100084: R_Shoulder
+    100086: R_Thighs
+    100088: R_thumb_1
+    100090: R_thumb_2
+    100092: R_thumb_3_DE
+    100094: R_Toe
+    100096: R_Wrist
+    100098: YumiBag:group2
+    100100: YumiBag:yumi
+    100102: YumiBag:YumiBag
     400000: All_Parent
     400002: Belly
     400004: between_leg
-    400006: Chest
-    400008: Front_Indicating_Arrow
-    400010: Head
-    400012: HeadDeadEnd
-    400014: Hip_n_Center
-    400016: L_ankle
-    400018: L_Elbow
-    400020: L_Finger_1
-    400022: L_Finger_2
-    400024: L_Finger_3
-    400026: L_Finger_4_DE
-    400028: L_Hand
-    400030: L_Heel
-    400032: L_knee
-    400034: L_Scapula
-    400036: L_Shoulder
-    400038: L_Thighs
-    400040: L_thumb_1
-    400042: L_thumb_2
-    400044: L_thumb_3_DE
-    400046: L_Toe
-    400048: L_Wrist
-    400050: Neck
-    400052: R_ankle
-    400054: R_Elbow
-    400056: R_Finger_1
-    400058: R_Finger_2
-    400060: R_Finger_3
-    400062: R_Finger_4_DE
-    400064: R_Hand
-    400066: R_Heel
-    400068: R_knee
-    400070: R_Scapula
-    400072: R_Shoulder
-    400074: R_Thighs
-    400076: R_thumb_1
-    400078: R_thumb_2
-    400080: R_thumb_3_DE
-    400082: R_Toe
-    400084: R_Wrist
-    400086: //RootNode
-    7400000: Idle
-    7400002: Run
-    7400004: Walk_L
-    7400006: Walk_R
-    7400008: Fall
-    7400010: Attack
-    7400012: Attack_Zero
-    7400014: AttacK_EL
-    7400016: Attack_ER
-    7400018: Damge
-    7400020: Dead
-    7400022: Attack_0point
+    400006: bow:curve1
+    400008: bow:curve2
+    400010: bow:group1
+    400012: bow:transform1
+    400014: bow:transform2
+    400016: //RootNode
+    400018: Chest
+    400020: Front_Indicating_Arrow
+    400022: Head
+    400024: HeadDeadEnd
+    400026: Hip_n_Center
+    400028: L_ankle
+    400030: L_Elbow
+    400032: L_Finger_1
+    400034: L_Finger_2
+    400036: L_Finger_3
+    400038: L_Finger_4_DE
+    400040: L_Hand
+    400042: L_Heel
+    400044: L_knee
+    400046: L_Scapula
+    400048: L_Shoulder
+    400050: L_Thighs
+    400052: L_thumb_1
+    400054: L_thumb_2
+    400056: L_thumb_3_DE
+    400058: L_Toe
+    400060: L_Wrist
+    400062: Neck
+    400064: R_ankle
+    400066: R_Elbow
+    400068: R_Finger_1
+    400070: R_Finger_2
+    400072: R_Finger_3
+    400074: R_Finger_4_DE
+    400076: R_Hand
+    400078: R_Heel
+    400080: R_knee
+    400082: R_Scapula
+    400084: R_Shoulder
+    400086: R_Thighs
+    400088: R_thumb_1
+    400090: R_thumb_2
+    400092: R_thumb_3_DE
+    400094: R_Toe
+    400096: R_Wrist
+    400098: YumiBag:group2
+    400100: YumiBag:yumi
+    400102: YumiBag:YumiBag
+    7400000: Bow_Walk
+    7400002: Bow_Walk_R_10
+    7400004: Bow_Walk_L_10
+    7400006: Bow_Fall_at_200
+    7400008: Bow_Attack
+    7400010: Bow_Idle
+    7400012: Bow_Damge
+    7400014: Bow_Dead
+    7400016: Bow_Attack_End
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -128,10 +141,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Idle
-      takeName: Idle
+      name: Bow_Walk
+      takeName: Bow_Walk
       firstFrame: 0
-      lastFrame: 200
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -174,6 +187,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -218,6 +241,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -244,8 +273,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
-      takeName: Run
+      name: Bow_Walk_R_10
+      takeName: Bow_Walk_R_10
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -254,7 +283,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -290,6 +319,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -334,6 +373,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -360,8 +405,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Walk_L
-      takeName: Walk_L
+      name: Bow_Walk_L_10
+      takeName: Bow_Walk_L_10
       firstFrame: 0
       lastFrame: 60
       wrapMode: 0
@@ -370,7 +415,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -406,121 +451,15 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Heel
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Heel/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Heel
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Heel/R_Toe
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Walk_R
-      takeName: Walk_R
-      firstFrame: 0
-      lastFrame: 60
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Front_Indicating_Arrow
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
@@ -566,6 +505,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -592,8 +537,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fall
-      takeName: Fall
+      name: Bow_Fall_at_200
+      takeName: Bow_Fall_at_200
       firstFrame: 0
       lastFrame: 90
       wrapMode: 0
@@ -638,6 +583,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -682,6 +637,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -708,10 +669,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack
-      takeName: Attack
+      name: Bow_Attack
+      takeName: Bow_Attack
       firstFrame: 0
-      lastFrame: 220
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -754,6 +715,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -798,6 +769,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -824,10 +801,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack_Zero
-      takeName: Attack_Zero
+      name: Bow_Idle
+      takeName: Bow_Idle
       firstFrame: 0
-      lastFrame: 220
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -870,128 +847,15 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
         weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Heel
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Heel/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Heel
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Heel/R_Toe
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: AttacK_EL
-      takeName: AttacK_EL
-      firstFrame: 105
-      lastFrame: 160
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 0.865113
-        functionName: ReciveEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Front_Indicating_Arrow
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
@@ -1037,128 +901,11 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
         weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
         weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Heel
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/L_Thighs/L_knee/L_ankle/L_Heel/L_Toe
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Heel
-        weight: 1
-      - path: All_Parent/Hip_n_Center/between_leg/R_Thighs/R_knee/R_ankle/R_Heel/R_Toe
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Attack_ER
-      takeName: Attack_ER
-      firstFrame: 97
-      lastFrame: 155
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events:
-      - time: 0.86706346
-        functionName: ReciveEnd
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      transformMask:
-      - path: 
-        weight: 1
-      - path: All_Parent
-        weight: 1
-      - path: All_Parent/Front_Indicating_Arrow
-        weight: 1
-      - path: All_Parent/Hip_n_Center
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2/L_Finger_3/L_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_thumb_1/L_thumb_2/L_thumb_3_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/Neck/Head/HeadDeadEnd
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_Finger_1/R_Finger_2/R_Finger_3/R_Finger_4_DE
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
-        weight: 1
-      - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
@@ -1186,8 +933,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Damge
-      takeName: Damge
+      name: Bow_Damge
+      takeName: Bow_Damge
       firstFrame: 0
       lastFrame: 83
       wrapMode: 0
@@ -1232,6 +979,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -1276,6 +1033,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -1302,8 +1065,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Dead
-      takeName: Dead
+      name: Bow_Dead
+      takeName: Bow_Dead
       firstFrame: 0
       lastFrame: 83
       wrapMode: 0
@@ -1348,6 +1111,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -1392,6 +1165,12 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
+        weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg/L_Thighs
@@ -1418,10 +1197,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack_0point
-      takeName: Attack_0point
-      firstFrame: 0
-      lastFrame: 200
+      name: Bow_Attack_End
+      takeName: Bow_Attack
+      firstFrame: 99
+      lastFrame: 145
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1464,6 +1243,16 @@ ModelImporter:
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand
         weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform1
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/bow:curve2/bow:group1/bow:curve1/bow:transform2
+        weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/L_Scapula/L_Shoulder/L_Elbow/L_Wrist/L_Hand/L_Finger_1/L_Finger_2
@@ -1507,6 +1296,12 @@ ModelImporter:
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2
         weight: 1
       - path: All_Parent/Hip_n_Center/Belly/Chest/R_Scapula/R_Shoulder/R_Elbow/R_Wrist/R_Hand/R_thumb_1/R_thumb_2/R_thumb_3_DE
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:group2
+        weight: 1
+      - path: All_Parent/Hip_n_Center/Belly/Chest/YumiBag:YumiBag/YumiBag:yumi
         weight: 1
       - path: All_Parent/Hip_n_Center/between_leg
         weight: 1
@@ -1536,7 +1331,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 4
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
