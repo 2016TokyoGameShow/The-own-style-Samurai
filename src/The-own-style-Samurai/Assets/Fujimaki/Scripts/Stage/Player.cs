@@ -106,6 +106,12 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         return playerAttack.getEnemyTarget();
     }
 
+    //プレイヤーの流している向きを取得
+    public Vector3 isAttackingVelocity()
+    {
+        return playerAttack.playerAttackingVelocity;
+    }
+
     //キャラクター移動
     public void CharacterMove(Vector3 moveVelocity,float speed)
     {

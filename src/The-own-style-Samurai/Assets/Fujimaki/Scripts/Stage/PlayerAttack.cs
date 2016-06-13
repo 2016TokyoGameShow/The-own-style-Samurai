@@ -9,9 +9,17 @@ public class PlayerAttack : MonoBehaviour
     private Player player;
     [SerializeField]
     private GameObject enemyTarget;
+    [SerializeField]
+    private GameObject cameraBase;
+    [SerializeField]
+    private GameObject mainCamera;
+    [SerializeField]
+    private GameObject[] zoomPositions;
 
     public bool playerAttacking;
     public bool playerAttackingOnce;
+    public int reciveRightLeft;
+    public Vector3 playerAttackingVelocity;
 
     void Start() {
     }
@@ -45,13 +53,16 @@ public class PlayerAttack : MonoBehaviour
 
         if ((!playerAttacking) && (enemyTarget != null))
         {
-            //player.GetAnimator().SetInteger("katana", 1);
+
             player.UpFinisherGage(0.1f);
+            StartCoroutine(CameraMove());
 
             player.ChangeColor(Color.red);
             player.nonMove = true;
             playerAttacking = true;
             playerAttackingOnce = true;
+
+            playerAttackingVelocity = localVelocity;
 
             Vector3 enemyTargetPositon = enemyTarget.transform.position;
             player.transform.position =new Vector3(player.transform.position.x, enemyTarget.transform.position.y,player.transform.position.z);
@@ -63,22 +74,14 @@ public class PlayerAttack : MonoBehaviour
                 rotation.x = 0;
                 rotation.z = 0;
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.5f);
-                //player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y, 0);
                 yield return new WaitForEndOfFrame();
             }
 
-            //player.GetAnimator().SetInteger("katana", 1);
+            print(localVelocity.x);
+
            player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
             transform.localPosition = new Vector3(velocity.x, 0.5f, 0);
             
-            //流す方向に向く
-          /*  while (Vector3.Angle(player.transform.forward, velocity) > 0.1f)
-            {
-                Quaternion rotation = Quaternion.LookRotation(velocity);
-
-                player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.2f);
-                yield return new WaitForEndOfFrame();
-            }*/
 
             if(enemyTarget != null)Attack();
 
@@ -88,8 +91,35 @@ public class PlayerAttack : MonoBehaviour
             player.ChangeColor(Color.white);
             player.nonMove = false;
             playerAttackingOnce = false;
+            playerAttackingVelocity = Vector3.zero;
 
             player.GetAnimator().SetInteger("katana", 0);
+        }
+    }
+
+    //カメラ演出
+    private IEnumerator CameraMove()
+    {
+        float counter = 0;
+        float speed = 5;
+
+        int zoomObjectNum =Random.Range(0, zoomPositions.Length);
+
+        while (counter < 1)
+        {
+            counter += Time.deltaTime * speed;
+            mainCamera.transform.localPosition = Vector3.Lerp(Vector3.zero, zoomPositions[zoomObjectNum].transform.localPosition,counter);
+            mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(1.8f);
+
+        while (counter > 0)
+        {
+            counter -= Time.deltaTime * speed;
+            mainCamera.transform.localPosition = Vector3.Lerp(Vector3.zero, zoomPositions[zoomObjectNum].transform.localPosition, counter);
+            mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
+            yield return new WaitForEndOfFrame();
         }
     }
 

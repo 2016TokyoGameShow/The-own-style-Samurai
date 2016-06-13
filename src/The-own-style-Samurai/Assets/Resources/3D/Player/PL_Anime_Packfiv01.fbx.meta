@@ -590,7 +590,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Parry_L
       takeName: Parry_L
-      firstFrame: 0
+      firstFrame: 52
       lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
@@ -706,8 +706,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Parry_R
       takeName: Parry_R
-      firstFrame: 0
-      lastFrame: 90
+      firstFrame: 64
+      lastFrame: 190
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
