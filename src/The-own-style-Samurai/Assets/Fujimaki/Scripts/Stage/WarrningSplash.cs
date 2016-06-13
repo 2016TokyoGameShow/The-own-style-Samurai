@@ -5,6 +5,10 @@ public class WarrningSplash : MonoBehaviour {
 
 
     private GameObject target;
+
+    [SerializeField]
+    private GameObject attackArea;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,7 +18,8 @@ public class WarrningSplash : MonoBehaviour {
 	void Update () {
         if (target != null)
         {
-            transform.position = target.transform.position;
+            transform.position = target.transform.position + new Vector3(0, 3.5f, 0);
+
         }else
         {
             Destroy(this.gameObject);
@@ -24,7 +29,7 @@ public class WarrningSplash : MonoBehaviour {
     public void Initialize(float time,GameObject target)
     {
         this.target = target;
-        Destroy(this.gameObject, time);
+        Destroy(this.gameObject, 1);
 
     }
 }
