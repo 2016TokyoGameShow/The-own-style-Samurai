@@ -75,6 +75,7 @@ public class ShootEnemy : Enemy
         context.agent = agent;
         context.enemy = this;
         context.state = new ShootEnemyApproach(context);
+        context.animator = animator;
     }
 
     protected override void _OnMove()
@@ -83,7 +84,6 @@ public class ShootEnemy : Enemy
         if(!agent.enabled)
             return;
 #endif
-
         //敵以外のレイヤーで判定
         if(IsRayHitPlayer(maxDistance, ~(1 << LayerMask.NameToLayer("Enemy")), rayOffset))
         {
@@ -91,7 +91,6 @@ public class ShootEnemy : Enemy
             return;
         }
         context._OnMove();
-        animator.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     protected override void _OnMoveEnd()
@@ -113,8 +112,9 @@ public class ShootEnemy : Enemy
         {
             if(hitInfo.collider.tag != "Player")
             {
-                animator.SetTrigger("AttackEnd");
+                animator.SetTrigger("AttackCancel");
                 AttackCancel();
+                return;
             }
         }
 
@@ -128,7 +128,7 @@ public class ShootEnemy : Enemy
         
         Quaternion from = transform.rotation;
         Quaternion to   = Quaternion.LookRotation(dir);
-        transform.rotation = Quaternion.RotateTowards(from, to, context.agent.angularSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.RotateTowards(from, to, attackRotateSpeed * Time.deltaTime);
     }
 
     protected override void OnAttack()

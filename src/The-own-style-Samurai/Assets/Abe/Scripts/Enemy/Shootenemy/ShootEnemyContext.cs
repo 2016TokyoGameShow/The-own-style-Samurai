@@ -23,6 +23,8 @@ public class ShootEnemyContext
     [HideInInspector]
     public NavMeshAgent agent;
 
+    public Animator animator;
+
     public Enemy enemy;
     
     public void _OnMove()
