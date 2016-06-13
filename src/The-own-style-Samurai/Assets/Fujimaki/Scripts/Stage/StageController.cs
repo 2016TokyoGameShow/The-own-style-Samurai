@@ -8,8 +8,6 @@ public class StageController : MonoBehaviour {
     [SerializeField]
     private UIController mUiController;
     [SerializeField]
-    private ParticleController mParticleController;
-    [SerializeField]
     private EnemyController mEnemyController;
     [SerializeField]
     private int border;
@@ -17,7 +15,6 @@ public class StageController : MonoBehaviour {
 
     public Player player { get { return mPlayer; }}
     public UIController uiController { get { return mUiController;}}
-    public ParticleController particleController { get { return mParticleController; } }
 
     public EnemyController enemycontroller {get { return mEnemyController; } }
 
