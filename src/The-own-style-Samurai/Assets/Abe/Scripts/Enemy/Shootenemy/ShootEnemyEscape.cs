@@ -73,7 +73,7 @@ public class ShootEnemyEscape : IStateShootEnemy
         
         float moveDistance = Vector3.Distance(enemy.position,  previousPosition);
 
-        context.animator.SetFloat("Speed", moveDistance * shootEnemy.EscapeMoveSpeed);
+        context.animator.SetFloat("Speed", 1);
 
         //端に追い詰められたとき
         if(moveDistance < shootEnemy.EscapeMoveSpeed * Time.unscaledDeltaTime/2)
