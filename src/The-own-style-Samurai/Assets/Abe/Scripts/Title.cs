@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class Title : MonoBehaviour
 {
     [SerializeField]
-    GameObject title, menu, UI, fadeOutObject;
+    GameObject title, menu, start, UI, fadeOutObject;
     
 
     void Awake()
@@ -25,15 +25,12 @@ public class Title : MonoBehaviour
         {
             title.SetActive(false);
             menu.SetActive(true);
+            //start.GetComponent<UIButton>().
         }
     }
 
     public void FadeOut()
     {
-        //GameObject fade = Instantiate(fadeOutObject);
-        //fade.transform.parent = UI.transform;
-        //fade.GetComponent<UITexture>().depth = 20;
-
         fadeOutObject.SetActive(true);
     }
 
