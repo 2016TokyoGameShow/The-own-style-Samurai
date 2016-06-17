@@ -18,6 +18,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     private UIController uiController;
     [SerializeField]
     private Player player;
+    [SerializeField]
+    private GameObject cameraZoomObject;
 
     private Vector3 saveSpeedVelocity;
 
@@ -29,10 +31,10 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
 	// Use this for initialization
 	void Start () {
-       // player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        print(player);
+        //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        StartCoroutine(WaitNextAction(2));
+        StartCoroutine(Launch());
+        
     }
 	
     public void BossStart()
@@ -40,6 +42,45 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         /*player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         StartCoroutine(WaitNextAction(2));*/
+    }
+    private IEnumerator Launch()
+    {
+        yield return new WaitForSeconds(1);
+        myAnimator.SetBool("launch", true);
+        StartCoroutine(CameraMove());
+
+    }
+
+    //カメラ演出
+    private IEnumerator CameraMove()
+    {
+        float counter = 0;
+        float speed = 2;
+
+        player.nonMove = true;
+
+        Vector3 savePosition= player.GetPlayerAttack().mainCamera.transform.position;
+        Quaternion saveRotation = player.GetPlayerAttack().mainCamera.transform.rotation;
+
+        while (counter < 1)
+        {
+            counter += Time.deltaTime * speed;
+            player.GetPlayerAttack().mainCamera.transform.position = Vector3.Lerp(savePosition, cameraZoomObject.transform.position, counter);
+            player.GetPlayerAttack().mainCamera.transform.rotation = Quaternion.Lerp(saveRotation, cameraZoomObject.transform.rotation, counter);
+            yield return new WaitForEndOfFrame();
+        }
+        yield return new WaitForSeconds(4f);
+
+        while (counter > 0)
+        {
+            counter -= Time.deltaTime * speed;
+            player.GetPlayerAttack().mainCamera.transform.position = Vector3.Lerp(savePosition, cameraZoomObject.transform.position, counter);
+            player.GetPlayerAttack().mainCamera.transform.rotation = Quaternion.Lerp(saveRotation, cameraZoomObject.transform.rotation, counter);
+            yield return new WaitForEndOfFrame();
+        }
+        player.nonMove = false;
+
+        StartCoroutine(WaitNextAction(2));
     }
 
     //======================================================================================================突撃攻撃
@@ -126,10 +167,9 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     public void AttackAnimatorEvent()
     {
         myAnimator.SetBool("Attack", false);
-        GameObject attackArea = (GameObject)Instantiate(bossAttackArea, transform.position + transform.forward * 2, transform.rotation);
+        GameObject attackArea = (GameObject)Instantiate(bossAttackArea, transform.position + transform.forward * 3, transform.rotation);
         attackArea.GetComponent<BossAttackArea>().Initialize(1);
 
-        print(Vector3.Distance(transform.position, player.transform.position));
         StartCoroutine(WaitNextAction(2));
 
     }
@@ -181,7 +221,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         //距離が一定数離れていたら突撃攻撃
         if (Vector3.Distance(transform.position, player.transform.position) > 7)
         {
-         
+            StartCoroutine(Assault());
+            /*
             if ((Random.Range(0, 2) == 0)&&(!saveSummonAction))
             {
                 StartCoroutine(Summon());
@@ -189,7 +230,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
             else
             {
                 StartCoroutine(Assault());
-            }
+            }*/
         }
         else
         {

@@ -9,12 +9,12 @@ public class PlayerAttack : MonoBehaviour
     private Player player;
     [SerializeField]
     private GameObject enemyTarget;
-    [SerializeField]
-    private GameObject cameraBase;
-    [SerializeField]
-    private GameObject mainCamera;
-    [SerializeField]
-    private GameObject[] zoomPositions;
+
+    public GameObject cameraBase;
+
+    public GameObject mainCamera;
+
+    public GameObject[] zoomPositions;
 
     public bool playerAttacking;
     public bool playerAttackingOnce;

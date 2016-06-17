@@ -7,6 +7,8 @@ public class PlayerAvoidance : MonoBehaviour {
     private float avoidanceSpeed;
     [SerializeField]
     private Player player;
+    [SerializeField]
+    private GameObject avoidanceEmitter;
 
 
 
@@ -36,6 +38,7 @@ public class PlayerAvoidance : MonoBehaviour {
         return avoidanceAction == null ? false : true;
     }
 
+
     //回避アクション
     private IEnumerator AvoidanceAction()
     {
@@ -45,18 +48,34 @@ public class PlayerAvoidance : MonoBehaviour {
         player.ChangeColor(Color.blue);
        // player.GetAnimator().SetBool("bow", true);
         player.nonMove = true;
-        float moveTime = 0.6f;
+        float moveTime = 1f;
+
+
+        bool effected = false;
 
         //回避アクション中は向いている方向に一定数移動
         while (moveTime > 0)
         {
+            GameObject g = null;
+            if ((moveTime > 0.35f)&&(!effected))
+            {
+                g = (GameObject)Instantiate(avoidanceEmitter, transform.position, transform.rotation);
+                effected = true;
+            }
+
             moveTime -= Time.deltaTime;
             player.CharacterMove(transform.forward, avoidanceSpeed);
+
+
+            if (g != null)
+            {
+                g.transform.position = transform.position;
+            }
             yield return new WaitForEndOfFrame();
         }
 
         player.ChangeColor(Color.white);
-       // player.GetAnimator().SetBool("bow", false);
+
         player.nonMove = false;
         avoidanceAction = null;
 

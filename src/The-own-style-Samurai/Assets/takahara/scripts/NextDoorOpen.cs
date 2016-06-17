@@ -43,15 +43,15 @@ public class NextDoorOpen : MonoBehaviour {
     IEnumerator OpenDoor()
     {
         Debug.Log("first");
-        openDoorsAnime[0].SetBool("open", true);
-        openDoorsAnime[1].SetBool("open", true);
+        if (openDoorsAnime[0] != null) openDoorsAnime[0].SetBool("open", true);
+        if (openDoorsAnime[1] != null) openDoorsAnime[1].SetBool("open", true);
         yield return new WaitForSeconds(1.0f);
 
         Debug.Log("second");
         GameObject.Destroy(openDoors[0]);
         GameObject.Destroy(openDoors[1]);
-        openDoorsAnime[2].SetBool("open", true);
-        openDoorsAnime[3].SetBool("open", true);
+        if (openDoorsAnime[2] != null)openDoorsAnime[2].SetBool("open", true);
+        if (openDoorsAnime[3] != null) openDoorsAnime[3].SetBool("open", true);
         yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
         Debug.Log("ok");

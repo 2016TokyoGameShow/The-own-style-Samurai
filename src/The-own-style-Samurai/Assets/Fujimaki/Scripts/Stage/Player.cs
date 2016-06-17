@@ -19,6 +19,8 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     private PlayerAttack playerAttack;
     [SerializeField]
     private PlayerAvoidance playerAvoidance;
+    [SerializeField]
+    private GameObject hitEmitter;
 
     private int hp;
 
@@ -29,8 +31,6 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
     private float finisherGage;
 
-
-
     [SerializeField]
 	private Renderer myMaterial;
 
@@ -38,6 +38,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         uiController = stageController.uiController;
         UpFinisherGage(0);
         hp = maxHP;
+    }
+
+    public PlayerAttack GetPlayerAttack()
+    {
+        return playerAttack;
     }
 
 	void Update () {
@@ -54,7 +59,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
                 animator.SetBool("walk", moveVelocity != Vector3.zero ? true : false);
 
-                CharacterMove(moveVelocity, speed);
+                CharacterMove(moveVelocity, speed*Time.deltaTime*60);
             }
         }
 	}
@@ -83,7 +88,10 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //ヒット通知
     public void OnWeaponHit(int damage,GameObject enemy)
     {
+        print(enemy.name);
         playerAttack.Hit(damage);
+        animator.SetBool("damage", true);
+        Instantiate(hitEmitter, transform.position+Vector3.up*1.5f, Quaternion.identity);
         
         hp -= damage;
         uiController.SetHPGage(maxHP, hp);
@@ -92,6 +100,11 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         {
             animator.SetBool("die", true);
         }
+    }
+
+    public void GetDamage()
+    {
+        animator.SetBool("damage", false);
     }
 
     //攻撃してくる敵をセット

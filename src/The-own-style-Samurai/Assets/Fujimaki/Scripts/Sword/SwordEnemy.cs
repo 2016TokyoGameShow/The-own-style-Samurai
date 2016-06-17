@@ -8,6 +8,16 @@ public class SwordEnemy : MonoBehaviour {
     private int distance;
     [SerializeField]
     private GameObject attackArea;
+    [SerializeField]
+    private GameObject hitEmitter;
+    [SerializeField]
+    private GameObject hitLocation;
+    [SerializeField]
+    private GameObject dieEmitter;
+    [SerializeField]
+    private GameObject dieSmokeEmitter;
+
+    private Renderer myRenderer;
 
     private Animator animator;
     private NavMeshAgent navAgent;
@@ -42,6 +52,7 @@ public class SwordEnemy : MonoBehaviour {
         distance += Random.Range(-2, 2);
 
         myAngle = Random.Range(0, 360);
+
     }
 
     public void FallCompleat()
@@ -90,7 +101,6 @@ public class SwordEnemy : MonoBehaviour {
                     //============================================================================攻撃中
                     if (!removeMode)
                     {
-                        navAgent.Resume();
 
                         //プレイヤーのちょっと手前で止まるようにする
                         Vector3 targetPosition = (player.transform.position - transform.position).normalized;
@@ -101,6 +111,9 @@ public class SwordEnemy : MonoBehaviour {
                         {
                             navAgent.Stop();
                             animator.SetBool("attack", true);
+                        }else
+                        {
+                            navAgent.Resume();
                         }
                     }
                 }
@@ -132,6 +145,8 @@ public class SwordEnemy : MonoBehaviour {
     //=========================受け流される
     public void PlayReciveAnimation(bool right)
     {
+        Instantiate(hitEmitter, hitLocation.transform.position, Quaternion.identity);
+
         savePostion = transform.position;
         myCapsule.enabled = false;
         animator.SetBool(right? "reciveRight": "reciveLeft", true);
@@ -149,6 +164,14 @@ public class SwordEnemy : MonoBehaviour {
         enemyControllerF.RemoveEnemy(this);
 
         die = true;
+        StartCoroutine(DieCounter());
+    }
+
+    private IEnumerator DieCounter()
+    {
+        yield return new WaitForSeconds(2);
+        Instantiate(dieEmitter, hitLocation.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     //=====================================スタンバイポジションを更新

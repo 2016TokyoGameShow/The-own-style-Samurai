@@ -22,6 +22,7 @@ public class BossAttackArea : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+
             ExecuteEvents.Execute<WeaponHitHandler>(
                 other.gameObject,
                 null,
