@@ -1,23 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Title : MonoBehaviour
 {
     [SerializeField]
     GameObject title, menu, start, UI, fadeOutObject;
-    
-
-    void Awake()
-    {
-
-    }
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -25,8 +12,6 @@ public class Title : MonoBehaviour
         {
             title.SetActive(false);
             menu.SetActive(true);
-			start.GetComponent<UIButton>().isEnabled = true;
-			UICamera.hoveredObject = start;
         }
     }
 

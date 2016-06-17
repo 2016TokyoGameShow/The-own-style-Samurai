@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     }
 
     [System.Serializable]
-    class Info
+    public class Info
     {
         public EnemyKind kind;
 
@@ -54,7 +54,7 @@ public class EnemyController : MonoBehaviour
     }
 
     [SerializeField]
-    Info[] enemyInfo = new Info[] 
+    Info[] _enemyInfo = new Info[] 
     {
         new Info(EnemyKind.Melee),
         new Info(EnemyKind.Arrow),
@@ -102,7 +102,11 @@ public class EnemyController : MonoBehaviour
     {
         get { return _enemyMaxNumber; }
     }
-    
+
+	public Info[] enemyInfo
+	{
+		get { return _enemyInfo; }
+	}    
     #endregion
 
     #region メソッド
@@ -118,14 +122,14 @@ public class EnemyController : MonoBehaviour
     {
         
         enemies.Add(enemy);
-        enemyInfo[(int)kind].number++;
+        _enemyInfo[(int)kind].number++;
     }
 
     public void EraseEnemy(GameObject enemy, EnemyKind kind)
     {
         if(enemies.Remove(enemy))
         {
-            enemyInfo[(int)kind].number--;
+            _enemyInfo[(int)kind].number--;
         }
     }
 
@@ -151,7 +155,7 @@ public class EnemyController : MonoBehaviour
 
     public void AttackRandom(EnemyKind kind, int attackNumber)
     {
-        Info info  = enemyInfo[(int)kind];
+        Info info  = _enemyInfo[(int)kind];
         int  count = info.attackMaxCount - info.attackCount.Count - attackNumber;
         
         //制限
@@ -176,13 +180,13 @@ public class EnemyController : MonoBehaviour
             return false;
         }
 
-        enemyInfo[(int)kind].attackCount.Add(enemy);
+        _enemyInfo[(int)kind].attackCount.Add(enemy);
         return true;
     }
 
     public void AttackEnd(GameObject enemy, EnemyKind kind)
     {
-        enemyInfo[(int)kind].attackCount.Remove(enemy);
+        _enemyInfo[(int)kind].attackCount.Remove(enemy);
     }
 
     // 初期化処理
@@ -226,7 +230,7 @@ public class EnemyController : MonoBehaviour
             }
 
             count.Clear();
-            for(int i = 0; i < enemyInfo[(int)EnemyKind.Melee].attackMaxCount; i++)
+            for(int i = 0; i < _enemyInfo[(int)EnemyKind.Melee].attackMaxCount; i++)
             {
                 int rand = Random.Range(0, meleeEnemy.Count);
                 meleeEnemy[rand].AttackEnemy();
@@ -249,13 +253,13 @@ public class EnemyController : MonoBehaviour
 
     bool IsAttackMax(EnemyKind kind)
     {
-        Info info = enemyInfo[(int)kind];
+        Info info = _enemyInfo[(int)kind];
         return info.attackCount.Count >= info.attackMaxCount;
     }
 
     bool IsMaxNumber(EnemyKind kind)
     {
-         return enemyInfo[(int)kind].number >= enemyInfo[(int)kind].maxNumber;
+         return _enemyInfo[(int)kind].number >= _enemyInfo[(int)kind].maxNumber;
     }
 
     public void EnemyAssault(Vector3 position, float radius)
