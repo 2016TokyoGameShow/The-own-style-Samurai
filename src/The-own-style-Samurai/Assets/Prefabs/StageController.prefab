@@ -42,7 +42,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mPlayer: {fileID: 0}
   mUiController: {fileID: 0}
-  mParticleController: {fileID: 0}
   mEnemyController: {fileID: 0}
   border: 0
 --- !u!1001 &100100000

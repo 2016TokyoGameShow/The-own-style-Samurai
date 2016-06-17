@@ -105,6 +105,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     public void GetDamage()
     {
         animator.SetBool("damage", false);
+        print("false");
     }
 
     //攻撃してくる敵をセット
