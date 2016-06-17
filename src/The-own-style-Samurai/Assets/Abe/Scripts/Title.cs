@@ -25,7 +25,8 @@ public class Title : MonoBehaviour
         {
             title.SetActive(false);
             menu.SetActive(true);
-            //start.GetComponent<UIButton>().
+			start.GetComponent<UIButton>().isEnabled = true;
+			UICamera.hoveredObject = start;
         }
     }
 

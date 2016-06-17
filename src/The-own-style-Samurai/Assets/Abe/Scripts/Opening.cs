@@ -30,7 +30,6 @@ public class Opening : MonoBehaviour
             try
             {
                 slide[count].GetComponent<TweenPosition>().enabled = true;
-                slide[count].GetComponent<TweenRotation>().enabled = true;
                 count++;
             }
             catch
