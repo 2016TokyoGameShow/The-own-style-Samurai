@@ -40,7 +40,7 @@ public class NextDoorOpen : MonoBehaviour {
 
         }
 	}
-    IEnumerator OpenDoor()
+    public IEnumerator OpenDoor()
     {
         Debug.Log("first");
         if (openDoorsAnime[0] != null) openDoorsAnime[0].SetBool("open", true);
@@ -53,7 +53,9 @@ public class NextDoorOpen : MonoBehaviour {
         if (openDoorsAnime[2] != null)openDoorsAnime[2].SetBool("open", true);
         if (openDoorsAnime[3] != null) openDoorsAnime[3].SetBool("open", true);
         yield return new WaitForSeconds(1.0f);
-        Destroy(gameObject);
+        GameObject.Destroy(openDoors[2]);
+        GameObject.Destroy(openDoors[3]);
+        gameObject.GetComponent<BoxCollider>().enabled = false;
         Debug.Log("ok");
     }
 }
