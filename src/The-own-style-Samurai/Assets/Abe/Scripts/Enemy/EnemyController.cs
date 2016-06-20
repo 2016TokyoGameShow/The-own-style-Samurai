@@ -91,6 +91,7 @@ public class EnemyController : MonoBehaviour
     public int enemyDeathCount
     {
         get { return _enemyDeathCount; }
+        set { _enemyDeathCount = value; }
     }
 
     public int enemyAttackCount
