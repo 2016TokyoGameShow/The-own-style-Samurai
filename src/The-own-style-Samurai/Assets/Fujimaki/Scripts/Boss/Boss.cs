@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class Boss : MonoBehaviour,WeaponHitHandler {
 
@@ -25,6 +26,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
     private bool saveSummonAction;//連続で召喚を行わないためのフラグ
 
+    [SerializeField]
     private int hp;
 
 
@@ -33,21 +35,27 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 	void Start () {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        StartCoroutine(Launch());
+        //StartCoroutine(Launch());
         
     }
-	
+
+    public void GetDamage()
+    {
+        myAnimator.SetBool("damage", false);
+        print("false");
+    }
+
     public void BossStart()
     {
         /*player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         StartCoroutine(WaitNextAction(2));*/
     }
-    private IEnumerator Launch()
+    public IEnumerator Launch()
     {
-        yield return new WaitForSeconds(1);
-        myAnimator.SetBool("launch", true);
-        StartCoroutine(CameraMove());
+        yield return new WaitForSeconds(3);
+        //myAnimator.SetBool("launch", true);
+       // StartCoroutine(CameraMove());
 
     }
 
@@ -61,6 +69,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
         Vector3 savePosition= player.GetPlayerAttack().mainCamera.transform.position;
         Quaternion saveRotation = player.GetPlayerAttack().mainCamera.transform.rotation;
+
+        player.GetPlayerAttack().mainCamera.GetComponent<DepthOfField>().focalTransform = this.gameObject.transform;
 
         while (counter < 1)
         {
@@ -79,6 +89,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
             yield return new WaitForEndOfFrame();
         }
         player.nonMove = false;
+
+        player.GetPlayerAttack().mainCamera.GetComponent<DepthOfField>().focalTransform = null;
 
         StartCoroutine(WaitNextAction(2));
     }
@@ -108,15 +120,23 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 
         GameObject attackArea = (GameObject)Instantiate(bossAttackArea, transform.position + transform.forward * 2, transform.rotation);
         attackArea.transform.parent = transform;
-        attackArea.GetComponent<BossAttackArea>().Initialize(0);
+        attackArea.GetComponent<BossAttackArea>().Initialize(1);
 
-        while (true)
-        {
-            myNavMeshAgetnt.Move(transform.forward*Time.deltaTime*5);
+
 
             Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-            RaycastHit hit;
+        float timer = 0.0f;
+
+        while (timer < 5)
+        {
+            timer += Time.deltaTime;
+            myNavMeshAgetnt.Move(transform.forward * Time.deltaTime * 5);
+            yield return new WaitForEndOfFrame();
+        }
+
+
+  /*          RaycastHit hit;
 
             //壁にぶつかったら終了
             if (Physics.Raycast(transform.position+transform.up, transform.position+transform.up + transform.forward,out hit,3))
@@ -124,12 +144,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
                 if (hit.collider.tag != "Enemy")
                 {
                     attackArea.GetComponent<BossAttackArea>().DestroyObject();
-                    break;
                 }
-            }
-
-                yield return new WaitForEndOfFrame();
-        }
+            }*/
 
         AttackAnimatorEvent();
         myAnimator.SetBool("Assult", false);
@@ -145,7 +161,22 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         {
             myNavMeshAgetnt.SetDestination(player.transform.position);
             yield return new WaitForSeconds(0.5f);
-            print("Attack Loop");
+        }
+
+        //プレイヤーのほうに向く
+        while (Vector3.Angle(player.transform.position - transform.position, transform.forward) > 5)
+        {
+
+            float angle = Vector3.Angle(player.transform.position - transform.position, transform.forward);
+
+            var relativePos = player.transform.position - transform.position;
+            var rotation = Quaternion.LookRotation(relativePos);
+
+            transform.rotation =
+              Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2);
+
+
+            yield return new WaitForEndOfFrame();
         }
 
         myAnimator.SetBool("Attack", true);
@@ -157,6 +188,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     public void OnWeaponHit(int damege, GameObject attackObject)
     {
         hp -= damege;
+        myAnimator.SetBool("damage",true);
         if (hp <= 0)
         {
             myAnimator.SetBool("die", true);

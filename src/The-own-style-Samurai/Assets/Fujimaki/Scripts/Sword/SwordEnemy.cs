@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SwordEnemy : MonoBehaviour {
+public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
 
 
     [SerializeField]
@@ -61,6 +61,7 @@ public class SwordEnemy : MonoBehaviour {
     }
 	
 	void Update () {
+        print(navAgent.pathStatus);
         if (starting)
         {
             if (!die)
@@ -78,6 +79,12 @@ public class SwordEnemy : MonoBehaviour {
                         arrivedStenbyPosition = false;
                         navAgent.Resume();
                         navAgent.SetDestination(targetPosition);
+
+                        if (navAgent.pathStatus == NavMeshPathStatus.PathPartial)
+                        {
+
+                        }
+
                         animator.SetBool("run", true);
                     }
                     else
@@ -163,6 +170,7 @@ public class SwordEnemy : MonoBehaviour {
 
         enemyControllerF.RemoveEnemy(this);
 
+        myCapsule.enabled = false;
         die = true;
         StartCoroutine(DieCounter());
     }
@@ -219,5 +227,11 @@ public class SwordEnemy : MonoBehaviour {
 
         stenby = true;
         removeMode = false;
+    }
+
+    public void OnWeaponHit(int damege, GameObject attackObject)
+    {
+        Instantiate(hitEmitter, hitLocation.transform.position, Quaternion.identity);
+        animator.SetBool("dead", true);
     }
 }

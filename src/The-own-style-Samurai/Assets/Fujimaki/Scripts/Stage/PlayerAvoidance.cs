@@ -45,7 +45,7 @@ public class PlayerAvoidance : MonoBehaviour {
 
         player.GetAnimator().SetBool("avoidance", true);
 
-        player.ChangeColor(Color.blue);
+        //player.ChangeColor(Color.blue);
        // player.GetAnimator().SetBool("bow", true);
         player.nonMove = true;
         float moveTime = 1f;
@@ -59,12 +59,12 @@ public class PlayerAvoidance : MonoBehaviour {
             GameObject g = null;
             if ((moveTime > 0.35f)&&(!effected))
             {
-                g = (GameObject)Instantiate(avoidanceEmitter, transform.position, transform.rotation);
+                //g = (GameObject)Instantiate(avoidanceEmitter, transform.position, transform.rotation);
                 effected = true;
             }
 
             moveTime -= Time.deltaTime;
-            player.CharacterMove(transform.forward, avoidanceSpeed);
+            player.CharacterMove(transform.forward, avoidanceSpeed*Time.deltaTime*30);
 
 
             if (g != null)

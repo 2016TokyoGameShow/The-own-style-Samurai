@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityStandardAssets.ImageEffects;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class PlayerAttack : MonoBehaviour
     private Player player;
     [SerializeField]
     private GameObject enemyTarget;
+    [SerializeField]
+    private GameObject spawnAttackArea;
 
     public GameObject cameraBase;
 
@@ -21,33 +25,34 @@ public class PlayerAttack : MonoBehaviour
     public int reciveRightLeft;
     public Vector3 playerAttackingVelocity;
 
-    void Start() {
-    }
+    private List<GameObject> targets = new List<GameObject>();
 
-    void Update() {
+    void Update()
+    {
 
-      /*  if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            StartCoroutine(Attack(player.GetCameraRig().transform.forward,Vector3.up));
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            StartCoroutine(Attack(-player.GetCameraRig().transform.forward,-Vector3.up));
-        }*/
+        /*  if (Input.GetKeyDown(KeyCode.UpArrow))
+          {
+              StartCoroutine(Attack(player.GetCameraRig().transform.forward,Vector3.up));
+          }
+          if (Input.GetKeyDown(KeyCode.DownArrow))
+          {
+              StartCoroutine(Attack(-player.GetCameraRig().transform.forward,-Vector3.up));
+          }*/
 
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            StartCoroutine(Attack(player.GetCameraRig().transform.right,Vector3.right));
+            StartCoroutine(Attack(player.GetCameraRig().transform.right, Vector3.right));
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            StartCoroutine(Attack(-player.GetCameraRig().transform.right,-Vector3.right));
+            StartCoroutine(Attack(-player.GetCameraRig().transform.right, -Vector3.right));
         }
     }
 
     //流し攻撃
-    private IEnumerator Attack(Vector3 velocity,Vector3 localVelocity) {
+    private IEnumerator Attack(Vector3 velocity, Vector3 localVelocity)
+    {
 
 
 
@@ -57,7 +62,7 @@ public class PlayerAttack : MonoBehaviour
             player.UpFinisherGage(0.1f);
             StartCoroutine(CameraMove());
 
-            player.ChangeColor(Color.red);
+           // player.ChangeColor(Color.red);
             player.nonMove = true;
             playerAttacking = true;
             playerAttackingOnce = true;
@@ -65,9 +70,14 @@ public class PlayerAttack : MonoBehaviour
             playerAttackingVelocity = localVelocity;
 
             Vector3 enemyTargetPositon = enemyTarget.transform.position;
-            player.transform.position =new Vector3(player.transform.position.x, enemyTarget.transform.position.y,player.transform.position.z);
+            player.transform.position = new Vector3(player.transform.position.x, enemyTarget.transform.position.y, player.transform.position.z);
 
-            while (Vector3.Angle(player.transform.forward,enemyTargetPositon - player.transform.position) != 0)
+            player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
+            mainCamera.GetComponent<DepthOfField>().focalTransform = player.gameObject.transform;
+
+            Instantiate(spawnAttackArea, (new Vector3(velocity.x * 2, 0.5f, 0) + player.transform.position), transform.rotation);
+
+            while (Vector3.Angle(player.transform.forward, enemyTargetPositon - player.transform.position) != 0)
             {
 
                 Quaternion rotation = Quaternion.LookRotation(enemyTargetPositon - player.transform.position);
@@ -76,14 +86,10 @@ public class PlayerAttack : MonoBehaviour
                 player.transform.rotation = Quaternion.Lerp(player.transform.rotation, rotation, 0.5f);
                 yield return new WaitForEndOfFrame();
             }
+           
 
-            print(localVelocity.x);
 
-           player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
-            transform.localPosition = new Vector3(velocity.x, 0.5f, 0);
-            
-
-            if(enemyTarget != null)Attack();
+            if (enemyTarget != null) Attack();
 
             yield return new WaitForSeconds(0.5f);
 
@@ -103,16 +109,17 @@ public class PlayerAttack : MonoBehaviour
         float counter = 0;
         float speed = 5;
 
-        int zoomObjectNum =Random.Range(0, zoomPositions.Length);
+        int zoomObjectNum = Random.Range(0, zoomPositions.Length);
 
         while (counter < 1)
         {
             counter += Time.deltaTime * speed;
-            mainCamera.transform.localPosition = Vector3.Lerp(Vector3.zero, zoomPositions[zoomObjectNum].transform.localPosition,counter);
+            mainCamera.transform.localPosition = Vector3.Lerp(Vector3.zero, zoomPositions[zoomObjectNum].transform.localPosition, counter);
             mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(1.8f);
+
 
         while (counter > 0)
         {
@@ -121,11 +128,13 @@ public class PlayerAttack : MonoBehaviour
             mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
             yield return new WaitForEndOfFrame();
         }
+        mainCamera.GetComponent<DepthOfField>().focalTransform = null;
     }
 
     //ダメージを受ける
     public void Hit(int damage)
     {
+        enemyTarget = null;
         print("PlayerDamage");
     }
 
@@ -141,27 +150,43 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
-    public bool getEnemyTarget(){
+    public bool getEnemyTarget()
+    {
         return enemyTarget == null;
     }
 
     private void Attack()
     {
-        RaycastHit hit;
 
-        if (Physics.Raycast(player.transform.position, player.transform.forward * 10, out hit))
-       {
-           print("hit");
-           if (hit.collider.gameObject != enemyTarget)
-           {
-               ExecuteEvents.Execute<WeaponHitHandler>(
-                enemyTarget.gameObject,
-                null,
-                (_object, _event) => { _object.OnWeaponHit(1, this.gameObject); }
-                );
-           }
-       }
+        foreach(var e in targets)
+        {
+            ExecuteEvents.Execute<WeaponHitHandler>(
+            e,
+            null,
+            (_object, _event) => { _object.OnWeaponHit(1, this.gameObject); }
+            );
+        }
 
-       enemyTarget = null;
+        targets.Clear();
+
+        enemyTarget = null;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if ((other.gameObject.tag == "Enemy")&&(playerAttacking))
+        {
+            targets.Add(other.gameObject);
+        }
+        print("Targets By "+other.gameObject.name);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if ((other.gameObject.tag == "Enemy") && (playerAttacking))
+        {
+            targets.Remove(other.gameObject);
+        }
     }
 }
+        

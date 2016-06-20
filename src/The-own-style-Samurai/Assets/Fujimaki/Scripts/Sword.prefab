@@ -1466,10 +1466,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 7
-  attackArea: {fileID: 158822, guid: 3aa7b3378152e624a9f908670aefc37c, type: 2}
-  hitEmitter: {fileID: 134184, guid: 1b3a4c3c9ed1de7479de00bf5323931a, type: 2}
+  attackArea: {fileID: 100814, guid: 9098ae82adc8fed47ba54b3d7d685958, type: 2}
+  hitEmitter: {fileID: 124274, guid: 2006c5e41c987304d8f4737ca4a274be, type: 2}
   hitLocation: {fileID: 150408}
-  dieEmitter: {fileID: 180166, guid: 11201bd6bfbd42c449c15b2ed677c0e6, type: 2}
+  dieEmitter: {fileID: 116488, guid: 11201bd6bfbd42c449c15b2ed677c0e6, type: 2}
   dieSmokeEmitter: {fileID: 111154, guid: df8ddc03a6780de4e89fa129b3da9342, type: 2}
   myAngle: 0
   arrivedStenbyPosition: 0
