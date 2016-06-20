@@ -8,14 +8,20 @@ public class GameOver : MonoBehaviour
     [SerializeField, Tooltip("説明文")]
     GameObject fadeOut, continueUI, returnTitleUI;
 
+	[SerializeField]
+	new AudioSource audio;
+
 	bool frag = true;
 	string sceneName = "";
 
 	IEnumerator Start()
 	{
-		AudioManager.PlayBGM("gameOver");
-		yield return new WaitForSeconds(4.0f);
+		audio.time = 2f;
+		AudioManager.PlayBGM("gameOver" , 1);
+
+		yield return new WaitForSeconds(2.8f);
 		frag = false;
+		
 	}
 
     void Update()
