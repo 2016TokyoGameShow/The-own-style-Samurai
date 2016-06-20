@@ -6,6 +6,9 @@ public class NextDoorOpen : MonoBehaviour {
     [SerializeField]
     private StageController stageController;
     [SerializeField]
+    private StageControllerF stageControllerF;
+
+    [SerializeField]
     private GameObject[] openDoors;
     [SerializeField]
     private Animator[]openDoorsAnime;
@@ -13,6 +16,8 @@ public class NextDoorOpen : MonoBehaviour {
     private int border;
     [SerializeField]
     private GameObject enemyGenerator;
+
+    private bool once;
 
 
 
@@ -35,13 +40,19 @@ public class NextDoorOpen : MonoBehaviour {
         if (border <= enemycontroller.enemyDeathCount)
         {
             Debug.Log("go");
-            StartCoroutine(OpenDoor());
-            
+
+            if (!once)
+            {
+                StartCoroutine(OpenDoor());
+                stageControllerF.AddWave();
+                once = true;
+            }
 
         }
 	}
     public IEnumerator OpenDoor()
     {
+        yield return new WaitForSeconds(2);
         Debug.Log("first");
         if(openDoorsAnime[0]!=null)openDoorsAnime[0].SetBool("open", true);
         if (openDoorsAnime[1] != null) openDoorsAnime[1].SetBool("open", true);
@@ -57,5 +68,6 @@ public class NextDoorOpen : MonoBehaviour {
         GameObject.Destroy(openDoors[3]);
         gameObject.GetComponent<BoxCollider>().enabled = false;
         Debug.Log("ok");
+
     }
 }

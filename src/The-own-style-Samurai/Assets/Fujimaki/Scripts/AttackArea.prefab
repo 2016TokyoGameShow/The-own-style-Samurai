@@ -10,6 +10,8 @@ GameObject:
   - 4: {fileID: 431910}
   - 65: {fileID: 6512480}
   - 114: {fileID: 11454528}
+  - 23: {fileID: 2349680}
+  - 33: {fileID: 3348786}
   m_Layer: 2
   m_Name: AttackArea
   m_TagString: Untagged
@@ -30,6 +32,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!23 &2349680
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100814}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3348786
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100814}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &6512480
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -53,6 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d4ccd5769e0a014480fd806221928eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPoint: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

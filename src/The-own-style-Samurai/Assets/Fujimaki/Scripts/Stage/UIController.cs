@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour {
     private UITexture finisherGage;
     [SerializeField]
     private GameObject warrningSplash;
+    [SerializeField]
+    private UILabel enemyCountLabel;
 
 	void Start () {
 	
@@ -18,6 +20,10 @@ public class UIController : MonoBehaviour {
 	
 	}
 
+    public void SetEnemyCount(int count)
+    {
+        enemyCountLabel.text = "" + count;
+    }
 
     //HPの表示をセット
     public void SetHPGage(int maxHp, int nowHp)
@@ -28,7 +34,7 @@ public class UIController : MonoBehaviour {
     //必殺技ゲージをセット
     public void SetFinisherGage(float value)
     {
-        finisherGage.fillAmount = value;
+        //finisherGage.fillAmount = value;
     }
 
     public void SpawnWarringSlphas(GameObject targetObject)

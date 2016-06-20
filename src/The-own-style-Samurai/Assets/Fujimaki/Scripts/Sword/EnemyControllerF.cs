@@ -4,6 +4,12 @@ using System.Collections.Generic;
 
 public class EnemyControllerF : MonoBehaviour {
 
+
+    [SerializeField]
+    private EnemyController enemyController;
+    [SerializeField]
+    private UIController uiController;
+
     private List<SwordEnemy> enemys;
 
     private float orderCounter;
@@ -14,6 +20,7 @@ public class EnemyControllerF : MonoBehaviour {
 
 	void Awake () {
         enemys = new List<SwordEnemy>();
+
 	}
 	
 
@@ -47,6 +54,8 @@ public class EnemyControllerF : MonoBehaviour {
     {
         enemys.Remove(e);
         spawnedEnemyCount--;
+        enemyController.enemyDeathCount++;
+        uiController.SetEnemyCount(enemyController.enemyDeathCount);
 
         if (enemys.Count == 0)
         {

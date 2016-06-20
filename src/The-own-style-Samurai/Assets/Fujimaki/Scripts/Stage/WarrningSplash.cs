@@ -6,12 +6,10 @@ public class WarrningSplash : MonoBehaviour {
 
     private GameObject target;
 
-    [SerializeField]
-    private GameObject attackArea;
 
 	// Use this for initialization
 	void Start () {
-	
+        transform.localScale = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -19,8 +17,9 @@ public class WarrningSplash : MonoBehaviour {
         if (target != null)
         {
             transform.position = target.transform.position + new Vector3(0, 3.5f, 0);
-
-        }else
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+        else
         {
             Destroy(this.gameObject);
         }
