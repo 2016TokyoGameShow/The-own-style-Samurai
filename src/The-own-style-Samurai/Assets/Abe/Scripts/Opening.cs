@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 
 public class Opening : MonoBehaviour
 {
@@ -12,16 +10,6 @@ public class Opening : MonoBehaviour
     GameObject fadeOut;
 
     int count = 0;
-
-    void Awake()
-    {
-        
-    }
-    
-    void Start()
-    {
-        
-    }
     
     void Update()
     {
@@ -32,7 +20,7 @@ public class Opening : MonoBehaviour
                 slide[count].GetComponent<TweenPosition>().enabled = true;
                 count++;
             }
-            catch
+            catch //Listの範囲超えたら
             {
                 fadeOut.SetActive(true);
             }
