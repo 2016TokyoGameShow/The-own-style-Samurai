@@ -107,16 +107,20 @@ public class ShootEnemy : Enemy
 
     protected override void OnAttackReadyUpdate()
     {
-        RaycastHit hitInfo;
-        if(Physics.Raycast(transform.position + rayOffset, transform.forward, out hitInfo))
-        {
-            if(hitInfo.collider.tag != "Player")
-            {
-                animator.SetTrigger("AttackCancel");
-                AttackCancel();
-                return;
-            }
-        }
+  //      RaycastHit enemyHitInfo;
+		//RaycastHit playerHitInfo;
+
+  //      if(Physics.Raycast(transform.position + rayOffset, 
+		//				   transform.forward, out playerHitInfo, 
+		//				   (1 << LayerMask.NameToLayer("Player"))))
+  //      {
+  //          if(playerHitInfo.collider.tag != "Player")
+  //          {
+  //              animator.SetTrigger("AttackCancel");
+  //              AttackCancel();
+  //              return;
+  //          }
+  //      }
 
         Vector3 forward = transform.forward;
         forward.y = 0;
