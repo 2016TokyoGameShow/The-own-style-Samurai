@@ -1434,7 +1434,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 180276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.74, y: 0, z: -3.62}
+  m_LocalPosition: {x: 0, y: 0.396, z: -51.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1679,7 +1679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avoidanceSpeed: 0.15
   player: {fileID: 11496436}
-  avoidanceEmitter: {fileID: 118904, guid: 342a797778805cc4287cb79d19513440, type: 2}
+  avoidanceEmitter: {fileID: 0}
 --- !u!114 &11462142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1693,6 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11496436}
   enemyTarget: {fileID: 0}
+  spawnAttackArea: {fileID: 105548, guid: 261cfab35ae08ac46a461a2f867ab383, type: 2}
   cameraBase: {fileID: 0}
   mainCamera: {fileID: 0}
   zoomPositions:
@@ -1723,7 +1724,7 @@ MonoBehaviour:
   animator: {fileID: 9502466}
   playerAttack: {fileID: 11462142}
   playerAvoidance: {fileID: 11405026}
-  hitEmitter: {fileID: 167494, guid: 7a8eb74026a5b1046ab3ff0b374f6641, type: 2}
+  hitEmitter: {fileID: 188986, guid: fad79832441bf8743a14501cb6040a34, type: 2}
   nonMove: 0
   myMaterial: {fileID: 13743378}
 --- !u!137 &13735802
