@@ -9,18 +9,22 @@ public class EnemyControllerF : MonoBehaviour {
     private EnemyController enemyController;
     [SerializeField]
     private UIController uiController;
+    [SerializeField]
+    private EndManager endManager;
 
     private List<SwordEnemy> enemys;
+    private List<Arrow> arrows;
 
     private float orderCounter;
 
     private bool end;
 
     private int spawnedEnemyCount;
+    private int spawnedArrowCount;
 
 	void Awake () {
         enemys = new List<SwordEnemy>();
-
+        arrows = new List<Arrow>();
 	}
 	
 
@@ -44,10 +48,21 @@ public class EnemyControllerF : MonoBehaviour {
         return spawnedEnemyCount;
     }
 
+    public int GetSpawnArrowEnemy()
+    {
+        return spawnedArrowCount;
+    }
+
     public void AddEnemy(SwordEnemy e)
     {
         enemys.Add(e);
         spawnedEnemyCount++;
+    }
+
+    public void AddArrow(Arrow e)
+    {
+        arrows.Add(e);
+        spawnedArrowCount++;
     }
 
     public void RemoveEnemy(SwordEnemy e)
@@ -61,6 +76,17 @@ public class EnemyControllerF : MonoBehaviour {
         {
             end = true;
         }
+
+        if (enemyController.enemyDeathCount > 0)
+        {
+            endManager.End();
+        }
+    }
+
+    public void RemoveArrow(Arrow e)
+    {
+        arrows.Remove(e);
+        spawnedArrowCount--;
     }
 
     private void CheckOrder()

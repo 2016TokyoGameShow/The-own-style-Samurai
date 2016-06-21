@@ -16,6 +16,8 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     private GameObject dieEmitter;
     [SerializeField]
     private GameObject dieSmokeEmitter;
+    [SerializeField]
+    private GameObject fallEmitter;
 
     private Renderer myRenderer;
 
@@ -55,6 +57,11 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
 
     }
 
+    public void FallArrive()
+    {
+        Instantiate(fallEmitter, transform.position, Quaternion.identity);
+    }
+
     public void FallCompleat()
     {
         starting = true;
@@ -79,11 +86,6 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                         arrivedStenbyPosition = false;
                         navAgent.Resume();
                         navAgent.SetDestination(targetPosition);
-
-                        if (navAgent.pathStatus == NavMeshPathStatus.PathPartial)
-                        {
-
-                        }
 
                         animator.SetBool("run", true);
                     }
@@ -118,7 +120,8 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                         {
                             navAgent.Stop();
                             animator.SetBool("attack", true);
-                        }else
+                        }
+                        else
                         {
                             navAgent.Resume();
                         }
@@ -231,7 +234,11 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
 
     public void OnWeaponHit(int damege, GameObject attackObject)
     {
+        enemyControllerF.RemoveEnemy(this);
         Instantiate(hitEmitter, hitLocation.transform.position, Quaternion.identity);
         animator.SetBool("dead", true);
+        die = true;
+        myCapsule.enabled = false;
+        StartCoroutine(DieCounter());
     }
 }

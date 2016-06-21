@@ -88,7 +88,6 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //ヒット通知
     public void OnWeaponHit(int damage,GameObject enemy)
     {
-        print(enemy.name);
         playerAttack.Hit(damage);
         animator.SetBool("damage", true);
         Instantiate(hitEmitter, transform.position+Vector3.up*1.5f, Quaternion.identity);

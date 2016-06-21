@@ -783,6 +783,7 @@ MonoBehaviour:
   hpBer: {fileID: 11444994}
   finisherGage: {fileID: 11479724}
   warrningSplash: {fileID: 0}
+  enemyCountLabel: {fileID: 0}
 --- !u!114 &11496608
 MonoBehaviour:
   m_ObjectHideFlags: 1

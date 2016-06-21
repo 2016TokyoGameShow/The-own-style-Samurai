@@ -25,6 +25,8 @@ public class PlayerAttack : MonoBehaviour
     public int reciveRightLeft;
     public Vector3 playerAttackingVelocity;
 
+    public bool end;
+
     private List<GameObject> targets = new List<GameObject>();
 
     void Update()
@@ -120,15 +122,17 @@ public class PlayerAttack : MonoBehaviour
         }
         yield return new WaitForSeconds(1.8f);
 
-
-        while (counter > 0)
+        if (!end)
         {
-            counter -= Time.deltaTime * speed;
-            mainCamera.transform.localPosition = Vector3.Lerp(Vector3.zero, zoomPositions[zoomObjectNum].transform.localPosition, counter);
-            mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
-            yield return new WaitForEndOfFrame();
+            while (counter > 0)
+            {
+                counter -= Time.deltaTime * speed;
+                mainCamera.transform.localPosition = Vector3.Lerp(Vector3.zero, zoomPositions[zoomObjectNum].transform.localPosition, counter);
+                mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
+                yield return new WaitForEndOfFrame();
+            }
+            mainCamera.GetComponent<DepthOfField>().focalTransform = null;
         }
-        mainCamera.GetComponent<DepthOfField>().focalTransform = null;
     }
 
     //ダメージを受ける

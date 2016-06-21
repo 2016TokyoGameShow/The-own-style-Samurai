@@ -764,7 +764,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137838}
   m_LocalRotation: {x: 0, y: 0.9994712, z: 0, w: -0.032517083}
-  m_LocalPosition: {x: -6.925236, y: 0, z: 5.9640284}
+  m_LocalPosition: {x: -4.0907927, y: -6.4766985e-17, z: 5.406845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 183.7269, z: 0}
   m_Children:
@@ -1446,7 +1446,7 @@ Animator:
   m_GameObject: {fileID: 137838}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 108750cb5b51f8e4bbbb68479f154866, type: 3}
-  m_Controller: {fileID: 9100000, guid: ea1487426f0a944419d497faa0b5d8e7, type: 2}
+  m_Controller: {fileID: 9100000, guid: c63afa5609b7a5d4a8e71cce79734729, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 7
   attackArea: {fileID: 100814, guid: 9098ae82adc8fed47ba54b3d7d685958, type: 2}
-  hitEmitter: {fileID: 124274, guid: 2006c5e41c987304d8f4737ca4a274be, type: 2}
+  hitEmitter: {fileID: 124274, guid: d5b4478c0b8ced643a369fa6438887d9, type: 2}
   hitLocation: {fileID: 150408}
   dieEmitter: {fileID: 116488, guid: 11201bd6bfbd42c449c15b2ed677c0e6, type: 2}
   dieSmokeEmitter: {fileID: 111154, guid: df8ddc03a6780de4e89fa129b3da9342, type: 2}

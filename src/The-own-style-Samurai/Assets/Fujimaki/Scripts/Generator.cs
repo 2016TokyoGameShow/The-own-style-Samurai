@@ -5,6 +5,7 @@ public class Generator : MonoBehaviour {
 
     public EnemyGeneratorBase enemyGenerator;
     public bool online;
+    public bool arrowOnline;
 
     public int count = 3;
 
@@ -22,17 +23,17 @@ public class Generator : MonoBehaviour {
             {
                 if (enemyGenerator.maxCount > enemyGenerator.enemyControllerF.GetSpawnedEnemy())
                 {
-                    if (Random.Range(0, 1) == 0)
+                    Instantiate(enemyGenerator.swordEnemy, transform.position, transform.rotation);
+                }
+                else
+                {
+                    if (enemyGenerator.maxArrowCount > enemyGenerator.enemyControllerF.GetSpawnArrowEnemy())
                     {
-                        Instantiate(enemyGenerator.swordEnemy, transform.position, transform.rotation);
-                    }
-                    else
-                    {
-                       // Instantiate(enemyGenerator.shootEnemy, transform.position, transform.rotation);
+                        Instantiate(enemyGenerator.shootEnemy, transform.position, transform.rotation);
                     }
                 }
             }
             yield return new WaitForSeconds(count + Random.Range(0, 2));
         }
-    }
+        }
 }

@@ -15,6 +15,7 @@ public class EnemyGeneratorBase : MonoBehaviour {
    
 
     public int maxCount;
+    public int maxArrowCount;
 
     public GameObject swordEnemy;
     public GameObject shootEnemy;
@@ -27,7 +28,7 @@ public class EnemyGeneratorBase : MonoBehaviour {
         print("NowWave" + value);
         
         for (int i = 0; i < wave0.Length; i++) { wave0[i].online = false; }
-        for (int i = 0; i < wave1.Length; i++) { wave1[i].online = false; }
+        for (int i = 0; i < wave1.Length; i++) { wave1[i].online = false; } 
         for (int i = 0; i < wave2.Length; i++) { wave2[i].online = false; }
         
         switch (value)
