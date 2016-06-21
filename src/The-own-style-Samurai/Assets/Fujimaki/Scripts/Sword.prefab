@@ -1471,6 +1471,7 @@ MonoBehaviour:
   hitLocation: {fileID: 150408}
   dieEmitter: {fileID: 116488, guid: 11201bd6bfbd42c449c15b2ed677c0e6, type: 2}
   dieSmokeEmitter: {fileID: 111154, guid: df8ddc03a6780de4e89fa129b3da9342, type: 2}
+  fallEmitter: {fileID: 174622, guid: 78e758b81b00d4d4c9eecf2b76484944, type: 2}
   myAngle: 0
   arrivedStenbyPosition: 0
 --- !u!136 &13694772
