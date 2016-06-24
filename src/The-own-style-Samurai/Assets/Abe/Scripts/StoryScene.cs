@@ -13,9 +13,6 @@ public class StoryScene : MonoBehaviour
     [SerializeField, Tooltip("説明文")]
     GameObject[] slide;
 
-    [SerializeField, Tooltip("説明文")]
-    GameObject fadeOut;
-
     [SerializeField]
     UITweener tween;
 
@@ -47,7 +44,7 @@ public class StoryScene : MonoBehaviour
             }
             catch //Listの範囲超えたら
             {
-                fadeOut.SetActive(true);
+                SceneChanger.FadeStart(gotoSceneName);
             }
 
 			isLock = true;
@@ -58,9 +55,4 @@ public class StoryScene : MonoBehaviour
 	{
 		isLock = false;
 	}
-
-    public void GotoScene()
-    {
-        SceneManager.LoadScene(gotoSceneName);
-    }
 }

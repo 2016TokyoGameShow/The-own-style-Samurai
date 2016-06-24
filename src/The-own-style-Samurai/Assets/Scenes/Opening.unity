@@ -85,17 +85,13 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &445905884
+--- !u!1001 &52694644
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1432500901}
     m_Modifications:
-    - target: {fileID: 11489200, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
-      propertyPath: onFinished.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 407926, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -128,21 +124,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 183400, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489200, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
-      propertyPath: onFinished.Array.data[0].mTarget
-      value: 
-      objectReference: {fileID: 883488230}
-    - target: {fileID: 11489200, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
-      propertyPath: onFinished.Array.data[0].mMethodName
-      value: GotoScene
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &52694645 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 407926, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
+  m_PrefabInternal: {fileID: 52694644}
 --- !u!1 &855923377
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +258,6 @@ MonoBehaviour:
   - {fileID: 1267717128}
   - {fileID: 1650954852}
   - {fileID: 2017171180}
-  fadeOut: {fileID: 2083315010}
   tween: {fileID: 1312859780}
 --- !u!4 &883488231
 Transform:
@@ -757,7 +744,7 @@ Transform:
   - {fileID: 1650954853}
   - {fileID: 2017171181}
   - {fileID: 855923378}
-  - {fileID: 2083315011}
+  - {fileID: 52694645}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &1650954852
@@ -1217,11 +1204,3 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
   mFixedAspect: 0
---- !u!1 &2083315010 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 183400, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
-  m_PrefabInternal: {fileID: 445905884}
---- !u!4 &2083315011 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 407926, guid: 45f6d7cf4cb8df6438931fdee9af893c, type: 2}
-  m_PrefabInternal: {fileID: 445905884}

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Title : MonoBehaviour
 {
     [SerializeField]
-    GameObject title, menu, start, tutorial, fadeOutObject;
+    GameObject title, menu, start, tutorial;
 	GameObject hoveredObject;
 
 	[SerializeField]
@@ -67,18 +67,7 @@ public class Title : MonoBehaviour
 
     public void FadeOut()
     {
-        if(fadeOutObject.activeSelf)
-        {
-            return;
-        }
-        fadeOutObject.SetActive(true);
-		AudioManager.PlayBGM("");
-		AudioManager.PlaySE("selectSE");
-    }
-
-    public void GotoStageScene()
-    {
-        SceneManager.LoadScene("Opening");
+        SceneChanger.FadeStart("Opening");
     }
 
     public void GameEnd()

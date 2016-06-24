@@ -21,7 +21,6 @@ public class GameOver : MonoBehaviour
 
 		yield return new WaitForSeconds(2.8f);
 		frag = false;
-		
 	}
 
     void Update()
@@ -49,11 +48,6 @@ public class GameOver : MonoBehaviour
 
 	public void FadeOut()
 	{
-		fadeOut.SetActive(true);
-	}
-
-	public void GoToScene()
-	{
-		SceneManager.LoadScene(sceneName);
+		SceneChanger.FadeStart(sceneName);
 	}
 }

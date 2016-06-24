@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 407926}
   - 114: {fileID: 11495840}
   - 114: {fileID: 11489200}
+  - 114: {fileID: 11460054}
   m_Layer: 5
   m_Name: FadeOut
   m_TagString: Untagged
@@ -30,13 +31,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11489200
+--- !u!114 &11460054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 183400}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1514402ba5f3e48996340774ecdab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11489200
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183400}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
   m_Name: 
@@ -64,7 +76,11 @@ MonoBehaviour:
   duration: 1.5
   steeperCurves: 0
   tweenGroup: 0
-  onFinished: []
+  onFinished:
+  - mTarget: {fileID: 11460054}
+    mMethodName: GotoScene
+    mParameters: []
+    oneShot: 0
   eventReceiver: {fileID: 0}
   callWhenFinished: 
   from: 0
