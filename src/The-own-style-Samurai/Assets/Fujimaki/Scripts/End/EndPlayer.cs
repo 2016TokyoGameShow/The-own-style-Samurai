@@ -12,4 +12,9 @@ public class EndPlayer : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void FallEvent()
+    {
+
+    }
 }

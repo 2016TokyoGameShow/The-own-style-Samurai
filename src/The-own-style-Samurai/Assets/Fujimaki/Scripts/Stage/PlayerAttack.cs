@@ -44,11 +44,11 @@ public class PlayerAttack : MonoBehaviour
           }*/
 
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetButton("EnvantionRight")))
         {
             StartCoroutine(Attack(player.GetCameraRig().transform.right, Vector3.right));
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if ((Input.GetKeyDown(KeyCode.LeftArrow))||(Input.GetButton("EnvantionLeft")))
         {
             StartCoroutine(Attack(-player.GetCameraRig().transform.right, -Vector3.right));
         }
@@ -171,7 +171,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-
+        
         foreach(var e in targets)
         {
             ExecuteEvents.Execute<WeaponHitHandler>(
@@ -181,6 +181,7 @@ public class PlayerAttack : MonoBehaviour
             );
         }
 
+        AudioManager.PlaySE("nagashiSE");
         targets.Clear();
 
         enemyTarget = null;

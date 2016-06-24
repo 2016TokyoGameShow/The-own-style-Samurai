@@ -46,6 +46,7 @@ public class Arrow : MonoBehaviour
     public void FallArrive()
     {
         Instantiate(fallEmitter, transform.position, Quaternion.identity);
+        AudioManager.PlaySE("dropSE", 1 - Vector3.Distance(player.transform.position, transform.position) / 20.0f);
     }
 
     public void FallCompleat()
@@ -112,6 +113,7 @@ public class Arrow : MonoBehaviour
             animator.SetBool("shoot", true);
             yield return new WaitForSeconds(1.5f);
 
+            AudioManager.PlaySE("archeryAttackSE",2);
             Instantiate(arrowWepon, transform.position + transform.forward * 2 + transform.up * 1.5f, transform.rotation);
             animator.SetBool("shoot", false);
             yield return new WaitForSeconds(0.5f);
@@ -120,6 +122,8 @@ public class Arrow : MonoBehaviour
             StartCoroutine(arrowLine.endLine());
             animator.SetBool("getout", true);
             enemyControllerF.RemoveArrow(this);
+            yield return new WaitForSeconds(1);
+            AudioManager.PlaySE("ExitArrowEnemySE", 8 - Vector3.Distance(player.transform.position, transform.position) / 30.0f);
         }
     }
 }
