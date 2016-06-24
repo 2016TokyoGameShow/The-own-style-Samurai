@@ -59,7 +59,7 @@ public class PlayerAvoidance : MonoBehaviour {
             GameObject g = null;
             if ((moveTime > 0.35f)&&(!effected))
             {
-                //g = (GameObject)Instantiate(avoidanceEmitter, transform.position, transform.rotation);
+                g = (GameObject)Instantiate(avoidanceEmitter, transform.position+Vector3.up*3, transform.rotation);
                 effected = true;
             }
 

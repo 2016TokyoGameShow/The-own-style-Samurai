@@ -11,6 +11,8 @@ public class EnemyControllerF : MonoBehaviour {
     private UIController uiController;
     [SerializeField]
     private EndManager endManager;
+    [SerializeField]
+    private int endCountNum;
 
     private List<SwordEnemy> enemys;
     private List<Arrow> arrows;
@@ -77,7 +79,7 @@ public class EnemyControllerF : MonoBehaviour {
             end = true;
         }
 
-        if (enemyController.enemyDeathCount > 0)
+        if (enemyController.enemyDeathCount >= endCountNum)
         {
             endManager.End();
         }

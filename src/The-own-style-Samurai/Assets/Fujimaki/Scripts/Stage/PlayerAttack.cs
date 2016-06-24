@@ -27,6 +27,8 @@ public class PlayerAttack : MonoBehaviour
 
     public bool end;
 
+    private bool cameraPlaying;
+
     private List<GameObject> targets = new List<GameObject>();
 
     void Update()
@@ -62,6 +64,8 @@ public class PlayerAttack : MonoBehaviour
         {
 
             player.UpFinisherGage(0.1f);
+
+            if(!cameraPlaying)
             StartCoroutine(CameraMove());
 
            // player.ChangeColor(Color.red);
@@ -77,7 +81,8 @@ public class PlayerAttack : MonoBehaviour
             player.GetAnimator().SetInteger("katana", localVelocity.x > 0 ? 1 : 2);
             mainCamera.GetComponent<DepthOfField>().focalTransform = player.gameObject.transform;
 
-            Instantiate(spawnAttackArea, (new Vector3(velocity.x * 2, 0.5f, 0) + player.transform.position), transform.rotation);
+            GameObject g= (GameObject) Instantiate(spawnAttackArea, (new Vector3(velocity.x * 2, 0.5f, 0) + player.transform.position), transform.rotation);
+            g.GetComponent<BossAttackArea>().Initialize(0.5f);
 
             while (Vector3.Angle(player.transform.forward, enemyTargetPositon - player.transform.position) != 0)
             {
@@ -106,8 +111,11 @@ public class PlayerAttack : MonoBehaviour
     }
 
     //カメラ演出
+    
     private IEnumerator CameraMove()
     {
+        cameraPlaying = true;
+
         float counter = 0;
         float speed = 5;
 
@@ -131,8 +139,10 @@ public class PlayerAttack : MonoBehaviour
                 mainCamera.transform.localRotation = Quaternion.Lerp(Quaternion.identity, zoomPositions[zoomObjectNum].transform.localRotation, counter);
                 yield return new WaitForEndOfFrame();
             }
-            mainCamera.GetComponent<DepthOfField>().focalTransform = null;
+
+            cameraPlaying = false;
         }
+        mainCamera.GetComponent<DepthOfField>().focalTransform = null;
     }
 
     //ダメージを受ける

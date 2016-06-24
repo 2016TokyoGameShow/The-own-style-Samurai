@@ -93,7 +93,6 @@ public class Arrow : MonoBehaviour
         if (!once)
         {
             once = true;
-            StartCoroutine(arrowLine.animateLineRenderer());
 
 
             while (Vector3.Angle(player.transform.position - transform.position, transform.forward) > 1f)
@@ -107,6 +106,7 @@ public class Arrow : MonoBehaviour
                 print(Vector3.Angle(player.transform.position - transform.position, transform.forward));
                 yield return new WaitForEndOfFrame();
             }
+            StartCoroutine(arrowLine.animateLineRenderer());
             animator.SetBool("run", false);
 
             animator.SetBool("shoot", true);

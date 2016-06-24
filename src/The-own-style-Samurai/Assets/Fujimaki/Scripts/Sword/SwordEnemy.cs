@@ -174,6 +174,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
         enemyControllerF.RemoveEnemy(this);
 
         myCapsule.enabled = false;
+        navAgent.enabled = false;
         die = true;
         StartCoroutine(DieCounter());
     }
@@ -209,27 +210,30 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     //=================================元の場所に戻る
     private IEnumerator OutMove()
     {
-        removeMode = true;
-
-        myAngle = Random.Range(0, 360);
-
-        Vector3 targetPosition = Quaternion.AngleAxis(myAngle, Vector3.up) * (Vector3.forward * distance);
-        targetPosition += player.transform.position;
-
-        yield return new WaitForSeconds(1);
-
-        navAgent.Resume();
-        navAgent.SetDestination(targetPosition);
-        animator.SetBool("run", true);
-
-
-        while (Vector3.Distance(targetPosition, transform.position) > 0.5f)
+        if (!die)
         {
-            yield return new WaitForEndOfFrame();
-        }
+            removeMode = true;
 
-        stenby = true;
-        removeMode = false;
+            myAngle = Random.Range(0, 360);
+
+            Vector3 targetPosition = Quaternion.AngleAxis(myAngle, Vector3.up) * (Vector3.forward * distance);
+            targetPosition += player.transform.position;
+
+            yield return new WaitForSeconds(1);
+
+            navAgent.Resume();
+            navAgent.SetDestination(targetPosition);
+            animator.SetBool("run", true);
+
+
+            while (Vector3.Distance(targetPosition, transform.position) > 0.5f)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+
+            stenby = true;
+            removeMode = false;
+        }
     }
 
     public void OnWeaponHit(int damege, GameObject attackObject)
@@ -239,6 +243,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
         animator.SetBool("dead", true);
         die = true;
         myCapsule.enabled = false;
+        navAgent.enabled = false;
         StartCoroutine(DieCounter());
     }
 }

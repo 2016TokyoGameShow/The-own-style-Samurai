@@ -21,6 +21,10 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     private Player player;
     [SerializeField]
     private GameObject cameraZoomObject;
+    [SerializeField]
+    private GameObject AssultEmitter;
+    [SerializeField]
+    private GameObject attackEmitter;
 
     private Vector3 saveSpeedVelocity;
 
@@ -54,8 +58,10 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     public IEnumerator Launch()
     {
         yield return new WaitForSeconds(3);
-        //myAnimator.SetBool("launch", true);
-       // StartCoroutine(CameraMove());
+        myAnimator.SetBool("launch", true);
+
+        StartCoroutine(WaitNextAction(2));
+        //StartCoroutine(CameraMove());
 
     }
 
@@ -118,38 +124,6 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         //抜刀アニメーション待機
         yield return new WaitForSeconds(1);
 
-        GameObject attackArea = (GameObject)Instantiate(bossAttackArea, transform.position + transform.forward * 2, transform.rotation);
-        attackArea.transform.parent = transform;
-        attackArea.GetComponent<BossAttackArea>().Initialize(1);
-
-
-
-            Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        float timer = 0.0f;
-
-        while (timer < 5)
-        {
-            timer += Time.deltaTime;
-            myNavMeshAgetnt.Move(transform.forward * Time.deltaTime * 5);
-            yield return new WaitForEndOfFrame();
-        }
-
-
-  /*          RaycastHit hit;
-
-            //壁にぶつかったら終了
-            if (Physics.Raycast(transform.position+transform.up, transform.position+transform.up + transform.forward,out hit,3))
-            {
-                if (hit.collider.tag != "Enemy")
-                {
-                    attackArea.GetComponent<BossAttackArea>().DestroyObject();
-                }
-            }*/
-
-        AttackAnimatorEvent();
-        myAnimator.SetBool("Assult", false);
-        saveSummonAction = false;
     }
 
     //======================================================================================================追いかけ攻撃
@@ -201,6 +175,9 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         myAnimator.SetBool("Attack", false);
         GameObject attackArea = (GameObject)Instantiate(bossAttackArea, transform.position + transform.forward * 3, transform.rotation);
         attackArea.GetComponent<BossAttackArea>().Initialize(1);
+
+        GameObject ag = (GameObject)Instantiate(attackEmitter, transform.position + transform.forward*4, transform.rotation);
+
 
         StartCoroutine(WaitNextAction(2));
 
@@ -268,5 +245,35 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         {
             StartCoroutine(Attack());
         }
+    }
+
+    public void AssultStart()
+    {
+        StartCoroutine(AssultAttacking());
+    }
+
+    private IEnumerator AssultAttacking()
+    {
+
+        GameObject attackArea = (GameObject)Instantiate(bossAttackArea, transform.position + transform.forward * 2, transform.rotation);
+        attackArea.transform.parent = transform;
+        attackArea.GetComponent<BossAttackArea>().Initialize(1);
+
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        float timer = 0.0f;
+        GameObject ag = (GameObject)Instantiate(AssultEmitter, transform.position + Vector3.up * 3, transform.rotation);
+
+        while (timer < 5)
+        {
+            timer += Time.deltaTime;
+            myNavMeshAgetnt.Move(transform.forward * Time.deltaTime * 5);
+            ag.transform.position = transform.position + Vector3.up * 2 + transform.forward * 4;
+            yield return new WaitForEndOfFrame();
+        }
+
+        AttackAnimatorEvent();
+        myAnimator.SetBool("Assult", false);
+        saveSummonAction = false;
     }
 }

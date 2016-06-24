@@ -8,13 +8,13 @@ public class StageControllerF : MonoBehaviour
     private EnemyGeneratorBase enemyGeneratorBase;
 
     private int nowWave;
-    // Use this for initialization
+
     void Start()
     {
         enemyGeneratorBase.SetWave(0);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 
