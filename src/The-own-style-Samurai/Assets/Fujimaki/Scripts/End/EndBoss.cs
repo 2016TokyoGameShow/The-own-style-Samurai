@@ -15,10 +15,6 @@ public class EndBoss : MonoBehaviour {
         animator.SetBool("launch", true);
     }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public IEnumerator Run()
     {
@@ -44,6 +40,17 @@ public class EndBoss : MonoBehaviour {
 
 
         yield return new WaitForSeconds(1);
+        StartCoroutine(BGMFade());
+    }
+
+    private IEnumerator BGMFade()
+    {
+        float timer = 1;
+        while (AudioManager.GetVolume() > 0)
+        {
+            AudioManager.ChangeVolume(AudioManager.GetVolume() - Time.deltaTime/40.0f);
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     public void FallCompleat()
@@ -59,5 +66,24 @@ public class EndBoss : MonoBehaviour {
     public void FallArrive()
     {
 
+    }
+
+    public void WalkEvent()
+    {
+        float scale = 1;
+
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                AudioManager.PlaySE("WalkEnemySE01", scale);
+                break;
+            case 1:
+                AudioManager.PlaySE("WalkEnemySE02", scale);
+                break;
+            case 2:
+                AudioManager.PlaySE("WalkEnemySE03", scale);
+                break;
+
+        }
     }
 }

@@ -22,7 +22,7 @@ public class PlayerAvoidance : MonoBehaviour {
 	void Update () {
 
         //とりあえずよけるアクション
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space))||(Input.GetButton("Avoidance")))
         {
 
             if ((avoidanceAction == null) && (!player.nonMove))
@@ -44,9 +44,10 @@ public class PlayerAvoidance : MonoBehaviour {
     {
 
         player.GetAnimator().SetBool("avoidance", true);
+        AudioManager.PlaySE("avoidSE");
 
         //player.ChangeColor(Color.blue);
-       // player.GetAnimator().SetBool("bow", true);
+        // player.GetAnimator().SetBool("bow", true);
         player.nonMove = true;
         float moveTime = 1f;
 

@@ -58,4 +58,9 @@ public class AudioManager : MonoBehaviour {
     {
         audioSource.volume = value;
     }
+
+    public static float GetVolume()
+    {
+       return audioSource.volume;
+    }
 }

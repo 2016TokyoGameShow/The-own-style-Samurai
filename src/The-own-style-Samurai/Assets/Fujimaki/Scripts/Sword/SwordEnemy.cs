@@ -18,6 +18,8 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     private GameObject dieSmokeEmitter;
     [SerializeField]
     private GameObject fallEmitter;
+    [SerializeField]
+    private GameObject legEmitter;
 
     private Renderer myRenderer;
 
@@ -60,6 +62,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     public void FallArrive()
     {
         Instantiate(fallEmitter, transform.position, Quaternion.identity);
+        AudioManager.PlaySE("dropSE",1 - Vector3.Distance(player.transform.position, transform.position) / 30.0f);
     }
 
     public void FallCompleat()
@@ -68,7 +71,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     }
 	
 	void Update () {
-        print(navAgent.pathStatus);
+
         if (starting)
         {
             if (!die)
@@ -84,8 +87,11 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                     if (Vector3.Distance(targetPosition, transform.position) > 0.5f)
                     {
                         arrivedStenbyPosition = false;
-                        navAgent.Resume();
-                        navAgent.SetDestination(targetPosition);
+                        if (navAgent != null)
+                        {
+                            navAgent.Resume();
+                            navAgent.SetDestination(targetPosition);
+                        }
 
                         animator.SetBool("run", true);
                     }
@@ -115,15 +121,17 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                         Vector3 targetPosition = (player.transform.position - transform.position).normalized;
                         navAgent.SetDestination(player.transform.position - (targetPosition * 2.5f));
                         animator.SetBool("run", true);
-
-                        if (Vector3.Distance(transform.position, player.transform.position) < 3f)
+                        if (navAgent != null)
                         {
-                            navAgent.Stop();
-                            animator.SetBool("attack", true);
-                        }
-                        else
-                        {
-                            navAgent.Resume();
+                            if (Vector3.Distance(transform.position, player.transform.position) < 3f)
+                            {
+                                navAgent.Stop();
+                                animator.SetBool("attack", true);
+                            }
+                            else
+                            {
+                                navAgent.Resume();
+                            }
                         }
                     }
                 }
@@ -134,6 +142,8 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     public void AttackStartAnimatorEvent()
     {
         player.SetTarget(this.gameObject);
+
+        AudioManager.PlaySE("swordAttackSE", 1);
     }
 
     //=============================攻撃する瞬間
@@ -221,8 +231,12 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
 
             yield return new WaitForSeconds(1);
 
-            navAgent.Resume();
-            navAgent.SetDestination(targetPosition);
+            if (navAgent != null)
+            {
+                navAgent.Resume();
+                navAgent.SetDestination(targetPosition);
+            }
+
             animator.SetBool("run", true);
 
 
@@ -238,12 +252,35 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
 
     public void OnWeaponHit(int damege, GameObject attackObject)
     {
+        AudioManager.PlaySE("ArrowHitEnemySE", 1 - Vector3.Distance(player.transform.position, transform.position) / 30.0f);
         enemyControllerF.RemoveEnemy(this);
         Instantiate(hitEmitter, hitLocation.transform.position, Quaternion.identity);
         animator.SetBool("dead", true);
         die = true;
         myCapsule.enabled = false;
         navAgent.enabled = false;
+        navAgent = null;
         StartCoroutine(DieCounter());
+    }
+
+    public void WalkEvent()
+    {
+
+        float scale = 1.5f - Vector3.Distance(player.transform.position, transform.position) / 30.0f;
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                AudioManager.PlaySE("WalkEnemySE01", scale);
+            break;
+            case 1:
+                AudioManager.PlaySE("WalkEnemySE02", scale);
+                break;
+            case 2:
+                AudioManager.PlaySE("WalkEnemySE03", scale);
+                break;
+
+        }
+
+        Instantiate(legEmitter, transform.position, Quaternion.identity);
     }
 }

@@ -59,6 +59,7 @@ public class NextDoorOpen : MonoBehaviour {
         Debug.Log("first");
         if(openDoorsAnime[0]!=null)openDoorsAnime[0].SetBool("open", true);
         if (openDoorsAnime[1] != null) openDoorsAnime[1].SetBool("open", true);
+        AudioManager.PlaySE("fusumaOpenSE", 1);
         yield return new WaitForSeconds(1.0f);
 
         Debug.Log("second");
@@ -66,11 +67,13 @@ public class NextDoorOpen : MonoBehaviour {
         GameObject.Destroy(openDoors[1]);
         if (openDoors[2] != null) openDoorsAnime[2].SetBool("open", true);
         if (openDoors[3] != null) openDoorsAnime[3].SetBool("open", true);
+        AudioManager.PlaySE("fusumaOpenSE", 1);
         yield return new WaitForSeconds(1.0f);
         GameObject.Destroy(openDoors[2]);
         GameObject.Destroy(openDoors[3]);
         gameObject.GetComponent<BoxCollider>().enabled = false;
         Debug.Log("ok");
+        AudioManager.PlaySE("fusumaOpenSE", 1);
 
         navWall.enabled = false;
 

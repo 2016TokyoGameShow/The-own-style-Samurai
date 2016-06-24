@@ -21,6 +21,10 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     private PlayerAvoidance playerAvoidance;
     [SerializeField]
     private GameObject hitEmitter;
+    [SerializeField]
+    private GameObject fallEmitter;
+    [SerializeField]
+    private GameObject legEmitter;
 
     private int hp;
 
@@ -38,6 +42,8 @@ public class Player : MonoBehaviour,WeaponHitHandler {
         uiController = stageController.uiController;
         UpFinisherGage(0);
         hp = maxHP;
+
+        AudioManager.PlayBGM("nomalBgm",0.4f);
     }
 
     public PlayerAttack GetPlayerAttack()
@@ -88,6 +94,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     //ヒット通知
     public void OnWeaponHit(int damage,GameObject enemy)
     {
+        AudioManager.PlaySE("DamageSE");
         playerAttack.Hit(damage);
         animator.SetBool("damage", true);
         Instantiate(hitEmitter, transform.position+Vector3.up*1.5f, Quaternion.identity);
@@ -165,5 +172,32 @@ public class Player : MonoBehaviour,WeaponHitHandler {
     {
         finisherGage += value;
         uiController.SetFinisherGage(finisherGage);
+    }
+
+    //歩行音
+    public void WalkFoot()
+    {
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                AudioManager.PlaySE("walk01");
+                break;
+            case 1:
+                AudioManager.PlaySE("walk02");
+                break;
+            case 2:
+                AudioManager.PlaySE("walk03");
+                break;
+
+        }
+
+        Instantiate(legEmitter, transform.position, Quaternion.identity);
+
+    }
+
+    public void FallEvent()
+    {
+        Instantiate(fallEmitter, transform.position, Quaternion.identity);
+        AudioManager.PlaySE("dropSE");
     }
 }

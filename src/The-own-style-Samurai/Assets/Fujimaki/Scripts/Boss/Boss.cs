@@ -4,7 +4,8 @@ using UnityStandardAssets.ImageEffects;
 
 public class Boss : MonoBehaviour,WeaponHitHandler {
 
-
+    [SerializeField]
+    private bool debug;
     [SerializeField]
     private NavMeshAgent myNavMeshAgetnt;
     [SerializeField]
@@ -39,7 +40,8 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
 	void Start () {
         //player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        //StartCoroutine(Launch());
+        if(debug)
+        StartCoroutine(Launch());
         
     }
 
@@ -59,6 +61,9 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
     {
         yield return new WaitForSeconds(3);
         myAnimator.SetBool("launch", true);
+        AudioManager.PlaySE("appearBossSE", 1);
+        AudioManager.PlayBGM("");
+        AudioManager.PlayBGM("bossBgm", 0.5f);
 
         StartCoroutine(WaitNextAction(2));
         //StartCoroutine(CameraMove());
@@ -177,7 +182,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         attackArea.GetComponent<BossAttackArea>().Initialize(1);
 
         GameObject ag = (GameObject)Instantiate(attackEmitter, transform.position + transform.forward*4, transform.rotation);
-
+        AudioManager.PlaySE("attackBossSE2", 2);
 
         StartCoroutine(WaitNextAction(2));
 
@@ -210,7 +215,7 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
             var rotation = Quaternion.LookRotation(relativePos);
 
             transform.rotation =
-              Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 2);
+              Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 4);
 
 
             yield return new WaitForEndOfFrame();
@@ -275,5 +280,26 @@ public class Boss : MonoBehaviour,WeaponHitHandler {
         AttackAnimatorEvent();
         myAnimator.SetBool("Assult", false);
         saveSummonAction = false;
+    }
+
+    public void WalkEvent()
+    {
+        float scale = 3f - Vector3.Distance(player.transform.position, transform.position) / 30.0f;
+
+        AudioManager.PlaySE("BossWalking", scale);
+        /*
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                AudioManager.PlaySE("WalkEnemySE01", scale);
+                break;
+            case 1:
+                AudioManager.PlaySE("WalkEnemySE02", scale);
+                break;
+            case 2:
+                AudioManager.PlaySE("WalkEnemySE03", scale);
+                break;
+
+        }*/
     }
 }
