@@ -13,7 +13,6 @@ public class Title : MonoBehaviour
 	void Awake()
 	{
 		UICamera.currentScheme = UICamera.ControlScheme.Controller;
-        
 	}
 
 	void Start()
@@ -57,8 +56,12 @@ public class Title : MonoBehaviour
 
     public void FadeOut()
     {
+        if(fadeOutObject.activeSelf)
+        {
+            return;
+        }
         fadeOutObject.SetActive(true);
-		source.Stop();
+		AudioManager.PlayBGM("");
 		AudioManager.PlaySE("selectSE");
     }
 
