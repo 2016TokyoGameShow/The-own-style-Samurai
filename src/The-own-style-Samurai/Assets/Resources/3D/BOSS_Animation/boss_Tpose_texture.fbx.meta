@@ -60,6 +60,7 @@ ModelImporter:
     100104: R_thumb_3_DE
     100106: R_Toe
     100108: R_Wrist
+    100110: wp:boss_01:pCube3
     400000: All_Parent
     400002: Belly
     400004: between_leg
@@ -115,18 +116,21 @@ ModelImporter:
     400104: R_thumb_3_DE
     400106: R_Toe
     400108: R_Wrist
+    400110: wp:boss_01:pCube3
     2300000: boss_01:pCube3
     2300002: boss_01:polySurface28
     2300004: boss_01:polySurface29
     2300006: boss_01:polySurface30
     2300008: boss_01:polySurface31
     2300010: boss_01:polySurface34
+    2300012: wp:boss_01:pCube3
     3300000: boss_01:pCube3
     3300002: boss_01:polySurface28
     3300004: boss_01:polySurface29
     3300006: boss_01:polySurface30
     3300008: boss_01:polySurface31
     3300010: boss_01:polySurface34
+    3300012: wp:boss_01:pCube3
     4300000: boss_01:polySurface28
     4300002: boss_01:polySurface30
     4300004: boss_01:pCube3
@@ -136,6 +140,7 @@ ModelImporter:
     4300012: boss_01:Boss
     4300014: boss_01:polySurface33
     4300016: boss_01:polySurface32
+    4300018: wp:boss_01:pCube3
     9500000: //RootNode
     13700000: boss_01:Boss
     13700002: boss_01:polySurface32

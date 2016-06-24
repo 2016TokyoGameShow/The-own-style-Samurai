@@ -556,6 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGeneratorBase: {fileID: 742687382}
+  nowWave: 0
 --- !u!1 &86578612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 382737386}
   boss: 0
+  navAgent: {fileID: 0}
 --- !u!95 &382737386 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: 108750cb5b51f8e4bbbb68479f154866,
@@ -4151,6 +4153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 651545184}
   boss: 0
+  navAgent: {fileID: 0}
 --- !u!95 &651545184 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: 108750cb5b51f8e4bbbb68479f154866,
@@ -6276,6 +6279,12 @@ MonoBehaviour:
   uiController: {fileID: 1099159266}
   endManager: {fileID: 2107784539}
   endCountNum: 30
+  enemys: []
+  arrows: []
+  orderCounter: 0
+  end: 0
+  spawnedEnemyCount: 0
+  spawnedArrowCount: 0
 --- !u!4 &1153912280
 Transform:
   m_ObjectHideFlags: 0
@@ -6371,6 +6380,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1217484327}
   boss: 0
+  navAgent: {fileID: 0}
 --- !u!95 &1217484327 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: 015ca2ad8746ecd479274b8b30506247,
@@ -8042,6 +8052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1575256457}
   boss: 1
+  navAgent: {fileID: 0}
 --- !u!95 &1575256457 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: e5133059aa0dfea49827b61e3c219c62,
@@ -8597,19 +8608,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: e5133059aa0dfea49827b61e3c219c62, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6404144
+      value: 0.6404145
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: e5133059aa0dfea49827b61e3c219c62, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.2997822
+      value: -0.29978222
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: e5133059aa0dfea49827b61e3c219c62, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.30370128
+      value: 0.3037013
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: e5133059aa0dfea49827b61e3c219c62, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6385652
+      value: 0.63856524
       objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: e5133059aa0dfea49827b61e3c219c62, type: 3}
       propertyPath: m_LocalScale.x
@@ -8731,6 +8742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1687938611}
   boss: 0
+  navAgent: {fileID: 0}
 --- !u!95 &1687938611 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: 015ca2ad8746ecd479274b8b30506247,
@@ -11076,6 +11088,8 @@ MonoBehaviour:
   - {fileID: 1575256456}
   player: {fileID: 1309245208}
   cameraObject: {fileID: 1353232124}
+  end: 0
+  movement: 0
 --- !u!4 &2107784540
 Transform:
   m_ObjectHideFlags: 0

@@ -48,6 +48,6 @@ public class GameOver : MonoBehaviour
 
 	public void FadeOut()
 	{
-		SceneChanger.FadeStart(sceneName);
+		//SceneChanger.FadeStart(sceneName);
 	}
 }

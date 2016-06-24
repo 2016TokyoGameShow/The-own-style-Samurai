@@ -44,7 +44,7 @@ public class StoryScene : MonoBehaviour
             }
             catch //Listの範囲超えたら
             {
-                SceneChanger.FadeStart(gotoSceneName);
+               // SceneChanger.FadeStart(gotoSceneName);
             }
 
 			isLock = true;
