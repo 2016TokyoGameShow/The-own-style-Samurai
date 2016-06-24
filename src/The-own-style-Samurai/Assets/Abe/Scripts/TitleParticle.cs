@@ -25,6 +25,9 @@ public class TitleParticle : MonoBehaviour
     [SerializeField]
     MonoBehaviour enableObject;
 
+    [SerializeField]
+    TweenAlpha activeObject;
+
     bool previousKey = false;
 
     void Awake()
@@ -68,14 +71,16 @@ public class TitleParticle : MonoBehaviour
     {
         yield return null;
         enableObject.enabled = true;
+        activeObject.enabled = true;
     }
 
     IEnumerator Delete()
     {
-        yield return new WaitForSeconds(particle.startLifetime + 1);
+        yield return new WaitForSeconds(particle.startLifetime + 0.01f);
 
         Destroy(particle.gameObject);
         enableObject.enabled = true;
+        activeObject.enabled = true;
         Destroy(this);
     }
 }
