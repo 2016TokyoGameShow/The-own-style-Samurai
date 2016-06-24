@@ -10,8 +10,15 @@ public class TweenChanger : MonoBehaviour
 	[SerializeField]
 	List<EventDelegate>	pushed;
 
+    bool isLock = false;
+
 	void Update()
 	{
+        if(isLock)
+        {
+            return;
+        }
+
 		if(Input.GetKeyUp(KeyCode.Return))
 		{
 			foreach(UITweener tween in activeTween)
@@ -42,11 +49,14 @@ public class TweenChanger : MonoBehaviour
 				}
 				mTemp = null;
 			}
+
+            isLock = true;
 		}
 	}
 
 	public void Reset()
 	{
+        isLock = false;
 		foreach(UITweener tween in activeTween)
 		{
 			tween.enabled = false;

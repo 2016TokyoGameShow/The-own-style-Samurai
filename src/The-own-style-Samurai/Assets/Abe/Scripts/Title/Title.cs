@@ -12,13 +12,14 @@ public class Title : MonoBehaviour
 
 	void Awake()
 	{
-		UICamera.currentScheme = UICamera.ControlScheme.Controller; 
+		UICamera.currentScheme = UICamera.ControlScheme.Controller;
+        
 	}
 
 	void Start()
 	{
-		AudioManager.PlayBGM("titleBGM");
 		hoveredObject = UICamera.hoveredObject;
+        AudioManager.PlayBGM("titleBGM");
 	}
 
     void Update()
