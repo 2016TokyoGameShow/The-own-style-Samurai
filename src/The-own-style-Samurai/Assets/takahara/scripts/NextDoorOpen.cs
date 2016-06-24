@@ -17,6 +17,8 @@ public class NextDoorOpen : MonoBehaviour {
     [SerializeField]
     private GameObject enemyGenerator;
 
+    private NavMeshObstacle navWall;
+
     private bool once;
 
 
@@ -31,6 +33,7 @@ public class NextDoorOpen : MonoBehaviour {
         openDoorsAnime[2] = openDoors[2].GetComponent<Animator>();
         openDoorsAnime[3] = openDoors[3].GetComponent<Animator>();
 
+        navWall = GetComponent<NavMeshObstacle>();
     }
 
 
@@ -68,6 +71,8 @@ public class NextDoorOpen : MonoBehaviour {
         GameObject.Destroy(openDoors[3]);
         gameObject.GetComponent<BoxCollider>().enabled = false;
         Debug.Log("ok");
+
+        navWall.enabled = false;
 
     }
 }
