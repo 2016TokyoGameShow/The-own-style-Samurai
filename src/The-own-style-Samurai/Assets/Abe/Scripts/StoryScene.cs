@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class StoryScene : MonoBehaviour
@@ -15,12 +16,21 @@ public class StoryScene : MonoBehaviour
     [SerializeField, Tooltip("説明文")]
     GameObject fadeOut;
 
+    [SerializeField]
+    UITweener tween;
+
     int count = 0;
 	bool isLock = true;
     
-	void Start()
+	IEnumerator Start()
 	{
-		AudioManager.PlayBGM(bgmName);
+		AudioManager.PlayBGM(bgmName, 0.8f);
+
+        yield return null;
+
+        tween.enabled = true;
+        tween.ResetToBeginning();
+	    tween.PlayForward();
 	}
 
     void Update()

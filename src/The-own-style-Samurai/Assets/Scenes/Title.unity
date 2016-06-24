@@ -85,6 +85,50 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &376486768 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 183522, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
+  m_PrefabInternal: {fileID: 1643543024}
+--- !u!114 &376486775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 376486768}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 1, y: 1, z: 1}
+  to: {x: 1.2, y: 1.2, z: 1.2}
+  updateTable: 0
 --- !u!1 &437245716
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +219,50 @@ MonoBehaviour:
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
   mFixedAspect: 0
+--- !u!1 &662387598 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 139172, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
+  m_PrefabInternal: {fileID: 1643543024}
+--- !u!114 &662387605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 662387598}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 1, y: 1, z: 1}
+  to: {x: 1.2, y: 1.2, z: 1.2}
+  updateTable: 0
 --- !u!1 &704634476
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +412,7 @@ MonoBehaviour:
   deleyTime: 0.2
   time: 3
   enableObject: {fileID: 989920824}
+  activeObject: {fileID: 989920822}
 --- !u!1 &989920820
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,7 +452,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989920820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2747e3775af504da1a4d5a46c5a1ce, type: 3}
   m_Name: 
@@ -424,7 +513,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 0, g: 0, b: 0, a: 0}
   mPivot: 4
   mWidth: 1024
   mHeight: 256
@@ -581,6 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 1780790739}
   menu: {fileID: 1537247625}
+  start: {fileID: 662387598}
   tutorial: {fileID: 1700639335}
   fadeOutObject: {fileID: 1937582756}
   source: {fileID: 704634478}
@@ -694,7 +784,7 @@ Transform:
   m_GameObject: {fileID: 1165777309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0027739252, y: 0.0027739252, z: 0.0027739252}
+  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1231905814}
@@ -1216,6 +1306,50 @@ MonoBehaviour:
   callWhenFinished: 
   from: {r: 0, g: 0, b: 0, a: 1}
   to: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &1501262409 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 120550, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
+  m_PrefabInternal: {fileID: 1643543024}
+--- !u!114 &1501262416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1501262409}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75e7459110b9666449485c40f25362a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  method: 0
+  style: 2
+  animationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ignoreTimeScale: 1
+  delay: 0
+  duration: 1
+  steeperCurves: 0
+  tweenGroup: 0
+  onFinished: []
+  eventReceiver: {fileID: 0}
+  callWhenFinished: 
+  from: {x: 1, y: 1, z: 1}
+  to: {x: 1.2, y: 1.2, z: 1.2}
+  updateTable: 0
 --- !u!1 &1537247625 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 187678, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
@@ -1294,6 +1428,10 @@ Prefab:
     - target: {fileID: 11454432, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
       propertyPath: onClick.Array.data[1].mMethodName
       value: Reset
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438652, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
+      propertyPath: duration
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
@@ -1896,7 +2034,7 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 1
     rate:
-      scalar: 120
+      scalar: 90
       maxCurve:
         serializedVersion: 2
         m_Curve:

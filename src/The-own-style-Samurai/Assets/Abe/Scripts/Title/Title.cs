@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Title : MonoBehaviour
 {
     [SerializeField]
-    GameObject title, menu, tutorial, fadeOutObject;
+    GameObject title, menu, start, tutorial, fadeOutObject;
 	GameObject hoveredObject;
 
 	[SerializeField]
@@ -25,8 +25,19 @@ public class Title : MonoBehaviour
     {
 		if(menu.activeSelf && hoveredObject != UICamera.hoveredObject)
 		{
-			AudioManager.PlaySE("menuSE");
-			hoveredObject = UICamera.hoveredObject;
+            if(hoveredObject != null)
+            {
+                AudioManager.PlaySE("menuSE");
+                hoveredObject.GetComponent<TweenScale>().enabled = false;
+            }
+            hoveredObject = UICamera.hoveredObject;
+            if(hoveredObject != null)
+            {
+                TweenScale scale = hoveredObject.GetComponent<TweenScale>();
+                scale.enabled = true;
+                scale.ResetToBeginning();
+                scale.PlayForward();
+            }
 		}
 	}
 
