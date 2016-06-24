@@ -53,4 +53,9 @@ public class AudioManager : MonoBehaviour {
             audioSource.Play();
         }
     }
+
+    public static void ChangeVolume(float value)
+    {
+        audioSource.volume = value;
+    }
 }
