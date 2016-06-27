@@ -969,15 +969,15 @@ Transform:
   m_GameObject: {fileID: 1165777309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0027739252, y: 0.0027739252, z: 0.0027739252}
+  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1231905814}
   - {fileID: 1396807340}
   - {fileID: 437245717}
   - {fileID: 1780790740}
-  - {fileID: 1537247626}
   - {fileID: 1700639336}
+  - {fileID: 1537247626}
   - {fileID: 2055811301}
   - {fileID: 2092295247}
   m_Father: {fileID: 0}
@@ -1592,7 +1592,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463220, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11438652, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
       propertyPath: onClick.Array.data[0].mTarget
@@ -1624,7 +1624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433842, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 484194, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
       propertyPath: m_RootOrder
@@ -1689,7 +1689,7 @@ Transform:
   m_Children:
   - {fileID: 1199342328}
   m_Father: {fileID: 1165777314}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1780790739
 GameObject:
   m_ObjectHideFlags: 0

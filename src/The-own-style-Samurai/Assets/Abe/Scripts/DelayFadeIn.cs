@@ -22,6 +22,11 @@ public class DelayFadeIn : MonoBehaviour
 	        tween.PlayForward();
         }
     }
+
+    public void Delete()
+    {
+        Destroy(gameObject);
+    }
     
     void Update()
     {
