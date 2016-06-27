@@ -42,6 +42,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1514402ba5f3e48996340774ecdab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enableTweens:
+  - {fileID: 11489200}
 --- !u!114 &11489200
 MonoBehaviour:
   m_ObjectHideFlags: 1
