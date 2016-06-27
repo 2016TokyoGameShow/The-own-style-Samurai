@@ -31,17 +31,9 @@ public class PlayerAttack : MonoBehaviour
 
     private List<GameObject> targets = new List<GameObject>();
 
+
     void Update()
     {
-
-        /*  if (Input.GetKeyDown(KeyCode.UpArrow))
-          {
-              StartCoroutine(Attack(player.GetCameraRig().transform.forward,Vector3.up));
-          }
-          if (Input.GetKeyDown(KeyCode.DownArrow))
-          {
-              StartCoroutine(Attack(-player.GetCameraRig().transform.forward,-Vector3.up));
-          }*/
 
 
         if ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetButton("EnvantionRight")))
@@ -176,6 +168,15 @@ public class PlayerAttack : MonoBehaviour
         {
             ExecuteEvents.Execute<WeaponHitHandler>(
             e,
+            null,
+            (_object, _event) => { _object.OnWeaponHit(1, this.gameObject); }
+            );
+        }
+
+        if (enemyTarget != null)
+        {
+            ExecuteEvents.Execute<WeaponHitHandler>(
+            enemyTarget,
             null,
             (_object, _event) => { _object.OnWeaponHit(1, this.gameObject); }
             );

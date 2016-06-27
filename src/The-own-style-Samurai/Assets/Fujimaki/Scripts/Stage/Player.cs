@@ -39,6 +39,7 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 	private Renderer myMaterial;
 
 	void Start () {
+
         uiController = stageController.uiController;
         UpFinisherGage(0);
         hp = maxHP;

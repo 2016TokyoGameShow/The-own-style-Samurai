@@ -61,5 +61,6 @@ public class EndManager : MonoBehaviour {
     private void TrueEnd()
     {
         end = false;
+        SceneChanger.FadeStart("Ending");
     }
 }
