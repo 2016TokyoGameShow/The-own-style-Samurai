@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class Title : MonoBehaviour
 {
     [SerializeField]
-    GameObject title, menu, start, tutorial;
+    GameObject title, menu, start, start2, tutorial;
 	GameObject hoveredObject;
 
 	[SerializeField]
@@ -67,6 +67,16 @@ public class Title : MonoBehaviour
 
     public void FadeOut()
     {
+        start2.GetComponent<TweenAlpha>().enabled = true;
+        TweenScale scale = start2.GetComponent<TweenScale>();
+        scale.from = start2.transform.localScale;
+        scale.to   = start2.transform.localScale + new Vector3(0.5f, 0.5f, 0.5f);
+        scale.enabled = true;
+        
+        Vector3 startScale = start.transform.localScale;
+        start.GetComponent<TweenScale>().enabled = false;
+        start.transform.localScale = startScale;
+
         SceneChanger.FadeStart("Opening");
     }
 

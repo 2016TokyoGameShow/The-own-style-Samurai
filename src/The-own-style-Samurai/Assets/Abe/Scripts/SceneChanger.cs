@@ -7,23 +7,30 @@ public class SceneChanger : MonoBehaviour
 {
     static string gotoSceneName;
     static TweenAlpha tween;
+    static List<UITweener> tweens;
+
+    public List<UITweener> enableTweens;
 
     void Awake()
     {
-        tween = gameObject.GetComponent<TweenAlpha>();
+        tweens = new List<UITweener>(enableTweens);
     }
     
     public static void FadeStart(string sceneName)
     {
-        if(tween.enabled)
+        if(tweens[0].enabled)
         {
             return;
         }
 
         gotoSceneName = sceneName;
-        tween.enabled = true;
-        tween.ResetToBeginning();
-        tween.PlayForward();
+
+        foreach(UITweener tween in tweens)
+        {
+            tween.enabled = true;
+            tween.ResetToBeginning();
+            tween.PlayForward();
+        }
     }
 
     public void GotoScene()

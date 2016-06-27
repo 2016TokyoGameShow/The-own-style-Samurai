@@ -13,21 +13,12 @@ public class StoryScene : MonoBehaviour
     [SerializeField, Tooltip("説明文")]
     GameObject[] slide;
 
-    [SerializeField]
-    UITweener tween;
-
     int count = 0;
 	bool isLock = true;
     
-	IEnumerator Start()
+	void Start()
 	{
 		AudioManager.PlayBGM(bgmName, 0.8f);
-
-        yield return null;
-
-        tween.enabled = true;
-        tween.ResetToBeginning();
-	    tween.PlayForward();
 	}
 
     void Update()
