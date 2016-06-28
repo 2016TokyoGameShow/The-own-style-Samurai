@@ -252,15 +252,15 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.45445058, g: 0.8088235, b: 0.1665225, a: 1}
+  mColor: {r: 0.8235294, g: 0.4783737, b: 0.4783737, a: 1}
   mPivot: 4
-  mWidth: 500
-  mHeight: 150
+  mWidth: 512
+  mHeight: 128
   mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.3333333
+  aspectRatio: 4
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -280,7 +280,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 2f29699f00b9b6346ac7e85642a26620, type: 3}
+  mTexture: {fileID: 2800000, guid: 85b37f7ae54c80248a56b2a9cafc691f, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -638,15 +638,15 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.45445058, g: 0.8088235, b: 0.1665225, a: 1}
+  mColor: {r: 0.34385815, g: 0.7794118, b: 0.67127436, a: 1}
   mPivot: 4
-  mWidth: 500
-  mHeight: 150
+  mWidth: 256
+  mHeight: 128
   mDepth: 2
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.3333333
+  aspectRatio: 2
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -666,7 +666,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 2f29699f00b9b6346ac7e85642a26620, type: 3}
+  mTexture: {fileID: 2800000, guid: 5b73b15a97a8ec245844fb169c5d9905, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -1000,13 +1000,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 0, b: 0, a: 1}
   mPivot: 4
-  mWidth: 1250
+  mWidth: 1254
   mHeight: 256
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.8828125
+  aspectRatio: 4.8984375
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
@@ -1331,7 +1331,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 128
   mHeight: 128
@@ -1359,7 +1359,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 2f29699f00b9b6346ac7e85642a26620, type: 3}
+  mTexture: {fileID: 2800000, guid: 12242ae763745d5428324e7f2f5f505c, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -1674,7 +1674,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 0.9264706, g: 0.6199178, b: 0.6199178, a: 1}
   mPivot: 4
   mWidth: 128
   mHeight: 128
@@ -1702,7 +1702,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 2f29699f00b9b6346ac7e85642a26620, type: 3}
+  mTexture: {fileID: 2800000, guid: 6e52317dc19c38b49a310658bb33e278, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
