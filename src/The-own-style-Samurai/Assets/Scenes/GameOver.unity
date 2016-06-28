@@ -504,7 +504,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 2f29699f00b9b6346ac7e85642a26620, type: 3}
+  mTexture: {fileID: 2800000, guid: 129b42417ac03cf4e912e14abdbc5aff, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -964,7 +964,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1297745798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2020, z: 0}
+  m_LocalPosition: {x: 0, y: 2220, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -998,15 +998,15 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 0, b: 0, a: 1}
   mPivot: 4
-  mWidth: 1252
+  mWidth: 1250
   mHeight: 256
   mDepth: 0
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 4.890625
+  aspectRatio: 4.8828125
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
@@ -1105,8 +1105,8 @@ MonoBehaviour:
   onFinished: []
   eventReceiver: {fileID: 0}
   callWhenFinished: 
-  from: {x: 0, y: 1200, z: 0}
-  to: {x: 0, y: 220, z: 0}
+  from: {x: 0, y: 1400, z: 0}
+  to: {x: 0, y: 420, z: 0}
   worldSpace: 0
 --- !u!1 &1517118760
 GameObject:
@@ -1139,7 +1139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17379059d6710c94daaadbb555bda7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOut: {fileID: 0}
   continueUI: {fileID: 430070542}
   returnTitleUI: {fileID: 1098967920}
   audio: {fileID: 1517118766}
