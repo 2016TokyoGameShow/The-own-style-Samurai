@@ -611,6 +611,7 @@ GameObject:
   - 114: {fileID: 989920826}
   - 114: {fileID: 989920825}
   - 114: {fileID: 989920824}
+  - 114: {fileID: 989920827}
   m_Layer: 5
   m_Name: Texture
   m_TagString: Untagged
@@ -841,6 +842,23 @@ MonoBehaviour:
   from: {x: 1, y: 1, z: 1}
   to: {x: 0.5, y: 0.5, z: 1}
   updateTable: 0
+--- !u!114 &989920827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 989920820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b208976a1427de4f8edb32570c6a722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 338
+  pushed:
+  - mTarget: {fileID: 989920824}
+    mMethodName: Change
+    mParameters: []
+    oneShot: 0
 --- !u!114 &998213243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +1389,7 @@ GameObject:
   - 4: {fileID: 1396807340}
   - 114: {fileID: 1396807341}
   - 114: {fileID: 1396807342}
+  - 114: {fileID: 1396807343}
   m_Layer: 5
   m_Name: BackGround
   m_TagString: Untagged
@@ -1419,7 +1438,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0, g: 0, b: 0, a: 1}
   mPivot: 4
   mWidth: 2048
   mHeight: 1024
@@ -1491,6 +1510,19 @@ MonoBehaviour:
   callWhenFinished: 
   from: {r: 0, g: 0, b: 0, a: 1}
   to: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1396807343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1396807339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb65f5b4ded41c48bd63aced400c9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweens:
+  - {fileID: 1396807342}
 --- !u!1 &1501262409 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 120550, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
@@ -1657,6 +1689,14 @@ Prefab:
     - target: {fileID: 11419148, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
       propertyPath: onClick.Array.data[0].mMethodName
       value: GameEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 11438652, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
+      propertyPath: onClick.Array.data[1].mTarget
+      value: 
+      objectReference: {fileID: 998213243}
+    - target: {fileID: 11438652, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}
+      propertyPath: onClick.Array.data[1].mMethodName
+      value: PlayStartSE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 062789bb6a0a21a49951bf6129fca668, type: 2}

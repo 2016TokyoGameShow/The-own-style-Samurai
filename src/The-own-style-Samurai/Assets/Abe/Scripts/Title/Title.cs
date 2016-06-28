@@ -23,22 +23,24 @@ public class Title : MonoBehaviour
 
     void Update()
     {
-		if(menu.activeSelf && hoveredObject != UICamera.hoveredObject)
+		if(!menu.activeSelf || hoveredObject == UICamera.hoveredObject)
 		{
-            if(hoveredObject != null)
-            {
-                AudioManager.PlaySE("menuSE");
-                hoveredObject.GetComponent<TweenScale>().enabled = false;
-            }
-            hoveredObject = UICamera.hoveredObject;
-            if(hoveredObject != null)
-            {
-                TweenScale scale = hoveredObject.GetComponent<TweenScale>();
-                scale.enabled = true;
-                scale.ResetToBeginning();
-                scale.PlayForward();
-            }
-		}
+            return;
+        }
+
+        if(hoveredObject != null)
+        {
+            AudioManager.PlaySE("menuSE");
+            hoveredObject.GetComponent<TweenScale>().enabled = false;
+        }
+        hoveredObject = UICamera.hoveredObject;
+        if(hoveredObject != null)
+        {
+            TweenScale scale = hoveredObject.GetComponent<TweenScale>();
+            scale.enabled = true;
+            scale.ResetToBeginning();
+            scale.PlayForward();
+        }
 	}
 
 	public void PlayStartSE()
@@ -77,6 +79,8 @@ public class Title : MonoBehaviour
         start.GetComponent<TweenScale>().enabled = false;
         start.transform.localScale = startScale;
 
+        AudioManager.PlayBGM("");
+        AudioManager.PlaySE("selectSE");
         SceneChanger.FadeStart("Opening");
     }
 

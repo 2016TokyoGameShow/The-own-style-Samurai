@@ -139,6 +139,11 @@ MonoBehaviour:
   - {fileID: 1965296341}
   disableTweens:
   - {fileID: 1965296342}
+  finalize:
+  - mTarget: {fileID: 883488235}
+    mMethodName: Play
+    mParameters: []
+    oneShot: 0
 --- !u!114 &6434356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 283873137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 6434354}
@@ -410,13 +415,13 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 424
-  mHeight: 120
+  mWidth: 1920
+  mHeight: 1080
   mDepth: 3
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 3.5333333
+  aspectRatio: 1.7777778
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -436,7 +441,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: 1ad5136f6b0c9194b8fa1b1b79d96a8a, type: 3}
+  mTexture: {fileID: 2800000, guid: 6e0e0c929f2a7474ebf067d21c064f87, type: 3}
   mMat: {fileID: 0}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
@@ -855,6 +860,7 @@ GameObject:
   - 114: {fileID: 883488230}
   - 82: {fileID: 883488234}
   - 81: {fileID: 883488233}
+  - 114: {fileID: 883488235}
   m_Layer: 0
   m_Name: OpeningController
   m_TagString: Untagged
@@ -875,6 +881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmName: opBgm
   gotoSceneName: Stage01
+  useSkip: 1
   slide:
   - {fileID: 1267717128}
   - {fileID: 1650954852}
@@ -905,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFXFiles:
   - {fileID: 8300000, guid: c5abb2d02522be4459f85e222f61bda7, type: 3}
+  - {fileID: 8300000, guid: 911396afc159b654b944ee1145d5ea28, type: 3}
   BGMFiles:
   - {fileID: 8300000, guid: cd93c527480427b419fbdc1696bdecd0, type: 3}
 --- !u!81 &883488233
@@ -988,6 +996,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &883488235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 883488229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05913473fd8a66148af1bcd90cb4d7b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &919345840 stripped
 Transform:
   m_PrefabParentObject: {fileID: 468918, guid: 5b9f2b8c986c73a4a83b8adaf2518992, type: 2}
@@ -1653,7 +1672,7 @@ Transform:
   m_GameObject: {fileID: 1432500896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.18, z: 0}
-  m_LocalScale: {x: 0.0027739252, y: 0.0027739252, z: 0.0027739252}
+  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1952548161}
