@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class Title : MonoBehaviour
 {
     [SerializeField]
     GameObject title, menu, start, start2, tutorial;
 	GameObject hoveredObject;
-
-	[SerializeField]
-	AudioSource source;
 
 	void Awake()
 	{
@@ -18,8 +16,23 @@ public class Title : MonoBehaviour
 	void Start()
 	{
 		hoveredObject = UICamera.hoveredObject;
-        AudioManager.PlayBGM("titleBGM");
+
+        StartCoroutine(TitleToMovie());
 	}
+
+    IEnumerator TitleToMovie()
+    {
+        for(float t = 0; t <= 30; t += Time.deltaTime)
+        {
+            if(!title.activeSelf)
+            {
+                yield break;
+            }
+            yield return null;
+        }
+
+        SceneChanger.FadeStart("Movie");
+    }
 
     void Update()
     {
@@ -79,7 +92,10 @@ public class Title : MonoBehaviour
         start.GetComponent<TweenScale>().enabled = false;
         start.transform.localScale = startScale;
 
-        AudioManager.PlayBGM("");
+        TitleAudio.Instance.StopBGM();
+        Destroy(TitleAudio.Instance.gameObject);
+
+        
         AudioManager.PlaySE("selectSE");
         SceneChanger.FadeStart("Opening");
     }
