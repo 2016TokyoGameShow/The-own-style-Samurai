@@ -184,7 +184,10 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
         enemyControllerF.RemoveEnemy(this);
 
         myCapsule.enabled = false;
-        navAgent.enabled = false;
+        if (navAgent != null)
+        {
+            navAgent.enabled = false;
+        }
         die = true;
         StartCoroutine(DieCounter());
     }

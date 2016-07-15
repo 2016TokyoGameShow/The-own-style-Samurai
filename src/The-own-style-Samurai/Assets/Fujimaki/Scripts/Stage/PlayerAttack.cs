@@ -35,14 +35,16 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
 
-
-        if ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetButton("EnvantionRight")))
+        if (!player.nonMove)
         {
-            StartCoroutine(Attack(player.GetCameraRig().transform.right, Vector3.right));
-        }
-        if ((Input.GetKeyDown(KeyCode.LeftArrow))||(Input.GetButton("EnvantionLeft")))
-        {
-            StartCoroutine(Attack(-player.GetCameraRig().transform.right, -Vector3.right));
+            if ((Input.GetKeyDown(KeyCode.RightArrow)) || (Input.GetButton("EnvantionRight")))
+            {
+                StartCoroutine(Attack(player.GetCameraRig().transform.right, Vector3.right));
+            }
+            if ((Input.GetKeyDown(KeyCode.LeftArrow)) || (Input.GetButton("EnvantionLeft")))
+            {
+                StartCoroutine(Attack(-player.GetCameraRig().transform.right, -Vector3.right));
+            }
         }
     }
 

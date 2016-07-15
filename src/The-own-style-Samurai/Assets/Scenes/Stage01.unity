@@ -3887,7 +3887,7 @@ Prefab:
       objectReference: {fileID: 664987533}
     - target: {fileID: 11426160, guid: 404b59b96c68b3f43a96605f77e3f116, type: 2}
       propertyPath: border
-      value: 20
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 11466560, guid: 404b59b96c68b3f43a96605f77e3f116, type: 2}
       propertyPath: stageControllerF
@@ -3995,7 +3995,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11466560, guid: 404b59b96c68b3f43a96605f77e3f116, type: 2}
       propertyPath: border
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 404b59b96c68b3f43a96605f77e3f116, type: 2}
@@ -6279,7 +6279,7 @@ MonoBehaviour:
   enemyController: {fileID: 2068374246}
   uiController: {fileID: 1099159266}
   endManager: {fileID: 2107784539}
-  endCountNum: 30
+  endCountNum: 1
 --- !u!4 &1153912280
 Transform:
   m_ObjectHideFlags: 0
@@ -7794,6 +7794,10 @@ Prefab:
       propertyPath: AssultEmitter
       value: 
       objectReference: {fileID: 135136, guid: 2327a2b4737d62a409be7e060ab72ad4, type: 2}
+    - target: {fileID: 11400960, guid: 77f1dbdc0ab830e4ba49d81698ff194d, type: 2}
+      propertyPath: debug
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 77f1dbdc0ab830e4ba49d81698ff194d, type: 2}
   m_IsPrefabParent: 0
