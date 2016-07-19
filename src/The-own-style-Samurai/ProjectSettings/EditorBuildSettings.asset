@@ -30,14 +30,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SampleScenes/Scenes/RollerBall.unity
   - enabled: 1
+    path: Assets/Scenes/Init.unity
+  - enabled: 1
     path: Assets/Scenes/Title.unity
-  - enabled: 1
-    path: Assets/Scenes/Ending.unity
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
   - enabled: 1
     path: Assets/Scenes/Opening.unity
   - enabled: 1
-    path: Assets/Scenes/ProtypeScene.unity
-  - enabled: 1
     path: Assets/Scenes/Stage01.unity
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+  - enabled: 1
+    path: Assets/Scenes/Movie.unity
+  - enabled: 0
+    path: Assets/Scenes/ProtypeScene.unity

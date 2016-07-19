@@ -29,7 +29,10 @@ public class ReturnTitleTimer : MonoBehaviour
 
     IEnumerator TimeUpdate()
     {
-        yield return new WaitForSeconds(timer);
+        for(float time = 0; time <= timer; time += Time.unscaledDeltaTime)
+        {
+            yield return null;
+        }
 
         SceneManager.LoadScene("Title");
     }

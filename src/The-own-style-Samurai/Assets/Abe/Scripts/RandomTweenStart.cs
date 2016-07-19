@@ -16,8 +16,10 @@ public class RandomTweenStart : MonoBehaviour
         
     }
     
-    void Start()
+    IEnumerator Start()
     {
+        yield return null;
+
         foreach(UITweener tween in randomTweenStart)
 		{
 			tween.delay   = Random.Range(minRandom, maxRandom);

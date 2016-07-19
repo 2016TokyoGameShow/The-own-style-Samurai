@@ -19,40 +19,46 @@ public class TweenChanger : MonoBehaviour
             return;
         }
 
-		if(Input.GetKeyUp(KeyCode.Return))
+		if(Input.GetKeyUp(KeyCode.Return)||
+           Input.GetKeyDown(KeyCode.JoystickButton1))
 		{
-			foreach(UITweener tween in activeTween)
-			{
-				tween.enabled = true;
-				tween.ResetToBeginning();
-				tween.PlayForward();
-			}
-
-			foreach(UITweener tween in deactiveTween)
-			{
-				tween.enabled = false;
-			}
-
-			if (pushed != null)
-			{
-				List<EventDelegate> mTemp = pushed;
-				pushed = new List<EventDelegate>();
-
-				// Notify the listener delegates
-				EventDelegate.Execute(mTemp);
-
-				// Re-add the previous persistent delegates
-				for (int i = 0; i < mTemp.Count; ++i)
-				{
-					EventDelegate ed = mTemp[i];
-					if (ed != null && !ed.oneShot) EventDelegate.Add(pushed, ed, ed.oneShot);
-				}
-				mTemp = null;
-			}
-
-            isLock = true;
+			Change();
 		}
 	}
+
+    public void Change()
+    {
+        foreach(UITweener tween in activeTween)
+		{
+			tween.enabled = true;
+			tween.ResetToBeginning();
+			tween.PlayForward();
+		}
+
+		foreach(UITweener tween in deactiveTween)
+		{
+			tween.enabled = false;
+		}
+
+		if (pushed != null)
+		{
+			List<EventDelegate> mTemp = pushed;
+			pushed = new List<EventDelegate>();
+
+			// Notify the listener delegates
+			EventDelegate.Execute(mTemp);
+
+			// Re-add the previous persistent delegates
+			for (int i = 0; i < mTemp.Count; ++i)
+			{
+				EventDelegate ed = mTemp[i];
+				if (ed != null && !ed.oneShot) EventDelegate.Add(pushed, ed, ed.oneShot);
+			}
+			mTemp = null;
+		}
+
+        isLock = true;
+    }
 
 	public void Reset()
 	{

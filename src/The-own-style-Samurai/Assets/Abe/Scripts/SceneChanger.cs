@@ -14,13 +14,20 @@ public class SceneChanger : MonoBehaviour
     public List<UITweener> enableTweens;
     public List<UITweener> disableTweens;
 
+    [SerializeField]
+    List<EventDelegate>	finalize;
+
+    static List<EventDelegate>	delegates;
+
+
     void Awake()
     {
         tweens = new List<UITweener>(enableTweens);
         disable = new List<UITweener>(disableTweens);
-
+        delegates = new List<EventDelegate>(finalize);
         enableTweens.Clear();
         disableTweens.Clear();
+        finalize.Clear();
     }
     
     public static void FadeStart(string sceneName)
@@ -29,6 +36,8 @@ public class SceneChanger : MonoBehaviour
         {
             return;
         }
+
+        End();
 
         gotoSceneName = sceneName;
 
@@ -49,5 +58,26 @@ public class SceneChanger : MonoBehaviour
     {
         GC.Collect();
         SceneManager.LoadScene(gotoSceneName);
+    }
+
+    static void End()
+    {
+        if (delegates == null)
+		{
+            return;
+        }
+		List<EventDelegate> mTemp = delegates;
+		delegates = new List<EventDelegate>();
+
+		// Notify the listener delegates
+		EventDelegate.Execute(mTemp);
+
+		// Re-add the previous persistent delegates
+		for (int i = 0; i < mTemp.Count; ++i)
+		{
+			EventDelegate ed = mTemp[i];
+			if (ed != null && !ed.oneShot) EventDelegate.Add(delegates, ed, ed.oneShot);
+		}
+		mTemp = null;
     }
 }
