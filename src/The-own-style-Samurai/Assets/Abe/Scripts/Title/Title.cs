@@ -82,6 +82,8 @@ public class Title : MonoBehaviour
 
     public void FadeOut()
     {
+        if(TitleAudio.Instance == null) return;
+
         start2.GetComponent<TweenAlpha>().enabled = true;
         TweenScale scale = start2.GetComponent<TweenScale>();
         scale.from = start2.transform.localScale;

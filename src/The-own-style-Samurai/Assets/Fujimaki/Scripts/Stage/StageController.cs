@@ -20,9 +20,11 @@ public class StageController : MonoBehaviour {
 
     void Update()
     {
-        if(mPlayer.GetHP() == 0)
+        if(mPlayer.GetHP() <= 0 && !isGameOver)
         {
             isGameOver = true;
+            
+            SceneChanger.FadeStart("GameOver");
         }
         if(mEnemyController != null && mEnemyController.enemyDeathCount >= border)
         {

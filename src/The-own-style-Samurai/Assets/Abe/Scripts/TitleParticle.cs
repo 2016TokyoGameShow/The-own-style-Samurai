@@ -23,7 +23,7 @@ public class TitleParticle : MonoBehaviour
     float time;
 
     [SerializeField]
-    MonoBehaviour enableObject;
+    MonoBehaviour[] enableObject;
 
     [SerializeField]
     TweenAlpha activeObject;
@@ -70,7 +70,10 @@ public class TitleParticle : MonoBehaviour
     IEnumerator DelayEnable()
     {
         yield return null;
-        enableObject.enabled = true;
+        foreach(MonoBehaviour obj in enableObject)
+        {
+            obj.enabled = true;
+        }
         activeObject.enabled = true;
     }
 
@@ -79,7 +82,11 @@ public class TitleParticle : MonoBehaviour
         yield return new WaitForSeconds(particle.startLifetime + 0.01f);
 
         Destroy(particle.gameObject);
-        enableObject.enabled = true;
+
+        foreach(MonoBehaviour obj in enableObject)
+        {
+            obj.enabled = true;
+        }
         activeObject.enabled = true;
         Destroy(this);
     }
