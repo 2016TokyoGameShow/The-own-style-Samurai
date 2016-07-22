@@ -48,8 +48,8 @@ public class EndManager : MonoBehaviour {
         if (end)
         {
             movement += Time.deltaTime*1.5f;
-            player.GetPlayerAttack().mainCamera.transform.position = cameraObject.transform.position-new Vector3(0,0,movement);
-            player.GetPlayerAttack().mainCamera.transform.rotation = cameraObject.transform.rotation;
+            player.GetPlayerAttack().mainCamera.transform.position = cameraObject.transform.position - new Vector3(0, 0, movement);
+           // player.GetPlayerAttack().mainCamera.transform.rotation = cameraObject.transform.rotation;
 
             if (movement > 5)
             {

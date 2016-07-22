@@ -37,6 +37,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     private bool die;
 
     private Vector3 savePostion;
+    private float fleezeTime;
 
     public float myAngle;
     public bool arrivedStenbyPosition;
@@ -82,7 +83,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                     //スタンバイポジションへ移動
                     Vector3 targetPosition = Quaternion.AngleAxis(myAngle, Vector3.up) * (Vector3.forward * distance);
                     targetPosition += player.transform.position;
-
+                    print("moving");
 
                     if (Vector3.Distance(targetPosition, transform.position) > 0.5f)
                     {
@@ -97,6 +98,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                     }
                     else
                     {
+                        print("stemby");
                         //スタンバイポジションについたらプレイヤーのほうを向く
                         var relativePos = player.transform.position - transform.position;
                         var rotation = Quaternion.LookRotation(relativePos);
@@ -133,6 +135,8 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
                                 navAgent.Resume();
                             }
                         }
+                    }else
+                    {
                     }
                 }
             }
@@ -223,6 +227,7 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
     //=================================元の場所に戻る
     private IEnumerator OutMove()
     {
+        float timer = 0;
         if (!die)
         {
             removeMode = true;
@@ -245,6 +250,11 @@ public class SwordEnemy : MonoBehaviour ,WeaponHitHandler {
 
             while (Vector3.Distance(targetPosition, transform.position) > 0.5f)
             {
+                timer += Time.deltaTime;
+                if (timer > 5)
+                {
+                    break;
+                }
                 yield return new WaitForEndOfFrame();
             }
 
