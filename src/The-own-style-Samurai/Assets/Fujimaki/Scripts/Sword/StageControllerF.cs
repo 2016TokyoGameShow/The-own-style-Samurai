@@ -7,6 +7,11 @@ public class StageControllerF : MonoBehaviour
     [SerializeField]
     private EnemyGeneratorBase enemyGeneratorBase;
 
+    [SerializeField]
+    Player mPlayer;
+
+    bool isGameOver = false;
+
     private int nowWave;
 
     void Start()
@@ -17,7 +22,12 @@ public class StageControllerF : MonoBehaviour
 
     void Update()
     {
-
+        if(mPlayer.GetHP() <= 0 && !isGameOver)
+        {
+            isGameOver = true;
+            
+            SceneChanger.FadeStart("GameOver");
+        }
     }
 
     public void AddWave()
@@ -25,5 +35,4 @@ public class StageControllerF : MonoBehaviour
         nowWave++;
         enemyGeneratorBase.SetWave(nowWave);
     }
-
 }

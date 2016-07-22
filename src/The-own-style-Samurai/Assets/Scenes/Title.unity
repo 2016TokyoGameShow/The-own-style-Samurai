@@ -890,7 +890,9 @@ MonoBehaviour:
   texture: {fileID: 437245718}
   deleyTime: 0.2
   time: 3
-  enableObject: {fileID: 989920824}
+  enableObject:
+  - {fileID: 989920824}
+  - {fileID: 989920827}
   activeObject: {fileID: 989920822}
 --- !u!1 &734301854
 GameObject:
@@ -1323,12 +1325,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 989920820}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b208976a1427de4f8edb32570c6a722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 338
+  key: 337
   pushed:
   - mTarget: {fileID: 989920824}
     mMethodName: Change
@@ -1351,6 +1353,48 @@ MonoBehaviour:
   start: {fileID: 662387598}
   start2: {fileID: 734301854}
   tutorial: {fileID: 1700639335}
+--- !u!1001 &1105112826
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.29322195
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.1981678
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.0509324
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 437314, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4d4f06b970857b5499754cd458236602, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1165777309
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1505,7 @@ Transform:
   m_GameObject: {fileID: 1165777309}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0027777778, y: 0.0027777778, z: 0.0027777778}
+  m_LocalScale: {x: 0.0027739252, y: 0.0027739252, z: 0.0027739252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1231905814}
@@ -1817,9 +1861,9 @@ MonoBehaviour:
   scrollAxisName: Mouse ScrollWheel
   commandClick: 1
   submitKey0: 13
-  submitKey1: 330
+  submitKey1: 331
   cancelKey0: 27
-  cancelKey1: 331
+  cancelKey1: 330
   autoHideCursor: 1
 --- !u!20 &1231905816
 Camera:

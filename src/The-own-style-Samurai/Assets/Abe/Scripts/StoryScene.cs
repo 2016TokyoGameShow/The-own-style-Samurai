@@ -44,7 +44,7 @@ public class StoryScene : MonoBehaviour
             
             isLock = true;
         }
-        else if(Input.GetKeyDown(KeyCode.JoystickButton8) ||
+        else if(Input.GetKeyDown(KeyCode.JoystickButton7) ||
                 Input.GetKeyDown(KeyCode.LeftControl))
         {
             if(!useSkip)
