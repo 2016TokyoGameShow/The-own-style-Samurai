@@ -56,7 +56,6 @@ public class Player : MonoBehaviour,WeaponHitHandler {
 
         if (hp > 0)
         {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
             Vector3 moveVelocity = Vector3.zero;
 
             //入力から移動ベクトルを計算して移動
@@ -68,6 +67,8 @@ public class Player : MonoBehaviour,WeaponHitHandler {
                 animator.SetBool("walk", moveVelocity != Vector3.zero ? true : false);
 
                 CharacterMove(moveVelocity, speed*Time.deltaTime*60);
+
+                transform.position = new Vector3(transform.position.x, 0.0f, transform.position.z);
             }
         }
 	}
